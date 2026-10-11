@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SevenSteps | Yogesh Repale – Cinematic Photography</title>
+<meta name="description" content="Luxury wedding, portrait, fashion, and commercial photography by Yogesh Repale. Based in Maharashtra. Book your session today.">
+<meta name="keywords" content="wedding photographer, portrait photographer, fashion photographer, event photographer, photography services near me, Maharashtra photographer">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --black: #0D0D0D;
+    --charcoal: #1A1A1A;
+    --soft-white: #F5F5F5;
+    --beige: #D6B98C;
+    --beige-light: #e8d5b5;
+    --gray: #888;
+    --border: rgba(214,185,140,0.2);
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--black);
+    color: var(--soft-white);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom Cursor */
+  .cursor {
+    width: 10px; height: 10px;
+    background: var(--beige);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(214,185,140,0.5);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.1s ease;
+  }
+  a:hover ~ .cursor, button:hover ~ .cursor { transform: scale(2); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--beige); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 24px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background 0.4s ease, padding 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(13,13,13,0.95);
+    backdrop-filter: blur(20px);
+    padding: 16px 60px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--soft-white);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--beige); }
+  .nav-links {
+    display: flex; gap: 40px; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(245,245,245,0.7);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--beige); }
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--beige);
+    color: var(--beige);
+    padding: 10px 26px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--beige); color: var(--black); }
+
+  /* Hamburger */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 1px; background: var(--soft-white); transition: all 0.3s; }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(13,13,13,0.98);
+    backdrop-filter: blur(20px);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--soft-white);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+  }
+  .mobile-menu a:hover { color: var(--beige); }
+  .close-menu {
+    position: absolute; top: 28px; right: 60px;
+    font-size: 2rem; color: var(--gray);
+    cursor: pointer; background: none; border: none;
+  }
+
+  /* HERO */
+  .hero {
+    height: 100vh;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a1008 0%, #0d0d0d 40%, #0a0a12 100%);
+  }
+  /* Cinematic grain overlay */
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  /* Decorative geometric */
+  .hero-geo {
+    position: absolute;
+    width: 600px; height: 600px;
+    border: 1px solid rgba(214,185,140,0.08);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    animation: rotateSlow 30s linear infinite;
+  }
+  .hero-geo2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    border: 1px solid rgba(214,185,140,0.05);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    animation: rotateSlow 20s linear infinite reverse;
+  }
+  @keyframes rotateSlow { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+    animation: fadeUp 1.2s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(40px); }
+    to { opacity:1; transform: translateY(0); }
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--beige);
+    margin-bottom: 24px;
+    animation: fadeUp 1s ease 0.3s both;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    animation: fadeUp 1s ease 0.5s both;
+  }
+  .hero h1 em { font-style: italic; color: var(--beige); }
+  .hero-sub {
+    font-size: 0.9rem;
+    color: rgba(245,245,245,0.5);
+    letter-spacing: 0.1em;
+    margin-bottom: 48px;
+    animation: fadeUp 1s ease 0.7s both;
+  }
+  .hero-btns {
+    display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 1s ease 0.9s both;
+  }
+  .btn-primary {
+    background: var(--beige);
+    color: var(--black);
+    border: none;
+    padding: 16px 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover { background: var(--beige-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--soft-white);
+    border: 1px solid rgba(245,245,245,0.3);
+    padding: 16px 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--beige); color: var(--beige); transform: translateY(-2px); }
+
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    z-index: 2; animation: fadeUp 1s ease 1.2s both;
+  }
+  .hero-scroll span { font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gray); text-transform: uppercase; }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, var(--beige), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+  /* SECTION COMMON */
+  section { padding: 120px 60px; }
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--beige);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--beige); }
+  .section-desc {
+    font-size: 0.85rem;
+    color: rgba(245,245,245,0.5);
+    line-height: 1.8;
+    max-width: 520px;
+  }
+
+  /* FEATURED WORK */
+  .work { background: var(--charcoal); }
+  .work-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 60px; flex-wrap: wrap; gap: 20px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 12px;
+  }
+  .gallery-item {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+  .gallery-item:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+  .gallery-item:nth-child(2) { grid-column: span 5; }
+  .gallery-item:nth-child(3) { grid-column: span 5; }
+  .gallery-item:nth-child(4) { grid-column: span 4; }
+  .gallery-item:nth-child(5) { grid-column: span 4; }
+  .gallery-item:nth-child(6) { grid-column: span 4; }
+
+  .gallery-placeholder {
+    width: 100%; padding-bottom: 66%;
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-item:nth-child(1) .gallery-placeholder { padding-bottom: 120%; }
+
+  .gallery-inner {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .gallery-item:hover .gallery-inner { transform: scale(1.05); }
+
+  /* Photo placeholder gradients */
+  .ph-1 { background: linear-gradient(135deg, #1a120a, #2d1f0f, #1a0f05); }
+  .ph-2 { background: linear-gradient(135deg, #0a0f1a, #0f1a2d, #050a1a); }
+  .ph-3 { background: linear-gradient(135deg, #0f1a0a, #1a2d0f, #0a1a05); }
+  .ph-4 { background: linear-gradient(135deg, #1a0a10, #2d0f1a, #1a050a); }
+  .ph-5 { background: linear-gradient(135deg, #1a1a0a, #2d2d0f, #1a1a05); }
+  .ph-6 { background: linear-gradient(135deg, #0a1a1a, #0f2d2d, #051a1a); }
+
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(13,13,13,0.8) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    display: flex; align-items: flex-end; padding: 24px;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--soft-white);
+    letter-spacing: 0.05em;
+  }
+
+  /* Photo icon simulation */
+  .photo-icon {
+    width: 60px; height: 60px;
+    border: 1px solid rgba(214,185,140,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(214,185,140,0.3);
+    font-size: 1.4rem;
+  }
+
+  /* ABOUT */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-img-frame {
+    width: 100%; padding-bottom: 130%;
+    background: linear-gradient(135deg, #1a1208, #2a1f0e, #0d0d0d);
+    position: relative;
+    overflow: hidden;
+  }
+  .about-img-frame::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border: 1px solid var(--border);
+  }
+  .about-badge {
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 120px; height: 120px;
+    background: var(--beige);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2px;
+  }
+  .about-badge strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; line-height: 1;
+    color: var(--black);
+  }
+  .about-badge span {
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(13,13,13,0.7);
+  }
+  .about-content { padding-left: 20px; }
+  .stats-row {
+    display: flex; gap: 40px; margin: 40px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 30px 0;
+  }
+  .stat-item strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--beige);
+    display: block;
+  }
+  .stat-item span {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  /* SERVICES */
+  .services { background: var(--charcoal); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 60px;
+  }
+  .service-card {
+    background: var(--black);
+    padding: 44px 36px;
+    border: 1px solid var(--border);
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--beige);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+    transform-origin: left;
+  }
+  .service-card:hover { background: #141414; transform: translateY(-4px); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    font-size: 2rem; margin-bottom: 20px;
+    color: var(--beige);
+  }
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .service-card p {
+    font-size: 0.8rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .service-features {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+  .service-features li {
+    font-size: 0.75rem;
+    color: rgba(245,245,245,0.5);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .service-features li::before { content: '—'; color: var(--beige); font-size: 0.6rem; }
+  .service-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    color: var(--beige);
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+  }
+  .btn-service {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--beige);
+    text-decoration: none;
+    border-bottom: 1px solid var(--beige);
+    padding-bottom: 2px;
+    transition: all 0.3s;
+  }
+  .btn-service:hover { color: var(--soft-white); border-color: var(--soft-white); }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--black); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .testi-card {
+    background: var(--charcoal);
+    padding: 40px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .testi-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    color: var(--beige);
+    opacity: 0.3;
+    line-height: 0.7;
+    margin-bottom: 20px;
+  }
+  .testi-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(245,245,245,0.8);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .testi-author {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--beige), #8a6a3a);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--black);
+  }
+  .testi-name {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .testi-role { font-size: 0.65rem; color: var(--gray); margin-top: 2px; }
+  .stars { color: var(--beige); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 16px; }
+
+  /* FAQ */
+  .faq { background: var(--charcoal); }
+  .faq-list { margin-top: 60px; max-width: 800px; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%; background: none; border: none;
+    text-align: left; padding: 24px 0;
+    color: var(--soft-white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: color 0.3s;
+  }
+  .faq-q:hover { color: var(--beige); }
+  .faq-q .faq-arrow {
+    color: var(--beige);
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-arrow { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+    font-size: 0.8rem;
+    color: var(--gray);
+    line-height: 1.8;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding-bottom: 24px; }
+
+  /* CTA BANNER */
+  .cta-banner {
+    padding: 140px 60px;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--black), #100d08, var(--black));
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(214,185,140,0.06) 0%, transparent 70%);
+  }
+  .cta-banner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .cta-banner h2 em { font-style: italic; color: var(--beige); }
+  .cta-banner p {
+    color: var(--gray);
+    font-size: 0.85rem;
+    margin-bottom: 44px;
+    position: relative; z-index: 1;
+  }
+  .cta-banner-btns { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; position: relative; z-index: 1; }
+
+  /* CONTACT */
+  .contact { background: var(--charcoal); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    margin-top: 60px;
+    align-items: start;
+  }
+  .contact-info-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    margin-bottom: 32px;
+  }
+  .contact-icon {
+    width: 44px; height: 44px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--beige);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .contact-info-item h4 {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+  .contact-info-item p, .contact-info-item a {
+    font-size: 0.85rem;
+    color: var(--soft-white);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .contact-info-item a:hover { color: var(--beige); }
+  .contact-social {
+    display: flex; gap: 12px; margin-top: 40px;
+  }
+  .social-btn {
+    width: 44px; height: 44px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+  }
+  .social-btn:hover { border-color: var(--beige); color: var(--beige); }
+
+  /* Form */
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    color: var(--soft-white);
+    padding: 14px 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    outline: none;
+    transition: border-color 0.3s;
+    -webkit-appearance: none;
+  }
+  .form-group select option { background: var(--charcoal); }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--beige); }
+  .form-group textarea { min-height: 120px; resize: vertical; }
+  .form-submit {
+    background: var(--beige);
+    border: none;
+    color: var(--black);
+    padding: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--beige-light); }
+
+  /* FOOTER */
+  footer {
+    background: #080808;
+    padding: 60px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--soft-white);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--beige); }
+  .footer-links {
+    display: flex; gap: 32px; list-style: none; flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--beige); }
+  .footer-copy {
+    font-size: 0.7rem;
+    color: rgba(136,136,136,0.5);
+    letter-spacing: 0.05em;
+  }
+
+  /* WhatsApp Float */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 32px; right: 32px;
+    width: 56px; height: 56px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1.4rem;
+    text-decoration: none;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+
+  /* PORTFOLIO PAGE */
+  .portfolio-section { background: var(--black); }
+  .filter-bar {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 48px;
+  }
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--gray);
+    padding: 8px 22px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .filter-btn.active,
+  .filter-btn:hover { background: var(--beige); color: var(--black); border-color: var(--beige); }
+
+  .portfolio-masonry {
+    columns: 3;
+    gap: 12px;
+  }
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+  }
+  .masonry-placeholder {
+    width: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .masonry-placeholder.tall { height: 380px; }
+  .masonry-placeholder.medium { height: 260px; }
+  .masonry-placeholder.short { height: 200px; }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* PAGE SECTIONS hidden by default */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: var(--beige);
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .newsletter h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--black);
+    font-weight: 400;
+  }
+  .newsletter p { font-size: 0.8rem; color: rgba(13,13,13,0.6); margin-top: 4px; }
+  .newsletter-form { display: flex; gap: 0; flex: 1; max-width: 420px; }
+  .newsletter-form input {
+    flex: 1;
+    background: rgba(0,0,0,0.1);
+    border: 1px solid rgba(13,13,13,0.2);
+    border-right: none;
+    padding: 14px 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    color: var(--black);
+    outline: none;
+  }
+  .newsletter-form input::placeholder { color: rgba(13,13,13,0.4); }
+  .newsletter-form button {
+    background: var(--black);
+    color: var(--soft-white);
+    border: none;
+    padding: 14px 24px;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap;
+    font-family: 'Poppins', sans-serif;
+  }
+  .newsletter-form button:hover { background: #333; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .close-menu { right: 24px; }
+    section { padding: 80px 24px; }
+    .hero h1 { font-size: 2.8rem; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+    .gallery-item:nth-child(n+2) { grid-column: span 1; }
+    .about { grid-template-columns: 1fr; gap: 40px; }
+    .about-content { padding-left: 0; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; padding: 40px 24px; }
+    .newsletter { padding: 40px 24px; flex-direction: column; }
+    .portfolio-masonry { columns: 2; }
+    .cta-banner { padding: 80px 24px; }
+  }
+  @media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item { grid-column: span 1 !important; grid-row: span 1 !important; }
+    .portfolio-masonry { columns: 1; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .stats-row { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#" onclick="showPage('home')">Seven<span>Steps</span></a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a Session</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" onclick="toggleMenu()">✕</button>
+  <a href="#" onclick="showPage('home');toggleMenu()">Home</a>
+  <a href="#" onclick="showPage('portfolio');toggleMenu()">Portfolio</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-geo"></div>
+    <div class="hero-geo2"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Yogesh Repale · SevenSteps Photography</p>
+      <h1>Capturing <em>timeless</em><br>stories through<br>cinematic light</h1>
+      <p class="hero-sub">Luxury wedding · portrait · fashion · commercial photography</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary" onclick="showPage('portfolio')">View Portfolio</a>
+        <a href="#contact" class="btn-outline">Book a Session</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK -->
+  <section class="work" id="work">
+    <div class="work-header reveal">
+      <div>
+        <span class="section-label">Featured Work</span>
+        <h2 class="section-title">Every frame<br>tells a <em>story</em></h2>
+      </div>
+      <a href="#" class="btn-outline" onclick="showPage('portfolio')">View All Work</a>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-inner ph-1" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;opacity:0.4">
+              <div style="font-size:3rem">📷</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:0.9rem;letter-spacing:0.1em;color:var(--beige);margin-top:8px">YOUR BEST SHOT</div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-label">Wedding Collection</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-inner ph-2" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;opacity:0.4"><div style="font-size:2rem">🌟</div></div>
+          </div>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-label">Portrait Session</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-inner ph-3" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;opacity:0.4"><div style="font-size:2rem">✨</div></div>
+          </div>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-label">Fashion Editorial</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-inner ph-4" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;opacity:0.4"><div style="font-size:2rem">💫</div></div>
+          </div>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-label">Pre-Wedding</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-inner ph-5" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;opacity:0.4"><div style="font-size:2rem">🎭</div></div>
+          </div>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-label">Events</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <div class="gallery-inner ph-6" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;opacity:0.4"><div style="font-size:2rem">🌿</div></div>
+          </div>
+        </div>
+        <div class="gallery-overlay"><span class="gallery-label">Brand Shoot</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.7rem;color:var(--gray);margin-top:16px;letter-spacing:0.1em;">
+      ↑ Add your actual photographs — these placeholders are ready for your images
+    </p>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="padding:120px 60px;">
+    <div class="about">
+      <div class="about-visual reveal">
+        <div class="about-img-frame">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.3;">
+            <div style="text-align:center">
+              <div style="font-size:5rem">🎞</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:0.85rem;letter-spacing:0.2em;color:var(--beige);margin-top:12px">YOUR PORTRAIT HERE</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-badge">
+          <strong>7+</strong>
+          <span>Years of</span>
+          <span>Excellence</span>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <span class="section-label">About the Artist</span>
+        <h2 class="section-title">I am <em>Yogesh</em><br>Repale</h2>
+        <p class="section-desc">
+          A passionate visual storyteller based in Maharashtra, I believe every photograph is a frozen moment of emotion — raw, real, and timeless. With over 7 years behind the lens, I've had the honor of capturing love stories, life milestones, and brand identities that speak volumes without a single word.
+        </p>
+        <div class="stats-row">
+          <div class="stat-item">
+            <strong>500+</strong>
+            <span>Projects Done</span>
+          </div>
+          <div class="stat-item">
+            <strong>200+</strong>
+            <span>Happy Clients</span>
+          </div>
+          <div class="stat-item">
+            <strong>15+</strong>
+            <span>Awards Won</span>
+          </div>
+        </div>
+        <p class="section-desc" style="margin-bottom:32px;">
+          My philosophy is simple: light is a language. I use it to paint stories that families and brands will treasure for generations. Whether it's a quiet look between newlyweds or a high-fashion brand campaign — every frame is crafted with intention.
+        </p>
+        <a href="#contact" class="btn-primary">Work With Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div style="text-align:center;" class="reveal">
+      <span class="section-label">What I Offer</span>
+      <h2 class="section-title" style="text-align:center;">Services crafted<br>for <em>perfection</em></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">💍</div>
+        <h3>Wedding Photography</h3>
+        <p>Full-day coverage of your most sacred celebration, captured with cinematic elegance.</p>
+        <ul class="service-features">
+          <li>Full-day coverage</li>
+          <li>2 photographers</li>
+          <li>500+ edited images</li>
+          <li>Online gallery</li>
+        </ul>
+        <div class="service-price">Starting ₹ 50,000</div>
+        <a href="#contact" class="btn-service">Book Now →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💑</div>
+        <h3>Pre-Wedding Shoots</h3>
+        <p>Romantic cinematic sessions at handpicked locations telling your unique love story.</p>
+        <ul class="service-features">
+          <li>4–6 hour session</li>
+          <li>2 locations</li>
+          <li>200+ edited images</li>
+          <li>Premium retouching</li>
+        </ul>
+        <div class="service-price">Starting ₹ 20,000</div>
+        <a href="#contact" class="btn-service">Book Now →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🪞</div>
+        <h3>Portrait Photography</h3>
+        <p>Personal branding and individual portraits that reveal character, confidence, and soul.</p>
+        <ul class="service-features">
+          <li>2–3 hour session</li>
+          <li>Studio or outdoor</li>
+          <li>50+ edited images</li>
+          <li>Wardrobe guidance</li>
+        </ul>
+        <div class="service-price">Starting ₹ 8,000</div>
+        <a href="#contact" class="btn-service">Book Now →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">👗</div>
+        <h3>Fashion Editorial</h3>
+        <p>Editorial and lookbook photography for designers, models, and fashion brands.</p>
+        <ul class="service-features">
+          <li>Full-day shoot</li>
+          <li>Stylist coordination</li>
+          <li>Print-ready images</li>
+          <li>Exclusive licensing</li>
+        </ul>
+        <div class="service-price">Starting ₹ 25,000</div>
+        <a href="#contact" class="btn-service">Book Now →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🏢</div>
+        <h3>Brand Photography</h3>
+        <p>Consistent, high-quality visual identity photography for businesses and startups.</p>
+        <ul class="service-features">
+          <li>Brand strategy session</li>
+          <li>Product & lifestyle shots</li>
+          <li>Social media pack</li>
+          <li>Commercial license</li>
+        </ul>
+        <div class="service-price">Starting ₹ 15,000</div>
+        <a href="#contact" class="btn-service">Book Now →</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🎉</div>
+        <h3>Event Coverage</h3>
+        <p>Corporate events, birthdays, sangeet, and celebrations captured with detail and joy.</p>
+        <ul class="service-features">
+          <li>Hourly packages</li>
+          <li>Candid + formal shots</li>
+          <li>Quick turnaround</li>
+          <li>Print options available</li>
+        </ul>
+        <div class="service-price">Starting ₹ 10,000</div>
+        <a href="#contact" class="btn-service">Book Now →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div style="text-align:center;" class="reveal">
+      <span class="section-label">Client Love</span>
+      <h2 class="section-title" style="text-align:center;">What clients<br><em>say about</em> us</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Yogesh captured our wedding day like no one else could. Every single frame felt like a movie still — emotional, cinematic, and absolutely breathtaking. We cry happy tears every time we look at our album.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div>
+            <div class="testi-name">Priya & Rahul Sharma</div>
+            <div class="testi-role">Wedding · Pune, 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">The brand shoot he delivered transformed our entire online presence. Professional, creative, and deeply attentive to our vision. Our product sales doubled after the campaign launched.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Aisha Patel</div>
+            <div class="testi-role">Brand Photography · Mumbai</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">My portrait session with Yogesh gave me confidence I never knew I had. He knew exactly how to make me feel comfortable and the photos are absolutely stunning. Booking him again for sure!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sneha Kulkarni</div>
+            <div class="testi-role">Portrait Session · Nashik</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="reveal">
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-title">Frequently<br><em>Asked</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How far in advance should I book? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">For weddings, I recommend booking at least 3–6 months in advance as dates fill quickly. For portraits and brand shoots, 2–3 weeks notice is usually sufficient. Contact me early to check availability!</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long does editing take? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Portraits and smaller sessions are typically delivered within 7–10 working days. Wedding galleries usually take 3–4 weeks. All images are professionally edited with premium retouching.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you travel for shoots? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Absolutely! I travel across Maharashtra and all over India for destination weddings and shoots. International travel is also possible. Travel costs are discussed transparently during booking.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is your payment process? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">I require a 30% advance to confirm your booking, with the balance due on the day of the shoot. I accept bank transfer, UPI, and all major payment methods.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I print the photos I receive? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Yes! All personal use prints are included with your license. For commercial use (advertising, products etc.), a commercial license is discussed separately.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <h2>Let's create something<br><em>unforgettable</em></h2>
+    <p>Every story deserves to be told beautifully.</p>
+    <div class="cta-banner-btns">
+      <a href="#contact" class="btn-primary">Contact Me</a>
+      <a href="https://wa.me/918788833738" target="_blank" class="btn-outline">WhatsApp Me</a>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="reveal">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Let's start your<br><em>story together</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-info-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone / WhatsApp</h4>
+            <a href="tel:+918788833738">+91 87888 33738</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">✉</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:yogesh@sevensteps.in">yogesh@sevensteps.in</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <h4>Website</h4>
+            <a href="https://sevensteps.in" target="_blank">sevensteps.in</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>Maharashtra, India<br><span style="font-size:0.72rem;color:var(--gray);">Available Pan-India & Destination</span></p>
+          </div>
+        </div>
+        <div class="contact-social">
+          <a href="#" class="social-btn" title="Instagram">📸</a>
+          <a href="https://wa.me/918788833738" class="social-btn" title="WhatsApp">💬</a>
+          <a href="#" class="social-btn" title="Facebook">f</a>
+          <a href="#" class="social-btn" title="YouTube">▶</a>
+        </div>
+        <p style="margin-top:32px;font-size:0.75rem;color:var(--gray);line-height:1.7;">
+          ⚡ I typically respond within 2–4 hours during business days.<br>
+          For urgent inquiries, WhatsApp is fastest.
+        </p>
+      </div>
+      <div class="reveal">
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name *</label>
+              <input type="text" placeholder="Full Name">
+            </div>
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" placeholder="+91 00000 00000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" placeholder="you@email.com">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Shoot Type</label>
+              <select>
+                <option value="">Select Service</option>
+                <option>Wedding Photography</option>
+                <option>Pre-Wedding Shoot</option>
+                <option>Portrait Session</option>
+                <option>Fashion Editorial</option>
+                <option>Brand Photography</option>
+                <option>Event Coverage</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Preferred Date</label>
+              <input type="date">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Budget Range</label>
+            <select>
+              <option value="">Select Budget</option>
+              <option>Under ₹10,000</option>
+              <option>₹10,000 – ₹25,000</option>
+              <option>₹25,000 – ₹50,000</option>
+              <option>₹50,000 – ₹1,00,000</option>
+              <option>Above ₹1,00,000</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell Me About Your Vision</label>
+            <textarea placeholder="Share your ideas, venue, mood board references, or anything that excites you about your shoot..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Send Inquiry →</button>
+          <div id="form-success" style="display:none;text-align:center;padding:16px;border:1px solid var(--beige);color:var(--beige);font-size:0.8rem;letter-spacing:0.05em;margin-top:8px;">
+            ✓ Thank you! I'll be in touch within 24 hours.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter">
+    <div>
+      <h3>Stay Inspired</h3>
+      <p>Behind-the-scenes, tips, and exclusive offers in your inbox.</p>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" placeholder="your@email.com">
+      <button>Subscribe</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-logo" href="#">Seven<span>Steps</span></a>
+    <ul class="footer-links">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 SevenSteps · Yogesh Repale · All rights reserved</p>
+  </footer>
+
+</div><!-- END HOME PAGE -->
+
+
+<!-- PORTFOLIO PAGE -->
+<div id="page-portfolio" class="page">
+  <div style="padding-top:100px;"></div>
+  <section class="portfolio-section" style="padding:80px 60px;">
+    <div class="reveal">
+      <span class="section-label">Portfolio</span>
+      <h2 class="section-title">A body of <em>work</em><br>that speaks</h2>
+    </div>
+    <div class="filter-bar" style="margin-top:40px;">
+      <button class="filter-btn active" onclick="filterWork(this,'all')">All</button>
+      <button class="filter-btn" onclick="filterWork(this,'weddings')">Weddings</button>
+      <button class="filter-btn" onclick="filterWork(this,'portraits')">Portraits</button>
+      <button class="filter-btn" onclick="filterWork(this,'fashion')">Fashion</button>
+      <button class="filter-btn" onclick="filterWork(this,'events')">Events</button>
+      <button class="filter-btn" onclick="filterWork(this,'brand')">Brand</button>
+    </div>
+    <div class="portfolio-masonry" id="portfolio-masonry">
+      <!-- masonry items -->
+      <div class="masonry-item" data-cat="weddings">
+        <div class="masonry-placeholder tall ph-1" style="display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;opacity:0.3"><div style="font-size:2.5rem">💍</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--beige);margin-top:8px">WEDDING 01</div></div>
+        </div>
+        <div class="gallery-overlay" style="opacity:0;transition:opacity 0.3s;position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,0.7),transparent);display:flex;align-items:flex-end;padding:20px;"><span style="font-family:'Cormorant Garamond',serif;font-size:0.9rem;">Rohan & Meera · Wedding</span></div>
+      </div>
+      <div class="masonry-item" data-cat="portraits">
+        <div class="masonry-placeholder medium ph-2" style="display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;opacity:0.3"><div style="font-size:2rem">🪞</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--beige);margin-top:8px">PORTRAIT 01</div></div>
+        </div>
+      </div>
+      <div class="masonry-item" data-cat="fashion">
+        <div class="masonry-placeholder short ph-3" style="display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;opacity:0.3"><div style="font-size:2rem">👗</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--beige);margin-top:8px">FASHION 01</div></div>
+        </div>
+      </div>
+      <div class="masonry-item" data-cat="brand">
+        <div class="masonry-placeholder medium ph-4" style="display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;opacity:0.3"><div style="font-size:2rem">🏢</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--beige);margin-top:8px">BRAND 01</div></div>
+        </div>
+      </div>
+      <div class="masonry-item" data-cat="weddings">
+        <div class="masonry-placeholder tall ph-5" style="display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;opacity:0.3"><div style="font-size:2rem">💑</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--beige);margin-top:8px">WEDDING 02</div></div>
+        </div>
+      </div>
+      <div class="masonry-item" data-cat="events">
+        <div class="masonry-placeholder short ph-6" style="display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;opacity:0.3"><div style="font-size:2rem">🎉</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--beige);margin-top:8px">EVENT 01</div></div>
+        </div>
+      </div>
+      <div class="masonry-item" data-cat="portraits">
+        <div class="masonry-placeholder medium ph-1" style="display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;opacity:0.3"><div style="font-size:2rem">✨</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--beige);margin-top:8px">PORTRAIT 02</div></div>
+        </div>
+      </div>
+      <div class="masonry-item" data-cat="fashion">
+        <div class="masonry-placeholder tall ph-2" style="display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;opacity:0.3"><div style="font-size:2rem">🌟</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--beige);margin-top:8px">FASHION 02</div></div>
+        </div>
+      </div>
+      <div class="masonry-item" data-cat="brand">
+        <div class="masonry-placeholder short ph-3" style="display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;opacity:0.3"><div style="font-size:2rem">💼</div><div style="font-family:'Cormorant Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;color:var(--beige);margin-top:8px">BRAND 02</div></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.7rem;color:var(--gray);margin-top:24px;letter-spacing:0.1em;">
+      Replace these placeholders with your actual photography to showcase your work
+    </p>
+  </section>
+
+  <footer style="background:#080808;padding:40px 60px;border-top:1px solid var(--border);text-align:center;">
+    <a class="footer-logo" href="#" onclick="showPage('home')">Seven<span>Steps</span></a>
+    <p style="margin-top:12px;font-size:0.7rem;color:rgba(136,136,136,0.5);">© 2025 SevenSteps · Yogesh Repale</p>
+  </footer>
+</div><!-- END PORTFOLIO PAGE -->
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/918788833738" target="_blank" class="whatsapp-float" title="WhatsApp Yogesh">💬</a>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx-5+'px'; cursor.style.top = my-5+'px'; });
+setInterval(() => {
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.left = rx-18+'px'; ring.style.top = ry-18+'px';
+}, 10);
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.style.transform = 'scale(2.5)');
+  el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+});
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Page switching
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+revealEls.forEach(el => observer.observe(el));
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+// Portfolio filter
+function filterWork(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.masonry-item').forEach(item => {
+    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+// Form submit
+function submitForm() {
+  document.getElementById('form-success').style.display = 'block';
+  setTimeout(() => { document.getElementById('form-success').style.display = 'none'; }, 5000);
+}
+</script>
+</body>
+</html>

@@ -1,5 +1,8 @@
 node_modules/
 dist/
+dist-fixture/
+dist-integration/
+.generated/
 .astro/
 playwright-report/
 test-results/

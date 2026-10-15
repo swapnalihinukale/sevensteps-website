@@ -1,0 +1,36 @@
+
+> seven-steps-private-draft@0.1.0 build:fixture
+> node scripts/build.mjs fixture
+
+Prepared 3 synthetic media fixtures. No portfolio work or public clearance is implied.
+fixture content passed: 2 stories and 3 referenced photographs. Only public fields leave the validator.
+18:35:41 [content] Syncing content
+18:35:41 [content] Astro config changed
+18:35:41 [content] Clearing content store
+18:35:41 [content] Synced content
+18:35:41 [types] Generated 256ms
+18:35:41 [build] output: "static"
+18:35:41 [build] mode: "static"
+18:35:41 [build] directory: /Users/admin/Documents/Website/site/dist-fixture/
+18:35:41 [build] Collecting build info...
+18:35:41 [build] ✓ Completed in 283ms.
+18:35:41 [build] Building static entrypoints...
+18:35:41 [vite] ✓ built in 152ms
+18:35:41 [vite] ✓ built in 18ms
+18:35:41 [build] Rearranging server assets...
+
+ generating static routes
+18:35:41   ├─ /404.html (+10ms)
+18:35:41   ├─ /robots.txt (+4ms)
+18:35:41   ├─ /sitemap.xml (+4ms)
+18:35:41   ├─ /stories/wedding-story/index.html (+8ms)
+18:35:41   ├─ /stories/couple-session/index.html (+6ms)
+18:35:41   ├─ /index.html (+6ms)
+18:35:41 ✓ Completed in 55ms.
+
+18:35:41 [build] ✓ Completed in 250ms.
+18:35:41 [build] 4 page(s) built in 534ms
+18:35:41 [build] Complete!
+COPY-01/03: source and existing build contain no em dash or encoded equivalents.
+PASS: 289 local links/assets and IDs across 4 documents.
+PASS: fixture artifact, 4 pages and 41 files, no review/source leakage.

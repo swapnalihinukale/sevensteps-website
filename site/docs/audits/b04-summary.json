@@ -1,0 +1,292 @@
+{
+  "recordedAt": "2026-10-15T13:11:09.969432+00:00",
+  "scope": "B04 local content-ready implementation; synthetic media and enquiries; no deployment or live delivery",
+  "runtime": {
+    "node": "v22.23.2",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "packageManager": "npm@10.9.8"
+  },
+  "baseCommit": "10610297b06c41674edd8b351711e72f6483fa3d",
+  "sourceSha256": "c2307800b70e19d40632b8ef9538164fb7049d8af8cb648bdbfc6c2e31c8e474",
+  "sourceFiles": {
+    ".github/workflows/verify.yml": "6e9a57259fef4938778445d32fcf44bb4023165aad0f8864c9f8a94e32478eef",
+    "scripts/check-shareable.mjs": "3cf070a1b62920cc843257f48b41f367e2e6f2fc4d7bfbc448e3d50383ca5cf9",
+    "scripts/test-shareable.mjs": "d051c933eef9b6f1e0bb6706f83971ff210d7782bc0bac38d643f2100ba26005",
+    "site/astro.config.mjs": "077b17789b7057b12f393e53f4a051a8a6056f9b67bd937a7978fcf9ec753d4e",
+    "site/content/README.md": "2522e0c15241cb9f895ddd1cd2c97536fd8e6baa13bab89103330ab9a3b7aeca",
+    "site/netlify/functions/enquiries.ts": "7b48963824a14852ba9333d732d40b457754e06fa8650c1742694c56ba212110",
+    "site/netlify/functions/enquiry-events.ts": "340e2fc7bf34a6bd785c1891e201a42c387ef73a5c106b2e48ef131e49d05b51",
+    "site/netlify/functions/repair-enquiries.ts": "c75bf47d2abec27540cc46e57b5624cc4af801177d11abc55cdbdc090d69aa33",
+    "site/package-lock.json": "3f10164b3f00e4f647a0b0905320149af8dd9a3955814a1a5625b051ba3f1836",
+    "site/package.json": "d04a51b0e6b35968e8ab6757586500b1bb69b97dc73d09727c4c83bc1686829b",
+    "site/playwright.config.ts": "d2c0005e1b738177d72d08573498cb6f9c7451e010e96de2087d2f19e5816e31",
+    "site/public/favicon.svg": "2c30e417412478130d2d3f187c872c4053c8d89c754f540009b0a41d49ee4f23",
+    "site/public/licenses/source-sans-3-OFL.txt": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+    "site/public/licenses/source-serif-4-OFL.txt": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+    "site/scripts/budget.mjs": "92a4c6819c6a16518616189421d77b4bf9a9c2f53e7fdfb9aa96b34ea1b01ed2",
+    "site/scripts/build.mjs": "58c4093a899da555983db5ee63bccc781e087482dfc3475dec699e867ed35280",
+    "site/scripts/check-public-artifact.mjs": "5a6bb431f9514035732ac9aa87cd58dd2762710fc84e04603ff7c674c01ffb05",
+    "site/scripts/content-check.mjs": "5f04796b536b6aac51a1f2e89e93cc9236e849343f2889690fda631c1a7f64ce",
+    "site/scripts/copy-check.mjs": "c77d0cca5c51f51d4b0e8e5dc0d03024ca30942fa0d5cb7bf697cf4be6cc9bad",
+    "site/scripts/dependency-report.mjs": "0f5d387778091c1327e08b886514a5edbebca768608404c9c37bb8e666c236de",
+    "site/scripts/enquiry-lab.html": "57c165302d0ce2cc72f585d4ba2c4e4a1860db292569a1b93d1ead68d8652ff4",
+    "site/scripts/enquiry-lab.mjs": "5d117292853015d1298c73184d33b9b7f8a0087f7beb6b793ea8c7573ea60a32",
+    "site/scripts/links-check.mjs": "34381c5501608e285235badd2895bd91212b449ad0ba0bf73827b64c030965f5",
+    "site/scripts/local-postgres.mjs": "be306912f16a07fe7375d7028c7827e977021736fd3d2e5a5fe9599efddcaf3e",
+    "site/scripts/media-fixtures.mjs": "faca5451f07c1be08888e770db5c847f70b1df63232cd3865f3451738987a37d",
+    "site/scripts/media-pipeline.mjs": "4fc6a7a2af6f1867c7b7817f864cb8ded1994c9e42f4507e05fabf54db75fbe0",
+    "site/scripts/prepare-media-fixtures.mjs": "bc6da8fb19ed8e10d15b283a00cede5a1d86623e2ef95e3677173eaec7c13223",
+    "site/scripts/prepare-media-public.mjs": "ca9c54b1823f40731c9542ec012e5c8eb366aac6e79b8f344f128d8c5a2aec35",
+    "site/scripts/preview-fixture.mjs": "182727e403dbf2acd5a632a3955a1dd31fc96f218d93ef1b8d6b9aa6d94baa6c",
+    "site/scripts/preview-measure.mjs": "ca55abe9f3dbe83383ed2cd6136a0a4d3264d5fef1cda2bcd7a3ee3a9b6e7de2",
+    "site/scripts/public-check.mjs": "5f76de04c177b00a50c296acc7e0b8b767d206fb69d5e1a2126ecd0d25e0fa7b",
+    "site/scripts/test-build-boundaries.mjs": "d83704cc5d57447d28fae10e85e95a7457021d297ac4bad3a3ebf6843e639f8a",
+    "site/scripts/test-server.mjs": "fe126b54d2a5949c6eb65dd2ff75a8b96ab8673e3cdae10ad965081305ceb60d",
+    "site/server/config.ts": "a189ef8191e37c0ef84b73d7ddde7885f6ab2be06c63f47b232e6a995277bbb8",
+    "site/server/contracts.ts": "f2b62a5b7b68bea4bd9f9d1ac5c8b52c6bcd8d36f37d39c8dd47f6c65f3ad41f",
+    "site/server/http.ts": "db0040385ce6639b04e0926d7d216ad8ea9b2038da9c89f095caa0981f1b7f87",
+    "site/server/live-runtime.ts": "67e6850510c314ac0aa3496bc020704c00cbfe769234cfdc8107ccc5a4026530",
+    "site/server/migrations/001-enquiries.sql": "eda3cfd82e7e57efe8e6274ac26dc8d4d3d3a89dfee07964a4f935e191841946",
+    "site/server/notification-payload.ts": "af86cbd8e6d04e54b8485846661357dedfc2cede67bd98cc188a9eae7bce1053",
+    "site/server/notification-worker.ts": "75fdcacd2f63cbd1068c162b2e9f595fba598aadc35f661adedfe22ee4c51ae7",
+    "site/server/operator-views.sql": "5411ea842dac3d1dd02608f76182eb49f69f739f0f5d9440a728a43787d26ad1",
+    "site/server/postgres-store.ts": "abe6ff284b18484b25d76a7c16427eb1ae8eaa789de6de37889e2b86cda365d8",
+    "site/server/resend-sender.ts": "73f57e648f2c31b6da0856ae0e796b74eb8683fc7f37930a7db144260faa51a7",
+    "site/server/tokens.ts": "8e3346ce3e8039fb2425bdb629c6e913023feb97d9a5174c23a4f81ebf1e62ac",
+    "site/server/validation.ts": "86e5d5b794678584eca248025c3d424ee322729fcde0969ed4f22eefa311aa16",
+    "site/server/webhook.ts": "4b627477c00b62621c291f68ed9a556d90b54e027b1420bfb7a21a08acd1211c",
+    "site/src/components/Arrow.astro": "25c25b800ec6c8906b78d3e6d1c884b71853ebbfaa03f92f70591573366d3c53",
+    "site/src/components/ContentNote.astro": "195f128f9059246e43cca5bcc49da2ae119bc6c2383b28072c944edc69ad89d5",
+    "site/src/components/Enquiry.astro": "1d176c30c1df7390b571e48becf77c618042c719181c8701f4e2d947825ddc7b",
+    "site/src/components/GalleryPreview.astro": "420f593d311da965c0999dc089f91757646dea790e7afd5061692ce2fe6ed6b6",
+    "site/src/components/PhotoSpace.astro": "c9be3bfb7ea423d5e595e52d10c716c1b51fe658d6ae39c87fbdb0106f5a8626",
+    "site/src/components/PublicHome.astro": "412bebe5ad92112d92967e7a602ae9dcdd405703b014628bd2d64a94f97ec9de",
+    "site/src/components/PublicStory.astro": "bb6b3052a01181f5893442a73a0d9deed0f2a371e764f7a86d1539dd73874035",
+    "site/src/content.config.ts": "8bd9cdc59fe84b146853075bfb32e36246645be13f58079bcbff69598b31c05c",
+    "site/src/data/content.ts": "a7e447766841a31537b13f48f96c3bd1d6a9905e2af3b9a4d38def6b91e185a0",
+    "site/src/layouts/Layout.astro": "2d4946bfb2827d1bc2357a82b243333e393cc5ac9e0ef213c342ca6b70446d4a",
+    "site/src/lib/email-contact.ts": "4e61905aebab246a76d1ef1e7940edfddbc80df367bce516c6e07ba741783e8e",
+    "site/src/lib/image-sizes.ts": "70ccb4c4d83270d4c8be06d72b7bae9a7b2ea2b29ded7a8414634a23402830b4",
+    "site/src/lib/media.ts": "5b118dac38632afae6fd53f8dbb9a4cba55550b27e5969bd2576f33924ba7190",
+    "site/src/lib/motion.ts": "48399fcea64310b0124fe39e8c8e22b7c0cd19df9aa0b0eb63b59bfe196c9c67",
+    "site/src/lib/public-assets.ts": "07bb2562f841483d25f6391c2e2c9dbf080d308701b4e171dea77cfbb6942e8a",
+    "site/src/lib/public-content.ts": "759189a3153ea96c399a6d9dcda1a447f9fd9ba9c03c8d1d0b4523d48e9ba17c",
+    "site/src/lib/review.ts": "d76a077a467699acf988368b54d76ee591fd897cc4c2469b7bdf8df4787be863",
+    "site/src/lib/site-content.ts": "4c291352cbe4972fdd088ae85c6caeda99e11a56d2905b028e26934ace6f8403",
+    "site/src/pages/404.astro": "ccf3befeaa19ddd33fbb8327013739297f5a9463103d1d1c53de1e2995397f9a",
+    "site/src/pages/[reviewPage].astro": "51cb99bb90a2c2e1e7c5d553ad297384715a3c11e3462b34cc695c75e2713553",
+    "site/src/pages/index.astro": "b0daa56b58afffcc9fa3da61b30ac68f60f24406d30daab0f546820a18612e7c",
+    "site/src/pages/robots.txt.ts": "d6b74ddfb28bbf1a8bd0d0eae9f847043e13d5c2f3a5c81c2bb90f97373341b7",
+    "site/src/pages/sitemap.xml.ts": "97583f962c157a3bf6d780149d309f78bc4f4ba3075e70f2dfa04054a8fa8a2f",
+    "site/src/pages/stories/[slug].astro": "35e0835a64a9f7b48e823fb9157929e963f1224298da51d9049506be6feb04a5",
+    "site/src/scripts/enquiry-client.ts": "7aa64a70f5fca67d3109b88da8e08184085da5f60051c3eb280d60e783f5a7ae",
+    "site/src/scripts/ui.ts": "110858e74f81e72fd2ec98e72b6e9320b835108bbcd933cc7a22a2f3b4fbb0a5",
+    "site/src/styles/enquiry.css": "3fec77167b9989871821fb7b87a7ff20adb084a1bc0e5ebb4cb0539987204fc7",
+    "site/src/styles/global.css": "99313f3155efb91e3c05bf30028b54233995757f27e630791346d126a40b23c6",
+    "site/src/styles/media.css": "e41aba34dc1d0de7f42a260335ba4dfae669dfefbddc52d795a30b162a59ffd6",
+    "site/tests/browser/enquiry-site.spec.ts": "338f81680fb49f55ba8297adb64c53100659a1c456bfcccfd46e2da841509271",
+    "site/tests/browser/enquiry.spec.ts": "9cf07b9d98e0df08bf53e7264bd413f11ccba21d349946f757fc754470578629",
+    "site/tests/browser/image-sizes.spec.ts": "8f6863a2116e3ae6daff3b3355498505d8572842efd451f03d03b3e875ce0f63",
+    "site/tests/browser/journeys.spec.ts": "1a6e47a92507d9c100e1cb1d421291bf8357a5e568ec37eb684e8a2041e7f6b7",
+    "site/tests/browser/media-public.spec.ts": "b5d69feec2339e5dbaac7f2fcdbab2e3d6de13a832664b7c70477dc50365c83c",
+    "site/tests/content.test.ts": "9ed49f7089c2a00ceb7951b02e058cda29f860662fc6d34147b7f48b71251672",
+    "site/tests/email-contact.test.ts": "02619b83b61b1cf8a29c5538f5e58046ee5bba4398014ecd1680edc1609690aa",
+    "site/tests/fixtures/public-content.ts": "bf51677713ca57cd9a298b4a2c22fa8a4a1babe908d79d50f73feb8b833bdd52",
+    "site/tests/media.test.mjs": "311ca90a2f2c1abc4530447f425b9a3b600aceaad9a96fc1461184def2e81d59",
+    "site/tests/motion.test.ts": "46bc3f130c97b1eda0977b62e2bf25faa7a5e345f1e75911f579032151aa89a3",
+    "site/tests/public-artifact.test.ts": "31c288f235954ab106adf6a3d054a7a884fb872c728ade2930d0c603104b1a97",
+    "site/tests/public-assets.test.ts": "9bf8114a15358d8f1e5c75ac4f9561034ffdd1b01d8c4d19737c19d8407f5347",
+    "site/tests/public-content.test.ts": "522a83b6d2a9ed4cd8e9ab1242cce0eb3685baf504a60bebf4e51a785b410730",
+    "site/tests/server/config.test.ts": "52d352f6f3692a808592be0b541feffc2ea8e897f7f8d0aa11dae2bc8b55f44c",
+    "site/tests/server/http.test.ts": "f2978883f9d019c6e1a1fbb47418e12092085a15e6679e3d06f333ffd82b0bc3",
+    "site/tests/server/notification.test.ts": "ccaed206ddf9d3585617ea2a118b3564129742469f46470d595cd4f14c286c22",
+    "site/tests/server/postgres-fixture.ts": "4155a1e391db7b11e381cc47660135df1410386c12385f40227c4a001b48b98c",
+    "site/tests/server/postgres.test.ts": "c07dba66bea69fb45aa855602a2c40662341d8ad449e7184762e8930783e91a5",
+    "site/tests/server/runtime-boundaries.test.ts": "bd3e4d1fd7b57e9f1ae2366bac91999f92d04c363bd1b08db422872c83c2b49d",
+    "site/tests/server/tokens.test.ts": "f96c111cc10652fdfba6d922117680aede973e113a4f483189d554d91e312da6",
+    "site/tests/server/validation.test.ts": "17acd416b0beba7cccd57b1a6a8f5b3ecb5652a89ea27b67b81f414b322d5d1f",
+    "site/tests/server/webhook.test.ts": "fa7829834bbbdcd067d18271a71684f5428183fd9df2a0e29c1614f4b68f3a2f",
+    "site/tsconfig.json": "e9660a5baf7dbb8134828c52ec526178b506837c4f48f791d4aedc93eb2e2a61"
+  },
+  "install": {
+    "result": "pass",
+    "lifecycleScripts": false,
+    "evidence": "b04-clean-install.log"
+  },
+  "astroDiagnostics": {
+    "files": 64,
+    "errors": 0,
+    "warnings": 0,
+    "hints": 0,
+    "evidence": "b04-check.log"
+  },
+  "unitTests": {
+    "passed": 41,
+    "failed": 0,
+    "skipped": 0,
+    "evidence": "b04-unit-tests.log"
+  },
+  "mediaTests": {
+    "passed": 17,
+    "failed": 0,
+    "skipped": 0,
+    "evidence": "b04-media-tests.log"
+  },
+  "serverTests": {
+    "passed": 99,
+    "failed": 0,
+    "skipped": 0,
+    "isolatedPostgresCleaned": true,
+    "evidence": "b04-server-tests.log"
+  },
+  "browserTests": {
+    "startTime": "2026-10-15T13:05:48.099Z",
+    "duration": 112496.73000000001,
+    "expected": 126,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0,
+    "report": "b04-browser-results.json",
+    "log": "b04-browser-tests.log",
+    "projects": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ]
+  },
+  "gitGuardTests": {
+    "passed": 8,
+    "evidence": "b04-shareable-tests.log"
+  },
+  "buildBoundaries": {
+    "result": "pass",
+    "cases": 5,
+    "reviewArtifactRestored": true,
+    "evidence": "b04-build-boundaries.log"
+  },
+  "budgets": {
+    "review": {
+      "artifactSha256": "2b7ba77fad279cac84f44da5ec9db46f6c5437910ef4539adb82e34835ab5d49",
+      "checks": [
+        {
+          "name": "css",
+          "measuredBytes": 6506,
+          "limitBytes": 30720,
+          "pass": true
+        },
+        {
+          "name": "javascript",
+          "measuredBytes": 3793,
+          "limitBytes": 81920,
+          "pass": true
+        },
+        {
+          "name": "html",
+          "measuredBytes": 6940,
+          "limitBytes": 35840,
+          "pass": true
+        },
+        {
+          "name": "fonts",
+          "measuredBytes": 79808,
+          "limitBytes": 102400,
+          "pass": true
+        },
+        {
+          "name": "shell",
+          "measuredBytes": 97047,
+          "limitBytes": 358400,
+          "pass": true
+        }
+      ],
+      "limitations": [
+        "Inline styles and scripts remain included in HTML. Deferred and route-specific files are included in CSS/JS totals.",
+        "The shell figure excludes images, video, headers, transport overhead and third-party requests. Passing it does not establish the complete 350 KiB critical-transfer target.",
+        "The 900 KiB cold-entry, 3 MiB homepage and 6 MiB story targets need browser request measurements with real content.",
+        "Gzip estimates do not verify hosting compression. Image quality, LCP, INP, CLS, actual font requests and device performance remain separate checks."
+      ]
+    },
+    "fixture": {
+      "artifactSha256": "e86240e7b720e98b0e509a99f4c3cfac5b16940f643fa21753a577622baec440",
+      "checks": [
+        {
+          "name": "css",
+          "measuredBytes": 6506,
+          "limitBytes": 30720,
+          "pass": true
+        },
+        {
+          "name": "javascript",
+          "measuredBytes": 3793,
+          "limitBytes": 81920,
+          "pass": true
+        },
+        {
+          "name": "html",
+          "measuredBytes": 4589,
+          "limitBytes": 35840,
+          "pass": true
+        },
+        {
+          "name": "fonts",
+          "measuredBytes": 79808,
+          "limitBytes": 102400,
+          "pass": true
+        },
+        {
+          "name": "shell",
+          "measuredBytes": 94696,
+          "limitBytes": 358400,
+          "pass": true
+        }
+      ],
+      "limitations": [
+        "Inline styles and scripts remain included in HTML. Deferred and route-specific files are included in CSS/JS totals.",
+        "The shell figure excludes images, video, headers, transport overhead and third-party requests. Passing it does not establish the complete 350 KiB critical-transfer target.",
+        "The 900 KiB cold-entry, 3 MiB homepage and 6 MiB story targets need browser request measurements with real content.",
+        "Gzip estimates do not verify hosting compression. Image quality, LCP, INP, CLS, actual font requests and device performance remain separate checks."
+      ]
+    }
+  },
+  "dependencyReport": {
+    "file": "docs/audits/2026-10-15T13-09-46Z-dependency-report.json",
+    "lockfileSha256": "3f10164b3f00e4f647a0b0905320149af8dd9a3955814a1a5625b051ba3f1836",
+    "counts": {
+      "locked": 372,
+      "installed": 304,
+      "devOnly": 82,
+      "nonDev": 290,
+      "optionalNotInstalled": 68
+    },
+    "unresolved": {
+      "directPins": [],
+      "missingRequiredInstallations": [],
+      "installedVersionMismatch": [],
+      "unknownLicenses": [],
+      "missingRegistryIntegrity": [],
+      "lockChangedDuringReport": false
+    },
+    "knownAdvisories": 0,
+    "sourceScanFiles": 127,
+    "sourceScanFindings": 0
+  },
+  "manualChecks": [
+    {
+      "browser": "native Safari 27.0.1",
+      "scope": "Story page at 200% browser zoom, menu reflow, gallery keyboard navigation and Escape-to-close; zoom restored and own tab closed."
+    },
+    {
+      "browser": "Codex in-app browser",
+      "scope": "320px hero and full-image viewer visual inspection; narrow footer overflow diagnosed and corrected, followed by passing three-engine regression."
+    }
+  ],
+  "remainingReleaseChecks": [
+    "Owner-approved real content and media rights",
+    "Real photograph derivative quality and transfer/Core Web Vitals measurements",
+    "Live enquiry provider, recipient, responder and data handling",
+    "Physical Windows, iOS, Android and iPad coverage",
+    "Screen-reader and full zoom accessibility matrix",
+    "Authorized deployment and exact-candidate release approval"
+  ]
+}

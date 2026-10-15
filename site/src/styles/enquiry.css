@@ -1,0 +1,20 @@
+.enquiry-errors {
+  padding: 18px;
+  border: 2px solid var(--rose);
+  margin-bottom: 28px;
+  scroll-margin-block: 100px;
+}
+.enquiry-errors h2 {
+  font-family: var(--sans);
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+.enquiry-errors p + p { margin-top: 8px; }
+.enquiry-errors a { text-decoration: underline; text-underline-offset: 3px; }
+[data-enquiry-active-form] [aria-invalid='true'] { border-bottom: 2px solid var(--rose); }
+.enquiry-status { min-height: 1.6em; margin-bottom: 18px; overflow-wrap: anywhere; }
+.enquiry-status:empty { margin-bottom: 0; }
+.submit-row .enquiry-restart { background: transparent; color: var(--leaf); border: 1px solid var(--leaf); }
+.public-contact { display: grid; gap: 24px; }
+.contact-address { overflow-wrap: anywhere; }
+.contact-privacy { font-size: 14px; color: var(--quiet); }

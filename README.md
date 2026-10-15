@@ -23,11 +23,12 @@ Use `npm run lab` for the separate synthetic enquiry test at `http://127.0.0.1:4
 
 - [Implementation handoff](docs/IMPLEMENTATION-HANDOFF.md): selected stack, palette and interaction choices.
 - [Local enquiry backend](docs/BACKEND-IMPLEMENTATION-2026-10-15.md): receipt, retries, PostgreSQL tests and remaining live integration gates.
+- [Content-ready implementation](docs/CONTENT-READY-IMPLEMENTATION-2026-10-15.md): responsive image processing, public rendering, the designed local enquiry test and current verification.
 - [Execution plan](EXECUTION-PLAN.md): work status, skills/tools and acceptance criteria.
 - [Research synthesis](RESEARCH-SYNTHESIS-AND-CONCEPTS.md): the reference study and selected direction, Close to the people.
 - [Owner inputs](docs/OWNER-INPUTS.md): authentic content, contact and operating facts still needed.
 
-Run `npm run check`, `npm run test:unit`, `npm run test:server` and `npm run test:e2e` from `site/`. The GitHub workflow repeats the automated checks without deployment or live secrets. Physical devices, screen readers, actual portfolio media and provider integration remain release checks.
+Before browser tests, run `npm run build`, `npm run build:fixture` and `npm run build:integration` from `site/`. Run `npm run check`, `npm run test:unit`, `npm run test:media`, `npm run test:server`, `npm run test:build` and `npm run test:e2e`. The GitHub workflow repeats the automated checks without deployment or live secrets. Physical devices, screen readers, actual portfolio media and provider integration remain release checks.
 
 The site uses the project [Codex design adapter](.agents/skills/photographer-design-codex/SKILL.md), pinned Anthropic frontend-design guidance and portable OpenDesign craft references. Apply stop-slop and the [copy rules](docs/COPY-AND-VOICE-SPEC.md); use no em dashes in authored UX. OpenDesign's optional executable runtime remains disabled on security hold. Its dependencies are separate from the website application.
 

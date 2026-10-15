@@ -12,13 +12,19 @@
     "dev": "astro dev --host 127.0.0.1",
     "build": "node scripts/build.mjs review",
     "build:public": "node scripts/build.mjs public",
+    "build:fixture": "node scripts/build.mjs fixture",
+    "build:integration": "node scripts/build.mjs integration",
+    "preview:fixture": "node scripts/preview-fixture.mjs",
     "preview": "astro preview --host 127.0.0.1",
     "check": "astro check && node scripts/content-check.mjs && node scripts/copy-check.mjs",
     "test:unit": "node --test tests/*.test.ts",
+    "test:media": "node --test tests/media.test.mjs",
+    "test:build": "node scripts/test-build-boundaries.mjs",
     "test:e2e": "playwright test",
     "test:server": "node scripts/test-server.mjs",
     "lab": "node scripts/enquiry-lab.mjs",
-    "test": "npm run test:unit && npm run test:server && npm run test:e2e",
+    "lab:site": "node scripts/enquiry-lab.mjs --site",
+    "test": "npm run test:unit && npm run test:media && npm run test:server && npm run test:e2e",
     "budget": "node scripts/budget.mjs"
   },
   "dependencies": {
@@ -27,7 +33,8 @@
     "@netlify/database": "2.0.1",
     "@netlify/functions": "6.0.2",
     "astro": "7.3.8",
-    "resend": "6.33.0"
+    "resend": "6.33.0",
+    "sharp": "0.35.5"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

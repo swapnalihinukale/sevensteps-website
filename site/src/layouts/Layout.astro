@@ -2,8 +2,15 @@
 import '../styles/global.css';
 import Arrow from '../components/Arrow.astro';
 import { isReview } from '../lib/review';
-interface Props { title: string; description?: string; page?: string; }
-const { title, description = 'Seven Steps photography website draft. Review the story layouts and add the missing content.', page = 'home' } = Astro.props;
+import { loadSiteContent, renderMode } from '../lib/site-content';
+interface Props { title: string; description?: string; page?: string; sharePhotoId?: string; noindex?: boolean; }
+const content = loadSiteContent();
+const { title, description = content?.site.description ?? 'Seven Steps photography website draft. Review the story layouts and add the missing content.', page = 'home', sharePhotoId = content?.site.sharePhotoId, noindex = false } = Astro.props;
+const name = content?.site.name ?? 'Seven Steps';
+const tagline = content?.site.tagline ?? 'Photography & films';
+const canonical = content && !noindex ? new URL(Astro.url.pathname, content.site.origin).href : undefined;
+const share = sharePhotoId && content?.photos[sharePhotoId];
+const indexable = renderMode() === 'public' && !noindex;
 ---
 <!doctype html>
 <html lang="en" data-motion="full">
@@ -11,24 +18,25 @@ const { title, description = 'Seven Steps photography website draft. Review the 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content={indexable ? 'index, follow' : 'noindex, nofollow'} />
     <meta name="theme-color" content="#fafaf8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title} | Seven Steps</title>
+    {canonical && <><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><meta property="og:type" content="website" /><meta property="og:site_name" content={name} /><meta property="og:title" content={`${title} | ${name}`} /><meta property="og:description" content={description} /><meta name="twitter:card" content="summary_large_image" />{share && <><meta property="og:image" content={new URL(share.full.src, content!.site.origin).href} /><meta property="og:image:width" content={String(share.full.width)} /><meta property="og:image:height" content={String(share.full.height)} /><meta property="og:image:alt" content={share.alt} /><meta name="twitter:image:alt" content={share.alt} /></>}</>}
+    <title>{title} | {name}</title>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     {isReview && <aside class="draft-bar" aria-label="Website draft"><div><span class="draft-dot" aria-hidden="true"></span><p><strong>Website draft.</strong> Add the missing photos and details using the content checklist.</p><a href="/content-checklist/">View content checklist <Arrow /></a></div></aside>}
     <header class="site-header">
-      <a href="/" class="wordmark" aria-label="Seven Steps home"><span>seven steps<span class="wordmark-dot">.</span></span><span class="wordmark-sub">Photography &amp; films</span></a>
+      <a href="/" class="wordmark" aria-label={`${name} home`}><span>{content ? name : 'seven steps'}<span class="wordmark-dot">.</span></span><span class="wordmark-sub">{tagline}</span></a>
       <nav class="desktop-nav" aria-label="Main navigation"><a href="/#work" aria-current={page === 'story' ? 'location' : undefined}>The work</a><a href="/#approach">The approach</a><a class="nav-enquiry" href="/#enquire">Let’s talk <Arrow /></a></nav>
       <button class="menu-button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle hidden>Menu <span class="menu-lines" aria-hidden="true"></span></button>
-      <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden><a href="/#work">The work <Arrow /></a><a href="/#approach">The approach <Arrow /></a><a href="/#enquire">Let’s talk <Arrow /></a><a href="/content-checklist/">Content checklist</a></nav>
+      <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden><a href="/#work">The work <Arrow /></a><a href="/#approach">The approach <Arrow /></a><a href="/#enquire">Let’s talk <Arrow /></a>{isReview && <a href="/content-checklist/">Content checklist</a>}</nav>
     </header>
     <main id="main" tabindex="-1"><slot /></main>
     <footer class="site-footer">
-      <div class="footer-top"><a class="footer-name" href="/">seven steps.</a><p>Photography &amp; films<br /><span>A website in the making.</span></p><a href="#main" class="text-link">Back to top <Arrow direction="up" /></a></div>
-      <div class="footer-bottom"><p>Private review. Brand details need confirmation.</p><div class="motion-preference" data-motion-preference hidden><label for="motion-preference">Motion</label><select id="motion-preference"><option value="full">Full motion</option><option value="still">Still</option></select><span data-motion-note class="sr-only" role="status"></span></div><a href="/content-checklist/#BRAND-NAME-01">Confirm brand details</a></div>
+      <div class="footer-top"><a class="footer-name" href="/">{content ? name : 'seven steps'}.</a><p>{tagline}<br /><span>{content?.site.footerText ?? 'A website in the making.'}</span></p><a href="#main" class="text-link">Back to top <Arrow direction="up" /></a></div>
+      <div class="footer-bottom"><p>{content ? `© ${new Date().getUTCFullYear()} ${name}` : 'Private review. Brand details need confirmation.'}</p><div class="motion-preference" data-motion-preference hidden><label for="motion-preference">Motion</label><select id="motion-preference"><option value="full">Full motion</option><option value="still">Still</option></select><span data-motion-note class="sr-only" role="status"></span></div>{isReview && <a href="/content-checklist/#BRAND-NAME-01">Confirm brand details</a>}</div>
     </footer>
     <script>
       import '../scripts/ui';

@@ -24,6 +24,20 @@ reduced.addEventListener('change', applyMotion);
 applyMotion();
 const isStill = () => document.documentElement.dataset.motion === 'still';
 
+function imageState(image: HTMLImageElement) {
+  const photo = image.closest<HTMLElement>('.photograph');
+  if (!photo) return;
+  const failed = image.complete && image.naturalWidth === 0;
+  const note = photo.querySelector<HTMLElement>('[data-photo-error]');
+  if (note) note.hidden = !failed;
+  photo.dataset.imageState = failed ? 'failed' : image.complete ? 'loaded' : 'loading';
+  if (failed) document.dispatchEvent(new CustomEvent('photograph-failed', { detail: photo }));
+}
+// Capture covers errors before/after opening the lazy full-frame viewer.
+document.addEventListener('error', event => { if (event.target instanceof HTMLImageElement) imageState(event.target); }, true);
+document.addEventListener('load', event => { if (event.target instanceof HTMLImageElement) imageState(event.target); }, true);
+document.querySelectorAll<HTMLImageElement>('.photograph__image').forEach(imageState);
+
 const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
 const menu = document.querySelector<HTMLElement>('#mobile-menu');
 if (menuButton && menu) {
@@ -107,12 +121,39 @@ if (dialog && typeof dialog.showModal === 'function' && triggers.length) {
   function display(value: number) {
     index = Math.max(0, Math.min(triggers.length - 1, value));
     const source = triggers[index];
-    const frame = source.querySelector('.photo-space')!.cloneNode(true);
+    const frame = source.querySelector<HTMLElement>('.photo-space')!.cloneNode(true) as HTMLElement;
+    const image = frame.querySelector<HTMLImageElement>('.photograph__image');
+    const full = source.dataset.frameSrc ?? frame.dataset.photoFullSrc;
+    if (image && full) {
+      // Only the selected full image loads. Native links still work without JS.
+      frame.querySelectorAll('source').forEach(node => node.remove());
+      frame.dataset.fit = 'contain';
+      frame.classList.remove('shape-portrait', 'shape-square');
+      frame.classList.add('shape-landscape');
+      frame.querySelector<HTMLElement>('[data-photo-error]')?.setAttribute('hidden', '');
+      image.removeAttribute('srcset');
+      image.removeAttribute('sizes');
+      image.loading = 'eager';
+      image.width = Number(source.dataset.frameWidth ?? frame.dataset.photoFullWidth);
+      image.height = Number(source.dataset.frameHeight ?? frame.dataset.photoFullHeight);
+      image.style.objectFit = 'contain';
+      image.style.objectPosition = 'center';
+      image.src = full;
+    }
     stage.replaceChildren(frame);
-    caption.textContent = source.dataset.frameLabel ?? `Photograph ${index + 1}`;
+    if (image) imageState(image);
+    const original = dialog?.querySelector<HTMLAnchorElement>('[data-viewer-original]');
+    if (original && full) original.href = full;
+    caption.textContent = source.dataset.frameCaption ?? source.dataset.frameLabel ?? `Photograph ${index + 1}`;
     position.textContent = `${index + 1} / ${triggers.length}`;
+    const focusedControl = document.activeElement;
     previous.disabled = index === 0;
     next.disabled = index === triggers.length - 1;
+    if (focusedControl === previous && previous.disabled) {
+      (next.disabled ? dialog?.querySelector<HTMLButtonElement>('[data-viewer-close]') : next)?.focus();
+    } else if (focusedControl === next && next.disabled) {
+      (previous.disabled ? dialog?.querySelector<HTMLButtonElement>('[data-viewer-close]') : previous)?.focus();
+    }
   }
   triggers.forEach((trigger, number) => trigger.addEventListener('click', event => {
     // Keep modified clicks as ordinary links.
@@ -128,6 +169,7 @@ if (dialog && typeof dialog.showModal === 'function' && triggers.length) {
   dialog.querySelector('[data-viewer-close]')?.addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', () => {
     document.body.classList.remove('modal-open');
+    stage.replaceChildren();
     opener?.focus({ preventScroll: true });
   });
   previous.addEventListener('click', () => display(index - 1));
@@ -207,9 +249,10 @@ document.querySelectorAll<HTMLElement>('[data-motion-demo]').forEach(demo => {
     if (state.playing) { stop(); return; }
     // A keyboard action may arrive before the observer delivers a scroll update.
     inView = viewportVisible();
-    const allowed = !isStill() && !document.hidden && inView && !dialog?.open;
+    const failedPhoto = Boolean(track.querySelector('[data-image-state="failed"]'));
+    const allowed = !failedPhoto && !isStill() && !document.hidden && inView && !dialog?.open;
     state = transitionMotion(state, 'play', allowed);
-    if (!state.playing) { stop(!inView ? 'Bring the gallery into view to play.' : 'Movement is off. Choose Full motion or check your device setting.'); return; }
+    if (!state.playing) { stop(failedPhoto ? 'A photograph could not load. Reload this page to try again.' : !inView ? 'Bring the gallery into view to play.' : 'Movement is off. Choose Full motion or check your device setting.'); return; }
     measure();
     if (direction.value === 'forward' && state.position >= limit) state.position = 0;
     if (direction.value === 'backward' && state.position <= 0) state.position = limit;
@@ -232,6 +275,9 @@ document.querySelectorAll<HTMLElement>('[data-motion-demo]').forEach(demo => {
   document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
   window.addEventListener('pagehide', () => stop());
   document.addEventListener('viewer-open', () => stop());
+  document.addEventListener('photograph-failed', event => {
+    if (track.contains((event as CustomEvent<HTMLElement>).detail)) stop('A photograph could not load. Reload this page to try again.');
+  });
   document.addEventListener('motion-preference-change', () => {
     if (isStill()) stop('Still mode. The gallery stays in place.');
     play.disabled = isStill();

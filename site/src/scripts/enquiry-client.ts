@@ -1,13 +1,18 @@
 type FormValues = Record<'name' | 'email' | 'when' | 'where' | 'message' | 'story', string>;
 
 /** Activated only by the isolated lab, then by a future approved public form. */
-export function connectEnquiryForm(form: HTMLFormElement, options: { timeoutMs?: number } = {}) {
+export function connectEnquiryForm(form: HTMLFormElement, options: { timeoutMs?: number; synthetic?: boolean } = {}) {
   const submit = form.querySelector<HTMLButtonElement>('[data-enquiry-submit]')!;
   const status = form.querySelector<HTMLElement>('[data-enquiry-status]')!;
   const summary = form.querySelector<HTMLElement>('[data-enquiry-errors]')!;
   const restart = form.querySelector<HTMLButtonElement>('[data-enquiry-restart]')!;
   const names = ['name', 'email', 'when', 'where', 'message', 'story'] as const;
   const fields = names.map((name) => form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement);
+  const descriptions = new Map(fields.map(field => [field, field.getAttribute('aria-describedby')]));
+  form.noValidate = true;
+  const receiptMessage = (receipt: string) => options.synthetic
+    ? `Test enquiry received on this computer. Your reference is ${receipt}. No email was sent.`
+    : `We have received your enquiry. Your reference is ${receipt}.`;
   let token: string | null = null;
   let snapshot: FormValues | null = null;
   let busy = false;
@@ -29,7 +34,9 @@ export function connectEnquiryForm(form: HTMLFormElement, options: { timeoutMs?:
     summary.replaceChildren();
     for (const field of fields) {
       field.removeAttribute('aria-invalid');
-      field.removeAttribute('aria-describedby');
+      const description = descriptions.get(field);
+      if (description) field.setAttribute('aria-describedby', description);
+      else field.removeAttribute('aria-describedby');
     }
   };
   const showErrors = (errors: Record<string, string>) => {
@@ -48,7 +55,8 @@ export function connectEnquiryForm(form: HTMLFormElement, options: { timeoutMs?:
       paragraph.append(link);
       summary.append(paragraph);
       field.setAttribute('aria-invalid', 'true');
-      field.setAttribute('aria-describedby', paragraph.id);
+      field.setAttribute('aria-describedby', [descriptions.get(fields[names.indexOf(name)]), paragraph.id].filter(Boolean).join(' '));
+      link.addEventListener('click', event => { event.preventDefault(); field.focus(); });
     }
     summary.hidden = false;
     summary.focus();
@@ -76,7 +84,7 @@ export function connectEnquiryForm(form: HTMLFormElement, options: { timeoutMs?:
       } else if (previous.phase === 'received' && typeof previous.receipt === 'string' && /^[A-Za-z0-9_-]{20,100}$/.test(previous.receipt)) {
         received = true;
         lock(true);
-        status.textContent = `We have received your enquiry. Your reference is ${previous.receipt}.`;
+        status.textContent = receiptMessage(previous.receipt);
         submit.textContent = 'Enquiry received';
         restart.hidden = false;
       } else { storageFailure(); }
@@ -90,7 +98,8 @@ export function connectEnquiryForm(form: HTMLFormElement, options: { timeoutMs?:
     busy = true;
     submit.disabled = true;
     clearErrors();
-    status.textContent = 'Sending your enquiry…';
+    lock(true);
+    status.textContent = options.synthetic ? 'Sending your test enquiry…' : 'Sending your enquiry…';
     try {
       if (!token) {
         const issued = await fetchJson('/api/enquiry-token');
@@ -115,7 +124,7 @@ export function connectEnquiryForm(form: HTMLFormElement, options: { timeoutMs?:
         received = true;
         remember({ phase: 'received', receipt: result.body.receipt });
         form.reset();
-        status.textContent = `We have received your enquiry. Your reference is ${result.body.receipt}.`;
+        status.textContent = receiptMessage(result.body.receipt);
         submit.textContent = 'Enquiry received';
         restart.hidden = false;
         snapshot = null;
@@ -142,6 +151,7 @@ export function connectEnquiryForm(form: HTMLFormElement, options: { timeoutMs?:
       submit.textContent = 'Try again';
     } finally {
       busy = false;
+      if (!snapshot && !received) lock(false);
       submit.disabled = received || !storageReady;
     }
   });

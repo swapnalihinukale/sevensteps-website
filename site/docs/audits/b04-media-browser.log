@@ -1,0 +1,48 @@
+
+> seven-steps-private-draft@0.1.0 test:e2e
+> playwright test media-public.spec.ts
+
+[WebServer] (node:27624) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:27677) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:27746) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 21 tests using 3 workers
+
+(node:27749) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:27747) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:27748) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium] › tests/browser/media-public.spec.ts:47:1 › failed photographs have useful feedback and a full-view recovery path (993ms)
+  ✓   1 [chromium] › tests/browser/media-public.spec.ts:26:1 › full-frame image loads only on opening, remains contained and restores focus (1.1s)
+  ✓   4 [chromium] › tests/browser/media-public.spec.ts:60:1 › no-JavaScript visitor follows a real full-image link (704ms)
+  ✓   5 [chromium] › tests/browser/media-public.spec.ts:72:1 › viewer retains keyboard focus when an end control becomes disabled (668ms)
+  ✓   3 [chromium] › tests/browser/media-public.spec.ts:6:1 › fixture uses real responsive files with one lead image and no review content (1.8s)
+  ✓   6 [chromium] › tests/browser/media-public.spec.ts:90:1 › image stories and viewer controls fit narrow and short screens (757ms)
+  ✓   7 [chromium] › tests/browser/media-public.spec.ts:108:1 › synthetic media cold-entry transfer stays within the page budget (721ms)
+(node:27774) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:27776) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:27777) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [webkit] › tests/browser/media-public.spec.ts:26:1 › full-frame image loads only on opening, remains contained and restores focus (2.8s)
+  ✓   9 [webkit] › tests/browser/media-public.spec.ts:6:1 › fixture uses real responsive files with one lead image and no review content (3.6s)
+  ✓  11 [webkit] › tests/browser/media-public.spec.ts:47:1 › failed photographs have useful feedback and a full-view recovery path (852ms)
+  ✓  12 [webkit] › tests/browser/media-public.spec.ts:60:1 › no-JavaScript visitor follows a real full-image link (750ms)
+  ✓  13 [webkit] › tests/browser/media-public.spec.ts:72:1 › viewer retains keyboard focus when an end control becomes disabled (780ms)
+  ✓  15 [webkit] › tests/browser/media-public.spec.ts:108:1 › synthetic media cold-entry transfer stays within the page budget (910ms)
+  ✓  14 [webkit] › tests/browser/media-public.spec.ts:90:1 › image stories and viewer controls fit narrow and short screens (1.2s)
+  ✓   8 [firefox] › tests/browser/media-public.spec.ts:6:1 › fixture uses real responsive files with one lead image and no review content (4.7s)
+  ✓  16 [firefox] › tests/browser/media-public.spec.ts:26:1 › full-frame image loads only on opening, remains contained and restores focus (459ms)
+  ✓  17 [firefox] › tests/browser/media-public.spec.ts:47:1 › failed photographs have useful feedback and a full-view recovery path (492ms)
+  ✓  18 [firefox] › tests/browser/media-public.spec.ts:60:1 › no-JavaScript visitor follows a real full-image link (396ms)
+  ✓  19 [firefox] › tests/browser/media-public.spec.ts:72:1 › viewer retains keyboard focus when an end control becomes disabled (473ms)
+  ✓  20 [firefox] › tests/browser/media-public.spec.ts:90:1 › image stories and viewer controls fit narrow and short screens (1.0s)
+  ✓  21 [firefox] › tests/browser/media-public.spec.ts:108:1 › synthetic media cold-entry transfer stays within the page budget (1.4s)
+
+  21 passed (22.4s)

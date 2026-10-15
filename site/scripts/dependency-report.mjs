@@ -73,7 +73,7 @@ const patterns = [
 const secretFindings = [];
 const skipped = [];
 let scannedFiles = 0;
-const sourceRoots = ['src', 'server', 'netlify', 'public', 'scripts', 'tests', 'dist'];
+const sourceRoots = ['src', 'server', 'netlify', 'public', 'content', 'scripts', 'tests', 'dist', 'dist-fixture', 'dist-integration'];
 const candidates = [];
 function collect(path) {
   if (!existsSync(path)) return;
@@ -140,7 +140,7 @@ const report = {
     packages: packages.filter((entry) => Object.keys(entry.lifecycleScripts).length || entry.lockHasInstallScript),
     note: 'Commands are inventoried, not executed. Prepare scripts in published registry packages describe package development/publishing and are not ordinary dependency install hooks. Git/local installs have different behavior. Review preinstall/install/postinstall and lock hasInstallScript flags before any rebuild.',
   },
-  secrets: { scope: 'Site src, public, scripts, tests, built dist when present, and root text/config files. Excludes node_modules, external workspace files and audit outputs.', scannedFiles, skipped, findings: secretFindings, limitation: 'A narrow pattern scan cannot prove the absence of all credentials or private information.' },
+  secrets: { scope: 'Site src, server, netlify, public, content, scripts, tests, all three built outputs when present, and root text/config files. Excludes node_modules, external workspace files and audit outputs.', scannedFiles, skipped, findings: secretFindings, limitation: 'A narrow pattern scan cannot prove the absence of all credentials or private information.' },
   packages,
 };
 const filename = `${stamp}-dependency-report.json`;

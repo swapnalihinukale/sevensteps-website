@@ -1,5 +1,5 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "src/**/*", "server/**/*.ts", "netlify/**/*.ts", "tests/**/*.ts", "playwright.config.ts", "astro.config.mjs"],
-  "exclude": ["dist", "node_modules", "playwright-report", "test-results", "test-results-*", "docs"]
+  "exclude": ["dist", "dist-fixture", "dist-integration", ".generated", "node_modules", "playwright-report", "test-results", "test-results-*", "docs"]
 }

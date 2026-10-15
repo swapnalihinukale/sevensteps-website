@@ -15,6 +15,16 @@ npm run preview
 
 Open `http://127.0.0.1:4321/`. The server binds to this computer's loopback address. For editing, use `npm run dev`. Rebuild and reload when using the production preview.
 
+## Content-ready test builds
+
+`npm run build:fixture` prepares geometric image fixtures and public templates in `dist-fixture`. Start `npm run preview:fixture` to inspect them at `http://127.0.0.1:4324/`. These are labelled test patterns, not portfolio photographs.
+
+`npm run build:integration` prepares the actual designed enquiry form in `dist-integration`. Start `npm run lab:site` for the loopback-only synthetic test at `http://127.0.0.1:4323/`. It uses temporary PostgreSQL and sends no email. Ctrl+C cleans up its own database.
+
+Before the full browser suite, build review, fixture and integration outputs, then stop any manually running test servers on ports 4322 through 4324. Playwright starts and stops its own instances. Run `npm run test:media` for image transformations and `npm run test:build` for public/hosted-mode refusal checks; the latter restores the review build after verifying rejection.
+
+Real media inputs, public-field rules and the remaining release conditions are described in [content inputs](content/README.md), [media pipeline](docs/MEDIA-PIPELINE.md) and the [current implementation report](../docs/CONTENT-READY-IMPLEMENTATION-2026-10-15.md). Test build directories are never deployment targets.
+
 ## Routes
 
 | Route | Purpose |

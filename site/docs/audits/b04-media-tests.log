@@ -1,0 +1,116 @@
+
+> seven-steps-private-draft@0.1.0 test:media
+> node --test tests/media.test.mjs
+
+TAP version 13
+# Subtest: encodes responsive AVIF, WebP and JPEG derivatives with actual dimensions
+ok 1 - encodes responsive AVIF, WebP and JPEG derivatives with actual dimensions
+  ---
+  duration_ms: 1401.34675
+  type: 'test'
+  ...
+# Subtest: keeps small masters at native size and serves a bounded full frame
+ok 2 - keeps small masters at native size and serves a bounded full frame
+  ---
+  duration_ms: 162.230125
+  type: 'test'
+  ...
+# Subtest: normalizes EXIF orientation and strips private EXIF, XMP and ICC metadata
+ok 3 - normalizes EXIF orientation and strips private EXIF, XMP and ICC metadata
+  ---
+  duration_ms: 15.816083
+  type: 'test'
+  ...
+# Subtest: flattens transparent raster pixels against the page paper colour
+ok 4 - flattens transparent raster pixels against the page paper colour
+  ---
+  duration_ms: 10.33025
+  type: 'test'
+  ...
+# Subtest: converts a tagged Display P3 input to sRGB pixels before discarding the profile
+ok 5 - converts a tagged Display P3 input to sRGB pixels before discarding the profile
+  ---
+  duration_ms: 15.326833
+  type: 'test'
+  ...
+# Subtest: repeat compilation has stable URLs and refuses an output content collision
+ok 6 - repeat compilation has stable URLs and refuses an output content collision
+  ---
+  duration_ms: 2725.221208
+  type: 'test'
+  ...
+# Subtest: source identity, focal points and public copy are validated before decoding
+ok 7 - source identity, focal points and public copy are validated before decoding
+  ---
+  duration_ms: 0.497584
+  type: 'test'
+  ...
+# Subtest: synthetic assets and uncleared photographs cannot enter public preparation
+ok 8 - synthetic assets and uncleared photographs cannot enter public preparation
+  ---
+  duration_ms: 0.310541
+  type: 'test'
+  ...
+# Subtest: remote URLs, absolute paths, traversal and unsupported extensions are rejected
+ok 9 - remote URLs, absolute paths, traversal and unsupported extensions are rejected
+  ---
+  duration_ms: 0.448958
+  type: 'test'
+  ...
+# Subtest: symlinks cannot read an image outside the fixed source root
+ok 10 - symlinks cannot read an image outside the fixed source root
+  ---
+  duration_ms: 1.297709
+  type: 'test'
+  ...
+# Subtest: source and output directories cannot overlap through direct or symlinked paths
+ok 11 - source and output directories cannot overlap through direct or symlinked paths
+  ---
+  duration_ms: 0.707291
+  type: 'test'
+  ...
+# Subtest: missing, empty and corrupt files fail with a bounded diagnostic
+ok 12 - missing, empty and corrupt files fail with a bounded diagnostic
+  ---
+  duration_ms: 2.043292
+  type: 'test'
+  ...
+# Subtest: overlarge byte and dimension inputs fail before conversion
+ok 13 - overlarge byte and dimension inputs fail before conversion
+  ---
+  duration_ms: 1.677834
+  type: 'test'
+  ...
+# Subtest: pixel limits reject a malicious PNG header before allocating its declared image
+ok 14 - pixel limits reject a malicious PNG header before allocating its declared image
+  ---
+  duration_ms: 0.902042
+  type: 'test'
+  ...
+# Subtest: an unsupported raster cannot bypass the input format gate by changing its extension
+ok 15 - an unsupported raster cannot bypass the input format gate by changing its extension
+  ---
+  duration_ms: 1.487667
+  type: 'test'
+  ...
+# Subtest: animated WebP inputs fail instead of silently publishing one frame
+ok 16 - animated WebP inputs fail instead of silently publishing one frame
+  ---
+  duration_ms: 1.488416
+  type: 'test'
+  ...
+# Subtest: the generated output contains derivatives and no original file or manifest
+ok 17 - the generated output contains derivatives and no original file or manifest
+  ---
+  duration_ms: 0.294542
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4427.128

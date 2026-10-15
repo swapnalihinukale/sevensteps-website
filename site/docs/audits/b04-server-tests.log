@@ -1,0 +1,621 @@
+
+> seven-steps-private-draft@0.1.0 test:server
+> node scripts/test-server.mjs
+
+postgres (PostgreSQL) 16.13 (Homebrew): isolated loopback test database ready.
+TAP version 13
+# Subtest: all live activation gates must agree before constructing providers
+ok 1 - all live activation gates must agree before constructing providers
+  ---
+  duration_ms: 1.710042
+  type: 'test'
+  ...
+# Subtest: public origin and database TLS configuration fail closed
+ok 2 - public origin and database TLS configuration fail closed
+  ---
+  duration_ms: 0.846667
+  type: 'test'
+  ...
+# Subtest: missing secrets and shared rate/fingerprint keys fail before activation
+ok 3 - missing secrets and shared rate/fingerprint keys fail before activation
+  ---
+  duration_ms: 0.399333
+  type: 'test'
+  ...
+# Subtest: issues a no-store token without returning personal data
+ok 4 - issues a no-store token without returning personal data
+  ---
+  duration_ms: 24.598292
+  type: 'test'
+  ...
+# Subtest: does not send or return receipt before the store commits
+ok 5 - does not send or return receipt before the store commits
+  ---
+  duration_ms: 6.13575
+  type: 'test'
+  ...
+# Subtest: a pre-commit storage failure returns a safe 503 without sending
+ok 6 - a pre-commit storage failure returns a safe 503 without sending
+  ---
+  duration_ms: 1.009416
+  type: 'test'
+  ...
+# Subtest: post-commit provider failure preserves the receipt and records repair work
+ok 7 - post-commit provider failure preserves the receipt and records repair work
+  ---
+  duration_ms: 0.820917
+  type: 'test'
+  ...
+# Subtest: a post-commit claim failure does not turn a received enquiry into a failure
+ok 8 - a post-commit claim failure does not turn a received enquiry into a failure
+  ---
+  duration_ms: 1.13475
+  type: 'test'
+  ...
+# Subtest: diagnostic failures cannot undo a committed receipt or escape the HTTP handler
+ok 9 - diagnostic failures cannot undo a committed receipt or escape the HTTP handler
+  ---
+  duration_ms: 0.773125
+  type: 'test'
+  ...
+# Subtest: same-key retry returns the same receipt and changed content returns conflict
+ok 10 - same-key retry returns the same receipt and changed content returns conflict
+  ---
+  duration_ms: 2.79225
+  type: 'test'
+  ...
+# Subtest: malformed JSON and extra envelope fields never reach storage
+ok 11 - malformed JSON and extra envelope fields never reach storage
+  ---
+  duration_ms: 1.926667
+  type: 'test'
+  ...
+# Subtest: wrong content type or encoded bodies are rejected before parsing
+ok 12 - wrong content type or encoded bodies are rejected before parsing
+  ---
+  duration_ms: 1.270584
+  type: 'test'
+  ...
+# Subtest: enforces both declared and actual body byte limits
+ok 13 - enforces both declared and actual body byte limits
+  ---
+  duration_ms: 1.085375
+  type: 'test'
+  ...
+# Subtest: accepts a valid JSON body at the exact 64 KiB byte boundary
+ok 14 - accepts a valid JSON body at the exact 64 KiB byte boundary
+  ---
+  duration_ms: 0.671125
+  type: 'test'
+  ...
+# Subtest: accepts maximum-length Unicode fields encoded as literal UTF-8 within 64 KiB
+ok 15 - accepts maximum-length Unicode fields encoded as literal UTF-8 within 64 KiB
+  ---
+  duration_ms: 2.826875
+  type: 'test'
+  ...
+# Subtest: accepts maximum-length Unicode fields encoded as escaped UTF-16 within 64 KiB
+ok 16 - accepts maximum-length Unicode fields encoded as escaped UTF-16 within 64 KiB
+  ---
+  duration_ms: 2.716875
+  type: 'test'
+  ...
+# Subtest: reports safe field errors for controls, extra fields, bad types and oversized values
+ok 17 - reports safe field errors for controls, extra fields, bad types and oversized values
+  ---
+  duration_ms: 1.361167
+  type: 'test'
+  ...
+# Subtest: rejects missing or cross-site submission origins and cross-site token requests
+ok 18 - rejects missing or cross-site submission origins and cross-site token requests
+  ---
+  duration_ms: 0.787417
+  type: 'test'
+  ...
+# Subtest: fails closed for unsupported routes, methods and query strings
+ok 19 - fails closed for unsupported routes, methods and query strings
+  ---
+  duration_ms: 0.642375
+  type: 'test'
+  ...
+# Subtest: uses trusted adapter IP and ignores forwarded request headers
+ok 20 - uses trusted adapter IP and ignores forwarded request headers
+  ---
+  duration_ms: 5.571791
+  type: 'test'
+  ...
+# Subtest: rate limits return a bounded Retry-After without accepting or sending
+ok 21 - rate limits return a bounded Retry-After without accepting or sending
+  ---
+  duration_ms: 0.498125
+  type: 'test'
+  ...
+# Subtest: a rate-store failure returns 503 before token issuance or storage
+ok 22 - a rate-store failure returns 503 before token issuance or storage
+  ---
+  duration_ms: 0.233166
+  type: 'test'
+  ...
+# Subtest: expired and invalid tokens never create an enquiry
+ok 23 - expired and invalid tokens never create an enquiry
+  ---
+  duration_ms: 0.617917
+  type: 'test'
+  ...
+# Subtest: real PostgreSQL round trip keeps one retrievable enquiry after a lost-acknowledgement retry
+ok 24 - real PostgreSQL round trip keeps one retrievable enquiry after a lost-acknowledgement retry
+  ---
+  duration_ms: 67.0035
+  type: 'test'
+  ...
+# (node:20816) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: dispatch claims before sending, preserves immutable payload/key and saves acceptance under the lease
+ok 25 - dispatch claims before sending, preserves immutable payload/key and saves acceptance under the lease
+  ---
+  duration_ms: 2.08725
+  type: 'test'
+  ...
+# Subtest: empty outbox is idle and never calls the sender
+ok 26 - empty outbox is idle and never calls the sender
+  ---
+  duration_ms: 0.159
+  type: 'test'
+  ...
+# Subtest: 22-hour boundary, future attempt time, exhausted attempts and changed key never send
+ok 27 - 22-hour boundary, future attempt time, exhausted attempts and changed key never send
+  ---
+  duration_ms: 0.465875
+  type: 'test'
+  ...
+# Subtest: provider timeout returns despite an ignored abort; a late success never overwrites retry
+ok 28 - provider timeout returns despite an ignored abort; a late success never overwrites retry
+  ---
+  duration_ms: 1.31825
+  type: 'test'
+  ...
+# Subtest: synchronous provider rejection becomes safe retry without leaking its message
+ok 29 - synchronous provider rejection becomes safe retry without leaking its message
+  ---
+  duration_ms: 0.224666
+  type: 'test'
+  ...
+# Subtest: malformed sender output is bounded retry, and a sixth retry or late Retry-After is reconciliation
+ok 30 - malformed sender output is bounded retry, and a sixth retry or late Retry-After is reconciliation
+  ---
+  duration_ms: 0.449041
+  type: 'test'
+  ...
+# Subtest: finish-write failure leaves lease recovery and emits only a fixed diagnostic
+ok 31 - finish-write failure leaves lease recovery and emits only a fixed diagnostic
+  ---
+  duration_ms: 0.23425
+  type: 'test'
+  ...
+# Subtest: diagnostic exceptions cannot invalidate handled work; claim failures propagate safely to caller
+ok 32 - diagnostic exceptions cannot invalidate handled work; claim failures propagate safely to caller
+  ---
+  duration_ms: 0.4875
+  type: 'test'
+  ...
+# Subtest: repair handles at most four claims and reports idle without claiming again after a work deadline
+ok 33 - repair handles at most four claims and reports idle without claiming again after a work deadline
+  ---
+  duration_ms: 2.634917
+  type: 'test'
+  ...
+# Subtest: a delayed claim cannot start a provider call past the 20-second work budget
+ok 34 - a delayed claim cannot start a provider call past the 20-second work budget
+  ---
+  duration_ms: 1.095917
+  type: 'test'
+  ...
+# Subtest: Resend adapter sends only the immutable plain-text operator notification, stable key and supplied signal
+ok 35 - Resend adapter sends only the immutable plain-text operator notification, stable key and supplied signal
+  ---
+  duration_ms: 1.564625
+  type: 'test'
+  ...
+# Subtest: provider temporary errors retry while invalid keys, payload/auth and idempotency conflicts stop automatic work
+ok 36 - provider temporary errors retry while invalid keys, payload/auth and idempotency conflicts stop automatic work
+  ---
+  duration_ms: 0.686458
+  type: 'test'
+  ...
+# Subtest: Retry-After dates are interpreted, and malformed responses do not claim acceptance
+ok 37 - Retry-After dates are interpreted, and malformed responses do not claim acceptance
+  ---
+  duration_ms: 1.794916
+  type: 'test'
+  ...
+# Subtest: routing drift, unsafe payload and an already-aborted call cannot contact the provider
+ok 38 - routing drift, unsafe payload and an already-aborted call cannot contact the provider
+  ---
+  duration_ms: 0.323542
+  type: 'test'
+  ...
+# Subtest: SDK transport rejection is reduced to a fixed code
+ok 39 - SDK transport rejection is reduced to a fixed code
+  ---
+  duration_ms: 0.28825
+  type: 'test'
+  ...
+# Subtest: shared IDN validation accepts the normalized reply address without changing the stored payload
+ok 40 - shared IDN validation accepts the normalized reply address without changing the stored payload
+  ---
+  duration_ms: 3.405292
+  type: 'test'
+  ...
+# Subtest: the provider adapter independently refuses an expired notification window
+ok 41 - the provider adapter independently refuses an expired notification window
+  ---
+  duration_ms: 0.116625
+  type: 'test'
+  ...
+# Subtest: PostgreSQL enquiry store
+    # Subtest: receipt, enquiry and immutable outbox commit together; duplicate keeps original payload
+    ok 1 - receipt, enquiry and immutable outbox commit together; duplicate keeps original payload
+      ---
+      duration_ms: 34.52075
+      type: 'test'
+      ...
+    # Subtest: outbox insert failure rolls back receipt and enquiry on the same connection
+    ok 2 - outbox insert failure rolls back receipt and enquiry on the same connection
+      ---
+      duration_ms: 20.879041
+      type: 'test'
+      ...
+    # Subtest: concurrent duplicates produce one record and changed HMAC returns conflict
+    ok 3 - concurrent duplicates produce one record and changed HMAC returns conflict
+      ---
+      duration_ms: 23.08375
+      type: 'test'
+      ...
+    # Subtest: concurrent changed payloads race to one winner and one conflict
+    ok 4 - concurrent changed payloads race to one winner and one conflict
+      ---
+      duration_ms: 13.09675
+      type: 'test'
+      ...
+    # Subtest: concurrent claimers lease each due row once and persist first attempt before sending
+    ok 5 - concurrent claimers lease each due row once and persist first attempt before sending
+      ---
+      duration_ms: 16.389584
+      type: 'test'
+      ...
+    # Subtest: SKIP LOCKED claims a second row while the first row is locked
+    ok 6 - SKIP LOCKED claims a second row while the first row is locked
+      ---
+      duration_ms: 13.214041
+      type: 'test'
+      ...
+    # Subtest: expired lease recovers with the original provider key; stale owner cannot finish
+    ok 7 - expired lease recovers with the original provider key; stale owner cannot finish
+      ---
+      duration_ms: 17.927125
+      type: 'test'
+      ...
+    # Subtest: expired owner cannot finish even before a replacement worker claims
+    ok 8 - expired owner cannot finish even before a replacement worker claims
+      ---
+      duration_ms: 10.974375
+      type: 'test'
+      ...
+    # Subtest: retry eligibility uses the next UTC four-hour boundary and respects Retry-After
+    ok 9 - retry eligibility uses the next UTC four-hour boundary and respects Retry-After
+      ---
+      duration_ms: 12.3675
+      type: 'test'
+      ...
+    # Subtest: six attempts exhaust into reconciliation and cannot send again
+    ok 10 - six attempts exhaust into reconciliation and cannot send again
+      ---
+      duration_ms: 17.993166
+      type: 'test'
+      ...
+    # Subtest: 22-hour cutoff repairs an abandoned lease without another provider attempt
+    ok 11 - 22-hour cutoff repairs an abandoned lease without another provider attempt
+      ---
+      duration_ms: 9.735333
+      type: 'test'
+      ...
+    # Subtest: a crash on the sixth attempt reaches reconciliation when the lease expires
+    ok 12 - a crash on the sixth attempt reaches reconciliation when the lease expires
+      ---
+      duration_ms: 14.528541
+      type: 'test'
+      ...
+    # Subtest: Retry-After outside the provider window goes to reconciliation
+    ok 13 - Retry-After outside the provider window goes to reconciliation
+      ---
+      duration_ms: 9.413666
+      type: 'test'
+      ...
+    # Subtest: extreme finite Retry-After is bounded by the stored provider deadline
+    ok 14 - extreme finite Retry-After is bounded by the stored provider deadline
+      ---
+      duration_ms: 9.956125
+      type: 'test'
+      ...
+    # Subtest: permanent failure stores only a safe reason and cannot re-enter delivery
+    ok 15 - permanent failure stores only a safe reason and cannot re-enter delivery
+      ---
+      duration_ms: 13.983875
+      type: 'test'
+      ...
+    # Subtest: webhook before send completion is retained and reconciled on provider association
+    ok 16 - webhook before send completion is retained and reconciled on provider association
+      ---
+      duration_ms: 11.521459
+      type: 'test'
+      ...
+    # Subtest: webhook racing send completion cannot lose a delivery event
+    ok 17 - webhook racing send completion cannot lose a delivery event
+      ---
+      duration_ms: 25.441125
+      type: 'test'
+      ...
+    # Subtest: terminal webhook results resist late sent/delayed and older terminal events
+    ok 18 - terminal webhook results resist late sent/delayed and older terminal events
+      ---
+      duration_ms: 17.061583
+      type: 'test'
+      ...
+    # Subtest: fixed-bucket rate limiting is atomic, expires at boundary and bounds stored hits
+    ok 19 - fixed-bucket rate limiting is atomic, expires at boundary and bounds stored hits
+      ---
+      duration_ms: 11.882833
+      type: 'test'
+      ...
+    # Subtest: PII deletion clears both payloads but preserves dedup for at least seven further days
+    ok 20 - PII deletion clears both payloads but preserves dedup for at least seven further days
+      ---
+      duration_ms: 11.846709
+      type: 'test'
+      ...
+    # Subtest: active lease prevents retention deletion until the claim expires
+    ok 21 - active lease prevents retention deletion until the claim expires
+      ---
+      duration_ms: 9.3065
+      type: 'test'
+      ...
+    # Subtest: operator views expose received enquiries and recovery without token/fingerprint fields
+    ok 22 - operator views expose received enquiries and recovery without token/fingerprint fields
+      ---
+      duration_ms: 10.406167
+      type: 'test'
+      ...
+    # Subtest: runtime and operator role grants enforce their separate capabilities
+    ok 23 - runtime and operator role grants enforce their separate capabilities
+      ---
+      duration_ms: 28.16025
+      type: 'test'
+      ...
+    1..23
+ok 42 - PostgreSQL enquiry store
+  ---
+  duration_ms: 410.473708
+  type: 'suite'
+  ...
+# Subtest: transaction helper releases a broken client after rollback failure
+ok 43 - transaction helper releases a broken client after rollback failure
+  ---
+  duration_ms: 0.254833
+  type: 'test'
+  ...
+# Subtest: Netlify token endpoint defaults to 503 without a database, HTTP request or context access
+ok 44 - Netlify token endpoint defaults to 503 without a database, HTTP request or context access
+  ---
+  duration_ms: 3.81175
+  type: 'test'
+  ...
+# Subtest: Netlify enquiry endpoint defaults to 503 without reading the body or constructing a received state
+ok 45 - Netlify enquiry endpoint defaults to 503 without reading the body or constructing a received state
+  ---
+  duration_ms: 0.859625
+  type: 'test'
+  ...
+# Subtest: Netlify webhook defaults to 503 before reading or recording an event
+ok 46 - Netlify webhook defaults to 503 before reading or recording an event
+  ---
+  duration_ms: 1.209083
+  type: 'test'
+  ...
+# Subtest: disabled scheduled repair returns 503 without connecting, claiming or sending
+ok 47 - disabled scheduled repair returns 503 without connecting, claiming or sending
+  ---
+  duration_ms: 0.464917
+  type: 'test'
+  ...
+# Subtest: deployed function metadata retains explicit API paths and four-hour repair schedule
+ok 48 - deployed function metadata retains explicit API paths and four-hour repair schedule
+  ---
+  duration_ms: 0.072875
+  type: 'test'
+  ...
+# Subtest: issues a signed token with a 128-bit random ID and an exact 24-hour lifetime
+ok 49 - issues a signed token with a 128-bit random ID and an exact 24-hour lifetime
+  ---
+  duration_ms: 25.1565
+  type: 'test'
+  ...
+# Subtest: checks secret size, separate fingerprint key and explicit key configuration
+ok 50 - checks secret size, separate fingerprint key and explicit key configuration
+  ---
+  duration_ms: 0.898792
+  type: 'test'
+  ...
+# Subtest: rejects expiry at the boundary and tokens presented before their issue time
+ok 51 - rejects expiry at the boundary and tokens presented before their issue time
+  ---
+  duration_ms: 0.650917
+  type: 'test'
+  ...
+# Subtest: rejects tampering, non-canonical encodings, extra segments and oversized tokens
+ok 52 - rejects tampering, non-canonical encodings, extra segments and oversized tokens
+  ---
+  duration_ms: 1.363292
+  type: 'test'
+  ...
+# Subtest: enforces token schema and time constraints even for a valid MAC
+ok 53 - enforces token schema and time constraints even for a valid MAC
+  ---
+  duration_ms: 1.314708
+  type: 'test'
+  ...
+# Subtest: rejects duplicate JSON members and alternate wire representations
+ok 54 - rejects duplicate JSON members and alternate wire representations
+  ---
+  duration_ms: 0.644083
+  type: 'test'
+  ...
+# Subtest: rotates the signing key with verification overlap and stable fingerprints
+ok 55 - rotates the signing key with verification overlap and stable fingerprints
+  ---
+  duration_ms: 4.915625
+  type: 'test'
+  ...
+# Subtest: captures key configuration instead of reading caller mutations during requests
+ok 56 - captures key configuration instead of reading caller mutations during requests
+  ---
+  duration_ms: 0.464375
+  type: 'test'
+  ...
+# Subtest: fingerprints normalized values in a canonical order
+ok 57 - fingerprints normalized values in a canonical order
+  ---
+  duration_ms: 0.912375
+  type: 'test'
+  ...
+# Subtest: each meaningful enquiry field changes the fingerprint and invalid data is rejected
+ok 58 - each meaningful enquiry field changes the fingerprint and invalid data is rejected
+  ---
+  duration_ms: 0.6875
+  type: 'test'
+  ...
+# Subtest: normalizes a valid enquiry without coercing types or adding business facts
+ok 59 - normalizes a valid enquiry without coercing types or adding business facts
+  ---
+  duration_ms: 3.17575
+  type: 'test'
+  ...
+# Subtest: accepts international names and ordinary name punctuation
+ok 60 - accepts international names and ordinary name punctuation
+  ---
+  duration_ms: 1.19925
+  type: 'test'
+  ...
+# Subtest: enforces each documented character limit and the mailbox byte limit
+ok 61 - enforces each documented character limit and the mailbox byte limit
+  ---
+  duration_ms: 0.268208
+  type: 'test'
+  ...
+# Subtest: rejects non-objects, inherited records, extra keys and accessors without invoking them
+ok 62 - rejects non-objects, inherited records, extra keys and accessors without invoking them
+  ---
+  duration_ms: 0.978458
+  type: 'test'
+  ...
+# Subtest: requires string values, including optional fields when present
+ok 63 - requires string values, including optional fields when present
+  ---
+  duration_ms: 1.513292
+  type: 'test'
+  ...
+# Subtest: rejects control characters before trimming and only permits message line feeds and tabs
+ok 64 - rejects control characters before trimming and only permits message line feeds and tabs
+  ---
+  duration_ms: 5.013833
+  type: 'test'
+  ...
+# Subtest: rejects directional spoofing, hidden controls, invalid Unicode and header injection
+ok 65 - rejects directional spoofing, hidden controls, invalid Unicode and header injection
+  ---
+  duration_ms: 0.356417
+  type: 'test'
+  ...
+# Subtest: uses a bounded practical mailbox format and preserves local-part case
+ok 66 - uses a bounded practical mailbox format and preserves local-part case
+  ---
+  duration_ms: 0.159875
+  type: 'test'
+  ...
+# Subtest: only accepts the two explicit story identifiers or no selection
+ok 67 - only accepts the two explicit story identifiers or no selection
+  ---
+  duration_ms: 0.440333
+  type: 'test'
+  ...
+# Subtest: builds an immutable notification with fixed headers and a plain text body
+ok 68 - builds an immutable notification with fixed headers and a plain text body
+  ---
+  duration_ms: 1.190375
+  type: 'test'
+  ...
+# Subtest: cannot create notification headers from invalid enquiries or configured mailboxes
+ok 69 - cannot create notification headers from invalid enquiries or configured mailboxes
+  ---
+  duration_ms: 0.757208
+  type: 'test'
+  ...
+# (node:20825) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: signed delivery lifecycle events become minimal records with header event IDs and no personal content
+ok 70 - signed delivery lifecycle events become minimal records with header event IDs and no personal content
+  ---
+  duration_ms: 4.958875
+  type: 'test'
+  ...
+# Subtest: repeated verified event has the same ID for store deduplication; older occurrence remains available for ordering
+ok 71 - repeated verified event has the same ID for store deduplication; older occurrence remains available for ordering
+  ---
+  duration_ms: 0.724666
+  type: 'test'
+  ...
+# Subtest: tampered body, wrong secret, wrong signature and missing headers are rejected
+ok 72 - tampered body, wrong secret, wrong signature and missing headers are rejected
+  ---
+  duration_ms: 1.293916
+  type: 'test'
+  ...
+# Subtest: replay timestamps outside five minutes in either direction fail; exact boundary is allowed
+ok 73 - replay timestamps outside five minutes in either direction fail; exact boundary is allowed
+  ---
+  duration_ms: 0.44
+  type: 'test'
+  ...
+# Subtest: tracking and unsupported signed types are ignored only after signature verification
+ok 74 - tracking and unsupported signed types are ignored only after signature verification
+  ---
+  duration_ms: 0.655166
+  type: 'test'
+  ...
+# Subtest: known events need strict provider IDs and valid RFC3339 occurrence time
+ok 75 - known events need strict provider IDs and valid RFC3339 occurrence time
+  ---
+  duration_ms: 0.938334
+  type: 'test'
+  ...
+# Subtest: header casing is accepted, ambiguous aliases/duplicates and malformed header IDs/timestamps are rejected
+ok 76 - header casing is accepted, ambiguous aliases/duplicates and malformed header IDs/timestamps are rejected
+  ---
+  duration_ms: 0.8775
+  type: 'test'
+  ...
+# Subtest: oversized raw bodies, malformed JSON/envelopes and invalid secrets are rejected without throwing
+ok 77 - oversized raw bodies, malformed JSON/envelopes and invalid secrets are rejected without throwing
+  ---
+  duration_ms: 0.411042
+  type: 'test'
+  ...
+1..77
+# tests 99
+# suites 1
+# pass 99
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 603.827167
+Isolated PostgreSQL test cluster stopped and removed.

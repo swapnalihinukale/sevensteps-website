@@ -1,0 +1,84 @@
+{
+  "report": "docs/audits/2026-10-15T13-09-46Z-dependency-report.json",
+  "counts": {
+    "locked": 372,
+    "installed": 304,
+    "devOnly": 82,
+    "nonDev": 290,
+    "optionalNotInstalled": 68
+  },
+  "audits": [
+    {
+      "scope": "full",
+      "file": "2026-10-15T13-09-46Z-npm-audit-full.json",
+      "exitCode": 0,
+      "healthy": true,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "dependencies": {
+        "prod": 214,
+        "dev": 82,
+        "optional": 77,
+        "peer": 0,
+        "peerOptional": 0,
+        "total": 372
+      }
+    },
+    {
+      "scope": "production",
+      "file": "2026-10-15T13-09-46Z-npm-audit-production.json",
+      "exitCode": 0,
+      "healthy": true,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "dependencies": {
+        "prod": 214,
+        "dev": 82,
+        "optional": 77,
+        "peer": 0,
+        "peerOptional": 0,
+        "total": 372
+      }
+    }
+  ],
+  "licenseCounts": {
+    "MIT": 286,
+    "MPL-2.0": 14,
+    "ISC": 16,
+    "OFL-1.1": 2,
+    "Apache-2.0": 20,
+    "LGPL-3.0-or-later": 10,
+    "Apache-2.0 AND LGPL-3.0-or-later AND MIT": 1,
+    "Apache-2.0 AND LGPL-3.0-or-later": 3,
+    "BlueOak-1.0.0": 3,
+    "BSD-2-Clause": 8,
+    "CC0-1.0": 2,
+    "BSD-3-Clause": 4,
+    "Unlicense": 1,
+    "MIT-0": 1,
+    "0BSD": 1
+  },
+  "unresolved": {
+    "directPins": [],
+    "missingRequiredInstallations": [],
+    "installedVersionMismatch": [],
+    "unknownLicenses": [],
+    "missingRegistryIntegrity": [],
+    "lockChangedDuringReport": false
+  },
+  "secretFindings": 0,
+  "secretFilesScanned": 127,
+  "lifecyclePackageCount": 26
+}

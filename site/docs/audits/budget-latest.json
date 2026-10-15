@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-15T11:55:11.070Z",
+  "generatedAt": "2026-10-15T13:05:47.606Z",
   "dist": "dist",
-  "artifactSha256": "14686a5c1f0afaa9346e79ca6c4023be80e68f4dbd3b3f703a969b6c802f650b",
+  "artifactSha256": "2b7ba77fad279cac84f44da5ec9db46f6c5437910ef4539adb82e34835ab5d49",
   "result": "pass-artifact-limits",
   "methodology": "Sum gzip level-9 bytes for every emitted CSS and JS file, the largest gzip HTML file, and raw bytes for every emitted font. This is a conservative file envelope, not a measured initial request graph.",
   "limitations": [
@@ -18,13 +18,13 @@
   "checks": [
     {
       "name": "css",
-      "measuredBytes": 6493,
+      "measuredBytes": 6506,
       "limitBytes": 30720,
       "pass": true
     },
     {
       "name": "javascript",
-      "measuredBytes": 3287,
+      "measuredBytes": 3793,
       "limitBytes": 81920,
       "pass": true
     },
@@ -42,7 +42,7 @@
     },
     {
       "name": "shell",
-      "measuredBytes": 96528,
+      "measuredBytes": 97047,
       "limitBytes": 358400,
       "pass": true
     }
@@ -53,21 +53,21 @@
       "group": "html",
       "bytes": 4432,
       "gzipBytes": 1323,
-      "sha256": "6e5bcbb688d99650239d31723efe0c98abc5ee5c14a38b10feb0a0c4bfdeda0d"
+      "sha256": "37fd170ab3e282e62c82e343f874ea127e9df43e85c2fc4828d06c6b69fb5a01"
     },
     {
-      "path": "_astro/Layout.P7RbfqFT.css",
-      "group": "css",
-      "bytes": 26759,
-      "gzipBytes": 6493,
-      "sha256": "50b23051a42d8b88e847bba8276d8856c95ad47f3adc6654f105e7c0e29ab29f"
-    },
-    {
-      "path": "_astro/Layout.astro_astro_type_script_index_0_lang.4oWAC1BC.js",
+      "path": "_astro/Layout.astro_astro_type_script_index_0_lang.Ct_bYwNc.js",
       "group": "javascript",
-      "bytes": 9617,
-      "gzipBytes": 3287,
-      "sha256": "da463886bab2642e55c62b0291389fe2f6d411532f1c7f2eaa61187d076dbbea"
+      "bytes": 11315,
+      "gzipBytes": 3793,
+      "sha256": "8f25a406e09423be9b8c60140da5241e16fff1c5a5b310b07f9b915f8b61f891"
+    },
+    {
+      "path": "_astro/Layout.zgQt8O3U.css",
+      "group": "css",
+      "bytes": 26867,
+      "gzipBytes": 6506,
+      "sha256": "25a7cf795a472b8fcc37dfd9080cf3349de050ff445f97cea3daec900f37ee1e"
     },
     {
       "path": "_astro/source-sans-3-latin-wght-normal.Bo_j9asI.woff2",
@@ -88,7 +88,7 @@
       "group": "html",
       "bytes": 30682,
       "gzipBytes": 6940,
-      "sha256": "36bb8b97cadffd3e313b43708472d6c4998f3301c0d3749bc45c604e9dd67822"
+      "sha256": "947edc6e444a243ff37242d9c1231b124eda9505cf88292128fc24da6aaa349f"
     },
     {
       "path": "favicon.svg",
@@ -100,9 +100,9 @@
     {
       "path": "index.html",
       "group": "html",
-      "bytes": 25996,
-      "gzipBytes": 4785,
-      "sha256": "d8bd0e892fcd839e31b339958199cb9f476eef8fe3f1b5d3daa07598f0498a0d"
+      "bytes": 27513,
+      "gzipBytes": 5419,
+      "sha256": "70662aff8569adbfb4777663e7f0658707193eb6ee722f50152a83d1e24f07f5"
     },
     {
       "path": "licenses/source-sans-3-OFL.txt",
@@ -126,18 +126,25 @@
       "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
     },
     {
+      "path": "sitemap.xml",
+      "group": "other",
+      "bytes": 107,
+      "gzipBytes": null,
+      "sha256": "68ab08991efaca902bcb8a6518106d8b29964c5651f39abbb7eb7c9713ca2770"
+    },
+    {
       "path": "stories/couple-session/index.html",
       "group": "html",
-      "bytes": 25739,
-      "gzipBytes": 4317,
-      "sha256": "05aa793b4a330d6d9f418866bc5f6f3e496987f4b8f7d8d38d2bfa24a044fa8d"
+      "bytes": 27001,
+      "gzipBytes": 4838,
+      "sha256": "0dd76f6a721ce6799b32f75f37578829b7dee5e555a3bb22d591c13575480d4b"
     },
     {
       "path": "stories/wedding-story/index.html",
       "group": "html",
-      "bytes": 27003,
-      "gzipBytes": 4407,
-      "sha256": "7b7a2e7e8416ba3b59032cc261ed91408263db95ff2b65b15d6d46f203a0ab3b"
+      "bytes": 28265,
+      "gzipBytes": 4924,
+      "sha256": "b4ad1d95c7b5b54226c4717cf7c7e8af8f5b1834132a6a09fb1f9e41fd239560"
     }
   ]
 }

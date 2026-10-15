@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { contentSlots, getReadiness } from '../data/content';
 import { isReview } from '../lib/review';
-if (!isReview) throw new Error('The content checklist is available only in review builds.');
+export function getStaticPaths() { return isReview ? [{ params: { reviewPage: 'content-checklist' } }] : []; }
 const readiness = getReadiness();
 const sections = [...new Set(contentSlots.map(slot => slot.section))];
 ---

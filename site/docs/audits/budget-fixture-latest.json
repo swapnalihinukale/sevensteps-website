@@ -1,0 +1,339 @@
+{
+  "generatedAt": "2026-10-15T13:05:47.654Z",
+  "dist": "dist-fixture",
+  "artifactSha256": "e86240e7b720e98b0e509a99f4c3cfac5b16940f643fa21753a577622baec440",
+  "result": "pass-artifact-limits",
+  "methodology": "Sum gzip level-9 bytes for every emitted CSS and JS file, the largest gzip HTML file, and raw bytes for every emitted font. This is a conservative file envelope, not a measured initial request graph.",
+  "limitations": [
+    "Inline styles and scripts remain included in HTML. Deferred and route-specific files are included in CSS/JS totals.",
+    "The shell figure excludes images, video, headers, transport overhead and third-party requests. Passing it does not establish the complete 350 KiB critical-transfer target.",
+    "The 900 KiB cold-entry, 3 MiB homepage and 6 MiB story targets need browser request measurements with real content.",
+    "Gzip estimates do not verify hosting compression. Image quality, LCP, INP, CLS, actual font requests and device performance remain separate checks."
+  ],
+  "largestHtml": "stories/wedding-story/index.html",
+  "imageInventory": {
+    "count": 29,
+    "bytes": 256311
+  },
+  "checks": [
+    {
+      "name": "css",
+      "measuredBytes": 6506,
+      "limitBytes": 30720,
+      "pass": true
+    },
+    {
+      "name": "javascript",
+      "measuredBytes": 3793,
+      "limitBytes": 81920,
+      "pass": true
+    },
+    {
+      "name": "html",
+      "measuredBytes": 4589,
+      "limitBytes": 35840,
+      "pass": true
+    },
+    {
+      "name": "fonts",
+      "measuredBytes": 79808,
+      "limitBytes": 102400,
+      "pass": true
+    },
+    {
+      "name": "shell",
+      "measuredBytes": 94696,
+      "limitBytes": 358400,
+      "pass": true
+    }
+  ],
+  "files": [
+    {
+      "path": "404.html",
+      "group": "html",
+      "bytes": 3812,
+      "gzipBytes": 1190,
+      "sha256": "950711c1b47880563262ac968e1106740af89c7a31e98ee94e1591c8d343e0fb"
+    },
+    {
+      "path": "_astro/Layout.astro_astro_type_script_index_0_lang.Ct_bYwNc.js",
+      "group": "javascript",
+      "bytes": 11315,
+      "gzipBytes": 3793,
+      "sha256": "8f25a406e09423be9b8c60140da5241e16fff1c5a5b310b07f9b915f8b61f891"
+    },
+    {
+      "path": "_astro/Layout.zgQt8O3U.css",
+      "group": "css",
+      "bytes": 26867,
+      "gzipBytes": 6506,
+      "sha256": "25a7cf795a472b8fcc37dfd9080cf3349de050ff445f97cea3daec900f37ee1e"
+    },
+    {
+      "path": "_astro/source-sans-3-latin-wght-normal.Bo_j9asI.woff2",
+      "group": "fonts",
+      "bytes": 28872,
+      "gzipBytes": null,
+      "sha256": "19143dca075972bc84e3fd9eab7416dd40cc565dccb2435a044bdfabe060c7d5"
+    },
+    {
+      "path": "_astro/source-serif-4-latin-wght-normal.DMe4EKeb.woff2",
+      "group": "fonts",
+      "bytes": 50936,
+      "gzipBytes": null,
+      "sha256": "382475f38242c52d42a3e5ff8dc69b5d73f10d0d21e4550b5fe232984688779a"
+    },
+    {
+      "path": "favicon.svg",
+      "group": "images",
+      "bytes": 177,
+      "gzipBytes": null,
+      "sha256": "2c30e417412478130d2d3f187c872c4053c8d89c754f540009b0a41d49ee4f23"
+    },
+    {
+      "path": "index.html",
+      "group": "html",
+      "bytes": 23199,
+      "gzipBytes": 4174,
+      "sha256": "1b80f5fccb81d822f17bac984353d0c2954a3a8fbfc6d9204e00b7b742af8f4d"
+    },
+    {
+      "path": "licenses/source-sans-3-OFL.txt",
+      "group": "other",
+      "bytes": 4314,
+      "gzipBytes": null,
+      "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3"
+    },
+    {
+      "path": "licenses/source-serif-4-OFL.txt",
+      "group": "other",
+      "bytes": 4314,
+      "gzipBytes": null,
+      "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3"
+    },
+    {
+      "path": "media/fixture-square-0f1d1924e64425555534-900.jpg",
+      "group": "images",
+      "bytes": 13405,
+      "gzipBytes": null,
+      "sha256": "0f1d1924e6442555553416fb4af66116c36ab0297bca666120cce6daae11ded4"
+    },
+    {
+      "path": "media/fixture-square-19dbe0dd3d0e414911e4-480.avif",
+      "group": "images",
+      "bytes": 1630,
+      "gzipBytes": null,
+      "sha256": "19dbe0dd3d0e414911e47d8b76cc84f2f857ae525282002284572386467673c9"
+    },
+    {
+      "path": "media/fixture-square-5e814ffc13282034245d-900.avif",
+      "group": "images",
+      "bytes": 2567,
+      "gzipBytes": null,
+      "sha256": "5e814ffc13282034245dc1be6fd0756952df04b5d2372846fc7285d030ca94bb"
+    },
+    {
+      "path": "media/fixture-square-689039158dc6c789f358-480.jpg",
+      "group": "images",
+      "bytes": 5524,
+      "gzipBytes": null,
+      "sha256": "689039158dc6c789f35809c180d006edf9252f9c1df2341398e716d9b378cf31"
+    },
+    {
+      "path": "media/fixture-square-d404178037cf97bf1ba5-900.webp",
+      "group": "images",
+      "bytes": 4176,
+      "gzipBytes": null,
+      "sha256": "d404178037cf97bf1ba5cf45b1ce92077566aab5ce3ccaec07af69ed5ee211ac"
+    },
+    {
+      "path": "media/fixture-square-ffc2875c68380c307157-480.webp",
+      "group": "images",
+      "bytes": 1966,
+      "gzipBytes": null,
+      "sha256": "ffc2875c68380c30715720339711d957c0aa9f6a1ba1eb1439d234c2b55f5119"
+    },
+    {
+      "path": "media/fixture-tall-0b6f7c87891c21bc8e6d-480.avif",
+      "group": "images",
+      "bytes": 2088,
+      "gzipBytes": null,
+      "sha256": "0b6f7c87891c21bc8e6dd25cd4ed2e8f935a02400d1eb45cc78d76553d7b3a6f"
+    },
+    {
+      "path": "media/fixture-tall-34c06f219ddc539ecc73-1000.webp",
+      "group": "images",
+      "bytes": 8158,
+      "gzipBytes": null,
+      "sha256": "34c06f219ddc539ecc73749ee8cd110e6dd297c079719fe767ea9b41e19da51b"
+    },
+    {
+      "path": "media/fixture-tall-3ec976179e160a549f1b-1000.avif",
+      "group": "images",
+      "bytes": 3746,
+      "gzipBytes": null,
+      "sha256": "3ec976179e160a549f1b6c57a2934334dcbe970e28ed4d14ed1c9ed966d3cbf2"
+    },
+    {
+      "path": "media/fixture-tall-65884aecd4a11e4b117c-960.webp",
+      "group": "images",
+      "bytes": 7488,
+      "gzipBytes": null,
+      "sha256": "65884aecd4a11e4b117c7c20598b164ee7fbb49ada6714e9d7b272a05dd26de0"
+    },
+    {
+      "path": "media/fixture-tall-81bb7d2e3d98e99599f2-480.webp",
+      "group": "images",
+      "bytes": 3336,
+      "gzipBytes": null,
+      "sha256": "81bb7d2e3d98e99599f269e36c9c2e9e0c3331bc3b53b2873baeae29c9722d49"
+    },
+    {
+      "path": "media/fixture-tall-c749194180f82e6b4994-1000.jpg",
+      "group": "images",
+      "bytes": 23505,
+      "gzipBytes": null,
+      "sha256": "c749194180f82e6b49949ff997c8c2fe3fffd3b101e68fc168660312a3f72f9a"
+    },
+    {
+      "path": "media/fixture-tall-d3a5da339296b0992a22-960.jpg",
+      "group": "images",
+      "bytes": 20316,
+      "gzipBytes": null,
+      "sha256": "d3a5da339296b0992a22a7b63ed2cee6107b3a196b9123c6ca942c5b859b8719"
+    },
+    {
+      "path": "media/fixture-tall-e6276b66a175355d501c-960.avif",
+      "group": "images",
+      "bytes": 3551,
+      "gzipBytes": null,
+      "sha256": "e6276b66a175355d501c6217120bd8251162bce69b49008727458113c9223c77"
+    },
+    {
+      "path": "media/fixture-tall-f3392afd32fea23bce88-480.jpg",
+      "group": "images",
+      "bytes": 9601,
+      "gzipBytes": null,
+      "sha256": "f3392afd32fea23bce889e31b62a6309b7273939274c36adf3fd3fb74cde27be"
+    },
+    {
+      "path": "media/fixture-wide-0c59153871d3e6afa953-1920.jpg",
+      "group": "images",
+      "bytes": 30875,
+      "gzipBytes": null,
+      "sha256": "0c59153871d3e6afa953bb0f89d836d0b4344721458b95c5931aedf3eb80f789"
+    },
+    {
+      "path": "media/fixture-wide-235241b9bfc73665643c-2400.jpg",
+      "group": "images",
+      "bytes": 38818,
+      "gzipBytes": null,
+      "sha256": "235241b9bfc73665643cfb4830ee734bf232a88fa008cc4cb69e8fa57a826274"
+    },
+    {
+      "path": "media/fixture-wide-2ff2cc5d9bbb8068b8fc-960.webp",
+      "group": "images",
+      "bytes": 4338,
+      "gzipBytes": null,
+      "sha256": "2ff2cc5d9bbb8068b8fc898a8ed9bdb77c06fdf00af397d2ab0bfa2acb3f9cd7"
+    },
+    {
+      "path": "media/fixture-wide-35227fd304e49b5c1c4b-1920.webp",
+      "group": "images",
+      "bytes": 10502,
+      "gzipBytes": null,
+      "sha256": "35227fd304e49b5c1c4b75d7aae3e210fc619ac3f113e840ee7cdde1a7ef8609"
+    },
+    {
+      "path": "media/fixture-wide-4df66c7f10acce284dfb-1440.webp",
+      "group": "images",
+      "bytes": 7154,
+      "gzipBytes": null,
+      "sha256": "4df66c7f10acce284dfb633175942e404dadfcda54b5637329f8027eb78192e0"
+    },
+    {
+      "path": "media/fixture-wide-631023e5b6c1f1ce3ecd-480.webp",
+      "group": "images",
+      "bytes": 1906,
+      "gzipBytes": null,
+      "sha256": "631023e5b6c1f1ce3ecdae1737e42a1c95daed850e6f6764b0e6b9af61500b14"
+    },
+    {
+      "path": "media/fixture-wide-63c2f9f37f12802ded7c-1440.avif",
+      "group": "images",
+      "bytes": 3597,
+      "gzipBytes": null,
+      "sha256": "63c2f9f37f12802ded7c43ca9e440e2ef9e79c59ac288bee458d0444899ebe02"
+    },
+    {
+      "path": "media/fixture-wide-6d5eb10f90ac49038285-1440.jpg",
+      "group": "images",
+      "bytes": 21250,
+      "gzipBytes": null,
+      "sha256": "6d5eb10f90ac49038285a07bee01955772a2a8546516bb0911d0f065ae122884"
+    },
+    {
+      "path": "media/fixture-wide-89775d6f6ada7a5a38d4-960.avif",
+      "group": "images",
+      "bytes": 2619,
+      "gzipBytes": null,
+      "sha256": "89775d6f6ada7a5a38d4d2a01c7fe302c1b809f11ee205c0129a7ef3f2cef6dc"
+    },
+    {
+      "path": "media/fixture-wide-b31b1de0b0268fa6094e-960.jpg",
+      "group": "images",
+      "bytes": 12493,
+      "gzipBytes": null,
+      "sha256": "b31b1de0b0268fa6094e93aa02f6f6ef9dc8ed49fb33b25f97a5f0822f33e74c"
+    },
+    {
+      "path": "media/fixture-wide-bd663f4bdb575fe3c5e6-480.avif",
+      "group": "images",
+      "bytes": 1545,
+      "gzipBytes": null,
+      "sha256": "bd663f4bdb575fe3c5e6722e60ffcc52654f1ab1183c06cc84f9e98f34a8e22d"
+    },
+    {
+      "path": "media/fixture-wide-d35718a01f08a9304c3e-480.jpg",
+      "group": "images",
+      "bytes": 5401,
+      "gzipBytes": null,
+      "sha256": "d35718a01f08a9304c3e52c3e0dcdc6a4288255e61f9c85e5e5ffd97255a2d4d"
+    },
+    {
+      "path": "media/fixture-wide-d603cb6b6de6e76fde02-1920.avif",
+      "group": "images",
+      "bytes": 4579,
+      "gzipBytes": null,
+      "sha256": "d603cb6b6de6e76fde02904723a638f0ad06fbb1c6481f9f23b972b93b659350"
+    },
+    {
+      "path": "robots.txt",
+      "group": "other",
+      "bytes": 26,
+      "gzipBytes": null,
+      "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+    },
+    {
+      "path": "sitemap.xml",
+      "group": "other",
+      "bytes": 290,
+      "gzipBytes": null,
+      "sha256": "4c1824288a34920b3880c959f8811655e3b8567dd0d2fe812a06d8d9368f0ee7"
+    },
+    {
+      "path": "stories/couple-session/index.html",
+      "group": "html",
+      "bytes": 28241,
+      "gzipBytes": 4578,
+      "sha256": "e02dc78a150e07c1dc3b561a82d0c47a5e48369221cdbe1dbb627e7be19e9a18"
+    },
+    {
+      "path": "stories/wedding-story/index.html",
+      "group": "html",
+      "bytes": 28542,
+      "gzipBytes": 4589,
+      "sha256": "b3bcad5c637fdc92039349334140769d39dadafd3cabdbc84de30c363658d816"
+    }
+  ]
+}

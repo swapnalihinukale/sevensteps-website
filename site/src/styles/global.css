@@ -45,7 +45,8 @@ body.modal-open {
   overflow:hidden
 }
 h1,h2,h3,p,figure {
-  margin:0
+  margin:0;
+  overflow-wrap:anywhere
 }
 h1,h2,h3 {
   font-weight:400
@@ -246,6 +247,8 @@ p {
   text-decoration:none;
   display:flex;
   flex-direction:column;
+  min-width:0;
+  overflow-wrap:anywhere;
   line-height:1
 }
 .wordmark>span:first-child {
@@ -788,7 +791,10 @@ select {
 .footer-name {
   font:400 clamp(45px,6vw,78px)/1 var(--serif);
   letter-spacing:-.06em;
-  text-decoration:none
+  text-decoration:none;
+  min-width:0;
+  max-width:100%;
+  overflow-wrap:anywhere
 }
 .footer-top>p {
   font-size:15px
@@ -1405,8 +1411,8 @@ select {
     padding:0
   }
   .hero-copy h1 {
-    font-size:clamp(53px,12.8vw,84px);
-    max-width:10ch;
+    font-size:clamp(46px,12.8vw,84px);
+    max-width:11ch;
     margin:12px 0 20px
   }
   .hero-copy>.hero-description {

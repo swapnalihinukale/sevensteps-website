@@ -1,5 +1,7 @@
 # Seven Steps: implementation handoff
 
+The newer [content-ready implementation report](CONTENT-READY-IMPLEMENTATION-2026-10-15.md) records the image pipeline, public rendering and designed local enquiry integration. The stack and palette below remain selected; the numerical B02 baseline is historical.
+
 15 October 2026. The first private milestone is complete and running locally. The [execution plan](../EXECUTION-PLAN.md) owns task status; the [verification ledger](IMPLEMENTATION-VERIFICATION-2026-10-15.md) owns the test evidence. This handoff records the settled choices so the next implementation step does not restart design or framework selection.
 
 ## Fixed stack

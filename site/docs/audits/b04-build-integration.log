@@ -1,0 +1,36 @@
+
+> seven-steps-private-draft@0.1.0 build:integration
+> node scripts/build.mjs integration
+
+Content check passed: 0 of 27 active groups Ready; 0 not needed.
+Missing content is allowed in this private draft. This check does not establish publication readiness.
+18:35:43 [content] Syncing content
+18:35:43 [content] Astro config changed
+18:35:43 [content] Clearing content store
+18:35:43 [content] Synced content
+18:35:43 [types] Generated 266ms
+18:35:43 [build] output: "static"
+18:35:43 [build] mode: "static"
+18:35:43 [build] directory: /Users/admin/Documents/Website/site/dist-integration/
+18:35:43 [build] Collecting build info...
+18:35:43 [build] ✓ Completed in 294ms.
+18:35:43 [build] Building static entrypoints...
+18:35:43 [vite] ✓ built in 114ms
+18:35:43 [vite] ✓ built in 13ms
+18:35:43 [build] Rearranging server assets...
+
+ generating static routes
+18:35:43   ├─ /404.html (+6ms)
+18:35:43   ├─ /robots.txt (+1ms)
+18:35:43   ├─ /sitemap.xml (+1ms)
+18:35:43   ├─ /stories/wedding-story/index.html (+3ms)
+18:35:43   ├─ /stories/couple-session/index.html (+1ms)
+18:35:43   ├─ /content-checklist/index.html (+1ms)
+18:35:43   ├─ /index.html (+2ms)
+18:35:43 ✓ Completed in 28ms.
+
+18:35:43 [build] ✓ Completed in 178ms.
+18:35:43 [build] 5 page(s) built in 472ms
+18:35:43 [build] Complete!
+COPY-01/03: source and existing build contain no em dash or encoded equivalents.
+PASS: 178 local links/assets and IDs across 5 documents.

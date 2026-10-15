@@ -1,6 +1,8 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-const roots = ['src', 'server', 'netlify', 'dist'];
+const output = process.argv[2] ?? 'dist';
+if (!['dist', 'dist-fixture', 'dist-integration'].includes(output)) throw new Error('Choose a known build directory.');
+const roots = ['src', 'server', 'netlify', output];
 const matches = [];
 function walk(dir) {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {

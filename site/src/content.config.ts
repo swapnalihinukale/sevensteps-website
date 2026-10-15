@@ -17,4 +17,5 @@ const slots = defineCollection({
     omissionReason: z.string().nullable(),
   }),
 });
-export const collections = { slots };
+// Review-only guidance stays out of the public content cache and export.
+export const collections = process.env.PUBLIC_SITE_MODE === 'public' || process.env.PUBLIC_SITE_MODE === 'fixture' ? {} : { slots };

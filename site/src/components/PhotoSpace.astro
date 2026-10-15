@@ -1,16 +1,41 @@
 ---
+import type { Photograph } from '../lib/media';
+import { fallbackImage, imageSrcset } from '../lib/media';
+import '../styles/media.css';
+
 interface Props {
   label: string;
   tone?: 'leaf' | 'rose' | 'sand' | 'mist' | 'ink';
-  shape?: 'portrait' | 'landscape' | 'square';
+  shape?: 'portrait' | 'landscape' | 'square' | 'natural';
   number?: string;
   class?: string;
+  photo?: Photograph;
+  priority?: boolean;
+  sizes?: string;
+  fit?: 'cover' | 'contain';
 }
-const { label, tone = 'leaf', shape = 'portrait', number, class: className } = Astro.props;
+const { label, tone = 'leaf', number, class: className, photo, priority = false, sizes = '100vw', fit = 'cover' } = Astro.props;
+const shape = Astro.props.shape ?? (photo ? 'natural' : 'portrait');
+const fallback = photo ? fallbackImage(photo) : undefined;
 ---
-<div class:list={['photo-space', `tone-${tone}`, `shape-${shape}`, className]}>
+{photo && fallback ? <div
+  class:list={['photo-space', 'photograph', `shape-${shape}`, className]}
+  style={`--photograph-position:${photo.focalPoint.x * 100}% ${photo.focalPoint.y * 100}%;--photograph-fit:${fit};--photograph-ratio:${photo.width} / ${photo.height};`}
+  data-photo-id={photo.id}
+  data-photo-full-src={photo.full.src}
+  data-photo-full-width={photo.full.width}
+  data-photo-full-height={photo.full.height}
+  data-photo-alt={photo.alt}
+>
+  <picture>
+    <source type="image/avif" srcset={imageSrcset(photo.sources.avif)} sizes={sizes} />
+    <source type="image/webp" srcset={imageSrcset(photo.sources.webp)} sizes={sizes} />
+    <img class="photograph__image" src={fallback.src} srcset={imageSrcset(photo.sources.jpeg)} sizes={sizes} alt={photo.alt} width={fallback.width} height={fallback.height} loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} decoding="async" />
+  </picture>
+  <span class="photograph__error" data-photo-error hidden role="status">Photograph could not load. Reload this page to try again.</span>
+</div> : <div class:list={['photo-space', `tone-${tone}`, `shape-${shape}`, className]}>
   <span class="frame-corner frame-corner--tl" aria-hidden="true"></span>
   <span class="frame-corner frame-corner--br" aria-hidden="true"></span>
   <span class="photo-space__center"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 40 40" fill="none"><path d="M4 14V4h10m12 0h10v10M4 26v10h10m12 0h10V26M15 20h10m-5-5v10" stroke="currentColor" stroke-width="1"/></svg><span>{label}</span><span class="photo-space__empty">Photograph to add</span></span>
   {number && <span class="photo-space__number" aria-hidden="true">{number}</span>}
-</div>
+</div>}

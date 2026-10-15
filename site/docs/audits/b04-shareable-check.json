@@ -1,0 +1,10 @@
+{
+  "files": 312,
+  "scanned": {
+    "index": 248,
+    "working": 246,
+    "untracked": 64
+  },
+  "result": "pass",
+  "findings": []
+}

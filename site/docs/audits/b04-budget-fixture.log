@@ -1,0 +1,8 @@
+PASS css: 6.35 / 30 KiB
+PASS javascript: 3.70 / 80 KiB
+PASS html: 4.48 / 35 KiB
+PASS fonts: 77.94 / 100 KiB
+PASS shell: 92.48 / 350 KiB
+Evidence: docs/audits/budget-fixture-latest.json
+Snapshot: docs/audits/2026-10-15T13-05-47Z-budget-e86240e7b720.json
+Artifact limits do not establish image-loading or browser performance results.

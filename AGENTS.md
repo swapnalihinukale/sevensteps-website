@@ -48,3 +48,7 @@ The private B02 milestone is complete. Start from `docs/IMPLEMENTATION-HANDOFF.m
 The user authorized the next implementation steps, including the local B03 backend with synthetic data and local notification doubles. The existing review site stays non-sending. This authorization does not require live accounts before independent local backend work.
 
 Keep all project changes on `feat/sevensteps-rebuild`, based on `swapnalihinukale/sevensteps-website`'s `master` history. Preserve the original `website/` files. Use reviewable commits; do not rewrite shared history or merge into `master`. The user authorized saving changes to this branch on the supplied repository. Write access is now verified for AtharvaBondre after the user arranged the invitation. Use that account for the existing branch push without changing shared global authentication. Do not create an unrelated fork as a substitute.
+
+## Content-ready implementation
+
+The user also authorized the image pipeline, gated public rendering and the designed enquiry form in a strictly local synthetic integration mode. Use `docs/CONTENT-READY-IMPLEMENTATION-2026-10-15.md` for these build surfaces and evidence. `dist-fixture` and `dist-integration` are isolated test artifacts. They must never replace `dist` for deployment. Keep real content and release approval unresolved until genuine inputs and checks exist.

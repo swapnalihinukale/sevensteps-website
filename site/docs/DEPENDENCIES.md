@@ -125,3 +125,11 @@ The local backend adds @netlify/database 2.0.1, @netlify/functions 6.0.2 and Res
 The 10:35:48Z dependency report inventories 372 locked packages, 304 installed packages and 68 optional platform packages not installed. Full and production audits contain zero known advisories, with no unresolved pins, integrity or licence records. Its source scan reports zero credential-pattern findings. See the dated audit JSONs and the B03 summary for current test identities. The OpenDesign runtime remains separate and on hold.
 
 Independent review corrected unsafe duplicate database TLS query parameters, inherited driver selection, reload retry recovery, cleanup failures, a production build default and shareable report handling. These fixes supplement package auditing; an advisory scan alone does not establish application safety.
+
+## B04 image and output refresh
+
+Sharp 0.35.5 is now an exact direct dependency of the build-time image pipeline. It was already present through Astro. The browser receives the generated files and no image-encoding library. A clean `npm ci --ignore-scripts` and the 17 media transformation tests passed without dependency lifecycle scripts.
+
+The [current inventory](audits/2026-10-15T13-09-46Z-dependency-report.json) covers 372 locked packages, 304 installed packages and 68 absent optional platform records. All direct pins match. Full and production advisory queries both returned zero known advisories, with no unresolved installation, version, licence or registry-integrity records. The source scan now includes content inputs and all three generated site outputs; it scanned 127 files with zero credential-pattern findings. The separate shareable-file guard covers Git snapshots and reports before pushing.
+
+The [B04 summary](audits/b04-summary.json) records the final source and artifact identities. Synthetic-image measurements do not establish real photographic quality or the final page transfer budget. OpenDesign's separate executable runtime remains on hold.

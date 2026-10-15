@@ -1,6 +1,8 @@
 import { readdirSync, readFileSync, existsSync, statSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-const root = resolve('dist');
+const output = process.argv[2] ?? 'dist';
+if (!['dist', 'dist-fixture', 'dist-integration'].includes(output)) throw new Error('Choose a known build directory.');
+const root = resolve(output);
 function walk(dir) { return readdirSync(dir, { withFileTypes: true }).flatMap(item => item.isDirectory() ? walk(join(dir, item.name)) : [join(dir, item.name)]); }
 const pages = walk(root).filter(path => path.endsWith('.html'));
 const failures = [];
@@ -13,7 +15,11 @@ for (const path of pages) {
   const ids = idsFor(html);
   if (new Set(ids).size !== ids.length) failures.push(`${path}: duplicate document IDs`);
   const base = 'http://127.0.0.1:4321' + path.slice(root.length).replace(/index\.html$/, '');
-  for (const [, href] of html.matchAll(/\s(?:href|src)="([^"]+)"/g)) {
+  const references = [...html.matchAll(/\s(?:href|src)="([^"]+)"/g)].map(match => match[1]);
+  for (const [, srcset] of html.matchAll(/\ssrcset="([^"]+)"/g)) {
+    for (const candidate of srcset.split(',')) references.push(candidate.trim().split(/\s+/)[0]);
+  }
+  for (const href of references) {
     const url = new URL(href, base);
     if (url.origin !== 'http://127.0.0.1:4321') continue;
     links++;
@@ -24,6 +30,6 @@ for (const path of pages) {
   }
 }
 const result = { timestamp: new Date().toISOString(), pages: pages.length, links, failures };
-writeFileSync('docs/audits/static-links.json', JSON.stringify(result, null, 2) + '\n');
+writeFileSync(`docs/audits/static-links${output === 'dist' ? '' : `-${output}`}.json`, JSON.stringify(result, null, 2) + '\n');
 console.log(`${failures.length ? 'FAIL' : 'PASS'}: ${links} local links/assets and IDs across ${pages.length} documents.`);
 if (failures.length) { console.error(failures.join('\n')); process.exit(1); }

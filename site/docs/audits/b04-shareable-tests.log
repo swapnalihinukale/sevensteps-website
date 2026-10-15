@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: finds a staged secret even when its working copy has been cleaned
+ok 1 - finds a staged secret even when its working copy has been cleaned
+  ---
+  duration_ms: 530.006625
+  type: 'test'
+  ...
+# Subtest: finds secrets in modified tracked files as well as untracked additions
+ok 2 - finds secrets in modified tracked files as well as untracked additions
+  ---
+  duration_ms: 560.095667
+  type: 'test'
+  ...
+# Subtest: rejects every unknown serialized environment name, including enquiry keys
+ok 3 - rejects every unknown serialized environment name, including enquiry keys
+  ---
+  duration_ms: 810.523125
+  type: 'test'
+  ...
+# Subtest: permits the explicit browser environment allowlist and redacted reports
+ok 4 - permits the explicit browser environment allowlist and redacted reports
+  ---
+  duration_ms: 296.936209
+  type: 'test'
+  ...
+# Subtest: ignores deleted working files while still scanning their staged blobs
+ok 5 - ignores deleted working files while still scanning their staged blobs
+  ---
+  duration_ms: 432.486166
+  type: 'test'
+  ...
+# Subtest: does not decode binary blobs or scan ignored untracked output
+ok 6 - does not decode binary blobs or scan ignored untracked output
+  ---
+  duration_ms: 1287.250625
+  type: 'test'
+  ...
+# Subtest: private runtime paths are rejected but a blank env example is allowed
+ok 7 - private runtime paths are rejected but a blank env example is allowed
+  ---
+  duration_ms: 6671.2355
+  type: 'test'
+  ...
+# Subtest: a serialized environment must be an object or null, not an opaque value
+ok 8 - a serialized environment must be an object or null, not an opaque value
+  ---
+  duration_ms: 3989.797834
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14625.401292

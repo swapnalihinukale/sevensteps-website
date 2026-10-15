@@ -1,0 +1,16 @@
+
+> seven-steps-private-draft@0.1.0 check
+> astro check && node scripts/content-check.mjs && node scripts/copy-check.mjs
+
+12:43:54 [content] Syncing content
+12:43:54 [content] Synced content
+12:43:54 [types] Generated 279ms
+12:43:54 [check] Getting diagnostics for Astro files in /Users/admin/Documents/Website/site...
+Result (21 files): 
+- 0 errors
+- 0 warnings
+- 0 hints
+
+Content check passed: 0 of 27 active groups Ready; 0 not needed.
+Missing content is allowed in this private draft. This check does not establish publication readiness.
+COPY-01/03: source and existing build contain no em dash or encoded equivalents.

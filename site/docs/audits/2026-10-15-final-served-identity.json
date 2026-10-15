@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-10-15T06:59:29.088Z",
+  "method": "Compare decoded loopback HTTP bodies with the current built HTML files. No forms or external requests.",
+  "pages": [
+    {
+      "route": "/",
+      "file": "dist/index.html",
+      "status": 200,
+      "servedBytes": 25994,
+      "distBytes": 25994,
+      "servedSha256": "db79828acbc1d3b06a5247d92b3674e95436863ea556d52e04d061381eeb3bd8",
+      "distSha256": "db79828acbc1d3b06a5247d92b3674e95436863ea556d52e04d061381eeb3bd8",
+      "matches": true
+    },
+    {
+      "route": "/stories/wedding-story/",
+      "file": "dist/stories/wedding-story/index.html",
+      "status": 200,
+      "servedBytes": 26980,
+      "distBytes": 26980,
+      "servedSha256": "688825eaff340342b9410ef5fab5ae5f15a3b0e440d2fdb3b72db4a7773d3a86",
+      "distSha256": "688825eaff340342b9410ef5fab5ae5f15a3b0e440d2fdb3b72db4a7773d3a86",
+      "matches": true
+    },
+    {
+      "route": "/content-checklist/",
+      "file": "dist/content-checklist/index.html",
+      "status": 200,
+      "servedBytes": 30682,
+      "distBytes": 30682,
+      "servedSha256": "cefd79d18ccc64c5ca63c795adcab1fb8f69cb4a855783006260b156a7e77ce6",
+      "distSha256": "cefd79d18ccc64c5ca63c795adcab1fb8f69cb4a855783006260b156a7e77ce6",
+      "matches": true
+    }
+  ]
+}

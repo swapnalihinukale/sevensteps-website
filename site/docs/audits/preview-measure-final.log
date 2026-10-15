@@ -1,0 +1,102 @@
+{
+  "report": "docs/audits/2026-10-15T07-15-22Z-preview-measure.json",
+  "result": "captured",
+  "mode": "measurement-and-screenshots",
+  "browserVersion": "156.0.8078.4",
+  "timingTotals": {
+    "transferSize": 95730,
+    "encodedBodySize": 94230,
+    "decodedBodySize": 141659
+  },
+  "observedLcpMs": 568,
+  "observedCls": 0.007126395888100776,
+  "prohibitedRequests": [],
+  "screenshots": {
+    "mobile": "docs/screenshots/2026-10-15T07-15-22Z-mobile-390.png",
+    "mobileFull": "docs/screenshots/2026-10-15T07-15-22Z-mobile-390-full.png",
+    "desktop": "docs/screenshots/2026-10-15T07-15-22Z-desktop-1440.png",
+    "desktopFull": "docs/screenshots/2026-10-15T07-15-22Z-desktop-1440-full.png"
+  },
+  "pageCaptures": [
+    {
+      "route": "/stories/wedding-story/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390,
+        "documentHeight": 5879
+      },
+      "screenshot": "docs/screenshots/2026-10-15T07-15-22Z-wedding-mobile-390.png",
+      "fullPage": "docs/screenshots/2026-10-15T07-15-22Z-wedding-mobile-390-full.png",
+      "mode": "Unthrottled visual capture with finite screenshot animations completed; no performance claim."
+    },
+    {
+      "route": "/content-checklist/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390,
+        "documentHeight": 15749
+      },
+      "screenshot": "docs/screenshots/2026-10-15T07-15-22Z-checklist-mobile-390.png",
+      "fullPage": "docs/screenshots/2026-10-15T07-15-22Z-checklist-mobile-390-full.png",
+      "mode": "Unthrottled visual capture with finite screenshot animations completed; no performance claim."
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "geometry": {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "documentHeight": 4967
+      },
+      "screenshot": "docs/screenshots/2026-10-15T07-15-22Z-desktop-1440.png",
+      "fullPage": "docs/screenshots/2026-10-15T07-15-22Z-desktop-1440-full.png",
+      "mode": "Unthrottled visual capture with finite screenshot animations completed; no performance claim."
+    },
+    {
+      "route": "/stories/wedding-story/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "geometry": {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "documentHeight": 7040
+      },
+      "screenshot": "docs/screenshots/2026-10-15T07-15-22Z-wedding-desktop-1440.png",
+      "fullPage": "docs/screenshots/2026-10-15T07-15-22Z-wedding-desktop-1440-full.png",
+      "mode": "Unthrottled visual capture with finite screenshot animations completed; no performance claim."
+    },
+    {
+      "route": "/content-checklist/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "geometry": {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "documentHeight": 10770
+      },
+      "screenshot": "docs/screenshots/2026-10-15T07-15-22Z-checklist-desktop-1440.png",
+      "fullPage": "docs/screenshots/2026-10-15T07-15-22Z-checklist-desktop-1440-full.png",
+      "mode": "Unthrottled visual capture with finite screenshot animations completed; no performance claim."
+    }
+  ]
+}

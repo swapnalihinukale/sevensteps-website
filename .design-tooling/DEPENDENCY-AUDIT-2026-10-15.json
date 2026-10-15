@@ -1,0 +1,4094 @@
+{
+  "checkedDate": "2026-10-15",
+  "scope": "Installed local design tooling lockfile dependency graphs; not the photography website",
+  "openDesignCommit": "ae8038e7ce12ff305d57d12acbf3001f117cb100",
+  "nodeUsed": "24.22.0",
+  "pnpmUsed": "10.33.2",
+  "npmAuditCli": "11.12.1",
+  "status": "findings; runtime held",
+  "all": {
+    "scannerMetadata": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 16,
+        "moderate": 68,
+        "high": 81,
+        "critical": 4
+      },
+      "dependencies": 1359,
+      "devDependencies": 0,
+      "optionalDependencies": 0,
+      "totalDependencies": 1359
+    },
+    "advisoryRecords": 157,
+    "uniqueGHSA": 140,
+    "affectedPackageNames": 40,
+    "advisoryRecordSeverities": {
+      "moderate": 64,
+      "high": 74,
+      "low": 15,
+      "critical": 4
+    }
+  },
+  "productionFilter": {
+    "scannerMetadata": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 14,
+        "moderate": 60,
+        "high": 71,
+        "critical": 4
+      },
+      "dependencies": 1062,
+      "devDependencies": 0,
+      "optionalDependencies": 0,
+      "totalDependencies": 1062
+    },
+    "advisoryRecords": 142,
+    "uniqueGHSA": 126,
+    "affectedPackageNames": 34,
+    "advisoryRecordSeverities": {
+      "moderate": 59,
+      "high": 65,
+      "low": 14,
+      "critical": 4
+    }
+  },
+  "runtime": {
+    "metadata": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 1,
+        "critical": 0,
+        "total": 1
+      },
+      "dependencies": {
+        "prod": 4,
+        "dev": 0,
+        "optional": 0,
+        "peer": 0,
+        "peerOptional": 0,
+        "total": 3
+      }
+    },
+    "advisoryCounts": {
+      "moderate": 7,
+      "high": 11
+    },
+    "vulnerabilities": {
+      "pnpm": {
+        "name": "pnpm",
+        "severity": "high",
+        "isDirect": true,
+        "via": [
+          {
+            "source": 1121805,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Tarball hash of GitHub git dependencies is not stored in lockfile",
+            "url": "https://github.com/advisories/GHSA-hg3w-7f8c-63hp",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-353"
+            ],
+            "cvss": {
+              "score": 0,
+              "vectorString": null
+            },
+            "range": "<10.33.4"
+          },
+          {
+            "source": 1121809,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm Vulnerable to Arbitrary File Write/Delete via Malicious Patch File (Path Traversal)",
+            "url": "https://github.com/advisories/GHSA-rxhj-4m44-96r4",
+            "severity": "high",
+            "cwe": [
+              "CWE-22"
+            ],
+            "cvss": {
+              "score": 7.3,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:H/A:H"
+            },
+            "range": "<10.34.0"
+          },
+          {
+            "source": 1121811,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm binds unscoped user-level npm auth credentials to a repository-selected registry",
+            "url": "https://github.com/advisories/GHSA-cjhr-43r9-cfmw",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-200",
+              "CWE-522"
+            ],
+            "cvss": {
+              "score": 0,
+              "vectorString": null
+            },
+            "range": "<10.34.0"
+          },
+          {
+            "source": 1121813,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Transitive dependency alias path traversal allows project path override via symlink replacement",
+            "url": "https://github.com/advisories/GHSA-hwx4-2j3j-g496",
+            "severity": "high",
+            "cwe": [
+              "CWE-23"
+            ],
+            "cvss": {
+              "score": 8.8,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+            },
+            "range": "<10.34.0"
+          },
+          {
+            "source": 1121815,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Git Fetch Argument Injection via Lockfile resolution.commit",
+            "url": "https://github.com/advisories/GHSA-p4xf-rf54-rj3x",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-88"
+            ],
+            "cvss": {
+              "score": 6.4,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:N"
+            },
+            "range": "<10.34.0"
+          },
+          {
+            "source": 1121816,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm Has an Integrity Check Bypass via Missing Lockfile Integrity Field",
+            "url": "https://github.com/advisories/GHSA-q6j5-fjx5-2mc3",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-354"
+            ],
+            "cvss": {
+              "score": 6.8,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:N"
+            },
+            "range": "<10.34.1"
+          },
+          {
+            "source": 1121819,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Unsafe default behavior breaks integrity check",
+            "url": "https://github.com/advisories/GHSA-54hh-g5mx-jqcp",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-345"
+            ],
+            "cvss": {
+              "score": 6.8,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N"
+            },
+            "range": "<10.34.0"
+          },
+          {
+            "source": 1121824,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Manifest identity spoof satisfies allowBuilds and runs attacker lifecycle",
+            "url": "https://github.com/advisories/GHSA-5wx6-mg75-v57r",
+            "severity": "high",
+            "cwe": [
+              "CWE-346",
+              "CWE-693",
+              "CWE-829"
+            ],
+            "cvss": {
+              "score": 7.5,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H"
+            },
+            "range": "<10.34.2"
+          },
+          {
+            "source": 1121826,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Repository config can expand victim environment secrets into registry requests before scripts run",
+            "url": "https://github.com/advisories/GHSA-3qhv-2rgh-x77r",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-200",
+              "CWE-201",
+              "CWE-522"
+            ],
+            "cvss": {
+              "score": 6.5,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N"
+            },
+            "range": "<10.34.2"
+          },
+          {
+            "source": 1121829,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Reserved bin name deletes PNPM_HOME during global remove",
+            "url": "https://github.com/advisories/GHSA-4gxm-v5v7-fqc4",
+            "severity": "moderate",
+            "cwe": [
+              "CWE-22",
+              "CWE-73"
+            ],
+            "cvss": {
+              "score": 6.5,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+            },
+            "range": "<10.34.2"
+          },
+          {
+            "source": 1121831,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Project env lockfile can short-circuit package-manager resolution and execute lockfile-selected pnpm bytes",
+            "url": "https://github.com/advisories/GHSA-w466-c33r-3gjp",
+            "severity": "high",
+            "cwe": [
+              "CWE-345",
+              "CWE-494",
+              "CWE-829"
+            ],
+            "cvss": {
+              "score": 8.8,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+            },
+            "range": "<10.34.2"
+          },
+          {
+            "source": 1121833,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: `patch-remove` could delete project-selected files outside the patches directory",
+            "url": "https://github.com/advisories/GHSA-72r4-9c5j-mj57",
+            "severity": "high",
+            "cwe": [
+              "CWE-22",
+              "CWE-73"
+            ],
+            "cvss": {
+              "score": 7.1,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:L"
+            },
+            "range": "<10.34.4"
+          },
+          {
+            "source": 1121835,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Hoisted install imports lockfile alias outside node_modules",
+            "url": "https://github.com/advisories/GHSA-fr4h-3cph-29xv",
+            "severity": "high",
+            "cwe": [
+              "CWE-22",
+              "CWE-73"
+            ],
+            "cvss": {
+              "score": 7.1,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:L"
+            },
+            "range": "<10.34.4"
+          },
+          {
+            "source": 1121837,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Path traversal in configDependencies env lockfile allows symlink creation outside node_modules/.pnpm-config",
+            "url": "https://github.com/advisories/GHSA-qrv3-253h-g69c",
+            "severity": "high",
+            "cwe": [
+              "CWE-22"
+            ],
+            "cvss": {
+              "score": 8.2,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:N/I:H/A:L"
+            },
+            "range": "<10.34.4"
+          },
+          {
+            "source": 1139460,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Repository-controlled configDependencies can select a pacquet native install engine",
+            "url": "https://github.com/advisories/GHSA-gj8w-mvpf-x27x",
+            "severity": "high",
+            "cwe": [
+              "CWE-78",
+              "CWE-494",
+              "CWE-829"
+            ],
+            "cvss": {
+              "score": 7.5,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H"
+            },
+            "range": "<10.34.2"
+          },
+          {
+            "source": 1153190,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Environment secrets exfiltrated via env-placeholder expansion in proxy settings read from an untrusted pnpm-workspace.yaml",
+            "url": "https://github.com/advisories/GHSA-vx52-2968-3vc6",
+            "severity": "high",
+            "cwe": [
+              "CWE-201",
+              "CWE-319",
+              "CWE-522"
+            ],
+            "cvss": {
+              "score": 7.4,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:N/A:N"
+            },
+            "range": ">=10.7.0 <10.34.5"
+          },
+          {
+            "source": 1158510,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: Virtual store linker path traversal via unvalidated depPath name in lockfileToDepGraph",
+            "url": "https://github.com/advisories/GHSA-c59q-g84q-2gj5",
+            "severity": "high",
+            "cwe": [
+              "CWE-22"
+            ],
+            "cvss": {
+              "score": 7.1,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:L"
+            },
+            "range": "<10.34.5"
+          },
+          {
+            "source": 1158512,
+            "name": "pnpm",
+            "dependency": "pnpm",
+            "title": "pnpm: A tarball dependency's manifest `name` escapes node_modules \u2192 arbitrary file write/overwrite on install",
+            "url": "https://github.com/advisories/GHSA-vq4v-j7r6-jq4m",
+            "severity": "high",
+            "cwe": [
+              "CWE-22",
+              "CWE-73",
+              "CWE-94"
+            ],
+            "cvss": {
+              "score": 7.5,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H"
+            },
+            "range": "<10.34.5"
+          }
+        ],
+        "effects": [],
+        "range": "<=10.34.4",
+        "nodes": [
+          "node_modules/pnpm"
+        ],
+        "fixAvailable": {
+          "name": "pnpm",
+          "version": "10.34.7",
+          "isSemVerMajor": false
+        }
+      }
+    }
+  },
+  "packages": [
+    {
+      "name": "next",
+      "versions": [
+        "16.2.6"
+      ],
+      "highestSeverity": "critical",
+      "advisoryIds": [
+        "GHSA-2xp9-vwfh-vxw4",
+        "GHSA-39w2-rjm5-chcv",
+        "GHSA-4633-3j49-mh5q",
+        "GHSA-4c39-4ccg-62r3",
+        "GHSA-4jqv-mc3x-m676",
+        "GHSA-68g3-v927-f742",
+        "GHSA-6gpp-xcg3-4w24",
+        "GHSA-89xv-2m56-2m9x",
+        "GHSA-955p-x3mx-jcvp",
+        "GHSA-cjq9-62q9-8jv4",
+        "GHSA-f87g-xv8r-7p7x",
+        "GHSA-m99w-x7hq-7vfj",
+        "GHSA-mcj8-r9mp-w47p",
+        "GHSA-p293-qw3h-jr36",
+        "GHSA-p9j2-gv94-2wf4",
+        "GHSA-q8wf-6r8g-63ch",
+        "GHSA-vcvr-r3jv-pc5j"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__web>next"
+      ],
+      "directDeclarations": [
+        "apps/web/package.json:dependencies"
+      ],
+      "uniqueGHSA": 17
+    },
+    {
+      "name": "proxy-addr",
+      "versions": [
+        "2.0.7"
+      ],
+      "highestSeverity": "critical",
+      "advisoryIds": [
+        "GHSA-jqcg-44mw-7w3h"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>express>proxy-addr"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "@modelcontextprotocol/sdk",
+      "versions": [
+        "1.29.0"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-6qxp-vccf-f47h"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>@modelcontextprotocol/sdk"
+      ],
+      "directDeclarations": [
+        "apps/daemon/package.json:dependencies"
+      ],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "@xmldom/xmldom",
+      "versions": [
+        "0.8.13",
+        "0.9.10"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-27p8-2357-5qqv",
+        "GHSA-3px3-54cx-rmw9",
+        "GHSA-4w3w-2rp5-g8jm",
+        "GHSA-6gmq-8vp8-gcm6",
+        "GHSA-6h8r-xr42-gp59",
+        "GHSA-6mj3-qw4j-hgrw",
+        "GHSA-8344-3jmq-59r6",
+        "GHSA-93r5-fhx6-vmg9",
+        "GHSA-965w-775f-mr7g",
+        "GHSA-c7q8-3ch8-vqpv",
+        "GHSA-g53g-w8rj-fmg7",
+        "GHSA-vr34-hp96-76pp",
+        "GHSA-w2rr-34g9-rvrj",
+        "GHSA-x4fp-j954-r2f4"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "tools__pack>electron-builder>app-builder-lib>plist>@xmldom/xmldom",
+        "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 14
+    },
+    {
+      "name": "adm-zip",
+      "versions": [
+        "0.6.0"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-7q85-xj36-vmfc",
+        "GHSA-8238-w5pm-2374",
+        "GHSA-c6fg-446q-cg94",
+        "GHSA-j5f4-cc29-5x44",
+        "GHSA-p634-w6r4-rjp2",
+        "GHSA-rcw4-f5rp-g42v",
+        "GHSA-vwc7-r8mq-g2x9"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>hyperframes>adm-zip"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 7
+    },
+    {
+      "name": "app-builder-lib",
+      "versions": [
+        "26.8.1"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-7g7r-gx96-252g"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "tools__pack>electron-builder>app-builder-lib"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "brace-expansion",
+      "versions": [
+        "5.0.9"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-6j4f-fj2g-mc7p",
+        "GHSA-q2hr-2g5m-vwhr",
+        "GHSA-qhr7-859c-m2p7"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "tools__pack>electron-builder>app-builder-lib>@electron/asar>minimatch>brace-expansion"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 3
+    },
+    {
+      "name": "braces",
+      "versions": [
+        "3.0.3"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-vfj7-8cjw-p6xm"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>chokidar>braces"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "builder-util-runtime",
+      "versions": [
+        "9.5.1"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-p2f4-r6v6-j797"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "tools__pack>electron-builder>builder-util-runtime"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "electron",
+      "versions": [
+        "41.3.0"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-9f4c-93c8-jc8g",
+        "GHSA-9qh4-3jw8-366w",
+        "GHSA-gr2m-v5gq-v685",
+        "GHSA-hq2x-r82h-9wj4",
+        "GHSA-j84w-jfhq-vhvj",
+        "GHSA-r4w5-6pfg-jxp5",
+        "GHSA-v3j7-r9gq-3gjw",
+        "GHSA-vv43-5jgx-7qv8"
+      ],
+      "presentInProdAudit": false,
+      "paths": [
+        "apps__desktop>electron"
+      ],
+      "directDeclarations": [
+        "apps/desktop/package.json:devDependencies"
+      ],
+      "uniqueGHSA": 8
+    },
+    {
+      "name": "extract-zip",
+      "versions": [
+        "2.0.1"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-7pqw-9j4j-h8q3",
+        "GHSA-jmr9-qjv8-65gv"
+      ],
+      "presentInProdAudit": false,
+      "paths": [
+        "apps__desktop>electron>extract-zip"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 2
+    },
+    {
+      "name": "fast-uri",
+      "versions": [
+        "3.1.5"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-5jgf-p345-68v8",
+        "GHSA-f65p-4m7j-42xc",
+        "GHSA-fph4-wmhf-6fwf",
+        "GHSA-hrr3-gc8f-f4qj",
+        "GHSA-jqff-g426-hqxp",
+        "GHSA-qw65-cvwx-89v3"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>@modelcontextprotocol/sdk>ajv>fast-uri"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 6
+    },
+    {
+      "name": "form-data",
+      "versions": [
+        "4.0.5"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-hmw2-7cc7-3qxx"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__web>@anthropic-ai/sdk>@types/node-fetch>form-data"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "http-cache-semantics",
+      "versions": [
+        "4.2.0"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-ch52-4w7c-c8xp"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__desktop>electron>@electron/get>got>cacheable-request>http-cache-semantics"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "image-size",
+      "versions": [
+        "1.2.1"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-5p2g-fcmc-qvqq",
+        "GHSA-w3rx-r6r6-pgpr"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>pptxgenjs>image-size"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 2
+    },
+    {
+      "name": "js-yaml",
+      "versions": [
+        "4.1.1"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-2883-xcg3-v3hh",
+        "GHSA-52cp-r559-cp3m",
+        "GHSA-5p4m-2wfm-xmqj",
+        "GHSA-h67p-54hq-rp68"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "tools__pack>electron-builder>app-builder-lib>js-yaml"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 4
+    },
+    {
+      "name": "lodash-es",
+      "versions": [
+        "4.17.21"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-f23m-r3pf-42rh",
+        "GHSA-r5fr-rjxr-66jc",
+        "GHSA-xxjr-mmjv-4gpg"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>@mermaid-js/parser>langium>chevrotain>lodash-es"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 3
+    },
+    {
+      "name": "multer",
+      "versions": [
+        "2.2.0"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-3pph-fpjx-jg34",
+        "GHSA-535w-7cp7-47q4",
+        "GHSA-qfvm-cv95-jqjf",
+        "GHSA-qvfw-j98x-7q72",
+        "GHSA-wc9g-mqfw-jrwm"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>multer"
+      ],
+      "directDeclarations": [
+        "apps/daemon/package.json:dependencies"
+      ],
+      "uniqueGHSA": 5
+    },
+    {
+      "name": "nanoid",
+      "versions": [
+        "3.3.12",
+        "3.3.3",
+        "4.0.2"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-28wg-ghj8-5hjv",
+        "GHSA-2v37-7h3g-55p8",
+        "GHSA-mwcw-c2x4-8c55",
+        "GHSA-xwg4-73v4-xw9w"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>postcss>nanoid",
+        "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>nanoid",
+        "apps__web>@excalidraw/excalidraw>nanoid"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 4
+    },
+    {
+      "name": "postcss",
+      "versions": [
+        "8.5.15"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-fxqj-rqcc-2cmp",
+        "GHSA-r28c-9q8g-f849"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>postcss"
+      ],
+      "directDeclarations": [
+        "apps/daemon/package.json:dependencies"
+      ],
+      "uniqueGHSA": 2
+    },
+    {
+      "name": "protobufjs",
+      "versions": [
+        "8.4.0"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-94rc-8x27-4472",
+        "GHSA-f38q-mgvj-vph7",
+        "GHSA-j3f2-48v5-ccww",
+        "GHSA-jfj6-75fj-8934",
+        "GHSA-wcpc-wj8m-hjx6"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>hyperframes>@google/genai>protobufjs"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 5
+    },
+    {
+      "name": "sharp",
+      "versions": [
+        "0.34.5",
+        "0.35.3"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-f88m-g3jw-g9cj",
+        "GHSA-rgj7-g3m4-5g8c",
+        "GHSA-wq5f-xc86-pv6w"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>hyperframes>sharp",
+        "apps__web>next>sharp",
+        "tools__release>sharp"
+      ],
+      "directDeclarations": [
+        "tools/release/package.json:dependencies"
+      ],
+      "uniqueGHSA": 3
+    },
+    {
+      "name": "source-map-js",
+      "versions": [
+        "1.2.1"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-68fv-2mgg-jv7q"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>jsdom>css-tree>source-map-js"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "undici",
+      "versions": [
+        "6.28.0",
+        "7.29.0"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-2gqq-gqf2-x968",
+        "GHSA-2jfj-6hjv-fm6j",
+        "GHSA-3wwx-pv8p-q78v",
+        "GHSA-3xpg-4rpp-hhhm",
+        "GHSA-8436-99hf-9mmv",
+        "GHSA-pmjh-fq2x-6v4x",
+        "GHSA-r53p-7pc4-xj5r",
+        "GHSA-rfgv-xxqx-mfg5",
+        "GHSA-rx4f-c7p8-82vq",
+        "GHSA-w293-vg96-wgc3"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>undici",
+        "tools__pack>@electron/rebuild>node-gyp>undici"
+      ],
+      "directDeclarations": [
+        "apps/daemon/package.json:dependencies"
+      ],
+      "uniqueGHSA": 10
+    },
+    {
+      "name": "vite",
+      "versions": [
+        "7.3.3"
+      ],
+      "highestSeverity": "high",
+      "advisoryIds": [
+        "GHSA-fx2h-pf6j-xcff",
+        "GHSA-v6wh-96g9-6wx3"
+      ],
+      "presentInProdAudit": false,
+      "paths": [
+        "apps__closure>vitest>vite",
+        "apps__daemon>vitest>vite"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 2
+    },
+    {
+      "name": "@hono/node-server",
+      "versions": [
+        "1.19.14"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-frvp-7c67-39w9"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>@modelcontextprotocol/sdk>@hono/node-server"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "@opentelemetry/core",
+      "versions": [
+        "2.2.0",
+        "2.7.1"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-8988-4f7v-96qf"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__web>posthog-js>@opentelemetry/exporter-logs-otlp-http>@opentelemetry/core",
+        "apps__web>posthog-js>@opentelemetry/resources>@opentelemetry/core"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "@vitest/mocker",
+      "versions": [
+        "4.1.6"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-82fw-gwwq-j7x9"
+      ],
+      "presentInProdAudit": false,
+      "paths": [
+        "apps__closure>vitest>@vitest/mocker",
+        "apps__daemon>vitest>@vitest/mocker"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "baseline-browser-mapping",
+      "versions": [
+        "2.10.23"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-w5vr-8v7q-w6rv"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__web>next>baseline-browser-mapping"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "dompurify",
+      "versions": [
+        "3.4.2"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-55q2-fjhq-7xh7",
+        "GHSA-6688-9rhm-gjv2",
+        "GHSA-76mc-f452-cxcm",
+        "GHSA-c2j3-45gr-mqc4",
+        "GHSA-cmwh-pvxp-8882",
+        "GHSA-gvmj-g25r-r7wr",
+        "GHSA-hpcv-96wg-7vj8",
+        "GHSA-r47g-fvhr-h676",
+        "GHSA-rp9w-3fw7-7cwq",
+        "GHSA-vxr8-fq34-vvx9",
+        "GHSA-x4vx-rjvf-j5p4"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__web>dompurify"
+      ],
+      "directDeclarations": [
+        "apps/web/package.json:dependencies"
+      ],
+      "uniqueGHSA": 11
+    },
+    {
+      "name": "fflate",
+      "versions": [
+        "0.4.8"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-px8p-9vwx-vf98"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__web>posthog-js>fflate"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "hono",
+      "versions": [
+        "4.12.34"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-crvj-82cr-hjcx",
+        "GHSA-g6gw-c38x-mqfc",
+        "GHSA-gqvv-2mrq-wpjv",
+        "GHSA-hxh3-vqpv-xpqv"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>@modelcontextprotocol/sdk>hono"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 4
+    },
+    {
+      "name": "ip-address",
+      "versions": [
+        "10.3.1"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-2vr4-cq9g-pvrc",
+        "GHSA-h3mg-xc3c-68pw",
+        "GHSA-j6r3-76f7-8jcv",
+        "GHSA-rpw4-54j3-4h4q"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>@modelcontextprotocol/sdk>express-rate-limit>ip-address"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 4
+    },
+    {
+      "name": "mermaid",
+      "versions": [
+        "11.16.0"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-2v8p-3f2j-5mp7",
+        "GHSA-3rrr-jr9j-h3q3",
+        "GHSA-6x64-9x62-f2gx",
+        "GHSA-c4c3-pg64-4m4v",
+        "GHSA-rhh3-jpg6-66xh"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>mermaid"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 5
+    },
+    {
+      "name": "qs",
+      "versions": [
+        "6.15.2"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-4mjr-xmp4-gh2g",
+        "GHSA-x5fp-wj9c-mxmx"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>express>qs"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 2
+    },
+    {
+      "name": "sprintf-js",
+      "versions": [
+        "1.1.3"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-hp3w-g68c-fv3c"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>hyperframes>onnxruntime-node>global-agent>roarr>sprintf-js"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "vitest",
+      "versions": [
+        "4.1.6"
+      ],
+      "highestSeverity": "moderate",
+      "advisoryIds": [
+        "GHSA-82fw-gwwq-j7x9"
+      ],
+      "presentInProdAudit": false,
+      "paths": [
+        "apps__closure>vitest",
+        "apps__daemon>vitest"
+      ],
+      "directDeclarations": [
+        "apps/closure/package.json:devDependencies",
+        "apps/daemon/package.json:devDependencies"
+      ],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "body-parser",
+      "versions": [
+        "2.2.2"
+      ],
+      "highestSeverity": "low",
+      "advisoryIds": [
+        "GHSA-v422-hmwv-36x6"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__daemon>express>body-parser"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "esbuild",
+      "versions": [
+        "0.27.7",
+        "0.28.0"
+      ],
+      "highestSeverity": "low",
+      "advisoryIds": [
+        "GHSA-g7r4-m6w7-qqqr"
+      ],
+      "presentInProdAudit": false,
+      "paths": [
+        "apps__closure>esbuild",
+        "apps__closure>vitest>vite>esbuild"
+      ],
+      "directDeclarations": [
+        "apps/closure/package.json:devDependencies"
+      ],
+      "uniqueGHSA": 1
+    },
+    {
+      "name": "katex",
+      "versions": [
+        "0.16.47"
+      ],
+      "highestSeverity": "low",
+      "advisoryIds": [
+        "GHSA-238p-pmpm-9mq7"
+      ],
+      "presentInProdAudit": true,
+      "paths": [
+        "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>mermaid>katex"
+      ],
+      "directDeclarations": [],
+      "uniqueGHSA": 1
+    }
+  ],
+  "advisories": [
+    {
+      "id": 1109563,
+      "ghsa": "GHSA-mwcw-c2x4-8c55",
+      "package": "nanoid",
+      "severity": "moderate",
+      "title": "Predictable results in nanoid generation when given non-integer values",
+      "vulnerableRange": "<3.3.8",
+      "patchedRange": ">=3.3.8",
+      "findings": [
+        {
+          "version": "3.3.3",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>nanoid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1109564,
+      "ghsa": "GHSA-mwcw-c2x4-8c55",
+      "package": "nanoid",
+      "severity": "moderate",
+      "title": "Predictable results in nanoid generation when given non-integer values",
+      "vulnerableRange": ">=4.0.0 <5.0.9",
+      "patchedRange": ">=5.0.9",
+      "findings": [
+        {
+          "version": "4.0.2",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>nanoid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1115805,
+      "ghsa": "GHSA-r5fr-rjxr-66jc",
+      "package": "lodash-es",
+      "severity": "high",
+      "title": "lodash vulnerable to Code Injection via `_.template` imports key names",
+      "vulnerableRange": ">=4.0.0 <=4.17.23",
+      "patchedRange": ">=4.18.0",
+      "findings": [
+        {
+          "version": "4.17.21",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>@mermaid-js/parser>langium>chevrotain>lodash-es"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1115809,
+      "ghsa": "GHSA-f23m-r3pf-42rh",
+      "package": "lodash-es",
+      "severity": "moderate",
+      "title": "lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`",
+      "vulnerableRange": "<=4.17.23",
+      "patchedRange": ">=4.18.0",
+      "findings": [
+        {
+          "version": "4.17.21",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>@mermaid-js/parser>langium>chevrotain>lodash-es"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1120368,
+      "ghsa": "GHSA-xxjr-mmjv-4gpg",
+      "package": "lodash-es",
+      "severity": "moderate",
+      "title": "Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions",
+      "vulnerableRange": ">=4.0.0 <=4.17.22",
+      "patchedRange": ">=4.17.23",
+      "findings": [
+        {
+          "version": "4.17.21",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>@mermaid-js/parser>langium>chevrotain>lodash-es"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1120680,
+      "ghsa": "GHSA-g7r4-m6w7-qqqr",
+      "package": "esbuild",
+      "severity": "low",
+      "title": "esbuild allows arbitrary file read when running the development server on Windows",
+      "vulnerableRange": ">=0.27.3 <0.28.1",
+      "patchedRange": ">=0.28.1",
+      "findings": [
+        {
+          "version": "0.28.0",
+          "paths": [
+            "apps__closure>esbuild"
+          ]
+        },
+        {
+          "version": "0.27.7",
+          "paths": [
+            "apps__closure>vitest>vite>esbuild"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1120743,
+      "ghsa": "GHSA-hmw2-7cc7-3qxx",
+      "package": "form-data",
+      "severity": "high",
+      "title": "form-data: CRLF injection in form-data via unescaped multipart field names and filenames",
+      "vulnerableRange": ">=4.0.0 <4.0.6",
+      "patchedRange": ">=4.0.6",
+      "findings": [
+        {
+          "version": "4.0.5",
+          "paths": [
+            "apps__web>@anthropic-ai/sdk>@types/node-fetch>form-data"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1120785,
+      "ghsa": "GHSA-v6wh-96g9-6wx3",
+      "package": "vite",
+      "severity": "moderate",
+      "title": "launch-editor: NTLMv2 hash disclosure via UNC path handling on Windows",
+      "vulnerableRange": ">=7.0.0 <=7.3.4",
+      "patchedRange": ">=7.3.5",
+      "findings": [
+        {
+          "version": "7.3.3",
+          "paths": [
+            "apps__closure>vitest>vite"
+          ]
+        },
+        {
+          "version": "7.3.3",
+          "paths": [
+            "apps__daemon>vitest>vite"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1120802,
+      "ghsa": "GHSA-hpcv-96wg-7vj8",
+      "package": "dompurify",
+      "severity": "moderate",
+      "title": "DOMPurify: Cross-realm IN_PLACE sanitization leaves executable markup intact via realm-bound `instanceof` checks",
+      "vulnerableRange": "<=3.4.5",
+      "patchedRange": ">=3.4.6",
+      "findings": [
+        {
+          "version": "3.4.2",
+          "paths": [
+            "apps__web>dompurify"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1120803,
+      "ghsa": "GHSA-r47g-fvhr-h676",
+      "package": "dompurify",
+      "severity": "moderate",
+      "title": "DOMPurify: IN_PLACE mode preserves attributes of a clobbered root element, allowing XSS via attacker-controlled root DOM",
+      "vulnerableRange": "<=3.4.5",
+      "patchedRange": ">=3.4.6",
+      "findings": [
+        {
+          "version": "3.4.2",
+          "paths": [
+            "apps__web>dompurify"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1120813,
+      "ghsa": "GHSA-rp9w-3fw7-7cwq",
+      "package": "dompurify",
+      "severity": "moderate",
+      "title": "DOMPurify IN_PLACE Sanitization Bypass via Attached Shadow Root Inside <template>.content",
+      "vulnerableRange": "<=3.4.6",
+      "patchedRange": ">=3.4.7",
+      "findings": [
+        {
+          "version": "3.4.2",
+          "paths": [
+            "apps__web>dompurify"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1121860,
+      "ghsa": "GHSA-h67p-54hq-rp68",
+      "package": "js-yaml",
+      "severity": "moderate",
+      "title": "JS-YAML: Quadratic-complexity DoS in merge key handling via repeated aliases",
+      "vulnerableRange": ">=4.0.0 <=4.1.1",
+      "patchedRange": ">=4.2.0",
+      "findings": [
+        {
+          "version": "4.1.1",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>js-yaml"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1123486,
+      "ghsa": "GHSA-94rc-8x27-4472",
+      "package": "protobufjs",
+      "severity": "moderate",
+      "title": "protobufjs: Memory amplification from preserved unknown fields in binary decode",
+      "vulnerableRange": ">=8.2.0 <=8.4.2",
+      "patchedRange": ">=8.5.0",
+      "findings": [
+        {
+          "version": "8.4.0",
+          "paths": [
+            "apps__daemon>hyperframes>@google/genai>protobufjs"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1123487,
+      "ghsa": "GHSA-wcpc-wj8m-hjx6",
+      "package": "protobufjs",
+      "severity": "high",
+      "title": "protobufjs: Denial of service through unbounded Any expansion during JSON conversion",
+      "vulnerableRange": ">=8.0.0 <=8.4.0",
+      "patchedRange": ">=8.4.1",
+      "findings": [
+        {
+          "version": "8.4.0",
+          "paths": [
+            "apps__daemon>hyperframes>@google/genai>protobufjs"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1123489,
+      "ghsa": "GHSA-f38q-mgvj-vph7",
+      "package": "protobufjs",
+      "severity": "moderate",
+      "title": "protobufjs : Schema-derived names can shadow runtime-significant properties",
+      "vulnerableRange": ">=8.0.0 <=8.5.0",
+      "patchedRange": ">=8.6.0",
+      "findings": [
+        {
+          "version": "8.4.0",
+          "paths": [
+            "apps__daemon>hyperframes>@google/genai>protobufjs"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1123526,
+      "ghsa": "GHSA-fx2h-pf6j-xcff",
+      "package": "vite",
+      "severity": "high",
+      "title": "vite: `server.fs.deny` bypass on Windows alternate paths",
+      "vulnerableRange": ">=7.0.0 <=7.3.4",
+      "patchedRange": ">=7.3.5",
+      "findings": [
+        {
+          "version": "7.3.3",
+          "paths": [
+            "apps__closure>vitest>vite"
+          ]
+        },
+        {
+          "version": "7.3.3",
+          "paths": [
+            "apps__daemon>vitest>vite"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1123911,
+      "ghsa": "GHSA-52cp-r559-cp3m",
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "js-yaml: YAML merge-key chains can force quadratic CPU consumption",
+      "vulnerableRange": ">=4.0.0 <4.3.0",
+      "patchedRange": ">=4.3.0",
+      "findings": [
+        {
+          "version": "4.1.1",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>js-yaml"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1123962,
+      "ghsa": "GHSA-jfj6-75fj-8934",
+      "package": "protobufjs",
+      "severity": "moderate",
+      "title": "protobufjs: Text Format string map parsing can mutate returned map object prototype",
+      "vulnerableRange": ">=8.2.0 <=8.6.4",
+      "patchedRange": ">=8.6.5",
+      "findings": [
+        {
+          "version": "8.4.0",
+          "paths": [
+            "apps__daemon>hyperframes>@google/genai>protobufjs"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1123963,
+      "ghsa": "GHSA-j3f2-48v5-ccww",
+      "package": "protobufjs",
+      "severity": "moderate",
+      "title": "protobufjs: Denial of Service via infinite loop in .proto option parsing",
+      "vulnerableRange": ">=8.0.0 <=8.6.5",
+      "patchedRange": ">=8.6.6",
+      "findings": [
+        {
+          "version": "8.4.0",
+          "paths": [
+            "apps__daemon>hyperframes>@google/genai>protobufjs"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1123976,
+      "ghsa": "GHSA-v422-hmwv-36x6",
+      "package": "body-parser",
+      "severity": "low",
+      "title": "body-parser vulnerable to denial of service when invalid limit value silently disables size enforcement",
+      "vulnerableRange": ">=2.0.0 <2.3.0",
+      "patchedRange": ">=2.3.0",
+      "findings": [
+        {
+          "version": "2.2.2",
+          "paths": [
+            "apps__daemon>express>body-parser"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124066,
+      "ghsa": "GHSA-f88m-g3jw-g9cj",
+      "package": "sharp",
+      "severity": "high",
+      "title": "sharp inherited vulnerabilities in libvips: CVE-2026-33327, CVE-2026-33328, CVE-2026-35590, CVE-2026-35591",
+      "vulnerableRange": "<0.35.0",
+      "patchedRange": ">=0.35.0",
+      "findings": [
+        {
+          "version": "0.34.5",
+          "paths": [
+            "apps__web>next>sharp"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124170,
+      "ghsa": "GHSA-6gpp-xcg3-4w24",
+      "package": "next",
+      "severity": "high",
+      "title": "Next.js: Middleware / Proxy bypass in App Router applications using Turbopack and single locale",
+      "vulnerableRange": ">=16.0.0 <16.2.11",
+      "patchedRange": ">=16.2.11",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124171,
+      "ghsa": "GHSA-m99w-x7hq-7vfj",
+      "package": "next",
+      "severity": "high",
+      "title": "Next.js: Denial of Service in App Router using Server Actions",
+      "vulnerableRange": ">=16.0.0 <16.2.11",
+      "patchedRange": ">=16.2.11",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124184,
+      "ghsa": "GHSA-89xv-2m56-2m9x",
+      "package": "next",
+      "severity": "high",
+      "title": "Next.js: Server-Side Request Forgery in Server Actions on custom servers",
+      "vulnerableRange": ">=16.0.0 <16.2.11",
+      "patchedRange": ">=16.2.11",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124186,
+      "ghsa": "GHSA-68g3-v927-f742",
+      "package": "next",
+      "severity": "moderate",
+      "title": "Next.js: Cache confusion of response bodies for requests with bodies",
+      "vulnerableRange": ">=16.0.0 <16.2.11",
+      "patchedRange": ">=16.2.11",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124188,
+      "ghsa": "GHSA-4633-3j49-mh5q",
+      "package": "next",
+      "severity": "moderate",
+      "title": "Next.js: Cache confusion of response bodies for requests with bodies containing invalid UTF-8 byte sequences",
+      "vulnerableRange": ">=16.0.0 <16.2.11",
+      "patchedRange": ">=16.2.11",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124190,
+      "ghsa": "GHSA-4c39-4ccg-62r3",
+      "package": "next",
+      "severity": "moderate",
+      "title": "Next.js: Unbounded Server Action payload in Edge runtime",
+      "vulnerableRange": ">=16.0.0 <16.2.11",
+      "patchedRange": ">=16.2.11",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124192,
+      "ghsa": "GHSA-p9j2-gv94-2wf4",
+      "package": "next",
+      "severity": "high",
+      "title": "Next.js: Server-Side Request Forgery in rewrites via attacker-controlled destination hostname",
+      "vulnerableRange": ">=16.0.0 <16.2.11",
+      "patchedRange": ">=16.2.11",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124194,
+      "ghsa": "GHSA-q8wf-6r8g-63ch",
+      "package": "next",
+      "severity": "moderate",
+      "title": "Next.js: Denial of Service in the Image Optimization API using SVGs",
+      "vulnerableRange": ">=16.0.0 <16.2.11",
+      "patchedRange": ">=16.2.11",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124196,
+      "ghsa": "GHSA-955p-x3mx-jcvp",
+      "package": "next",
+      "severity": "moderate",
+      "title": "Next.js: Unauthenticated disclosure of internal Server Function endpoints",
+      "vulnerableRange": ">=16.0.0 <16.2.11",
+      "patchedRange": ">=16.2.11",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124233,
+      "ghsa": "GHSA-cmwh-pvxp-8882",
+      "package": "dompurify",
+      "severity": "moderate",
+      "title": "DOMPurify: Permanent `ALLOWED_ATTR` pollution via `setConfig()` bypassing the hook clone-guard (incomplete fix of the 3.4.7 hook-pollution patch)",
+      "vulnerableRange": "<=3.4.10",
+      "patchedRange": ">=3.4.11",
+      "findings": [
+        {
+          "version": "3.4.2",
+          "paths": [
+            "apps__web>dompurify"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124234,
+      "ghsa": "GHSA-vxr8-fq34-vvx9",
+      "package": "dompurify",
+      "severity": "low",
+      "title": "DOMPurify: Trusted Types policy survives `clearConfig()` and can poison later `RETURN_TRUSTED_TYPE` output",
+      "vulnerableRange": "<3.4.9",
+      "patchedRange": ">=3.4.9",
+      "findings": [
+        {
+          "version": "3.4.2",
+          "paths": [
+            "apps__web>dompurify"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124235,
+      "ghsa": "GHSA-gvmj-g25r-r7wr",
+      "package": "dompurify",
+      "severity": "low",
+      "title": "DOMPurify: SAFE_FOR_TEMPLATES bypass - template expressions survive sanitization inside <template> content when using DOM output modes",
+      "vulnerableRange": ">=3.0.0 <=3.4.7",
+      "patchedRange": ">=3.4.8",
+      "findings": [
+        {
+          "version": "3.4.2",
+          "paths": [
+            "apps__web>dompurify"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124236,
+      "ghsa": "GHSA-x4vx-rjvf-j5p4",
+      "package": "dompurify",
+      "severity": "low",
+      "title": "DOMPurify: `IN_PLACE` mode trusts attacker-controlled `nodeName` on live non-form nodes, allowing script retention and XSS via attacker-supplied DOM objects",
+      "vulnerableRange": "<=3.4.6",
+      "patchedRange": "<0.0.0",
+      "findings": [
+        {
+          "version": "3.4.2",
+          "paths": [
+            "apps__web>dompurify"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124237,
+      "ghsa": "GHSA-76mc-f452-cxcm",
+      "package": "dompurify",
+      "severity": "moderate",
+      "title": "DOMPurify: Hook mutation of `data.allowedTags` / `data.allowedAttributes` permanently pollutes `DEFAULT_ALLOWED_TAGS` / `DEFAULT_ALLOWED_ATTR`",
+      "vulnerableRange": "<3.4.7",
+      "patchedRange": ">=3.4.7",
+      "findings": [
+        {
+          "version": "3.4.2",
+          "paths": [
+            "apps__web>dompurify"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124278,
+      "ghsa": "GHSA-p2f4-r6v6-j797",
+      "package": "builder-util-runtime",
+      "severity": "high",
+      "title": "electron-updater: Cross-origin redirect leaks `PRIVATE-TOKEN` and mixed-case `Authorization` credentials in `builder-util-runtime`",
+      "vulnerableRange": "<9.7.0",
+      "patchedRange": ">=9.7.0",
+      "findings": [
+        {
+          "version": "9.5.1",
+          "paths": [
+            "tools__pack>electron-builder>builder-util-runtime"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1124279,
+      "ghsa": "GHSA-7g7r-gx96-252g",
+      "package": "app-builder-lib",
+      "severity": "high",
+      "title": "electron-updater: Uncontrolled search path elements within `AppImage` built by `app-builder-lib`",
+      "vulnerableRange": "<26.15.0",
+      "patchedRange": ">=26.15.0",
+      "findings": [
+        {
+          "version": "26.8.1",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1130709,
+      "ghsa": "GHSA-fxqj-rqcc-2cmp",
+      "package": "postcss",
+      "severity": "moderate",
+      "title": "PostCSS: incomplete fix of GHSA-6g55-p6wh-862q \u2014 attacker-controlled sourceMappingURL reads arbitrary .map files when `from` is unset",
+      "vulnerableRange": "<=8.5.22",
+      "patchedRange": ">=8.5.23",
+      "findings": [
+        {
+          "version": "8.5.15",
+          "paths": [
+            "apps__daemon>postcss"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1136554,
+      "ghsa": "GHSA-v3j7-r9gq-3gjw",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Custom protocol with supportFetchAPI but not corsEnabled allows cross-origin reads",
+      "vulnerableRange": ">=41.0.0-alpha.1 <41.4.0",
+      "patchedRange": ">=41.4.0",
+      "findings": [
+        {
+          "version": "41.3.0",
+          "paths": [
+            "apps__desktop>electron"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1136584,
+      "ghsa": "GHSA-r4w5-6pfg-jxp5",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: ProtocolResponse.url reuses the default session cache instead of the registering session",
+      "vulnerableRange": ">=41.0.0-alpha.1 <41.9.1",
+      "patchedRange": ">=41.9.1",
+      "findings": [
+        {
+          "version": "41.3.0",
+          "paths": [
+            "apps__desktop>electron"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1136608,
+      "ghsa": "GHSA-9f4c-93c8-jc8g",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Sandboxed iframe can bypass the allow-popups restriction via the OpenURL navigation path",
+      "vulnerableRange": ">=40.0.0-alpha.1 <41.10.3",
+      "patchedRange": ">=41.10.3",
+      "findings": [
+        {
+          "version": "41.3.0",
+          "paths": [
+            "apps__desktop>electron"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1138097,
+      "ghsa": "GHSA-c4c3-pg64-4m4v",
+      "package": "mermaid",
+      "severity": "low",
+      "title": "Mermaid configuration APIs allow prototype pollution",
+      "vulnerableRange": ">=11.0.0-alpha.1 <11.16.1",
+      "patchedRange": ">=11.16.1",
+      "findings": [
+        {
+          "version": "11.16.0",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>mermaid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1138099,
+      "ghsa": "GHSA-6x64-9x62-f2gx",
+      "package": "mermaid",
+      "severity": "moderate",
+      "title": "Mermaid allows CSS injection applying to sibling elements of the diagram",
+      "vulnerableRange": ">=11.0.0-alpha.1 <11.16.1",
+      "patchedRange": ">=11.16.1",
+      "findings": [
+        {
+          "version": "11.16.0",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>mermaid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1138100,
+      "ghsa": "GHSA-3rrr-jr9j-h3q3",
+      "package": "mermaid",
+      "severity": "moderate",
+      "title": "Mermaid Architecture diagrams are vulnerable to prototype pollution",
+      "vulnerableRange": ">=11.5.0 <11.16.1",
+      "patchedRange": ">=11.16.1",
+      "findings": [
+        {
+          "version": "11.16.0",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>mermaid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1138101,
+      "ghsa": "GHSA-2v8p-3f2j-5mp7",
+      "package": "mermaid",
+      "severity": "moderate",
+      "title": "Mermaid XY Charts are vulnerable to an infinite loop DoS",
+      "vulnerableRange": ">=11.0.0-alpha.1 <11.16.1",
+      "patchedRange": ">=11.16.1",
+      "findings": [
+        {
+          "version": "11.16.0",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>mermaid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1138113,
+      "ghsa": "GHSA-rhh3-jpg6-66xh",
+      "package": "mermaid",
+      "severity": "moderate",
+      "title": "Mermaid radar diagrams are vulnerable to DoS",
+      "vulnerableRange": ">=11.6.0 <11.16.1",
+      "patchedRange": ">=11.16.1",
+      "findings": [
+        {
+          "version": "11.16.0",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>mermaid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1138115,
+      "ghsa": "GHSA-5p4m-2wfm-xmqj",
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) \u2014 CVE-2026-59870 fix not backported",
+      "vulnerableRange": ">=4.0.0 <4.3.1",
+      "patchedRange": ">=4.3.1",
+      "findings": [
+        {
+          "version": "4.1.1",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>js-yaml"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1138538,
+      "ghsa": "GHSA-55q2-fjhq-7xh7",
+      "package": "dompurify",
+      "severity": "moderate",
+      "title": "DOMPurify: IN_PLACE hook removal leaves a detached subtree executable, causing XSS",
+      "vulnerableRange": "<=3.4.12",
+      "patchedRange": ">=3.4.13",
+      "findings": [
+        {
+          "version": "3.4.2",
+          "paths": [
+            "apps__web>dompurify"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1138810,
+      "ghsa": "GHSA-28wg-ghj8-5hjv",
+      "package": "nanoid",
+      "severity": "high",
+      "title": "nanoid: non-secure generators can loop indefinitely with negative size",
+      "vulnerableRange": ">=4.0.0 <5.1.16",
+      "patchedRange": ">=5.1.16",
+      "findings": [
+        {
+          "version": "4.0.2",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>nanoid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1138811,
+      "ghsa": "GHSA-28wg-ghj8-5hjv",
+      "package": "nanoid",
+      "severity": "high",
+      "title": "nanoid: non-secure generators can loop indefinitely with negative size",
+      "vulnerableRange": "<3.3.16",
+      "patchedRange": ">=3.3.16",
+      "findings": [
+        {
+          "version": "3.3.12",
+          "paths": [
+            "apps__daemon>postcss>nanoid"
+          ]
+        },
+        {
+          "version": "3.3.3",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>nanoid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1139322,
+      "ghsa": "GHSA-frvp-7c67-39w9",
+      "package": "@hono/node-server",
+      "severity": "moderate",
+      "title": "Node.js Adapter for Hono: Path traversal in `serve-static` on Windows via encoded backslash (`%5C`)",
+      "vulnerableRange": "<1.19.15",
+      "patchedRange": ">=1.19.15",
+      "findings": [
+        {
+          "version": "1.19.14",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>@hono/node-server"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1139346,
+      "ghsa": "GHSA-jmr9-qjv8-65gv",
+      "package": "extract-zip",
+      "severity": "high",
+      "title": "extract-zip unvalidated symlink path traversal",
+      "vulnerableRange": "<=2.0.1",
+      "patchedRange": "<0.0.0",
+      "findings": [
+        {
+          "version": "2.0.1",
+          "paths": [
+            "apps__desktop>electron>extract-zip"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1139427,
+      "ghsa": "GHSA-2v37-7h3g-55p8",
+      "package": "nanoid",
+      "severity": "high",
+      "title": "nanoid: custom generators can loop indefinitely when size is zero",
+      "vulnerableRange": "<3.3.18",
+      "patchedRange": ">=3.3.18",
+      "findings": [
+        {
+          "version": "3.3.12",
+          "paths": [
+            "apps__daemon>postcss>nanoid"
+          ]
+        },
+        {
+          "version": "3.3.3",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>nanoid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1139455,
+      "ghsa": "GHSA-2v37-7h3g-55p8",
+      "package": "nanoid",
+      "severity": "high",
+      "title": "nanoid: custom generators can loop indefinitely when size is zero",
+      "vulnerableRange": ">=4.0.0 <5.1.6",
+      "patchedRange": ">=5.1.6",
+      "findings": [
+        {
+          "version": "4.0.2",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>nanoid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1139510,
+      "ghsa": "GHSA-r28c-9q8g-f849",
+      "package": "postcss",
+      "severity": "high",
+      "title": "PostCSS: Path Traversal in Previous Source Map Auto-Loading (sourceMappingURL) leads to Arbitrary .map File Disclosure",
+      "vulnerableRange": "<=8.5.17",
+      "patchedRange": ">=8.5.18",
+      "findings": [
+        {
+          "version": "8.5.15",
+          "paths": [
+            "apps__daemon>postcss"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1153174,
+      "ghsa": "GHSA-8988-4f7v-96qf",
+      "package": "@opentelemetry/core",
+      "severity": "moderate",
+      "title": "OpenTelemetry Core: Unbounded memory allocation in W3C Baggage propagation",
+      "vulnerableRange": "<2.8.0",
+      "patchedRange": ">=2.8.0",
+      "findings": [
+        {
+          "version": "2.2.0",
+          "paths": [
+            "apps__web>posthog-js>@opentelemetry/exporter-logs-otlp-http>@opentelemetry/core"
+          ]
+        },
+        {
+          "version": "2.7.1",
+          "paths": [
+            "apps__web>posthog-js>@opentelemetry/resources>@opentelemetry/core"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1153188,
+      "ghsa": "GHSA-xwg4-73v4-xw9w",
+      "package": "nanoid",
+      "severity": "high",
+      "title": "nanoid: Integer Overflow or Wraparound",
+      "vulnerableRange": ">=4.0.0 <5.1.11",
+      "patchedRange": ">=5.1.11",
+      "findings": [
+        {
+          "version": "4.0.2",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>nanoid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1153189,
+      "ghsa": "GHSA-xwg4-73v4-xw9w",
+      "package": "nanoid",
+      "severity": "high",
+      "title": "nanoid: Integer Overflow or Wraparound",
+      "vulnerableRange": "<3.3.12",
+      "patchedRange": ">=3.3.12",
+      "findings": [
+        {
+          "version": "3.3.3",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>nanoid"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1158506,
+      "ghsa": "GHSA-x5fp-wj9c-mxmx",
+      "package": "qs",
+      "severity": "moderate",
+      "title": "qs array-limit bypass via bracket-key comma parsing",
+      "vulnerableRange": ">=6.14.2 <=6.15.3",
+      "patchedRange": ">=6.16.0",
+      "findings": [
+        {
+          "version": "6.15.2",
+          "paths": [
+            "apps__daemon>express>qs"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1158507,
+      "ghsa": "GHSA-4mjr-xmp4-gh2g",
+      "package": "qs",
+      "severity": "moderate",
+      "title": "qs: Denial of Service via Attacker Controlled isBuffer",
+      "vulnerableRange": ">=2.2.5 <6.16.0",
+      "patchedRange": ">=6.16.0",
+      "findings": [
+        {
+          "version": "6.15.2",
+          "paths": [
+            "apps__daemon>express>qs"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1158517,
+      "ghsa": "GHSA-6gmq-8vp8-gcm6",
+      "package": "@xmldom/xmldom",
+      "severity": "moderate",
+      "title": "xmldom: XML fragment injection via invalid EntityReference.nodeName during requireWellFormed serialization",
+      "vulnerableRange": ">=0.9.0 <=0.9.11",
+      "patchedRange": ">=0.9.12",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1158518,
+      "ghsa": "GHSA-6gmq-8vp8-gcm6",
+      "package": "@xmldom/xmldom",
+      "severity": "moderate",
+      "title": "xmldom: XML fragment injection via invalid EntityReference.nodeName during requireWellFormed serialization",
+      "vulnerableRange": ">=0.7.0 <=0.8.14",
+      "patchedRange": ">=0.8.15",
+      "findings": [
+        {
+          "version": "0.8.13",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1158521,
+      "ghsa": "GHSA-5jgf-p345-68v8",
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to host confusion via skipped IDN canonicalization on scheme-relative references",
+      "vulnerableRange": ">=3.1.3 <3.1.6",
+      "patchedRange": ">=3.1.6",
+      "findings": [
+        {
+          "version": "3.1.5",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>ajv>fast-uri"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1158524,
+      "ghsa": "GHSA-f65p-4m7j-42xc",
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to server-side request forgery via malformed IPv6 normalization",
+      "vulnerableRange": ">=3.0.0 <3.1.6",
+      "patchedRange": ">=3.1.6",
+      "findings": [
+        {
+          "version": "3.1.5",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>ajv>fast-uri"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1158527,
+      "ghsa": "GHSA-fph4-wmhf-6fwf",
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to server-side request forgery via repeated hostname percent-decoding",
+      "vulnerableRange": ">=3.1.2 <3.1.6",
+      "patchedRange": ">=3.1.6",
+      "findings": [
+        {
+          "version": "3.1.5",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>ajv>fast-uri"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1158530,
+      "ghsa": "GHSA-jqff-g426-hqxp",
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to host confusion via percent-encoded scheme normalization",
+      "vulnerableRange": ">=3.0.0 <3.1.6",
+      "patchedRange": ">=3.1.6",
+      "findings": [
+        {
+          "version": "3.1.5",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>ajv>fast-uri"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1164786,
+      "ghsa": "GHSA-px8p-9vwx-vf98",
+      "package": "fflate",
+      "severity": "moderate",
+      "title": "fflate unzipSync can enter an infinite loop when parsing malformed ZIP64 archives",
+      "vulnerableRange": ">=0.4.5 <0.4.9",
+      "patchedRange": ">=0.4.9",
+      "findings": [
+        {
+          "version": "0.4.8",
+          "paths": [
+            "apps__web>posthog-js>fflate"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193671,
+      "ghsa": "GHSA-6mj3-qw4j-hgrw",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: HTML raw-text closing-tag case mismatch causes output amplification",
+      "vulnerableRange": ">=0.9.0-beta.1 <=0.9.11",
+      "patchedRange": ">=0.9.12",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193676,
+      "ghsa": "GHSA-p293-qw3h-jr36",
+      "package": "next",
+      "severity": "critical",
+      "title": "Next.js: Unauthenticated Remote Code Execution on windows-hosted servers",
+      "vulnerableRange": ">=16.0.0 <16.3.3",
+      "patchedRange": ">=16.3.3",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193683,
+      "ghsa": "GHSA-82fw-gwwq-j7x9",
+      "package": "vitest",
+      "severity": "moderate",
+      "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
+      "vulnerableRange": ">=2.1.0 <4.1.11",
+      "patchedRange": ">=4.1.11",
+      "findings": [
+        {
+          "version": "4.1.6",
+          "paths": [
+            "apps__closure>vitest"
+          ]
+        },
+        {
+          "version": "4.1.6",
+          "paths": [
+            "apps__daemon>vitest"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1193684,
+      "ghsa": "GHSA-82fw-gwwq-j7x9",
+      "package": "@vitest/mocker",
+      "severity": "moderate",
+      "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
+      "vulnerableRange": ">=2.1.0 <4.1.11",
+      "patchedRange": ">=4.1.11",
+      "findings": [
+        {
+          "version": "4.1.6",
+          "paths": [
+            "apps__closure>vitest>@vitest/mocker"
+          ]
+        },
+        {
+          "version": "4.1.6",
+          "paths": [
+            "apps__daemon>vitest>@vitest/mocker"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1193685,
+      "ghsa": "GHSA-7pqw-9j4j-h8q3",
+      "package": "extract-zip",
+      "severity": "high",
+      "title": "extract-zip allows arbitrary file writes through symlink archive entries",
+      "vulnerableRange": "<=2.0.1",
+      "patchedRange": "<0.0.0",
+      "findings": [
+        {
+          "version": "2.0.1",
+          "paths": [
+            "apps__desktop>electron>extract-zip"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1193686,
+      "ghsa": "GHSA-w5vr-8v7q-w6rv",
+      "package": "baseline-browser-mapping",
+      "severity": "moderate",
+      "title": "baseline-browser-mapping process termination on invalid input causes denial of service",
+      "vulnerableRange": ">=2.0.0 <2.11.0",
+      "patchedRange": ">=2.11.0",
+      "findings": [
+        {
+          "version": "2.10.23",
+          "paths": [
+            "apps__web>next>baseline-browser-mapping"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193687,
+      "ghsa": "GHSA-g53g-w8rj-fmg7",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom PI grammar regex ReDoS: quadratic backtracking on unterminated processing instructions",
+      "vulnerableRange": ">=0.9.0-beta.9 <=0.9.10",
+      "patchedRange": ">=0.9.11",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193689,
+      "ghsa": "GHSA-w2rr-34g9-rvrj",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Element name injection via createElement() bypasses requireWellFormed",
+      "vulnerableRange": ">=0.7.0 <=0.8.13",
+      "patchedRange": ">=0.8.14",
+      "findings": [
+        {
+          "version": "0.8.13",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193690,
+      "ghsa": "GHSA-w2rr-34g9-rvrj",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Element name injection via createElement() bypasses requireWellFormed",
+      "vulnerableRange": ">=0.9.0 <=0.9.10",
+      "patchedRange": ">=0.9.11",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193692,
+      "ghsa": "GHSA-4w3w-2rp5-g8jm",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Attribute name injection via setAttribute() bypasses requireWellFormed",
+      "vulnerableRange": ">=0.7.0 <=0.8.13",
+      "patchedRange": ">=0.8.14",
+      "findings": [
+        {
+          "version": "0.8.13",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193693,
+      "ghsa": "GHSA-4w3w-2rp5-g8jm",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Attribute name injection via setAttribute() bypasses requireWellFormed",
+      "vulnerableRange": ">=0.9.0 <=0.9.10",
+      "patchedRange": ">=0.9.11",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193695,
+      "ghsa": "GHSA-c7q8-3ch8-vqpv",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Processing Instruction Target Injection Bypasses requireWellFormed",
+      "vulnerableRange": ">=0.9.0 <=0.9.11",
+      "patchedRange": ">=0.9.12",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193696,
+      "ghsa": "GHSA-c7q8-3ch8-vqpv",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Processing Instruction Target Injection Bypasses requireWellFormed",
+      "vulnerableRange": ">=0.7.0 <=0.8.14",
+      "patchedRange": ">=0.8.15",
+      "findings": [
+        {
+          "version": "0.8.13",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193699,
+      "ghsa": "GHSA-27p8-2357-5qqv",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: DocType `name` Injection Bypasses requireWellFormed",
+      "vulnerableRange": ">=0.9.0 <=0.9.11",
+      "patchedRange": ">=0.9.12",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193700,
+      "ghsa": "GHSA-27p8-2357-5qqv",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: DocType `name` Injection Bypasses requireWellFormed",
+      "vulnerableRange": ">=0.7.0 <=0.8.14",
+      "patchedRange": ">=0.8.15",
+      "findings": [
+        {
+          "version": "0.8.13",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193701,
+      "ghsa": "GHSA-3px3-54cx-rmw9",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Creation-time XML Name/QName validation is bypassable via an embedded line terminator, allowing injection on the default serialization path",
+      "vulnerableRange": ">=0.9.0 <=0.9.11",
+      "patchedRange": ">=0.9.12",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193702,
+      "ghsa": "GHSA-vr34-hp96-76pp",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: requireWellFormed DocType publicId/systemId validation is bypassable via an embedded line terminator",
+      "vulnerableRange": ">=0.9.10 <=0.9.11",
+      "patchedRange": ">=0.9.12",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193704,
+      "ghsa": "GHSA-6h8r-xr42-gp59",
+      "package": "@xmldom/xmldom",
+      "severity": "moderate",
+      "title": "xmldom: Parser silently accepts a not-well-formed end tag whose name is followed by a line break and trailing content",
+      "vulnerableRange": ">=0.9.0 <=0.9.11",
+      "patchedRange": ">=0.9.12",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193705,
+      "ghsa": "GHSA-6h8r-xr42-gp59",
+      "package": "@xmldom/xmldom",
+      "severity": "moderate",
+      "title": "xmldom: Parser silently accepts a not-well-formed end tag whose name is followed by a line break and trailing content",
+      "vulnerableRange": ">=0.7.0 <=0.8.14",
+      "patchedRange": ">=0.8.15",
+      "findings": [
+        {
+          "version": "0.8.13",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193707,
+      "ghsa": "GHSA-8344-3jmq-59r6",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-time attribute deduplication",
+      "vulnerableRange": ">=0.9.0 <=0.9.11",
+      "patchedRange": ">=0.9.12",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193708,
+      "ghsa": "GHSA-8344-3jmq-59r6",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-time attribute deduplication",
+      "vulnerableRange": ">=0.7.0 <=0.8.14",
+      "patchedRange": ">=0.8.15",
+      "findings": [
+        {
+          "version": "0.8.13",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193709,
+      "ghsa": "GHSA-x4fp-j954-r2f4",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: End-tag Whitespace-Trim Regex ReDoS \u2014 quadratic backtracking in the 0.8.x end-tag parser",
+      "vulnerableRange": ">=0.7.0 <=0.8.14",
+      "patchedRange": ">=0.8.15",
+      "findings": [
+        {
+          "version": "0.8.13",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193711,
+      "ghsa": "GHSA-965w-775f-mr7g",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-memory consumption",
+      "vulnerableRange": ">=0.9.0 <=0.9.11",
+      "patchedRange": ">=0.9.12",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193712,
+      "ghsa": "GHSA-965w-775f-mr7g",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-memory consumption",
+      "vulnerableRange": ">=0.7.0 <=0.8.14",
+      "patchedRange": ">=0.8.15",
+      "findings": [
+        {
+          "version": "0.8.13",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193714,
+      "ghsa": "GHSA-93r5-fhx6-vmg9",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-time parsing via the malformed-input recovery path \u2014 `parseElementStartPart` re-scan and `normalize()` adjacent-text merge",
+      "vulnerableRange": ">=0.9.0 <=0.9.11",
+      "patchedRange": ">=0.9.12",
+      "findings": [
+        {
+          "version": "0.9.10",
+          "paths": [
+            "tools__pack>electron-builder>dmg-builder>dmg-license>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193715,
+      "ghsa": "GHSA-93r5-fhx6-vmg9",
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-time parsing via the malformed-input recovery path \u2014 `parseElementStartPart` re-scan and `normalize()` adjacent-text merge",
+      "vulnerableRange": ">=0.7.0 <=0.8.14",
+      "patchedRange": ">=0.8.15",
+      "findings": [
+        {
+          "version": "0.8.13",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>plist>@xmldom/xmldom"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193725,
+      "ghsa": "GHSA-rgj7-g3m4-5g8c",
+      "package": "sharp",
+      "severity": "high",
+      "title": "sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545",
+      "vulnerableRange": "<0.35.4",
+      "patchedRange": ">=0.35.4",
+      "findings": [
+        {
+          "version": "0.35.3",
+          "paths": [
+            "apps__daemon>hyperframes>sharp"
+          ]
+        },
+        {
+          "version": "0.34.5",
+          "paths": [
+            "apps__web>next>sharp"
+          ]
+        },
+        {
+          "version": "0.35.3",
+          "paths": [
+            "tools__release>sharp"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193727,
+      "ghsa": "GHSA-2883-xcg3-v3hh",
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+      "vulnerableRange": ">=4.0.0 <4.3.2",
+      "patchedRange": ">=4.3.2",
+      "findings": [
+        {
+          "version": "4.1.1",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>js-yaml"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193729,
+      "ghsa": "GHSA-gqvv-2mrq-wpjv",
+      "package": "hono",
+      "severity": "moderate",
+      "title": "Hono: Incomplete fix for CVE-2026-39408: `toSSG()` still writes files outside the output directory",
+      "vulnerableRange": "<4.13.5",
+      "patchedRange": ">=4.13.5",
+      "findings": [
+        {
+          "version": "4.12.34",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>hono"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193730,
+      "ghsa": "GHSA-g6gw-c38x-mqfc",
+      "package": "hono",
+      "severity": "moderate",
+      "title": "Hono: Unbounded dot-notation nesting in `parseBody()` can cause memory exhaustion",
+      "vulnerableRange": "<4.13.5",
+      "patchedRange": ">=4.13.5",
+      "findings": [
+        {
+          "version": "4.12.34",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>hono"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193731,
+      "ghsa": "GHSA-crvj-82cr-hjcx",
+      "package": "hono",
+      "severity": "moderate",
+      "title": "Hono: Query parser reads parameters after the URL fragment, causing cache-key and proxy interpretation differentials",
+      "vulnerableRange": "<4.13.5",
+      "patchedRange": ">=4.13.5",
+      "findings": [
+        {
+          "version": "4.12.34",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>hono"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193732,
+      "ghsa": "GHSA-2xp9-vwfh-vxw4",
+      "package": "next",
+      "severity": "critical",
+      "title": "Next.js: Unauthenticated Remote Code Execution in Image Optimization API when AVIF files are used",
+      "vulnerableRange": ">=16.0.0 <16.3.3",
+      "patchedRange": ">=16.3.3",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193734,
+      "ghsa": "GHSA-vwc7-r8mq-g2x9",
+      "package": "adm-zip",
+      "severity": "moderate",
+      "title": "adm-zip extraction follows destination symlinks, allowing arbitrary file overwrite",
+      "vulnerableRange": ">=0.5.9 <=0.6.0",
+      "patchedRange": "<0.0.0",
+      "findings": [
+        {
+          "version": "0.6.0",
+          "paths": [
+            "apps__daemon>hyperframes>adm-zip"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193790,
+      "ghsa": "GHSA-wc9g-mqfw-jrwm",
+      "package": "multer",
+      "severity": "high",
+      "title": "multer vulnerable to Denial of Service via crafted multipart field names",
+      "vulnerableRange": "<2.3.0",
+      "patchedRange": ">=2.3.0",
+      "findings": [
+        {
+          "version": "2.2.0",
+          "paths": [
+            "apps__daemon>multer"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193791,
+      "ghsa": "GHSA-qfvm-cv95-jqjf",
+      "package": "multer",
+      "severity": "high",
+      "title": "multer vulnerable to Denial of Service via file descriptor leak on aborted uploads",
+      "vulnerableRange": "=2.2.0",
+      "patchedRange": ">=2.3.0",
+      "findings": [
+        {
+          "version": "2.2.0",
+          "paths": [
+            "apps__daemon>multer"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193792,
+      "ghsa": "GHSA-qvfw-j98x-7q72",
+      "package": "multer",
+      "severity": "low",
+      "title": "multer vulnerable to file size limit bypass via async fileFilter race condition",
+      "vulnerableRange": "<2.3.0",
+      "patchedRange": ">=2.3.0",
+      "findings": [
+        {
+          "version": "2.2.0",
+          "paths": [
+            "apps__daemon>multer"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1193793,
+      "ghsa": "GHSA-535w-7cp7-47q4",
+      "package": "multer",
+      "severity": "high",
+      "title": "multer vulnerable to Denial of Service via oversized array index in field names",
+      "vulnerableRange": "<2.3.0",
+      "patchedRange": ">=2.3.0",
+      "findings": [
+        {
+          "version": "2.2.0",
+          "paths": [
+            "apps__daemon>multer"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1239030,
+      "ghsa": "GHSA-7q85-xj36-vmfc",
+      "package": "adm-zip",
+      "severity": "high",
+      "title": "adm-zip: Uncontrolled memory allocation via the declared uncompressed size (DoS)",
+      "vulnerableRange": "<0.6.1",
+      "patchedRange": ">=0.6.1",
+      "findings": [
+        {
+          "version": "0.6.0",
+          "paths": [
+            "apps__daemon>hyperframes>adm-zip"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1239765,
+      "ghsa": "GHSA-5p2g-fcmc-qvqq",
+      "package": "image-size",
+      "severity": "high",
+      "title": "image-size: JXL and HEIF parsers allow denial of service through infinite loops",
+      "vulnerableRange": ">=1.2.0 <=2.0.2",
+      "patchedRange": ">=2.0.3",
+      "findings": [
+        {
+          "version": "1.2.1",
+          "paths": [
+            "apps__daemon>pptxgenjs>image-size"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1239766,
+      "ghsa": "GHSA-w3rx-r6r6-pgpr",
+      "package": "image-size",
+      "severity": "high",
+      "title": "image-size: ICNS parser allows denial of service through an infinite loop",
+      "vulnerableRange": ">=0.6.3 <=2.0.2",
+      "patchedRange": ">=2.0.3",
+      "findings": [
+        {
+          "version": "1.2.1",
+          "paths": [
+            "apps__daemon>pptxgenjs>image-size"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1239933,
+      "ghsa": "GHSA-3wwx-pv8p-q78v",
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression",
+      "vulnerableRange": ">=7.28.0 <7.29.1",
+      "patchedRange": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.29.0",
+          "paths": [
+            "apps__daemon>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1239934,
+      "ghsa": "GHSA-3wwx-pv8p-q78v",
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression",
+      "vulnerableRange": ">=6.25.0 <6.28.1",
+      "patchedRange": ">=6.28.1",
+      "findings": [
+        {
+          "version": "6.28.0",
+          "paths": [
+            "tools__pack>@electron/rebuild>node-gyp>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1239935,
+      "ghsa": "GHSA-3pph-fpjx-jg34",
+      "package": "multer",
+      "severity": "moderate",
+      "title": "multer vulnerable to Denial of Service via orphaned disk writes on aborted uploads",
+      "vulnerableRange": ">=2.2.0 <2.4.0",
+      "patchedRange": ">=2.4.0",
+      "findings": [
+        {
+          "version": "2.2.0",
+          "paths": [
+            "apps__daemon>multer"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1239943,
+      "ghsa": "GHSA-qw65-cvwx-89v3",
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to authority injection via an unvalidated port in serialize",
+      "vulnerableRange": ">=3.0.0 <3.1.7",
+      "patchedRange": ">=3.1.7",
+      "findings": [
+        {
+          "version": "3.1.5",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>ajv>fast-uri"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1239948,
+      "ghsa": "GHSA-rpw4-54j3-4h4q",
+      "package": "ip-address",
+      "severity": "moderate",
+      "title": "ip-address: Address6.isLinkLocal() recognizes fe80::/64 rather than fe80::/10, allowing SSRF and trust-boundary bypass to on-link hosts",
+      "vulnerableRange": "<=10.5.0",
+      "patchedRange": ">=10.5.1",
+      "findings": [
+        {
+          "version": "10.3.1",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>express-rate-limit>ip-address"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1239949,
+      "ghsa": "GHSA-2vr4-cq9g-pvrc",
+      "package": "ip-address",
+      "severity": "moderate",
+      "title": "ip-address: no classifier recognizes the NAT64 local-use range 64:ff9b:1::/48, allowing SSRF and trust-boundary bypass",
+      "vulnerableRange": ">=10.2.0 <=10.5.0",
+      "patchedRange": ">=10.5.1",
+      "findings": [
+        {
+          "version": "10.3.1",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>express-rate-limit>ip-address"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1239973,
+      "ghsa": "GHSA-hq2x-r82h-9wj4",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron drops inherited HTML sandbox restrictions for popups opened through OpenURLFromTab",
+      "vulnerableRange": "<41.10.4",
+      "patchedRange": ">=41.10.4",
+      "findings": [
+        {
+          "version": "41.3.0",
+          "paths": [
+            "apps__desktop>electron"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1239977,
+      "ghsa": "GHSA-gr2m-v5gq-v685",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: Windows opened from a sandboxed top-level document do not inherit its sandbox restrictions",
+      "vulnerableRange": "<41.10.6",
+      "patchedRange": ">=41.10.6",
+      "findings": [
+        {
+          "version": "41.3.0",
+          "paths": [
+            "apps__desktop>electron"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1239981,
+      "ghsa": "GHSA-j84w-jfhq-vhvj",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: File and HTTP protocol handlers allow cross-origin reads without corsEnabled",
+      "vulnerableRange": "<41.10.6",
+      "patchedRange": ">=41.10.6",
+      "findings": [
+        {
+          "version": "41.3.0",
+          "paths": [
+            "apps__desktop>electron"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1240032,
+      "ghsa": "GHSA-rcw4-f5rp-g42v",
+      "package": "adm-zip",
+      "severity": "high",
+      "title": "adm-zip: Decompression-bomb protection (fix for CVE-2026-39244) can be bypassed by declaring uncompressed size as 0",
+      "vulnerableRange": "<=0.6.0",
+      "patchedRange": ">=0.6.1",
+      "findings": [
+        {
+          "version": "0.6.0",
+          "paths": [
+            "apps__daemon>hyperframes>adm-zip"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240034,
+      "ghsa": "GHSA-j5f4-cc29-5x44",
+      "package": "adm-zip",
+      "severity": "high",
+      "title": "adm-zip extraction preserves SUID/SGID bits from untrusted ZIPs -> local privilege escalation",
+      "vulnerableRange": "<=0.6.0",
+      "patchedRange": ">=0.6.1",
+      "findings": [
+        {
+          "version": "0.6.0",
+          "paths": [
+            "apps__daemon>hyperframes>adm-zip"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240036,
+      "ghsa": "GHSA-pmjh-fq2x-6v4x",
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via orphaned RetryHandler response body",
+      "vulnerableRange": ">=7.11.0 <7.29.1",
+      "patchedRange": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.29.0",
+          "paths": [
+            "apps__daemon>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240038,
+      "ghsa": "GHSA-r53p-7pc4-xj5r",
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to downstream response splitting via retry interceptor",
+      "vulnerableRange": ">=7.0.0 <7.29.1",
+      "patchedRange": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.29.0",
+          "paths": [
+            "apps__daemon>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240039,
+      "ghsa": "GHSA-r53p-7pc4-xj5r",
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to downstream response splitting via retry interceptor",
+      "vulnerableRange": "<6.28.1",
+      "patchedRange": ">=6.28.1",
+      "findings": [
+        {
+          "version": "6.28.0",
+          "paths": [
+            "tools__pack>@electron/rebuild>node-gyp>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240041,
+      "ghsa": "GHSA-rfgv-xxqx-mfg5",
+      "package": "undici",
+      "severity": "high",
+      "title": "undici vulnerable to Denial of Service via unrequested WebSocket subprotocol",
+      "vulnerableRange": ">=7.0.0 <7.29.1",
+      "patchedRange": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.29.0",
+          "paths": [
+            "apps__daemon>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240042,
+      "ghsa": "GHSA-rfgv-xxqx-mfg5",
+      "package": "undici",
+      "severity": "high",
+      "title": "undici vulnerable to Denial of Service via unrequested WebSocket subprotocol",
+      "vulnerableRange": ">=6.7.0 <6.28.1",
+      "patchedRange": ">=6.28.1",
+      "findings": [
+        {
+          "version": "6.28.0",
+          "paths": [
+            "tools__pack>@electron/rebuild>node-gyp>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240044,
+      "ghsa": "GHSA-3xpg-4rpp-hhhm",
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via unbounded decompression of compressed responses",
+      "vulnerableRange": ">=7.15.0 <7.29.1",
+      "patchedRange": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.29.0",
+          "paths": [
+            "apps__daemon>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240046,
+      "ghsa": "GHSA-2jfj-6hjv-fm6j",
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shared caches",
+      "vulnerableRange": ">=7.0.0 <7.29.1",
+      "patchedRange": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.29.0",
+          "paths": [
+            "apps__daemon>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240048,
+      "ghsa": "GHSA-2gqq-gqf2-x968",
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to response truncation via oversized chunked responses in the dump interceptor",
+      "vulnerableRange": ">=7.1.0 <7.29.1",
+      "patchedRange": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.29.0",
+          "paths": [
+            "apps__daemon>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240050,
+      "ghsa": "GHSA-w293-vg96-wgc3",
+      "package": "undici",
+      "severity": "high",
+      "title": "undici vulnerable to TLS certificate validation bypass via dropped connect options in BalancedPool",
+      "vulnerableRange": ">=7.24.1 <7.29.1",
+      "patchedRange": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.29.0",
+          "paths": [
+            "apps__daemon>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240052,
+      "ghsa": "GHSA-8436-99hf-9mmv",
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to caching and replay of unsafe HTTP method responses",
+      "vulnerableRange": ">=7.0.0 <7.29.1",
+      "patchedRange": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.29.0",
+          "paths": [
+            "apps__daemon>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240055,
+      "ghsa": "GHSA-rx4f-c7p8-82vq",
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via WebSocketStream unclean close",
+      "vulnerableRange": ">=7.0.0 <7.29.1",
+      "patchedRange": ">=7.29.1",
+      "findings": [
+        {
+          "version": "7.29.0",
+          "paths": [
+            "apps__daemon>undici"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240059,
+      "ghsa": "GHSA-vv43-5jgx-7qv8",
+      "package": "electron",
+      "severity": "moderate",
+      "title": "Electron: Local race condition in Squirrel.Mac update installation on macOS",
+      "vulnerableRange": ">=40.0.0-alpha.1 <41.10.5",
+      "patchedRange": ">=41.10.5",
+      "findings": [
+        {
+          "version": "41.3.0",
+          "paths": [
+            "apps__desktop>electron"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    },
+    {
+      "id": 1240064,
+      "ghsa": "GHSA-p634-w6r4-rjp2",
+      "package": "adm-zip",
+      "severity": "moderate",
+      "title": "adm-zip: Duplicate ZIP entry names: getEntry() and extractAllTo() resolve to different content",
+      "vulnerableRange": "<=0.6.0",
+      "patchedRange": ">=0.6.1",
+      "findings": [
+        {
+          "version": "0.6.0",
+          "paths": [
+            "apps__daemon>hyperframes>adm-zip"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240065,
+      "ghsa": "GHSA-c6fg-446q-cg94",
+      "package": "adm-zip",
+      "severity": "moderate",
+      "title": "adm-zip: getDataAsync() bypasses the maxOutputLength size guard enforced by the synchronous getData() path",
+      "vulnerableRange": "<=0.6.0",
+      "patchedRange": ">=0.6.1",
+      "findings": [
+        {
+          "version": "0.6.0",
+          "paths": [
+            "apps__daemon>hyperframes>adm-zip"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240066,
+      "ghsa": "GHSA-8238-w5pm-2374",
+      "package": "adm-zip",
+      "severity": "high",
+      "title": "adm-zip: Unhandled error event in async DEFLATE decompression crashes Node.js process (DoS)",
+      "vulnerableRange": "<=0.6.0",
+      "patchedRange": ">=0.6.1",
+      "findings": [
+        {
+          "version": "0.6.0",
+          "paths": [
+            "apps__daemon>hyperframes>adm-zip"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240091,
+      "ghsa": "GHSA-hrr3-gc8f-f4qj",
+      "package": "fast-uri",
+      "severity": "moderate",
+      "title": "fast-uri vulnerable to inconsistent host case normalization via percent-encoded octets",
+      "vulnerableRange": ">=3.0.0 <3.1.8",
+      "patchedRange": ">=3.1.8",
+      "findings": [
+        {
+          "version": "3.1.5",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>ajv>fast-uri"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240097,
+      "ghsa": "GHSA-j6r3-76f7-8jcv",
+      "package": "ip-address",
+      "severity": "moderate",
+      "title": "ip-address: isInSubnet() and isHostInSubnet() compare addresses of different families as if they shared an address space, allowing an allowlist check to admit an address outside its range",
+      "vulnerableRange": "<=10.7.0",
+      "patchedRange": ">=10.7.1",
+      "findings": [
+        {
+          "version": "10.3.1",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>express-rate-limit>ip-address"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240098,
+      "ghsa": "GHSA-h3mg-xc3c-68pw",
+      "package": "ip-address",
+      "severity": "moderate",
+      "title": "ip-address: Address6 builds a parse diagnostic proportional to the input with no length bound, allowing a single long string to stall or crash the process",
+      "vulnerableRange": "<=10.7.0",
+      "patchedRange": ">=10.7.1",
+      "findings": [
+        {
+          "version": "10.3.1",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>express-rate-limit>ip-address"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240103,
+      "ghsa": "GHSA-q2hr-2g5m-vwhr",
+      "package": "brace-expansion",
+      "severity": "moderate",
+      "title": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+      "vulnerableRange": ">=4.0.0 <5.0.12",
+      "patchedRange": ">=5.0.12",
+      "findings": [
+        {
+          "version": "5.0.9",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>@electron/asar>minimatch>brace-expansion"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240107,
+      "ghsa": "GHSA-qhr7-859c-m2p7",
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+      "vulnerableRange": ">=4.0.0 <5.0.11",
+      "patchedRange": ">=5.0.11",
+      "findings": [
+        {
+          "version": "5.0.9",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>@electron/asar>minimatch>brace-expansion"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240111,
+      "ghsa": "GHSA-6j4f-fj2g-mc7p",
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+      "vulnerableRange": ">=4.0.0 <5.0.10",
+      "patchedRange": ">=5.0.10",
+      "findings": [
+        {
+          "version": "5.0.9",
+          "paths": [
+            "tools__pack>electron-builder>app-builder-lib>@electron/asar>minimatch>brace-expansion"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240609,
+      "ghsa": "GHSA-vcvr-r3jv-pc5j",
+      "package": "next",
+      "severity": "critical",
+      "title": "Next.js: Remote Code Execution in next/og ImageResponse",
+      "vulnerableRange": ">=16.2.0 <16.3.6",
+      "patchedRange": ">=16.3.6",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240640,
+      "ghsa": "GHSA-hxh3-vqpv-xpqv",
+      "package": "hono",
+      "severity": "moderate",
+      "title": "hono/jsx renders plain strings unescaped in boundary components, leading to XSS",
+      "vulnerableRange": "<4.13.7",
+      "patchedRange": ">=4.13.7",
+      "findings": [
+        {
+          "version": "4.12.34",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk>hono"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240978,
+      "ghsa": "GHSA-c2j3-45gr-mqc4",
+      "package": "dompurify",
+      "severity": "low",
+      "title": "DOMPurify: `CUSTOM_ELEMENT_HANDLING` bypasses `afterSanitizeElements` for allowed custom elements.",
+      "vulnerableRange": "<=3.4.11",
+      "patchedRange": ">=3.4.12",
+      "findings": [
+        {
+          "version": "3.4.2",
+          "paths": [
+            "apps__web>dompurify"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240991,
+      "ghsa": "GHSA-ch52-4w7c-c8xp",
+      "package": "http-cache-semantics",
+      "severity": "high",
+      "title": "http-cache-semantics max-stale handling can disclose cross-user cached responses",
+      "vulnerableRange": "<=4.2.0",
+      "patchedRange": "<0.0.0",
+      "findings": [
+        {
+          "version": "4.2.0",
+          "paths": [
+            "apps__desktop>electron>@electron/get>got>cacheable-request>http-cache-semantics"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1240992,
+      "ghsa": "GHSA-vfj7-8cjw-p6xm",
+      "package": "braces",
+      "severity": "high",
+      "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+      "vulnerableRange": "<=3.0.3",
+      "patchedRange": "<0.0.0",
+      "findings": [
+        {
+          "version": "3.0.3",
+          "paths": [
+            "apps__daemon>chokidar>braces"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241202,
+      "ghsa": "GHSA-hp3w-g68c-fv3c",
+      "package": "sprintf-js",
+      "severity": "moderate",
+      "title": "sprintf-js vulnerable to denial of service through unbounded precision specifiers",
+      "vulnerableRange": "<=1.1.3",
+      "patchedRange": "<0.0.0",
+      "findings": [
+        {
+          "version": "1.1.3",
+          "paths": [
+            "apps__daemon>hyperframes>onnxruntime-node>global-agent>roarr>sprintf-js"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241204,
+      "ghsa": "GHSA-6688-9rhm-gjv2",
+      "package": "dompurify",
+      "severity": "low",
+      "title": "DOMPurify: IN_PLACE returns a force-removed rawtext root whose text carries attacker markup \u2014 pure HTML reparse executes",
+      "vulnerableRange": "<=3.4.15",
+      "patchedRange": ">=3.4.16",
+      "findings": [
+        {
+          "version": "3.4.2",
+          "paths": [
+            "apps__web>dompurify"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241206,
+      "ghsa": "GHSA-238p-pmpm-9mq7",
+      "package": "katex",
+      "severity": "low",
+      "title": "KaTeX: Existing prototype pollution can bypass trust restrictions",
+      "vulnerableRange": ">=0.11.0 <0.18.2",
+      "patchedRange": ">=0.18.2",
+      "findings": [
+        {
+          "version": "0.16.47",
+          "paths": [
+            "apps__web>@excalidraw/excalidraw>@excalidraw/mermaid-to-excalidraw>mermaid>katex"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241209,
+      "ghsa": "GHSA-68fv-2mgg-jv7q",
+      "package": "source-map-js",
+      "severity": "high",
+      "title": "source-map-js allows event-loop denial of service through indexed source-map section offsets",
+      "vulnerableRange": ">=1.0.0 <1.2.2",
+      "patchedRange": ">=1.2.2",
+      "findings": [
+        {
+          "version": "1.2.1",
+          "paths": [
+            "apps__daemon>jsdom>css-tree>source-map-js"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241210,
+      "ghsa": "GHSA-jqcg-44mw-7w3h",
+      "package": "proxy-addr",
+      "severity": "critical",
+      "title": "proxy-addr vulnerable to IP spoofing via IPv4-mapped IPv6 trust subnet",
+      "vulnerableRange": ">=1.1.0 <2.0.8",
+      "patchedRange": ">=2.0.8",
+      "findings": [
+        {
+          "version": "2.0.7",
+          "paths": [
+            "apps__daemon>express>proxy-addr"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241331,
+      "ghsa": "GHSA-wq5f-xc86-pv6w",
+      "package": "sharp",
+      "severity": "high",
+      "title": "sharp : Vulnerability in librsvg dependency CVE-2026-96889",
+      "vulnerableRange": "<0.35.5",
+      "patchedRange": ">=0.35.5",
+      "findings": [
+        {
+          "version": "0.35.3",
+          "paths": [
+            "apps__daemon>hyperframes>sharp"
+          ]
+        },
+        {
+          "version": "0.34.5",
+          "paths": [
+            "apps__web>next>sharp"
+          ]
+        },
+        {
+          "version": "0.35.3",
+          "paths": [
+            "tools__release>sharp"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241339,
+      "ghsa": "GHSA-6qxp-vccf-f47h",
+      "package": "@modelcontextprotocol/sdk",
+      "severity": "high",
+      "title": "MCP TypeScript SDK: OAuth client could send credentials to an authorization server chosen by the MCP server",
+      "vulnerableRange": ">=1.12.0 <1.31.0",
+      "patchedRange": ">=1.31.0",
+      "findings": [
+        {
+          "version": "1.29.0",
+          "paths": [
+            "apps__daemon>@modelcontextprotocol/sdk"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241490,
+      "ghsa": "GHSA-4jqv-mc3x-m676",
+      "package": "next",
+      "severity": "moderate",
+      "title": "Next.js has cache poisoning of SSG and ISR pages in self-hosted applications",
+      "vulnerableRange": ">=16.0.0 <16.3.8",
+      "patchedRange": ">=16.3.8",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241492,
+      "ghsa": "GHSA-39w2-rjm5-chcv",
+      "package": "next",
+      "severity": "low",
+      "title": "Next.js has information disclosure in development server's Model Context Protocol endpoint",
+      "vulnerableRange": ">=16.0.0 <16.3.8",
+      "patchedRange": ">=16.3.8",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241493,
+      "ghsa": "GHSA-f87g-xv8r-7p7x",
+      "package": "next",
+      "severity": "moderate",
+      "title": "Next.js has information disclosure in App Router metadata image routes via dynamicParams bypass",
+      "vulnerableRange": ">=16.0.0 <16.3.8",
+      "patchedRange": ">=16.3.8",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241495,
+      "ghsa": "GHSA-mcj8-r9mp-w47p",
+      "package": "next",
+      "severity": "moderate",
+      "title": "Next.js has cache poisoning in SSG/ISR rendering that leads to cross-user content substitution and persistent denial of service",
+      "vulnerableRange": ">=16.0.0 <16.3.8",
+      "patchedRange": ">=16.3.8",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241496,
+      "ghsa": "GHSA-cjq9-62q9-8jv4",
+      "package": "next",
+      "severity": "high",
+      "title": "Next.js has Server-Side Request Forgery in Image Optimization",
+      "vulnerableRange": ">=16.0.0 <16.3.8",
+      "patchedRange": ">=16.3.8",
+      "findings": [
+        {
+          "version": "16.2.6",
+          "paths": [
+            "apps__web>next"
+          ]
+        }
+      ],
+      "presentInProdAudit": true
+    },
+    {
+      "id": 1241657,
+      "ghsa": "GHSA-9qh4-3jw8-366w",
+      "package": "electron",
+      "severity": "high",
+      "title": "Electron: <webview> can enable Node.js integration in Web Workers despite embedder restrictions",
+      "vulnerableRange": "<41.10.6",
+      "patchedRange": ">=41.10.6",
+      "findings": [
+        {
+          "version": "41.3.0",
+          "paths": [
+            "apps__desktop>electron"
+          ]
+        }
+      ],
+      "presentInProdAudit": false
+    }
+  ],
+  "rawReportSha256": {
+    "pnpm-all.json": "13a1b9ba157acd3dcb07160a887f751d34d10b4b4eae2f1283fdb7d3117ef11f",
+    "pnpm-prod.json": "3228377de15a791b51bb4f346ecefbd6370c8d9dfaebe05e24807f626cf3595e",
+    "runtime-npm.json": "38f902c2977e249b8feef2a005de58c6b82914a42703a6d23dde672ceb925b62"
+  },
+  "lockfilesUnchanged": true,
+  "exploitationTested": false,
+  "nodeOsNativeBinarySecurityNotAssessed": true
+}

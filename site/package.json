@@ -1,0 +1,39 @@
+{
+  "name": "seven-steps-private-draft",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.23.2 <23",
+    "npm": "10.9.8"
+  },
+  "packageManager": "npm@10.9.8",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "node scripts/build.mjs review",
+    "build:public": "node scripts/build.mjs public",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check && node scripts/content-check.mjs && node scripts/copy-check.mjs",
+    "test:unit": "node --test tests/*.test.ts",
+    "test:e2e": "playwright test",
+    "test": "npm run test:unit && npm run test:e2e",
+    "budget": "node scripts/budget.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/source-sans-3": "5.3.1",
+    "@fontsource-variable/source-serif-4": "5.3.1",
+    "@netlify/database": "2.0.1",
+    "@netlify/functions": "6.0.2",
+    "astro": "7.3.8",
+    "resend": "6.33.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.64.1",
+    "@types/node": "22.20.5",
+    "@types/pg": "8.15.6",
+    "pg": "8.16.3",
+    "typescript": "6.0.3"
+  }
+}

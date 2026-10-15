@@ -1,0 +1,276 @@
+{
+  "generatedAt": "2026-10-15T06:56:55.689Z",
+  "url": "http://127.0.0.1:4321/",
+  "mode": "measurement-and-screenshots",
+  "result": "captured",
+  "purpose": "Private placeholder-only preview measurements and visual captures. No form submissions.",
+  "profile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "deviceScaleFactor": 1,
+    "hasTouch": true,
+    "cache": "Fresh isolated context plus Chromium cache disabled",
+    "sampleTargetMs": 10000,
+    "network": {
+      "latencyMs": 150,
+      "downloadBytesPerSecond": 200000,
+      "uploadBytesPerSecond": 93750
+    },
+    "cpuSlowdownMultiplier": 4,
+    "calibration": "Uncalibrated desktop Chromium throttling; not a physical phone measurement."
+  },
+  "limitations": [
+    "The page contains placeholders. It does not establish the load cost, compression quality or LCP of a page with real photography.",
+    "Observed LCP and CLS cover this one synthetic 10-second window. They are not field Core Web Vitals or a 75th-percentile result.",
+    "Resource Timing covers completed exposed entries. Zero sizes, missing entries and in-flight requests need interpretation; totals exclude transport overhead not represented by the browser.",
+    "No user interactions are measured, so this run does not measure INP or verify the menu, form or viewer.",
+    "Desktop screenshots use a separate unthrottled context and are visual evidence, not a second performance sample."
+  ],
+  "prohibitedRequests": [],
+  "browserVersion": "156.0.8078.4",
+  "httpStatus": 200,
+  "mobile": {
+    "sampleDurationMs": 10007.39999999851,
+    "navigation": [
+      {
+        "name": "http://127.0.0.1:4321/",
+        "initiatorType": "navigation",
+        "startTime": 0,
+        "responseEnd": 189.89999999850988,
+        "duration": 1476.6000000014901,
+        "transferSize": 5125,
+        "encodedBodySize": 4825,
+        "decodedBodySize": 25994
+      }
+    ],
+    "resources": [
+      {
+        "name": "http://127.0.0.1:4321/_astro/Layout.dNvhkT1o.css",
+        "initiatorType": "link",
+        "startTime": 292.29999999701977,
+        "responseEnd": 506.19999999552965,
+        "duration": 213.89999999850988,
+        "transferSize": 6813,
+        "encodedBodySize": 6513,
+        "decodedBodySize": 26760
+      },
+      {
+        "name": "http://127.0.0.1:4321/_astro/Layout.astro_astro_type_script_index_0_lang.DDqccYWc.js",
+        "initiatorType": "script",
+        "startTime": 293.79999999701977,
+        "responseEnd": 498.8999999985099,
+        "duration": 205.10000000149012,
+        "transferSize": 3318,
+        "encodedBodySize": 3018,
+        "decodedBodySize": 8865
+      },
+      {
+        "name": "http://127.0.0.1:4321/_astro/source-sans-3-latin-wght-normal.Bo_j9asI.woff2",
+        "initiatorType": "css",
+        "startTime": 729.6000000014901,
+        "responseEnd": 1353.7999999970198,
+        "duration": 624.1999999955297,
+        "transferSize": 29172,
+        "encodedBodySize": 28872,
+        "decodedBodySize": 28872
+      },
+      {
+        "name": "http://127.0.0.1:4321/_astro/source-serif-4-latin-wght-normal.DMe4EKeb.woff2",
+        "initiatorType": "css",
+        "startTime": 792.6999999955297,
+        "responseEnd": 1473.2999999970198,
+        "duration": 680.6000000014901,
+        "transferSize": 51236,
+        "encodedBodySize": 50936,
+        "decodedBodySize": 50936
+      }
+    ],
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "devicePixelRatio": 1,
+      "documentWidth": 390
+    },
+    "lcp": {
+      "startTime": 948,
+      "renderTime": 948,
+      "loadTime": 0,
+      "size": 26680,
+      "element": {
+        "tag": "H1",
+        "id": "hero-heading"
+      }
+    },
+    "cls": 0.06364466816410536,
+    "layoutShifts": [
+      {
+        "startTime": 924.1000000014901,
+        "value": 0.05651827227600458,
+        "hadRecentInput": false
+      },
+      {
+        "startTime": 1444.1000000014901,
+        "value": 0.0030428704345226887,
+        "hadRecentInput": false
+      },
+      {
+        "startTime": 1487.1000000014901,
+        "value": 0.004083525453578087,
+        "hadRecentInput": false
+      }
+    ],
+    "performanceObserverTypes": [
+      "element",
+      "event",
+      "first-input",
+      "interaction-contentful-paint",
+      "largest-contentful-paint",
+      "layout-shift",
+      "long-animation-frame",
+      "longtask",
+      "mark",
+      "measure",
+      "navigation",
+      "paint",
+      "resource",
+      "soft-navigation",
+      "visibility-state"
+    ],
+    "playerElements": [],
+    "developmentClientDetected": false,
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4321/",
+        "resourceType": "document",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:4321/_astro/Layout.dNvhkT1o.css",
+        "resourceType": "stylesheet",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:4321/_astro/Layout.astro_astro_type_script_index_0_lang.DDqccYWc.js",
+        "resourceType": "script",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:4321/_astro/source-sans-3-latin-wght-normal.Bo_j9asI.woff2",
+        "resourceType": "font",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:4321/_astro/source-serif-4-latin-wght-normal.DMe4EKeb.woff2",
+        "resourceType": "font",
+        "method": "GET"
+      }
+    ],
+    "requestCount": 5,
+    "inflightAtSample": [],
+    "consoleErrors": [],
+    "timingTotals": {
+      "transferSize": 95664,
+      "encodedBodySize": 94164,
+      "decodedBodySize": 141427
+    },
+    "completedResourceEntryCount": 4,
+    "coldEntryTargetBytes": 921600,
+    "interpretation": "Compare the completed Timing totals with the target only after checking in-flight, blocked and missing entries. No real-photography performance claim."
+  },
+  "screenshots": {
+    "mobile": "docs/screenshots/2026-10-15T06-56-55Z-mobile-390.png",
+    "mobileFull": "docs/screenshots/2026-10-15T06-56-55Z-mobile-390-full.png",
+    "desktop": "docs/screenshots/2026-10-15T06-56-55Z-desktop-1440.png",
+    "desktopFull": "docs/screenshots/2026-10-15T06-56-55Z-desktop-1440-full.png"
+  },
+  "pageCaptures": [
+    {
+      "route": "/stories/wedding-story/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390,
+        "documentHeight": 5853
+      },
+      "screenshot": "docs/screenshots/2026-10-15T06-56-55Z-wedding-mobile-390.png",
+      "fullPage": "docs/screenshots/2026-10-15T06-56-55Z-wedding-mobile-390-full.png",
+      "mode": "Unthrottled visual capture with finite screenshot animations completed; no performance claim."
+    },
+    {
+      "route": "/content-checklist/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390,
+        "documentHeight": 15749
+      },
+      "screenshot": "docs/screenshots/2026-10-15T06-56-55Z-checklist-mobile-390.png",
+      "fullPage": "docs/screenshots/2026-10-15T06-56-55Z-checklist-mobile-390-full.png",
+      "mode": "Unthrottled visual capture with finite screenshot animations completed; no performance claim."
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "geometry": {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "documentHeight": 4967
+      },
+      "screenshot": "docs/screenshots/2026-10-15T06-56-55Z-desktop-1440.png",
+      "fullPage": "docs/screenshots/2026-10-15T06-56-55Z-desktop-1440-full.png",
+      "mode": "Unthrottled visual capture with finite screenshot animations completed; no performance claim."
+    },
+    {
+      "route": "/stories/wedding-story/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "geometry": {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "documentHeight": 7040
+      },
+      "screenshot": "docs/screenshots/2026-10-15T06-56-55Z-wedding-desktop-1440.png",
+      "fullPage": "docs/screenshots/2026-10-15T06-56-55Z-wedding-desktop-1440-full.png",
+      "mode": "Unthrottled visual capture with finite screenshot animations completed; no performance claim."
+    },
+    {
+      "route": "/content-checklist/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "geometry": {
+        "width": 1440,
+        "height": 1000,
+        "documentWidth": 1440,
+        "documentHeight": 10770
+      },
+      "screenshot": "docs/screenshots/2026-10-15T06-56-55Z-checklist-desktop-1440.png",
+      "fullPage": "docs/screenshots/2026-10-15T06-56-55Z-checklist-desktop-1440-full.png",
+      "mode": "Unthrottled visual capture with finite screenshot animations completed; no performance claim."
+    }
+  ],
+  "desktopViewport": {
+    "width": 1440,
+    "height": 1000,
+    "deviceScaleFactor": 1
+  }
+}

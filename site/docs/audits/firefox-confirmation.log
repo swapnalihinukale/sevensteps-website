@@ -1,0 +1,71 @@
+
+Running 17 tests using 1 worker
+
+(node:64333) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/17] [firefox] › tests/browser/journeys.spec.ts:4:1 › two story routes, accurate checklist counts and usable deep links
+[2/17] [firefox] › tests/browser/journeys.spec.ts:21:1 › gallery is finite, keyboard-operated and restores focus
+[3/17] [firefox] › tests/browser/journeys.spec.ts:43:1 › Play works while focused; new inspection and offscreen pause without restarting
+  1) [firefox] › tests/browser/journeys.spec.ts:43:1 › Play works while focused; new inspection and offscreen pause without restarting 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('[data-motion-play]')
+    Expected: "true"
+    Received: "false"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('[data-motion-play]') with timeout 5000ms
+      - waiting for locator('[data-motion-play]')
+        14 × locator resolved to <button type="button" data-motion-play="" aria-pressed="false" class="control-button">Play</button>
+           - unexpected value "false"
+
+
+      48 |   await play.focus();
+      49 |   await page.keyboard.press('Enter');
+    > 50 |   await expect(play).toHaveAttribute('aria-pressed', 'true');
+         |                      ^
+      51 |   await expect.poll(() => track.evaluate(el => getComputedStyle(el).transform)).not.toBe('matrix(1, 0, 0, 1, 0, 0)');
+      52 |   await page.locator('[data-motion-reset]').focus();
+      53 |   await expect(play).toHaveAttribute('aria-pressed', 'false');
+        at /Users/admin/Documents/Website/site/tests/browser/journeys.spec.ts:50:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../private/tmp/seven-steps-firefox-confirmation-7qVw3F/test-results/journeys-Play-works-while--f7512-en-pause-without-restarting-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../private/tmp/seven-steps-firefox-confirmation-7qVw3F/test-results/journeys-Play-works-while--f7512-en-pause-without-restarting-firefox/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../private/tmp/seven-steps-firefox-confirmation-7qVw3F/test-results/journeys-Play-works-while--f7512-en-pause-without-restarting-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../private/tmp/seven-steps-firefox-confirmation-7qVw3F/test-results/journeys-Play-works-while--f7512-en-pause-without-restarting-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:64355) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/17] [firefox] › tests/browser/journeys.spec.ts:71:1 › OS reduced motion wins over stored Full and updates while running
+[5/17] [firefox] › tests/browser/journeys.spec.ts:88:1 › mobile menu closes with Escape, navigation and desktop resize
+[6/17] [firefox] › tests/browser/journeys.spec.ts:114:1 › draft enquiry keeps visible removable story context and sends no data
+[7/17] [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /
+[8/17] [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /stories/wedding-story/
+[9/17] [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /stories/couple-session/
+[10/17] [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /content-checklist/
+[11/17] [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /404/
+[12/17] [firefox] › tests/browser/journeys.spec.ts:147:1 › viewer and expanded menu pass automated accessibility checks
+[13/17] [firefox] › tests/browser/journeys.spec.ts:157:1 › layout reflows at the recorded widths and short landscape sizes
+[14/17] [firefox] › tests/browser/journeys.spec.ts:170:1 › content, navigation and draft form stay safe without JavaScript
+[15/17] [firefox] › tests/browser/journeys.spec.ts:183:1 › checklist returns to a note inside a closed disclosure
+[16/17] [firefox] › tests/browser/journeys.spec.ts:191:1 › ordinary Back, Forward and refresh preserve reachable story documents
+[17/17] [firefox] › tests/browser/journeys.spec.ts:204:1 › blocked fonts and unavailable storage preserve the usable draft
+  1 failed
+    [firefox] › tests/browser/journeys.spec.ts:43:1 › Play works while focused; new inspection and offscreen pause without restarting 
+  16 passed (25.8s)

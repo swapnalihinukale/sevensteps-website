@@ -1,0 +1,16 @@
+---
+interface Props {
+  label: string;
+  tone?: 'leaf' | 'rose' | 'sand' | 'mist' | 'ink';
+  shape?: 'portrait' | 'landscape' | 'square';
+  number?: string;
+  class?: string;
+}
+const { label, tone = 'leaf', shape = 'portrait', number, class: className } = Astro.props;
+---
+<div class:list={['photo-space', `tone-${tone}`, `shape-${shape}`, className]}>
+  <span class="frame-corner frame-corner--tl" aria-hidden="true"></span>
+  <span class="frame-corner frame-corner--br" aria-hidden="true"></span>
+  <span class="photo-space__center"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 40 40" fill="none"><path d="M4 14V4h10m12 0h10v10M4 26v10h10m12 0h10V26M15 20h10m-5-5v10" stroke="currentColor" stroke-width="1"/></svg><span>{label}</span><span class="photo-space__empty">Photograph to add</span></span>
+  {number && <span class="photo-space__number" aria-hidden="true">{number}</span>}
+</div>

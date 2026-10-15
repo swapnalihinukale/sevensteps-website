@@ -1,0 +1,13 @@
+{
+  "started": "2026-10-15T07:14:00.433Z",
+  "durationMs": 29423.971,
+  "passed": 51,
+  "unexpected": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "projects": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ]
+}

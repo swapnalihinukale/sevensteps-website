@@ -1,0 +1,133 @@
+
+> seven-steps-private-draft@0.1.0 test:e2e
+> playwright test --project=webkit --reporter=list --output=test-results-webkit
+
+
+Running 17 tests using 3 workers
+
+(node:65315) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65314) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [webkit] › tests/browser/journeys.spec.ts:43:1 › Play works while focused; new inspection and offscreen pause without restarting (2.4s)
+  ✓   3 [webkit] › tests/browser/journeys.spec.ts:4:1 › two story routes, accurate checklist counts and usable deep links (2.5s)
+  ✓   1 [webkit] › tests/browser/journeys.spec.ts:21:1 › gallery is finite, keyboard-operated and restores focus (3.3s)
+  ✓   4 [webkit] › tests/browser/journeys.spec.ts:71:1 › OS reduced motion wins over stored Full and updates while running (1.0s)
+  ✓   6 [webkit] › tests/browser/journeys.spec.ts:114:1 › draft enquiry keeps visible removable story context and sends no data (802ms)
+  ✓   5 [webkit] › tests/browser/journeys.spec.ts:88:1 › mobile menu closes with Escape, navigation and desktop resize (1.7s)
+  ✓   7 [webkit] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at / (1.9s)
+  ✓   9 [webkit] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /stories/couple-session/ (1.9s)
+  ✓   8 [webkit] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /stories/wedding-story/ (2.0s)
+  ✓  10 [webkit] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /content-checklist/ (1.8s)
+  ✓  11 [webkit] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /404/ (1.2s)
+  ✓  14 [webkit] › tests/browser/journeys.spec.ts:170:1 › content, navigation and draft form stay safe without JavaScript (829ms)
+  ✘  12 [webkit] › tests/browser/journeys.spec.ts:147:1 › viewer and expanded menu pass automated accessibility checks (1.9s)
+(node:65452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 [webkit] › tests/browser/journeys.spec.ts:183:1 › checklist returns to a note inside a closed disclosure (1.0s)
+  ✓  13 [webkit] › tests/browser/journeys.spec.ts:157:1 › layout reflows at the recorded widths and short landscape sizes (2.3s)
+  ✓  16 [webkit] › tests/browser/journeys.spec.ts:204:1 › blocked fonts and unavailable storage preserve the usable draft (476ms)
+  ✓  17 [webkit] › tests/browser/journeys.spec.ts:191:1 › ordinary Back, Forward and refresh preserve reachable story documents (1.2s)
+
+
+  1) [webkit] › tests/browser/journeys.spec.ts:147:1 › viewer and expanded menu pass automated accessibility checks 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 64
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#fafaf8",
+    +               "contrastRatio": 4.11,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#7a7a78",
+    +               "fontSize": "12.0pt (16px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 4.11 (foreground color: #7a7a78, background color: #fafaf8, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<nav id=\"mobile-menu\" class=\"mobile-menu\" aria-label=\"Mobile navigation\">",
+    +                 "target": Array [
+    +                   "#mobile-menu",
+    +                 ],
+    +               },
+    +               Object {
+    +                 "html": "<body>",
+    +                 "target": Array [
+    +                   "body",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 4.11 (foreground color: #7a7a78, background color: #fafaf8, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<a href=\"/content-checklist/\">Content checklist</a>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "#mobile-menu > a[href$=\"content-checklist/\"]",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      149 |   await page.goto('/stories/couple-session/');
+      150 |   await page.getByRole('button', { name: 'Menu' }).click();
+    > 151 |   expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze()).violations).toEqual([]);
+          |                                                                                                                         ^
+      152 |   await page.keyboard.press('Escape');
+      153 |   await page.locator('[data-viewer-trigger="0"]').click();
+      154 |   expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze()).violations).toEqual([]);
+        at /Users/admin/Documents/Website/site/tests/browser/journeys.spec.ts:151:121
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results-webkit/journeys-viewer-and-expand-74d8c-omated-accessibility-checks-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results-webkit/journeys-viewer-and-expand-74d8c-omated-accessibility-checks-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results-webkit/journeys-viewer-and-expand-74d8c-omated-accessibility-checks-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results-webkit/journeys-viewer-and-expand-74d8c-omated-accessibility-checks-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [webkit] › tests/browser/journeys.spec.ts:147:1 › viewer and expanded menu pass automated accessibility checks 
+  16 passed (20.3s)

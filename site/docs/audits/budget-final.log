@@ -1,0 +1,12 @@
+
+> seven-steps-private-draft@0.1.0 budget
+> node scripts/budget.mjs
+
+PASS css: 6.34 / 30 KiB
+PASS javascript: 3.03 / 80 KiB
+PASS html: 6.78 / 35 KiB
+PASS fonts: 77.94 / 100 KiB
+PASS shell: 94.08 / 350 KiB
+Evidence: docs/audits/budget-latest.json
+Snapshot: docs/audits/2026-10-15T07-15-35Z-budget-7560773a821b.json
+Artifact limits do not establish image-loading or browser performance results.

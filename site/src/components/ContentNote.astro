@@ -1,0 +1,9 @@
+---
+import { getSlot } from '../data/content';
+import { isReview } from '../lib/review';
+import Arrow from './Arrow.astro';
+interface Props { id: string; compact?: boolean; text?: string; }
+const { id, compact = false, text } = Astro.props;
+const slot = getSlot(id);
+---
+{isReview && <div id={`content-${id}`} class:list={['content-note', { 'content-note--compact': compact }]} data-content-note={id}><a href={`/content-checklist/#${id}`}><span><span class="content-note__prefix">{text ?? slot.request}</span> <span>{slot.note}</span></span><Arrow /></a><span class="content-note__id">{id}</span></div>}

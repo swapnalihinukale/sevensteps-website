@@ -1,0 +1,49 @@
+
+> seven-steps-private-draft@0.1.0 test:e2e
+> playwright test --project=firefox --grep gallery is finite --workers=1
+
+
+Running 1 test using 1 worker
+
+(node:61034) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [firefox] › tests/browser/journeys.spec.ts:21:1 › gallery is finite, keyboard-operated and restores focus (1ms)
+
+
+  1) [firefox] › tests/browser/journeys.spec.ts:21:1 › gallery is finite, keyboard-operated and restores focus 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /tmp/seven-steps-browser-tests/playwright_firefoxdev_profile-R6X1Cz -juggler-pipe -silent
+    <launched> pid=61035
+    [pid=61035][err] *** You are running in headless mode.
+    [pid=61035][err] Could not find profile folder.
+    [pid=61035] <process did exit: exitCode=1, signal=null>
+    [pid=61035] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /tmp/seven-steps-browser-tests/playwright_firefoxdev_profile-R6X1Cz -juggler-pipe -silent
+      - <launched> pid=61035
+      - [pid=61035][err] *** You are running in headless mode.
+      - [pid=61035][err] Could not find profile folder.
+      - [pid=61035] <process did exit: exitCode=1, signal=null>
+      - [pid=61035] starting temporary directories cleanup
+      - [pid=61035] <gracefully close start>
+      - [pid=61035] <kill>
+      - [pid=61035] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=61035] finished temporary directories cleanup
+      - [pid=61035] <gracefully close end>
+
+
+    Error Context: test-results/journeys-gallery-is-finite-01845-operated-and-restores-focus-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-gallery-is-finite-01845-operated-and-restores-focus-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-gallery-is-finite-01845-operated-and-restores-focus-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [firefox] › tests/browser/journeys.spec.ts:21:1 › gallery is finite, keyboard-operated and restores focus 

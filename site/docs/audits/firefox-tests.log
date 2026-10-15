@@ -1,0 +1,673 @@
+
+> seven-steps-private-draft@0.1.0 test:e2e
+> playwright test --project=firefox
+
+
+Running 17 tests using 3 workers
+
+(node:60057) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [firefox] › tests/browser/journeys.spec.ts:43:1 › Play works while focused; new inspection and offscreen pause without restarting (1ms)
+  ✘   3 [firefox] › tests/browser/journeys.spec.ts:4:1 › two story routes, accurate checklist counts and usable deep links (1ms)
+  ✘   2 [firefox] › tests/browser/journeys.spec.ts:21:1 › gallery is finite, keyboard-operated and restores focus (1ms)
+(node:60071) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60072) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60073) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   4 [firefox] › tests/browser/journeys.spec.ts:71:1 › OS reduced motion wins over stored Full and updates while running (1ms)
+  ✘   5 [firefox] › tests/browser/journeys.spec.ts:88:1 › mobile menu closes with Escape, navigation and desktop resize (1ms)
+  ✘   6 [firefox] › tests/browser/journeys.spec.ts:114:1 › draft enquiry keeps visible removable story context and sends no data (1ms)
+(node:60079) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60080) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60081) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   7 [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at / (2ms)
+  ✘   8 [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /stories/wedding-story/ (1ms)
+  ✘   9 [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /stories/couple-session/ (1ms)
+(node:60085) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60086) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60087) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  10 [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /content-checklist/ (1ms)
+  ✘  11 [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /404/ (1ms)
+  ✘  12 [firefox] › tests/browser/journeys.spec.ts:147:1 › viewer and expanded menu pass automated accessibility checks (2ms)
+(node:60092) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60093) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60094) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  13 [firefox] › tests/browser/journeys.spec.ts:157:1 › layout reflows at the recorded widths and short landscape sizes (1ms)
+  ✘  14 [firefox] › tests/browser/journeys.spec.ts:170:1 › content, navigation and draft form stay safe without JavaScript (2ms)
+  ✘  15 [firefox] › tests/browser/journeys.spec.ts:183:1 › checklist returns to a note inside a closed disclosure (2ms)
+(node:60099) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  16 [firefox] › tests/browser/journeys.spec.ts:191:1 › ordinary Back, Forward and refresh preserve reachable story documents (1ms)
+  ✘  17 [firefox] › tests/browser/journeys.spec.ts:204:1 › blocked fonts and unavailable storage preserve the usable draft (1ms)
+
+
+  1) [firefox] › tests/browser/journeys.spec.ts:4:1 › two story routes, accurate checklist counts and usable deep links 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-GNCc97 -juggler-pipe -silent
+    <launched> pid=60063
+    [pid=60063][err] *** You are running in headless mode.
+    [pid=60063][err] Could not find profile folder.
+    [pid=60063] <process did exit: exitCode=1, signal=null>
+    [pid=60063] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-GNCc97 -juggler-pipe -silent
+      - <launched> pid=60063
+      - [pid=60063][err] *** You are running in headless mode.
+      - [pid=60063][err] Could not find profile folder.
+      - [pid=60063] <process did exit: exitCode=1, signal=null>
+      - [pid=60063] starting temporary directories cleanup
+      - [pid=60063] <gracefully close start>
+      - [pid=60063] <kill>
+      - [pid=60063] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60063] finished temporary directories cleanup
+      - [pid=60063] <gracefully close end>
+
+
+    Error Context: test-results/journeys-two-story-routes--d8180-ounts-and-usable-deep-links-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-two-story-routes--d8180-ounts-and-usable-deep-links-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-two-story-routes--d8180-ounts-and-usable-deep-links-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [firefox] › tests/browser/journeys.spec.ts:21:1 › gallery is finite, keyboard-operated and restores focus 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-NEHJBE -juggler-pipe -silent
+    <launched> pid=60062
+    [pid=60062][err] *** You are running in headless mode.
+    [pid=60062][err] Could not find profile folder.
+    [pid=60062] <process did exit: exitCode=1, signal=null>
+    [pid=60062] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-NEHJBE -juggler-pipe -silent
+      - <launched> pid=60062
+      - [pid=60062][err] *** You are running in headless mode.
+      - [pid=60062][err] Could not find profile folder.
+      - [pid=60062] <process did exit: exitCode=1, signal=null>
+      - [pid=60062] starting temporary directories cleanup
+      - [pid=60062] <gracefully close start>
+      - [pid=60062] <kill>
+      - [pid=60062] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60062] finished temporary directories cleanup
+      - [pid=60062] <gracefully close end>
+
+
+    Error Context: test-results/journeys-gallery-is-finite-01845-operated-and-restores-focus-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-gallery-is-finite-01845-operated-and-restores-focus-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-gallery-is-finite-01845-operated-and-restores-focus-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [firefox] › tests/browser/journeys.spec.ts:43:1 › Play works while focused; new inspection and offscreen pause without restarting 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-Y0LJEf -juggler-pipe -silent
+    <launched> pid=60061
+    [pid=60061][err] *** You are running in headless mode.
+    [pid=60061][err] Could not find profile folder.
+    [pid=60061] <process did exit: exitCode=1, signal=null>
+    [pid=60061] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-Y0LJEf -juggler-pipe -silent
+      - <launched> pid=60061
+      - [pid=60061][err] *** You are running in headless mode.
+      - [pid=60061][err] Could not find profile folder.
+      - [pid=60061] <process did exit: exitCode=1, signal=null>
+      - [pid=60061] starting temporary directories cleanup
+      - [pid=60061] <gracefully close start>
+      - [pid=60061] <kill>
+      - [pid=60061] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60061] finished temporary directories cleanup
+      - [pid=60061] <gracefully close end>
+
+
+    Error Context: test-results/journeys-Play-works-while--f7512-en-pause-without-restarting-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-Play-works-while--f7512-en-pause-without-restarting-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-Play-works-while--f7512-en-pause-without-restarting-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [firefox] › tests/browser/journeys.spec.ts:71:1 › OS reduced motion wins over stored Full and updates while running 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-N7mFiC -juggler-pipe -silent
+    <launched> pid=60076
+    [pid=60076][err] *** You are running in headless mode.
+    [pid=60076][err] Could not find profile folder.
+    [pid=60076] <process did exit: exitCode=1, signal=null>
+    [pid=60076] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-N7mFiC -juggler-pipe -silent
+      - <launched> pid=60076
+      - [pid=60076][err] *** You are running in headless mode.
+      - [pid=60076][err] Could not find profile folder.
+      - [pid=60076] <process did exit: exitCode=1, signal=null>
+      - [pid=60076] starting temporary directories cleanup
+      - [pid=60076] <gracefully close start>
+      - [pid=60076] <kill>
+      - [pid=60076] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60076] finished temporary directories cleanup
+      - [pid=60076] <gracefully close end>
+
+
+    Error Context: test-results/journeys-OS-reduced-motion-341b1-l-and-updates-while-running-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-OS-reduced-motion-341b1-l-and-updates-while-running-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-OS-reduced-motion-341b1-l-and-updates-while-running-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [firefox] › tests/browser/journeys.spec.ts:88:1 › mobile menu closes with Escape, navigation and desktop resize 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-HMhWi3 -juggler-pipe -silent
+    <launched> pid=60077
+    [pid=60077][err] *** You are running in headless mode.
+    [pid=60077][err] Could not find profile folder.
+    [pid=60077] <process did exit: exitCode=1, signal=null>
+    [pid=60077] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-HMhWi3 -juggler-pipe -silent
+      - <launched> pid=60077
+      - [pid=60077][err] *** You are running in headless mode.
+      - [pid=60077][err] Could not find profile folder.
+      - [pid=60077] <process did exit: exitCode=1, signal=null>
+      - [pid=60077] starting temporary directories cleanup
+      - [pid=60077] <gracefully close start>
+      - [pid=60077] <kill>
+      - [pid=60077] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60077] finished temporary directories cleanup
+      - [pid=60077] <gracefully close end>
+
+
+    Error Context: test-results/journeys-mobile-menu-close-19166-vigation-and-desktop-resize-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-mobile-menu-close-19166-vigation-and-desktop-resize-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-mobile-menu-close-19166-vigation-and-desktop-resize-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [firefox] › tests/browser/journeys.spec.ts:114:1 › draft enquiry keeps visible removable story context and sends no data 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-fBjda5 -juggler-pipe -silent
+    <launched> pid=60078
+    [pid=60078][err] *** You are running in headless mode.
+    [pid=60078][err] Could not find profile folder.
+    [pid=60078] <process did exit: exitCode=1, signal=null>
+    [pid=60078] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-fBjda5 -juggler-pipe -silent
+      - <launched> pid=60078
+      - [pid=60078][err] *** You are running in headless mode.
+      - [pid=60078][err] Could not find profile folder.
+      - [pid=60078] <process did exit: exitCode=1, signal=null>
+      - [pid=60078] starting temporary directories cleanup
+      - [pid=60078] <gracefully close start>
+      - [pid=60078] <kill>
+      - [pid=60078] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60078] finished temporary directories cleanup
+      - [pid=60078] <gracefully close end>
+
+
+    Error Context: test-results/journeys-draft-enquiry-kee-1474b-y-context-and-sends-no-data-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-draft-enquiry-kee-1474b-y-context-and-sends-no-data-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-draft-enquiry-kee-1474b-y-context-and-sends-no-data-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at / 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-XuwRFk -juggler-pipe -silent
+    <launched> pid=60082
+    [pid=60082][err] *** You are running in headless mode.
+    [pid=60082][err] Could not find profile folder.
+    [pid=60082] <process did exit: exitCode=1, signal=null>
+    [pid=60082] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-XuwRFk -juggler-pipe -silent
+      - <launched> pid=60082
+      - [pid=60082][err] *** You are running in headless mode.
+      - [pid=60082][err] Could not find profile folder.
+      - [pid=60082] <process did exit: exitCode=1, signal=null>
+      - [pid=60082] starting temporary directories cleanup
+      - [pid=60082] <gracefully close start>
+      - [pid=60082] <kill>
+      - [pid=60082] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60082] finished temporary directories cleanup
+      - [pid=60082] <gracefully close end>
+
+
+    Error Context: test-results/journeys-accessible-document-and-clean-rendered-copy-at--firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-accessible-document-and-clean-rendered-copy-at--firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-accessible-document-and-clean-rendered-copy-at--firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /stories/wedding-story/ 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-7mlHVF -juggler-pipe -silent
+    <launched> pid=60083
+    [pid=60083][err] *** You are running in headless mode.
+    [pid=60083][err] Could not find profile folder.
+    [pid=60083] <process did exit: exitCode=1, signal=null>
+    [pid=60083] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-7mlHVF -juggler-pipe -silent
+      - <launched> pid=60083
+      - [pid=60083][err] *** You are running in headless mode.
+      - [pid=60083][err] Could not find profile folder.
+      - [pid=60083] <process did exit: exitCode=1, signal=null>
+      - [pid=60083] starting temporary directories cleanup
+      - [pid=60083] <gracefully close start>
+      - [pid=60083] <kill>
+      - [pid=60083] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60083] finished temporary directories cleanup
+      - [pid=60083] <gracefully close end>
+
+
+    Error Context: test-results/journeys-accessible-docume-ac844-y-at-stories-wedding-story--firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-accessible-docume-ac844-y-at-stories-wedding-story--firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-accessible-docume-ac844-y-at-stories-wedding-story--firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /stories/couple-session/ 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-OTxlEO -juggler-pipe -silent
+    <launched> pid=60084
+    [pid=60084][err] *** You are running in headless mode.
+    [pid=60084][err] Could not find profile folder.
+    [pid=60084] <process did exit: exitCode=1, signal=null>
+    [pid=60084] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-OTxlEO -juggler-pipe -silent
+      - <launched> pid=60084
+      - [pid=60084][err] *** You are running in headless mode.
+      - [pid=60084][err] Could not find profile folder.
+      - [pid=60084] <process did exit: exitCode=1, signal=null>
+      - [pid=60084] starting temporary directories cleanup
+      - [pid=60084] <gracefully close start>
+      - [pid=60084] <kill>
+      - [pid=60084] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60084] finished temporary directories cleanup
+      - [pid=60084] <gracefully close end>
+
+
+    Error Context: test-results/journeys-accessible-docume-6f8c1--at-stories-couple-session--firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-accessible-docume-6f8c1--at-stories-couple-session--firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-accessible-docume-6f8c1--at-stories-couple-session--firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /content-checklist/ 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-cu356A -juggler-pipe -silent
+    <launched> pid=60089
+    [pid=60089][err] *** You are running in headless mode.
+    [pid=60089][err] Could not find profile folder.
+    [pid=60089] <process did exit: exitCode=1, signal=null>
+    [pid=60089] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-cu356A -juggler-pipe -silent
+      - <launched> pid=60089
+      - [pid=60089][err] *** You are running in headless mode.
+      - [pid=60089][err] Could not find profile folder.
+      - [pid=60089] <process did exit: exitCode=1, signal=null>
+      - [pid=60089] starting temporary directories cleanup
+      - [pid=60089] <gracefully close start>
+      - [pid=60089] <kill>
+      - [pid=60089] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60089] finished temporary directories cleanup
+      - [pid=60089] <gracefully close end>
+
+
+    Error Context: test-results/journeys-accessible-docume-26151--copy-at-content-checklist--firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-accessible-docume-26151--copy-at-content-checklist--firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-accessible-docume-26151--copy-at-content-checklist--firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /404/ 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-jETRkD -juggler-pipe -silent
+    <launched> pid=60090
+    [pid=60090][err] *** You are running in headless mode.
+    [pid=60090][err] Could not find profile folder.
+    [pid=60090] <process did exit: exitCode=1, signal=null>
+    [pid=60090] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-jETRkD -juggler-pipe -silent
+      - <launched> pid=60090
+      - [pid=60090][err] *** You are running in headless mode.
+      - [pid=60090][err] Could not find profile folder.
+      - [pid=60090] <process did exit: exitCode=1, signal=null>
+      - [pid=60090] starting temporary directories cleanup
+      - [pid=60090] <gracefully close start>
+      - [pid=60090] <kill>
+      - [pid=60090] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60090] finished temporary directories cleanup
+      - [pid=60090] <gracefully close end>
+
+
+    Error Context: test-results/journeys-accessible-document-and-clean-rendered-copy-at-404--firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-accessible-document-and-clean-rendered-copy-at-404--firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-accessible-document-and-clean-rendered-copy-at-404--firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [firefox] › tests/browser/journeys.spec.ts:147:1 › viewer and expanded menu pass automated accessibility checks 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-BYTzQz -juggler-pipe -silent
+    <launched> pid=60091
+    [pid=60091][err] *** You are running in headless mode.
+    [pid=60091][err] Could not find profile folder.
+    [pid=60091] <process did exit: exitCode=1, signal=null>
+    [pid=60091] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-BYTzQz -juggler-pipe -silent
+      - <launched> pid=60091
+      - [pid=60091][err] *** You are running in headless mode.
+      - [pid=60091][err] Could not find profile folder.
+      - [pid=60091] <process did exit: exitCode=1, signal=null>
+      - [pid=60091] starting temporary directories cleanup
+      - [pid=60091] <gracefully close start>
+      - [pid=60091] <kill>
+      - [pid=60091] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60091] finished temporary directories cleanup
+      - [pid=60091] <gracefully close end>
+
+
+    Error Context: test-results/journeys-viewer-and-expand-74d8c-omated-accessibility-checks-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-viewer-and-expand-74d8c-omated-accessibility-checks-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-viewer-and-expand-74d8c-omated-accessibility-checks-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [firefox] › tests/browser/journeys.spec.ts:157:1 › layout reflows at the recorded widths and short landscape sizes 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-aKkFj3 -juggler-pipe -silent
+    <launched> pid=60096
+    [pid=60096][err] *** You are running in headless mode.
+    [pid=60096][err] Could not find profile folder.
+    [pid=60096] <process did exit: exitCode=1, signal=null>
+    [pid=60096] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-aKkFj3 -juggler-pipe -silent
+      - <launched> pid=60096
+      - [pid=60096][err] *** You are running in headless mode.
+      - [pid=60096][err] Could not find profile folder.
+      - [pid=60096] <process did exit: exitCode=1, signal=null>
+      - [pid=60096] starting temporary directories cleanup
+      - [pid=60096] <gracefully close start>
+      - [pid=60096] <kill>
+      - [pid=60096] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60096] finished temporary directories cleanup
+      - [pid=60096] <gracefully close end>
+
+
+    Error Context: test-results/journeys-layout-reflows-at-12ca2-s-and-short-landscape-sizes-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-layout-reflows-at-12ca2-s-and-short-landscape-sizes-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-layout-reflows-at-12ca2-s-and-short-landscape-sizes-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [firefox] › tests/browser/journeys.spec.ts:170:1 › content, navigation and draft form stay safe without JavaScript 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-2B6bdE -juggler-pipe -silent
+    <launched> pid=60097
+    [pid=60097][err] *** You are running in headless mode.
+    [pid=60097][err] Could not find profile folder.
+    [pid=60097] <process did exit: exitCode=1, signal=null>
+    [pid=60097] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-2B6bdE -juggler-pipe -silent
+      - <launched> pid=60097
+      - [pid=60097][err] *** You are running in headless mode.
+      - [pid=60097][err] Could not find profile folder.
+      - [pid=60097] <process did exit: exitCode=1, signal=null>
+      - [pid=60097] starting temporary directories cleanup
+      - [pid=60097] <gracefully close start>
+      - [pid=60097] <kill>
+      - [pid=60097] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60097] finished temporary directories cleanup
+      - [pid=60097] <gracefully close end>
+
+
+    Error Context: test-results/journeys-content-navigatio-68ff8-tay-safe-without-JavaScript-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-content-navigatio-68ff8-tay-safe-without-JavaScript-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-content-navigatio-68ff8-tay-safe-without-JavaScript-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [firefox] › tests/browser/journeys.spec.ts:183:1 › checklist returns to a note inside a closed disclosure 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-IbD4yw -juggler-pipe -silent
+    <launched> pid=60098
+    [pid=60098][err] *** You are running in headless mode.
+    [pid=60098][err] Could not find profile folder.
+    [pid=60098] <process did exit: exitCode=1, signal=null>
+    [pid=60098] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-IbD4yw -juggler-pipe -silent
+      - <launched> pid=60098
+      - [pid=60098][err] *** You are running in headless mode.
+      - [pid=60098][err] Could not find profile folder.
+      - [pid=60098] <process did exit: exitCode=1, signal=null>
+      - [pid=60098] starting temporary directories cleanup
+      - [pid=60098] <gracefully close start>
+      - [pid=60098] <kill>
+      - [pid=60098] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60098] finished temporary directories cleanup
+      - [pid=60098] <gracefully close end>
+
+
+    Error Context: test-results/journeys-checklist-returns-cb16a--inside-a-closed-disclosure-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-checklist-returns-cb16a--inside-a-closed-disclosure-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-checklist-returns-cb16a--inside-a-closed-disclosure-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [firefox] › tests/browser/journeys.spec.ts:191:1 › ordinary Back, Forward and refresh preserve reachable story documents 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-NGVWyy -juggler-pipe -silent
+    <launched> pid=60102
+    [pid=60102][err] *** You are running in headless mode.
+    [pid=60102][err] Could not find profile folder.
+    [pid=60102] <process did exit: exitCode=1, signal=null>
+    [pid=60102] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-NGVWyy -juggler-pipe -silent
+      - <launched> pid=60102
+      - [pid=60102][err] *** You are running in headless mode.
+      - [pid=60102][err] Could not find profile folder.
+      - [pid=60102] <process did exit: exitCode=1, signal=null>
+      - [pid=60102] starting temporary directories cleanup
+      - [pid=60102] <gracefully close start>
+      - [pid=60102] <kill>
+      - [pid=60102] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60102] finished temporary directories cleanup
+      - [pid=60102] <gracefully close end>
+
+
+    Error Context: test-results/journeys-ordinary-Back-For-60976-e-reachable-story-documents-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-ordinary-Back-For-60976-e-reachable-story-documents-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-ordinary-Back-For-60976-e-reachable-story-documents-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) [firefox] › tests/browser/journeys.spec.ts:204:1 › blocked fonts and unavailable storage preserve the usable draft 
+
+    Error: browserType.launch: Failed to launch the browser process.
+    Browser logs:
+
+    <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-TvSQUF -juggler-pipe -silent
+    <launched> pid=60103
+    [pid=60103][err] *** You are running in headless mode.
+    [pid=60103][err] Could not find profile folder.
+    [pid=60103] <process did exit: exitCode=1, signal=null>
+    [pid=60103] starting temporary directories cleanup
+    Call log:
+      - <launching> /Users/admin/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/x7/2y2dfr516_l_x0z_c6q394mw0000gn/T/playwright_firefoxdev_profile-TvSQUF -juggler-pipe -silent
+      - <launched> pid=60103
+      - [pid=60103][err] *** You are running in headless mode.
+      - [pid=60103][err] Could not find profile folder.
+      - [pid=60103] <process did exit: exitCode=1, signal=null>
+      - [pid=60103] starting temporary directories cleanup
+      - [pid=60103] <gracefully close start>
+      - [pid=60103] <kill>
+      - [pid=60103] <skipped force kill spawnedProcess.killed=false processClosed=true>
+      - [pid=60103] finished temporary directories cleanup
+      - [pid=60103] <gracefully close end>
+
+
+    Error Context: test-results/journeys-blocked-fonts-and-2c175-e-preserve-the-usable-draft-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/journeys-blocked-fonts-and-2c175-e-preserve-the-usable-draft-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/journeys-blocked-fonts-and-2c175-e-preserve-the-usable-draft-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17 failed
+    [firefox] › tests/browser/journeys.spec.ts:4:1 › two story routes, accurate checklist counts and usable deep links 
+    [firefox] › tests/browser/journeys.spec.ts:21:1 › gallery is finite, keyboard-operated and restores focus 
+    [firefox] › tests/browser/journeys.spec.ts:43:1 › Play works while focused; new inspection and offscreen pause without restarting 
+    [firefox] › tests/browser/journeys.spec.ts:71:1 › OS reduced motion wins over stored Full and updates while running 
+    [firefox] › tests/browser/journeys.spec.ts:88:1 › mobile menu closes with Escape, navigation and desktop resize 
+    [firefox] › tests/browser/journeys.spec.ts:114:1 › draft enquiry keeps visible removable story context and sends no data 
+    [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at / 
+    [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /stories/wedding-story/ 
+    [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /stories/couple-session/ 
+    [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /content-checklist/ 
+    [firefox] › tests/browser/journeys.spec.ts:135:3 › accessible document and clean rendered copy at /404/ 
+    [firefox] › tests/browser/journeys.spec.ts:147:1 › viewer and expanded menu pass automated accessibility checks 
+    [firefox] › tests/browser/journeys.spec.ts:157:1 › layout reflows at the recorded widths and short landscape sizes 
+    [firefox] › tests/browser/journeys.spec.ts:170:1 › content, navigation and draft form stay safe without JavaScript 
+    [firefox] › tests/browser/journeys.spec.ts:183:1 › checklist returns to a note inside a closed disclosure 
+    [firefox] › tests/browser/journeys.spec.ts:191:1 › ordinary Back, Forward and refresh preserve reachable story documents 
+    [firefox] › tests/browser/journeys.spec.ts:204:1 › blocked fonts and unavailable storage preserve the usable draft 

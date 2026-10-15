@@ -1,0 +1,104 @@
+{
+  "verified_date": "2026-10-15",
+  "sources": [
+    {
+      "name": "Anthropic frontend-design skill",
+      "repository": "https://github.com/anthropics/skills",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "upstream_path": "skills/frontend-design",
+      "local_path": ".agents/skills/frontend-design",
+      "license": "Apache-2.0",
+      "skill_sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+    },
+    {
+      "name": "Official Claude frontend-design plugin",
+      "repository": "https://github.com/anthropics/claude-plugins-official",
+      "commit": "c2bdb427efe8673f190ae862c273cfa368d2390f",
+      "upstream_path": "plugins/frontend-design/skills/frontend-design",
+      "local_path": ".design-tooling/vendor/claude-plugins-official/frontend-design",
+      "role": "Provenance snapshot; skill is byte-identical to active installation; plugin has no additional runtime hooks or tools",
+      "license": "Apache-2.0",
+      "skill_sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+    },
+    {
+      "name": "OpenDesign",
+      "repository": "https://github.com/nexu-io/open-design",
+      "commit": "ae8038e7ce12ff305d57d12acbf3001f117cb100",
+      "version": "0.25.0",
+      "local_path": ".design-tooling/open-design",
+      "license": "Apache-2.0",
+      "craft_attribution": "Some craft text adapted from Refero Design refero_skill (MIT); notices and license retained",
+      "build_targets": [
+        "apps/daemon",
+        "tools/dev"
+      ]
+    },
+    {
+      "name": "Refero craft attribution license",
+      "repository": "https://github.com/referodesign/refero_skill",
+      "commit": "a9b54a3e62a6391f5f5ab7a20e4ddb32fb79a27d",
+      "upstream_path": "LICENSE",
+      "local_path": ".agents/skills/photographer-design-codex/references/open-design/LICENSE-Refero",
+      "license": "MIT",
+      "role": "License preservation for craft text adapted by OpenDesign; no Refero MCP or runtime installed"
+    }
+  ],
+  "installer": {
+    "package": "skills",
+    "version": "1.7.2",
+    "git_head": "671e8c320810d36fed80fac5f1a2c1bf7e82d812",
+    "license": "MIT",
+    "project_local": true,
+    "telemetry_disabled": true
+  },
+  "runtime": {
+    "node": "24.22.0",
+    "pnpm": "10.33.2",
+    "scope": ".design-tooling/runtime",
+    "system_node_modified": false
+  },
+  "files": {
+    ".design-tooling/vendor/claude-plugins-official/frontend-design/plugin.json": "fd9a7db11f5dec771d9e29ad1d6a3298c12f04c81c3a6457099b81fe477d835d",
+    ".design-tooling/vendor/claude-plugins-official/frontend-design/README.md": "5351137ecb2c5adfcdbadcdbbeda1eab16409bae98eb53f62f945514552d6706",
+    ".design-tooling/vendor/claude-plugins-official/frontend-design/PLUGIN-LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    ".design-tooling/vendor/claude-plugins-official/frontend-design/SKILL.md": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+    ".design-tooling/vendor/claude-plugins-official/frontend-design/LICENSE.txt": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+    ".agents/skills/photographer-design-codex/references/open-design/accessibility-baseline.md": "ef6c5f670d114ceb4c347681bcf3be8637e5d1186165a9c79ca265f316c72d11",
+    ".agents/skills/photographer-design-codex/references/open-design/typography-hierarchy.md": "e247ca0358dcbdc3921f2148cc44c6ddcc325429b8082f6ad033792b79e39e06",
+    ".agents/skills/photographer-design-codex/references/open-design/anti-ai-slop.md": "d0f57d3064451663f9dca81af170fc754acc4b1e77280fd5cfb3a04afeef9a5c",
+    ".agents/skills/photographer-design-codex/references/open-design/form-validation.md": "a31410ce6ba8b7a762c2975386f2e93ae97b59a8bc85169aa58457927b0a88e6",
+    ".agents/skills/photographer-design-codex/references/open-design/README.md": "7b18e690c995226706c7f8f50229a9f9e170ad3b6675bd031c8d8751682c3c46",
+    ".agents/skills/photographer-design-codex/references/open-design/color.md": "fb45b59fa3055f13d6549f45ae52e88cd09d3facd0e5aaab63600e7fb024db6d",
+    ".agents/skills/photographer-design-codex/references/open-design/animation-discipline.md": "075273e8404f7931adfe196d508461efdd303b54e0d9a9ef3f642a682c12a760",
+    ".agents/skills/photographer-design-codex/references/open-design/state-coverage.md": "79bda732b55b0f0e4a366ba934f4a01518d3576091422047690e269222f2b682",
+    ".agents/skills/photographer-design-codex/references/open-design/typography.md": "5f8e634b35c6b27a5e86f748825da17efe6a0d2e96f68dc35f57f406420049a6",
+    ".agents/skills/photographer-design-codex/references/open-design/LICENSE-OpenDesign": "9d95806a26532623360eb84bb17d298f394b55ef73fb4c0796d99b4319b2b0da",
+    ".agents/skills/frontend-design/SKILL.md": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+    ".agents/skills/frontend-design/LICENSE.txt": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+    ".agents/skills/photographer-design-codex/references/open-design/LICENSE-Refero": "7b5d57a0e210289fa900a0e2ab0513442e439e9d20b96f0cf5cba0e1b31b665e",
+    "scripts/design-tooling.sh": "a6628f041547e648aa288bc365192dc0a0b581f82fcec2bf35a210006b1bc709",
+    "scripts/design-tooling.mjs": "c251e49e9d68cd357cc75ed1636cdb1572ca3ccac2da92324b8758465612493d",
+    "scripts/design-tooling-verify.mjs": "c1c1b8636ba50e69a4cb5f8ff66a72fbe8e424319f2cd86d43a28945831c71e7",
+    ".codex/config.toml": "4ef22a2a99fe2eb6c5c43e616f398dfa9f1cd5677f5ef687e3eb760752e4998d",
+    ".design-tooling/README.md": "211e548a63a8998f4c34610484e1a7442d7b504aa7a55575c930a19b15570d0c",
+    ".design-tooling/VERIFICATION.json": "6a4c57ca5043083b20d1538b30538f27a638ec13fb4e666ef12ea49a9b61020b",
+    ".design-tooling/runtime/package.json": "3c50700db1864deb6768af954834508ceb2097bcfe90a30b6cb31a9c7e14f16f",
+    ".design-tooling/runtime/package-lock.json": "18f07a0e887170b19ce59755e168a3bc13bbc2b8cc277361dcb97199d417c6ca",
+    ".design-tooling/DEPENDENCY-AUDIT-2026-10-15.md": "1deecefa9d1d97cb063ac30c9a93c1b39b0d150c02af2d1db8b6a90f06313dd0",
+    ".design-tooling/DEPENDENCY-AUDIT-2026-10-15.json": "2ee74eaa8effc53cb00870730e8a3a0f808bfa095fa26159d982ddf131fcc9a8"
+  },
+  "setup": {
+    "launcher": "scripts/design-tooling.sh",
+    "lifecycleImplementation": "scripts/design-tooling.mjs",
+    "mcpConfig": ".codex/config.toml",
+    "verification": ".design-tooling/VERIFICATION.json",
+    "port": 47841,
+    "bind": "127.0.0.1",
+    "stateScope": ".design-tooling/state",
+    "codexConnection": "disabled pending dependency remediation; historical process-scoped connection and project config retained",
+    "codexAutomaticProjectConfig": "requires user-managed trusted-project status; global config untouched",
+    "runtimeStatus": "security hold; stopped",
+    "securityAudit": ".design-tooling/DEPENDENCY-AUDIT-2026-10-15.md",
+    "securityHold": "Explicit launcher constant blocks start/mcp/codex; project MCP enabled=false; offline references available"
+  }
+}

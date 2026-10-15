@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-10-15T06:47:17.567Z",
+  "scope": "CLI budget-gate smoke test with synthetic byte fixtures; no real font or website performance validation",
+  "outcomes": [
+    {
+      "case": "Font bytes at 100 KiB ceiling",
+      "expectedExit": 0,
+      "actualExit": 0,
+      "pass": true,
+      "fontCheck": {
+        "name": "fonts",
+        "measuredBytes": 102400,
+        "limitBytes": 102400,
+        "pass": true
+      }
+    },
+    {
+      "case": "Font bytes one byte above ceiling",
+      "expectedExit": 1,
+      "actualExit": 1,
+      "pass": true,
+      "fontCheck": {
+        "name": "fonts",
+        "measuredBytes": 102401,
+        "limitBytes": 102400,
+        "pass": false
+      }
+    }
+  ]
+}

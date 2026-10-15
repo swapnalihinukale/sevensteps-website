@@ -1,0 +1,13 @@
+# Installed configuration retained for remediation; runtime held after dependency audit.
+# Offline skills/craft references remain usable.
+[mcp_servers.open_design]
+enabled = false
+command = "/Users/admin/Documents/Website/scripts/design-tooling.sh"
+args = ["mcp"]
+startup_timeout_sec = 120
+tool_timeout_sec = 30
+enabled_tools = [
+  "list_skills", "list_plugins", "list_agents", "list_projects",
+  "get_active_context", "get_project", "list_files", "get_file",
+  "search_files", "get_artifact", "get_run"
+]

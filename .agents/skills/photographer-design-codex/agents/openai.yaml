@@ -1,0 +1,4 @@
+interface:
+  display_name: "Seven Steps Design"
+  short_description: "Evidence-led photography design planning for Codex"
+  default_prompt: "Use $photographer-design-codex to continue the Seven Steps execution plan in the currently authorized phase, applying the local frontend-design skill and relevant OpenDesign craft guidance."

@@ -1,0 +1,97 @@
+{
+  "currentStatus": "installed; previously protocol-verified; current security hold",
+  "currentSecurity": {
+    "checkedAt": "2026-10-15T05:42:57.287602+00:00",
+    "status": "security hold",
+    "reason": "Known dependency vulnerabilities; see DEPENDENCY-AUDIT-2026-10-15.md",
+    "projectMcpEnabled": false,
+    "startupGuards": {
+      "start": "refused before runtime startup; exit 1; explanation on stderr",
+      "mcp": "refused before runtime startup; exit 1; explanation on stderr",
+      "codex": "refused before runtime startup; exit 1; explanation on stderr"
+    },
+    "listenerPresent": false,
+    "statusCommand": "passed; reports stopped",
+    "offlineSkillsAndCraft": "available",
+    "dependenciesChanged": false,
+    "holdImplementation": "explicit SECURITY_HOLD constant; no environment or ignored-state bypass"
+  },
+  "checkedAt": "2026-10-15T05:23:09.380Z",
+  "node": "24.22.0",
+  "health": {
+    "health": "ok",
+    "url": "http://127.0.0.1:47841",
+    "isolatedData": true,
+    "analyticsEnabled": false,
+    "metrics": false,
+    "content": false
+  },
+  "mcp": {
+    "initialize": "passed",
+    "server": {
+      "name": "open-design",
+      "version": "0.2.0"
+    },
+    "upstreamToolCount": 22,
+    "enabledReadTools": [
+      "list_skills",
+      "list_plugins",
+      "list_agents",
+      "list_projects",
+      "get_active_context",
+      "get_project",
+      "list_files",
+      "get_file",
+      "search_files",
+      "get_artifact",
+      "get_run"
+    ],
+    "listSkills": "passed",
+    "skillCatalogCharacters": 207736,
+    "resourceCount": 323,
+    "stdoutProtocolOnly": true,
+    "protocolLines": 4,
+    "startupDiagnosticBytes": 677
+  },
+  "lifecycle": {
+    "automaticStart": "passed",
+    "idempotentStart": "passed",
+    "stop": "passed",
+    "occupiedPortRefusal": "passed for start and stop; unrelated service preserved",
+    "finalState": "stopped"
+  },
+  "modelRuns": 0,
+  "projectsCreated": 0,
+  "websiteCodeGenerated": false,
+  "codex": {
+    "version": "0.144.1",
+    "plainProjectMcpGet": "not discovered",
+    "projectConfigLayer": "disabled: project not globally trusted",
+    "sessionScopedMcpGet": "passed; enabled with exactly eleven read tools",
+    "automaticDesktopDiscovery": "requires normal project trust and configuration reload; not claimed",
+    "globalTrustOrConfigChanged": false,
+    "authChanged": false
+  },
+  "build": {
+    "closureTargets": [
+      "apps/daemon",
+      "tools/dev"
+    ],
+    "packageBuilds": 12,
+    "result": "passed",
+    "ignoredBuildScripts": [
+      "@ffmpeg-installer/darwin-arm64",
+      "@ffprobe-installer/darwin-arm64",
+      "@google/genai",
+      "node-pty"
+    ],
+    "extraBuildScriptsApproved": false
+  },
+  "additionalChecks": {
+    "shellSyntax": "passed",
+    "nodeSyntax": "passed",
+    "recordedSourceHashes": "passed",
+    "tomlParse": "passed"
+  },
+  "evidenceNote": "The earlier health/MCP/build results below are historical functionality evidence, not current security clearance."
+}

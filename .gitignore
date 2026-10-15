@@ -1,0 +1,14 @@
+# Reproducible local tool checkout and dependencies
+.design-tooling/open-design/
+.design-tooling/runtime/node_modules/
+# Isolated OpenDesign data, logs and generated tool state
+.design-tooling/state/
+.design-tooling/logs/
+# No credentials or operating-system metadata in project artifacts
+.env
+.env.*
+!.env.example
+.DS_Store
+.local/
+*.trace
+.repository-bootstrap/

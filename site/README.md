@@ -1,93 +1,109 @@
-# Seven Steps private draft
+# Seven Steps application
 
-Direction A, Close to the people. This is a local review website with labelled image spaces, two story layouts, a gallery viewer, optional controlled movement and a shared content checklist. It contains no cleared portfolio images or live enquiry receiver.
+Direction A, **Close to the people**. The current owner review has labelled photo spaces, two story layouts, a viewer, controlled movement and a shared 27-group content checklist. The user has chosen to review this version while real material is pending. Keep the ordinary review non-sending.
+
+The responsive image pipeline, public templates and local synthetic enquiry backend are implemented. Actual portfolio content, owner-approved business facts, live-provider acceptance and publication remain pending. Start with the portable [maintainer guide](../docs/MAINTAINER-GUIDE.md), [design system](../docs/DESIGN-SYSTEM.md) or [AI handoff](../docs/AI-HANDOFF.md) for detailed work. The [review package guide](../docs/REVIEW-PACKAGE.md) covers owner feedback. [Preview sharing](../docs/PREVIEW-SHARING.md) explains the checked upload package and hosting boundary; [owner handoff verification](../docs/OWNER-HANDOFF-VERIFICATION-2026-10-15.md) records its checks and native-browser limits.
 
 ## Run it
 
-Use Node 22.23.2 and npm 10.9.8, independently of the held OpenDesign tools.
+Use Node 22.23.2 and npm 10.9.8. From the repository root:
 
 ```sh
-cd /Users/admin/Documents/Website/site
+cd site
 npm ci --ignore-scripts
 npm run build
 npm run preview
 ```
 
-Open `http://127.0.0.1:4321/`. The server binds to this computer's loopback address. For editing, use `npm run dev`. Rebuild and reload when using the production preview.
+Open [the local review](http://127.0.0.1:4321/). Use `npm run dev` for editing. Preview serves the last build, so rebuild and reload after source changes. Run one server on port 4321 at a time. The normal application uses its own runtime and lockfile; OpenDesign remains on security hold.
 
-## Content-ready test builds
+## Build and lab surfaces
 
-`npm run build:fixture` prepares geometric image fixtures and public templates in `dist-fixture`. Start `npm run preview:fixture` to inspect them at `http://127.0.0.1:4324/`. These are labelled test patterns, not portfolio photographs.
+| Command | Output and use |
+|---|---|
+| `npm run build` | `dist/`: owner review with Add/Replace notes and a disabled form. Serve with `npm run preview` on port 4321. |
+| `npm run build:fixture` | `dist-fixture/`: geometric test images and the public templates. Serve with `npm run preview:fixture` on port 4324. |
+| `npm run build:integration` | `dist-integration/`: designed enquiry form for the local synthetic runner. Serve with `npm run lab:site` on port 4323. |
+| `npm run lab` | Separate backend exercise page on port 4322. |
+| `npm run build:public` | Attempt the real public `dist/` export. It currently refuses unresolved content and approval gates. |
+| `npm run package:review` | Validate the current review build and prepare `.review-package/owner-review.zip` plus `.review-package/upload/`. Keep the manifest outside the hosted upload. |
+| `npm run test:review-package` | Run the Node tests for package contents, safety checks and preview behavior. |
+| `npm run preview:review-package` | Serve checked upload bytes and their headers at loopback port 4325. Restart after rebuilding the package. |
 
-`npm run build:integration` prepares the actual designed enquiry form in `dist-integration`. Start `npm run lab:site` for the loopback-only synthetic test at `http://127.0.0.1:4323/`. It uses temporary PostgreSQL and sends no email. Ctrl+C cleans up its own database.
+The synthetic image fixture has an invalid example domain, inactive test contact and noindex output. It is not portfolio work. The enquiry labs create temporary native PostgreSQL databases, use fake notifications and send no real email. Only the designed lab's loopback server injects its active client; the static integration files retain disabled submission. Ctrl+C stops the lab and removes its own database.
 
-Before the full browser suite, build review, fixture and integration outputs, then stop any manually running test servers on ports 4322 through 4324. Playwright starts and stops its own instances. Run `npm run test:media` for image transformations and `npm run test:build` for public/hosted-mode refusal checks; the latter restores the review build after verifying rejection.
+Install native PostgreSQL 16 or newer for labs/backend tests. The runner needs `initdb`, `postgres`, `pg_ctl` and `createdb`. Set `SEVENSTEPS_PG_BIN` to the installed bin directory if discovery needs help. Do not point tests at a shared database. [The maintainer guide](../docs/MAINTAINER-GUIDE.md) explains macOS/Linux setup and the unverified native Windows limitation.
 
-Real media inputs, public-field rules and the remaining release conditions are described in [content inputs](content/README.md), [media pipeline](docs/MEDIA-PIPELINE.md) and the [current implementation report](../docs/CONTENT-READY-IMPLEMENTATION-2026-10-15.md). Test build directories are never deployment targets.
+Test directories are never deployment targets. The wrapper removes the selected output before building; a failed public command cannot leave a previous review artifact at `dist/`. Astro also checks gates when invoked directly. A directory called `dist` alone does not prove public readiness because review and public modes share that output name.
 
-## Routes
+## Routes and content editing
 
 | Route | Purpose |
 |---|---|
-| `/` | Introduction, two stories, proposed approach and draft enquiry |
-| `/stories/wedding-story/` | Wedding layout, viewer and movement preview |
-| `/stories/couple-session/` | Couple session layout and enquiry with visible story context |
-| `/content-checklist/` | 27 content groups, search, section filter and return links |
-| `/404.html` | Missing-page recovery |
+| `/` | Opening, two stories, approach and enquiry/contact area. |
+| `/stories/wedding-story/` | Wedding story layout, viewer and optional moving strip. |
+| `/stories/couple-session/` | Couple-session layout and visible story context. |
+| `/content-checklist/` | Review-only content requests, search, section filter and return links. |
+| `/404.html` | Missing-page recovery. |
+| `/sitemap.xml`, `/robots.txt` | Mode-specific search discovery and indexing instructions. |
 
-The draft has `noindex` metadata and a disallow-all robots file. Those are crawler instructions, not access controls. Do not upload this build to a public host or add uncleared private material to a shared preview.
+The ordinary review uses noindex metadata and disallow-all crawler rules. Those do not provide access control. Keep uncleared private material out of a shared preview and follow the review package's hosting boundary.
 
-## Supply and maintain content
+Edit review page text in `src/pages/index.astro`, `src/pages/stories/[slug].astro` and the relevant shared component. Edit replacement requests and their checklist in `src/data/content.ts`. That file is the canonical source for the 27 slots, two draft projects and publication decisions. `src/content.config.ts` and `scripts/content-check.mjs` validate its shape, IDs and readiness. The older Markdown slot inventory is a planning snapshot.
 
-The photographer uses the on-page Add notes and checklist. No upload or account is needed. Share originals with the builder in one folder per assignment, keeping filenames, and a document keyed by the checklist references. Include credits and the intended publication permissions. Do not put private permission correspondence or original archives in `public`.
+The owner supplies originals and a document keyed by the content references. The browser checklist describes and filters requests; it does not upload files or save changes. The selected maintenance model is assisted file editing, with the guides supporting the owner, a developer or Claude/Codex. No CMS or custom admin interface is included.
 
-`src/data/content.ts` is the live source for the 27 content records and two draft project records. The older Markdown slot inventory is the planning snapshot. `src/content.config.ts` applies Astro's schema validation; `scripts/content-check.mjs` validates IDs, relationships, readiness and publication decisions. Both the local notes and the checklist use this source.
+Statuses are Needs content, Received: checking, Needs an update, Ready and Not needed. Check facts, rights, image quality and placement before Ready. An optional omission needs its recorded reason. Preserve stable IDs and keep private permission correspondence outside source files.
 
-Content can move through Needs content, Received: checking, Needs an update, Ready and Not needed. A received file is not automatically Ready. The builder checks facts, rights, image quality and placement before recording readiness. Optional exclusions need a reason. These state records are not a replacement for permission evidence kept outside the site.
+`PhotoSpace` already supports checked image records and labelled empty spaces. Current review calls intentionally use the latter. Changing a slot status or adding public JSON does not populate those review calls. Wire supplied, cleared content into the relevant review template when authorised, and preserve the useful notes for remaining gaps. The [maintainer guide](../docs/MAINTAINER-GUIDE.md) describes that distinction.
 
-The current photo component deliberately renders labelled spaces. Integration of cleared originals, responsive derivatives, alt text, crops and film playback is the next media slice. Do not label placeholder screenshots as the photographer's work. The current gallery length is a layout sample, not a required edit size.
+For eventual public content, follow [content inputs](content/README.md) and [image preparation](docs/MEDIA-PIPELINE.md). Public data passes an allowlist, generated image files pass an exact-file/hash check, and the checklist route and owner notes are absent from that output. Film, team and logo-artwork features remain omitted until their implementation and acceptance exist.
 
-## Enquiries and publication
+The maintainer must still implement an isolated, guarded real-content candidate path before release approval. The public gate requires completed release evidence before rendering, and the current review/fixture modes do not supply that final candidate. This is pending engineering. Complete [release step 3.5](../docs/LAUNCH.md#3-prepare-the-real-candidate-after-the-placeholder-review), test the candidate, then record genuine approval; do not fabricate approval or relabel synthetic fixtures.
 
-The form accepts sample typing for review, but it has no endpoint or named payload fields. Its action stays disabled, and the controller prevents implicit submission. It stores no form values and makes no contact/provider calls. The story selector can be changed or cleared. Only the motion preference uses local storage, with a 30-day expiry and no personal data.
+## Enquiry behavior
 
-`npm run build:public` intentionally fails while content and publication choices remain unresolved. It first removes generated `dist` output so a failed command cannot leave a previous review build to publish by mistake. Direct Astro invocation with `PUBLIC_SITE_MODE=public` also refuses. Public rendering remains gated until the real media and receiving service release work is complete, even if somebody marks content records Ready.
+The ordinary review form accepts sample typing but has no active endpoint or named payload fields. The button stays disabled, the controller prevents implicit submission and no personal values enter local storage. The visible story context can be changed or cleared. The optional motion preference uses a 30-day local-storage entry.
 
-Use the saved enquiry architecture for B03: confirmed recipient and data handling, server validation, durable receipt, atomic deduplication, notification recovery and real destination testing. No successful enquiry, availability or booking claim exists in this draft.
+The local backend is complete for its synthetic scope: strict validation, signed submission tokens, durable receipt and outbox transaction, atomic deduplication, bounded notification retries, signed-event handling and recovery views. Its client retains only an opaque pending reference or receipt in session storage. It does not persist personal form values and refuses sending if it cannot retain the retry reference.
+
+The public-template contact path supports a confirmed email link, with safely encoded mailbox text, privacy information and accurate follow-up wording. A live form remains gated by the fixed recipient, accounts, data handling, provider tests and operator recovery described in [the backend report](../docs/BACKEND-IMPLEMENTATION-2026-10-15.md) and [provider decision](../docs/LIVE-ENQUIRY-PROVIDER-DECISION.md). A stored receipt does not prove email delivery or a booking.
 
 ## Verify changes
 
+Install the Playwright engines, then prepare the local builds and checked review package before the full suite:
+
 ```sh
-npm run check
-npm run test:unit
-npm run build
 npx playwright install chromium firefox webkit
-npm run test:e2e
+npm run check
+npm run build
+npm run build:fixture
+npm run build:integration
+npm run test:build
+npm run package:review
+npm run test
 npm run budget
 node scripts/dependency-report.mjs
-node scripts/preview-measure.mjs
 ```
 
-The browser tests run against the built preview. Stop unrelated processes on port 4321 or select the intended preview before running. The measurement script needs that preview already running. Test evidence and screenshots live under `docs`; Playwright retains failing traces in `test-results` and its HTML report in `playwright-report`.
+CI uses Playwright's `--with-deps` installation on Ubuntu for required system libraries. `npm run test` covers unit, image, review-package, native PostgreSQL and browser tests; it does not prepare missing builds or install browsers. Stop manually running labs, fixture and review-package servers on ports 4322 through 4325 before Playwright starts its own instances. A reused port-4321 preview must serve the intended current build.
 
-Tests cover the actual private draft, including invalid content, publication refusal, finite navigation, focus return, movement interruption, reduced motion, absent JavaScript, font/storage failure, disclosure links, accessibility and viewport reflow. Physical Windows, iOS/iPadOS and Android devices, assistive technology and real-media delivery still require later checks. See the workspace [verification ledger](../docs/IMPLEMENTATION-VERIFICATION-2026-10-15.md) for results and limits.
+For narrower checks use `test:unit`, `test:media`, `test:review-package`, `test:server` or `test:e2e`. `test:build` exercises refused public/direct/hosted modes and restores the ordinary review; prepare the upload package after that command. `scripts/preview-measure.mjs` needs the ordinary preview running; it measures that page, not a live production service. The full command and evidence map is in the maintainer guide.
 
-## Implementation map
+At `8ef0d59`, recorded checks passed 41 unit tests, 17 image tests, 99 backend tests and 126 browser cases. See [B04 evidence](docs/audits/b04-summary.json) and [the content-ready report](../docs/CONTENT-READY-IMPLEMENTATION-2026-10-15.md) for exact versions, source hashes and limitations. Browser tests cover no JavaScript, failed images, finite navigation, focus, reduced motion, viewport reflow and synthetic receipt/retry states. They do not substitute for remaining physical-device, screen-reader, real-photo and live-provider checks.
 
-- `src/layouts/Layout.astro`: shared shell, navigation, review banner and motion preference.
-- `src/pages/`: static documents and two story routes.
-- `src/components/`: content notes, photo spaces, enquiry, arrows and gallery preview.
-- `src/styles/global.css`: fluid composition, responsive styles and motion fallbacks.
-- `src/scripts/ui.ts`: small native controllers for menus, viewer, motion and checklist.
-- `src/lib/motion.ts`: finite motion state transitions and bounds.
-- `tests/`: content/motion logic and browser journeys.
+The later focused run passed 27 browser cases: nine new package cases and 18 designed-form repeats. Do not add the repeats to the baseline or claim a new full-suite/CI pass from this run. Bounded Chrome 400% zoom and Safari text-enlargement observations appear in the owner handoff report. They do not complete the zoom/text-only matrix. VoiceOver output was unavailable, so screen-reader verification has no pass result.
 
-No React runtime, animation framework, third-party player, analytics tag or external font request is included. Local font licences ship in `public/licenses`. The [dependency record](docs/DEPENDENCIES.md) preserves exact pins and audit limits.
+## Source map and workflow
 
-## Enquiry backend and local lab
+- `src/layouts/` and `src/pages/`: shared document, routes and selection of review/public templates.
+- `src/components/`: image, note, enquiry, arrow, gallery and public-page components.
+- `src/styles/`: global design plus image and enquiry states.
+- `src/lib/`: motion bounds, image sizes, public schemas, release/file checks and email encoding.
+- `src/scripts/`: browser behavior and active enquiry state machine.
+- `server/` and `netlify/functions/`: receipt service, database/notification logic and hosting adapters.
+- `scripts/` and `tests/`: build/media preparation, local runners and verification.
 
-Use `npm run test:server` for isolated native PostgreSQL tests and `npm run lab` for the synthetic form at `http://127.0.0.1:4322/`. The lab writes sample data to a temporary local database and sends no email. Native PostgreSQL 16 or newer is required; set `SEVENSTEPS_PG_BIN` if needed. Ctrl+C stops the lab and removes its database. `npm run test:e2e` starts its own lab, so stop a manually running lab before that command.
+Use the local [design adapter](../.agents/skills/photographer-design-codex/SKILL.md), [frontend-design](../.agents/skills/frontend-design/SKILL.md) and [stop-slop](../.agents/skills/stop-slop/SKILL.md). Write no em dashes in authored text. Keep source notices and font licences intact. [Dependency records](docs/DEPENDENCIES.md) preserve pins and audit limits.
 
-The server modules live under `server/`, provider adapters under `netlify/functions/`, and tests under `tests/server/`. The public form remains disabled. See [B03 implementation](../docs/BACKEND-IMPLEMENTATION-2026-10-15.md) for receipt, retry, activation and data-handling requirements. The test client keeps only a retry reference or receipt in session storage, with no personal form content; it fails before sending if that reference cannot be retained.
-
-All changes use `feat/sevensteps-rebuild` on the original repository. The three original HTML files remain under `../website/`. See [Git workflow](../docs/GIT-WORKFLOW.md) before pushing or reverting.
+All changes stay on `feat/sevensteps-rebuild`; original HTML remains under `../website/`. Read [Git workflow](../docs/GIT-WORKFLOW.md) before committing, pushing or reverting. Follow [the release runbook](../docs/LAUNCH.md) only when the actual release inputs and authorization exist.

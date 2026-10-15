@@ -41,6 +41,7 @@ jobs:
       - run: npm audit --audit-level=high
       - run: npm run test:unit
       - run: npm run test:media
+      - run: npm run test:review-package
       - run: npm run test:server
       - run: npx playwright install --with-deps chromium firefox webkit
       - run: npm run test:e2e
@@ -49,6 +50,17 @@ jobs:
         run: |
           node scripts/test-shareable.mjs
           node scripts/check-shareable.mjs
+      - name: Package the non-sending owner review
+        run: npm run package:review
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: owner-review-${{ github.sha }}
+          path: |
+            site/.review-package/owner-review.zip
+            site/.review-package/manifest.json
+          retention-days: 14
+          if-no-files-found: error
+          include-hidden-files: true
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: failure()
         with:

@@ -11,3 +11,4 @@ test-results-*/
 !.env.example
 .local/
 coverage/
+.review-package/

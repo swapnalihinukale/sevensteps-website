@@ -36,5 +36,6 @@ export default defineConfig({
     { command: 'npm run lab', url: 'http://127.0.0.1:4322', reuseExistingServer: false, timeout: 60000 },
     { command: 'npm run lab:site', url: 'http://127.0.0.1:4323', reuseExistingServer: false, timeout: 60000 },
     { command: 'npm run preview:fixture', url: 'http://127.0.0.1:4324', reuseExistingServer: false, timeout: 60000 },
+    { command: 'npm run preview:review-package', url: 'http://127.0.0.1:4325', reuseExistingServer: false, timeout: 60000 },
   ],
 });

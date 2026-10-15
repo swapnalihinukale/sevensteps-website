@@ -1,0 +1,1 @@
+measurement_id,record_type,received_at_utc,source,service,event_month,region,qualification,qualification_reason,first_response_at_utc,consultation_at_utc,quote_at_utc,quote_value_inr,booking_at_utc,booking_value_inr,outcome,outcome_reason,next_review_on,last_updated_at_utc

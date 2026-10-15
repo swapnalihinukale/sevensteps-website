@@ -1,8 +1,8 @@
 # Seven Steps copy and voice
 
-15 October 2026. Apply the user's [stop-slop skill](/Users/admin/.codex/skills/stop-slop/SKILL.md) when drafting or reviewing project prose, owner instructions and website text. Read its [phrase guidance](/Users/admin/.codex/skills/stop-slop/references/phrases.md), [structure guidance](/Users/admin/.codex/skills/stop-slop/references/structures.md) and [examples](/Users/admin/.codex/skills/stop-slop/references/examples.md). Follow the user's no-em-dash instruction and the skill's core rules where an example conflicts.
+15 October 2026. Apply the user's [stop-slop skill](../.agents/skills/stop-slop/SKILL.md) when drafting or reviewing project prose, owner instructions and website text. Read its [phrase guidance](../.agents/skills/stop-slop/references/phrases.md), [structure guidance](../.agents/skills/stop-slop/references/structures.md) and [examples](../.agents/skills/stop-slop/references/examples.md). Follow the user's no-em-dash instruction and the skill's core rules where an example conflicts.
 
-The agent has prepared this copy specification for the planned website. Website copy tests remain **Not run** until an implementation exists.
+The implemented review, synthetic public-template fixture and designed local enquiry surface use this specification. Automated source/rendered-output checks passed in the `8ef0d59` B04 baseline. Owner-confirmed business facts and the exact public-release copy still need review. Use [current implementation evidence](CONTENT-READY-IMPLEMENTATION-2026-10-15.md); older planning notes do not override that result.
 
 ## Write for the person using the page
 
@@ -54,10 +54,10 @@ The developer must match each status to the actual outcome. A plain sentence can
 |---|---|---|
 | COPY-01: source text | C03 drafting and B02/B03 changes | Scan owned content and string sources for U+2014. Check raw or escaped forms that could render it, including HTML entities and Unicode escapes. Review each match. |
 | COPY-02: voice and facts | C02/C03 proposals; B02/B03 copy review | Read the text in page order. Cut filler and generic claims; confirm names, terms and promises against the content register. Record unresolved facts as content gaps. |
-| COPY-03: rendered states | V01 on the production build | Inspect decoded visible text, accessible names, image descriptions and metadata. Open menu/viewer/form/error/empty states and direct routes. A source-only search cannot catch text from a CMS, dependency or encoded string. |
+| COPY-03: rendered states | V01 on the exact candidate and exercised states | Inspect decoded visible text, accessible names, image descriptions and metadata. Open menu/viewer/form/error/empty states and direct routes. A source-only search cannot catch text from a CMS, dependency or encoded string. |
 | COPY-04: public handoff | L01 release review | Reconcile the content register, remove owner-review notes from the public version and repeat the checks on the exact release candidate. Preserve the draft's checklist for handoff. |
 
-During implementation, add a small copy check to the selected build/test scripts. Include content inputs and rendered output; scope it to text the site presents. Do not fail on unused punctuation in a vendored licence, package source or raw research record. Do not change vendor code or weaken integrity checks to remove a text match.
+The existing `site/scripts/copy-check.mjs` runs through `npm run check` and the build wrapper. It checks authored source and the selected rendered output for literal and encoded prohibited punctuation. Public-field validation also rejects prohibited punctuation and markup in approved content inputs. Keep checks scoped to text the site presents. Do not fail on unused punctuation in a vendored licence, package source or raw research record. Do not change vendor code or weaken integrity checks to remove a text match.
 
 Treat an em dash in authored UX as a defect to fix before acceptance. Check the reader's task by hand as well: a string scan cannot judge tone, clarity or factual accuracy.
 
@@ -65,4 +65,6 @@ For prose review, score Directness, Rhythm, Trust, Authenticity and Density from
 
 ## Current result
 
-The agent has specified COPY-01 through COPY-04. Future website runs remain **Not run**. The execution record holds the separate checks on the current planning files. Read the stage-specific skill/tool map in [the execution plan](../EXECUTION-PLAN.md) before each task.
+COPY-01 and the automated output portion of COPY-03 passed on the recorded B04 review, fixture and integration builds. Browser checks exercise accessible text and interactive states; the evidence describes the covered cases. Recheck changed text and states on the next candidate. COPY-02 still requires the owner’s actual facts and approved wording; COPY-04 remains a public-release gate.
+
+The user is reviewing the labelled-placeholder version while real material is pending. Keep Add/Replace messages useful, preserve unknown facts as requests and avoid turning proposed copy into a promise. A Ready slot status does not rewrite the current review component. Follow [the maintainer guide](MAINTAINER-GUIDE.md) for the content-editing locations and [the execution plan](../EXECUTION-PLAN.md) for stage-specific skills and acceptance. The portable stop-slop licence and source hashes live with the local skill.

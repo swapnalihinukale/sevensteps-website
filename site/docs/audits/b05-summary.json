@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-15",
+  "scope": "owner handoff and placeholder review export",
+  "baseline": "8ef0d59fe155a8bdf954218b41fe64ea95731262",
+  "sourceHashes": {
+    "site/scripts/package-review.mjs": "6f7577111b1d25bca91072d2d3c5da4de39b1daa44f736a4200da523dc7776a3",
+    "site/scripts/preview-review-package.mjs": "0b276e976e31634fd178e054b4cdcf7e1c9f354f1ff73d196ec0946d117340f6",
+    "site/tests/review-package.test.mjs": "d2d01813973d056ee2cc9e2c0419346199f9223938af582c68c843ce5b05aaa2",
+    "site/tests/browser/review-package.spec.ts": "a0eb4ad845026c274d19a6fbd4dfc88f7a86c8969717b4417a909372c365c4dd",
+    "site/tests/browser/enquiry-site.spec.ts": "338f81680fb49f55ba8297adb64c53100659a1c456bfcccfd46e2da841509271",
+    "site/playwright.config.ts": "6d670a9bbdc8cd20aa2499d8aa2876dcf19eba501c0ff61e20870402532aafb2",
+    "site/package.json": "7b35cb38f5c1ca17f7cecb816998c6635f25e7f79ceb81c63ec9093476457351",
+    ".github/workflows/verify.yml": "22f13ddd9d78ad3570a48e40921633e880aa81351a5fa084c2483b4d3b64195f"
+  },
+  "astroCheck": {
+    "files": 65,
+    "errors": 0,
+    "warnings": 0,
+    "hints": 0
+  },
+  "packageTests": {
+    "passed": 13,
+    "failed": 0,
+    "skipped": 0
+  },
+  "focusedBrowserTests": {
+    "startTime": "2026-10-15T15:01:08.345Z",
+    "duration": 28679.572,
+    "expected": 27,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "package": {
+    "sourceArtifactSha256": "4e7937e9b58b7170d6b085d1bac83111f848e1905550b64566468edfeb228bf3",
+    "uploadArtifactSha256": "767629068d9b92fc36a35651b9b3ba033c33599779fed5899563c026f681a0e8",
+    "archive": {
+      "path": "owner-review.zip",
+      "bytes": 119867,
+      "sha256": "065a1ac77d4bf93e426b1c80e23b7106394f95deb9bcca6ecb5d0620fae763ae"
+    }
+  },
+  "staticFiles": 15,
+  "hosted": false,
+  "manualEvidence": "docs/OWNER-HANDOFF-VERIFICATION-2026-10-15.md",
+  "limitations": [
+    "VoiceOver runtime did not remain active; no spoken journey verified",
+    "400 percent native browser zoom and Safari text enlargement observations cover a subset of routes and interactions",
+    "Physical Windows and mobile/tablet checks remain",
+    "Hosting account and upload still required",
+    "Real content intentionally deferred until after placeholder review"
+  ]
+}

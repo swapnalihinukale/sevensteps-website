@@ -3,17 +3,18 @@
 ## Start here
 
 1. Read `EXECUTION-PLAN.md` for the current phase, next task and acceptance checks.
-2. Read `DESIGN.md` for the selected private-draft direction and `docs/TECHNICAL-DECISIONS.md` for the reviewed Astro/static architecture, receipt boundary and implementation slices. Read `docs/PREBUILD-DESIGN-REVIEW.md` for the seven findings and acceptance checks. Record actual build evidence in `docs/IMPLEMENTATION-VERIFICATION-2026-10-15.md`.
+2. Read `DESIGN.md` for the selected private-draft direction and `docs/TECHNICAL-DECISIONS.md` for the reviewed Astro/static architecture, receipt boundary and implementation slices. Read `docs/PREBUILD-DESIGN-REVIEW.md` for the seven findings and acceptance checks. Use `docs/CONTENT-READY-IMPLEMENTATION-2026-10-15.md` and `site/docs/audits/b04-summary.json` for the current implementation baseline. The earlier B02 verification ledger is historical; record new evidence with the relevant milestone.
 3. Consult `PHOTOGRAPHER-RESEARCH-AND-STRATEGY-2026-10-14.md` for public evidence and source links. Do not repeat completed research without a reason.
    The later `RESEARCH-SYNTHESIS-AND-CONCEPTS.md` connects the 24-site reference study and expanded own-work assessment to three proposed directions. Follow the linked responsive, motion, replacement and quality/security specifications when planning or implementing their surfaces.
 4. For design work, explicitly read `.agents/skills/photographer-design-codex/SKILL.md`, then the workspace copy at `.agents/skills/frontend-design/SKILL.md`. Use the workspace paths to distinguish these from an older global skill with the same name.
-5. For prose and UX copy, read `/Users/admin/.codex/skills/stop-slop/SKILL.md` and `docs/COPY-AND-VOICE-SPEC.md`. Use the execution plan's stage-specific skills/tools map for research, design, implementation and verification. Load conditional skills, such as PDF handling, when their inputs arrive.
+5. For prose and UX copy, read `.agents/skills/stop-slop/SKILL.md` and `docs/COPY-AND-VOICE-SPEC.md`. Use the execution plan's stage-specific skills/tools map for research, design, implementation and verification. Load conditional skills, such as PDF handling, when their inputs arrive. The local stop-slop copy includes its MIT licence, upstream commit and file hashes; it requires no global installation.
+6. Read `docs/MAINTAINER-GUIDE.md`, `docs/DESIGN-SYSTEM.md` and `docs/AI-HANDOFF.md` for portable setup, actual source locations and continuation. `CLAUDE.md` provides the same entry path for Claude. Use `docs/REVIEW-PACKAGE.md` and `docs/PREVIEW-SHARING.md` for the current owner review and checked upload package. Read `docs/OWNER-HANDOFF-VERIFICATION-2026-10-15.md` for later focused checks and bounded native-browser observations. Use `docs/LAUNCH.md` for the later release process.
 
 ## Current authorization
 
-On 15 October 2026, the user authorized the private Astro draft. Continue B02 using direction A, **Close to the people**, as the working selection for this draft. The earlier research-only restriction no longer blocks this local implementation. Build the homepage, two story views, review checklist and related interactions with useful labelled placeholders where cleared content is missing.
+On 15 October 2026, the user authorized the private Astro draft and subsequent local implementation. B02 is complete using direction A, **Close to the people**. The homepage, two story views, review checklist, image pipeline, gated public templates and synthetic enquiry integration already exist. The user has chosen to review the current labelled-placeholder version first while real photographs and business details are pending. Preserve that review state; do not restart stack/design selection or fill the gaps with invented content.
 
-Keep enquiry delivery non-sending in this draft. Live integration remains B03 and requires the confirmed receiving system, responder and data handling. The private-build instruction does not authorize publishing, domain purchases or changes, business-account changes, live form submissions or outreach. Do not ask again for permission to do the authorized private build. Keep OpenDesign's runtime security hold in force.
+Keep enquiry delivery non-sending in the ordinary review. The local B03 backend and designed synthetic lab are implemented. Live provider activation still requires the confirmed receiving system, responder, accounts and data handling. The private-build instruction does not authorize publishing, domain purchases or changes, business-account changes, live form submissions or outreach. Do not ask again for permission to do the authorized private build. Keep OpenDesign's runtime security hold in force.
 
 ## Project decisions
 
@@ -41,7 +42,11 @@ Update the execution plan when a task is completed or a decision changes. Keep a
 
 ## Implementation handoff
 
-The private B02 milestone is complete. Start from `docs/IMPLEMENTATION-HANDOFF.md`, `site/README.md` and the verification ledger for actual code and test state. B03 uses the fixed `docs/LIVE-ENQUIRY-PROVIDER-DECISION.md` stack. Real content, live delivery and public-release gates remain explicit. Do not restart stack selection or call placeholder performance a real-media result.
+Start from `docs/IMPLEMENTATION-HANDOFF.md`, `docs/MAINTAINER-GUIDE.md` and `site/README.md` for the implemented code. The recorded `8ef0d59` baseline passed 41 unit, 17 image, 99 backend and 126 browser cases; use B04 evidence for exact source hashes and coverage limits. B03 uses the fixed `docs/LIVE-ENQUIRY-PROVIDER-DECISION.md` stack. Actual public content supports a confirmed email contact path; live form activation remains a separate provider gate. Real content, live delivery and public-release checks remain explicit. Do not call placeholder performance a real-media result.
+
+The later focused browser run passed 27 cases: nine new review-package cases and 18 designed-form repeats. Keep that result separate from the historical full-suite baseline and a future CI result. New Chrome 400% zoom and Safari text-enlargement observations are bounded; VoiceOver output was unavailable. Do not claim complete native zoom, text-only or screen-reader coverage. Prepare the review package before full E2E and stop manual servers on ports 4322 through 4325.
+
+The owner can maintain the site through assisted file-based editing using the guides and local skills. The browser checklist does not upload or save content, and there is no CMS. Keep stable slot IDs and explain that changing readiness or public JSON alone does not replace hardcoded review copy and photo calls. Use `docs/REVIEW-PACKAGE.md` to collect feedback on the current version before supplying or changing the missing material.
 
 ## Local backend and Git authorization, 15 October 2026
 
@@ -52,3 +57,5 @@ Keep all project changes on `feat/sevensteps-rebuild`, based on `swapnalihinukal
 ## Content-ready implementation
 
 The user also authorized the image pipeline, gated public rendering and the designed enquiry form in a strictly local synthetic integration mode. Use `docs/CONTENT-READY-IMPLEMENTATION-2026-10-15.md` for these build surfaces and evidence. `dist-fixture` and `dist-integration` are isolated test artifacts. They must never replace `dist` for deployment. Keep real content and release approval unresolved until genuine inputs and checks exist.
+
+Release step 3.5 in `docs/LAUNCH.md` records pending engineering: implement and test a guarded, isolated real-content candidate path before approval. The current public gate requires release evidence before rendering, and the existing review/fixture modes do not provide the final real-content candidate. Keep this maintainer work separate from missing owner inputs. Do not fabricate approval evidence or weaken the production gate to obtain a preview.

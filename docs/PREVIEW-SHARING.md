@@ -24,7 +24,9 @@ Successful branch CI runs also attach `owner-review-<commit SHA>` for 14 days. O
 
 ## Host it in the chosen account
 
-Prefer an account controlled by the photographer. An authorized maintainer's account can host a temporary review if that ownership and later removal are agreed. The user still needs to identify the account; repository Write access does not grant Netlify access. No hosting account, paid tier or review URL has been created by this work.
+The user selected the photographer's Netlify account on 15 October 2026. The browser check reached Netlify's login page; no authenticated account or deployment access was available. Keep this ownership choice and do not substitute a maintainer's personal account. No hosting account, paid tier or review URL has been created by this work.
+
+The photographer can upload the prepared ZIP from their existing account and return the HTTPS URL for verification. If the maintainer should perform the upload, first arrange authorized deployment access and sign in with the maintainer's own account, then verify the photographer's team/site identity. Do not share passwords or paste access tokens into chat. Repository Write access does not grant hosting access.
 
 1. Sign in to the chosen Netlify account. In its project/site creation flow, choose a **manual deploy** or static folder upload. Provider labels may change. Check the active account and team before uploading.
 2. Upload the contents of `upload/`, or the inner `owner-review.zip` if that UI accepts ZIP files. `index.html` must sit at the publish root.

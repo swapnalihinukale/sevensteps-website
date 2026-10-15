@@ -1,3 +1,5 @@
+<!-- Local punctuation edit, 15 October 2026: removed em dashes. See the project provenance records. -->
+
 # State coverage craft rules
 
 Universal rules for what every interactive surface must render. The active
@@ -14,7 +16,7 @@ Every surface that fetches, transforms, or accepts data must render all five.
 
 | State | Triggered when | Must contain |
 |---|---|---|
-| **Loading** | Data is in flight | Skeleton, spinner, or shell — plus a 15 s "taking longer than expected" fallback |
+| **Loading** | Data is in flight | Skeleton, spinner, or shell, plus a 15 s "taking longer than expected" fallback |
 | **Empty** | No records yet, or query returned nothing | Headline, plain explanation, primary CTA |
 | **Error** | Fetch failed, server failure, validation rejection | Plain-language cause, recovery action, preserved user input |
 | **Populated** | Data present, primary case | The state the design was actually drawn for |
@@ -52,19 +54,19 @@ blur*. Remove the error message the instant input becomes valid.
 
 Empty is not the absence of state. It is its own state with a job.
 
-- **First-use empty** — illustration + headline + value sentence + primary CTA. The empty is the onboarding moment.
-- **No-results empty** — echo the query, suggest alternatives, never leave a true blank.
-- **Cleared empty** — celebratory phrasing, optional next-action.
-- **Error-as-empty** — never. An error is its own state with recovery information; do not collapse error into empty.
+- **First-use empty**, illustration + headline + value sentence + primary CTA. The empty is the onboarding moment.
+- **No-results empty**, echo the query, suggest alternatives, never leave a true blank.
+- **Cleared empty**, celebratory phrasing, optional next-action.
+- **Error-as-empty**, never. An error is its own state with recovery information; do not collapse error into empty.
 
-**Server-driven vs client-driven.** When a search or query API can return fallback content in the empty payload (suggestions, related categories, popular results), prefer that over a client-side echo. Algolia, Elastic, and most modern search backends support this — the server has more context for what "no results, but maybe try X" should mean.
+**Server-driven vs client-driven.** When a search or query API can return fallback content in the empty payload (suggestions, related categories, popular results), prefer that over a client-side echo. Algolia, Elastic, and most modern search backends support this. The server has more context for what "no results, but maybe try X" should mean.
 
 ## Error state composition
 
 Every error must answer three questions, in this order:
 
 1. **What happened.** "Your card was declined." Not "Something went wrong."
-2. **Why, if knowable.** "Insufficient funds." Or "Network unreachable — check your connection."
+2. **Why, if knowable.** "Insufficient funds." Or "Network unreachable, check your connection."
 3. **What the user can do.** A retry button, an alternative path, or a support link.
 
 Preserve user input across the error. The form must not clear on submit
@@ -72,11 +74,11 @@ failure.
 
 Severity tiers:
 
-- **Field-level** — red border, inline message, focus moves to the field.
-- **Form-level** — error summary banner at top + per-field markers.
-- **Section-level** — inline panel with retry, surrounding sections still functional.
-- **Page-level** — full error state with illustration and recovery CTA.
-- **App-level** — persistent banner or modal for critical loss-of-functionality.
+- **Field-level**, red border, inline message, focus moves to the field.
+- **Form-level**, error summary banner at top + per-field markers.
+- **Section-level**, inline panel with retry, surrounding sections still functional.
+- **Page-level**, full error state with illustration and recovery CTA.
+- **App-level**, persistent banner or modal for critical loss-of-functionality.
 
 Match severity to surface scope. A field validation failure does not warrant
 a page-level error.
@@ -114,7 +116,7 @@ State changes must be announced and focused correctly.
 | Toast / non-urgent confirmation | `role="status"` (polite live region) | Do not move focus |
 | Critical error or destructive confirmation | `role="alertdialog"` (assertive) | Move focus to dialog |
 | Loading begins | `role="status"` announcement ("Loading…") | Do not move focus to spinner |
-| Loading ends, content appears | — | Move focus to loaded content if action was user-initiated |
+| Loading ends, content appears | None | Move focus to loaded content if action was user-initiated |
 
 Live region containers must exist in the DOM before content is injected.
 Adding `aria-live` simultaneously with content does not trigger an
@@ -130,5 +132,5 @@ announcement.
 - Inline validation fires on first keystroke instead of on blur.
 - Full-page loading replaces the chrome when only one section is fetching.
 - Toast appears at a different screen position than previous toasts in the same artifact.
-- Color alone conveys error state — no icon, no text label.
+- Color alone conveys error state, no icon, no text label.
 - Auto-dismissing toast cannot be paused on hover or focus (WCAG SC 2.2.1).

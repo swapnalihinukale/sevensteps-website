@@ -1,20 +1,23 @@
-# Current owner review
+# Review the site
 
-This folder keeps the checked placeholder website on the same branch as its source and documentation. The user requested a repository-only handoff. No separate file transfer or hosting login is needed to receive this work.
+Download [owner-review.zip](owner-review.zip). On GitHub, open the file and choose **Download raw file**. The ZIP is about 117 KiB and includes the homepage, both stories, fonts and content checklist.
 
-Share [the branch](https://github.com/swapnalihinukale/sevensteps-website/tree/feat/sevensteps-rebuild). Start with [the main README](../README.md) for the site, architecture and editing guides.
+Extract the ZIP. If you have Python 3 installed, open a terminal in the extracted folder and run:
 
-## Files
+```sh
+python3 -m http.server 4325 --bind 127.0.0.1
+```
 
-- [owner-review.zip](owner-review.zip): the 15 checked static website files, including the content checklist, local fonts and security headers. On GitHub, open the file and use **Download raw file**. It is about 117 KiB.
-- [manifest.json](manifest.json): file hashes and the source checkout recorded when the package was prepared. Keep this file outside a hosted site's publish folder.
+Open [the local review](http://127.0.0.1:4325/). Press Ctrl+C in the terminal when finished. Opening HTML files by double-clicking will not load the site correctly.
 
-The archive is a saved review snapshot. The manifest's `sourceCommit` identifies the checkout at packaging time, not the later commit that adds the archive to Git. Its hashes identify the bytes in this ZIP. The code and documentation may advance after this snapshot; regenerate it before sharing a changed website.
+This simple server lets you review the pages. It does not apply Netlify's security headers. To build from source and check those headers, follow [the review package guide](../docs/REVIEW-PACKAGE.md).
 
-The website contains labelled placeholders and a non-sending enquiry form. A GitHub branch/file link shows repository contents; it is not a live website URL. For local viewing, follow [the setup guide](../site/README.md). If the owner later chooses to host the review, follow [preview sharing](../docs/PREVIEW-SHARING.md). Extract only the ZIP into a publish folder with `index.html` at its root. Do not upload this whole repository or this folder's README/manifest as the website.
+Review the layout, colours, navigation and motion. Use the Add/Replace notes to see where your photos and text belong. The form does not send enquiries.
 
-## Update the saved snapshot
+## Update this copy
 
-From `site/`, rebuild and check the ordinary review, then run `npm run package:review`. Copy `.review-package/owner-review.zip` and `.review-package/manifest.json` together into the repository's `review/` folder. Verify the archive hash and each file against the manifest. Inspect the source diff and commit both snapshot files on `feat/sevensteps-rebuild` with the related website change.
+From `site/`, rebuild and check the review, then run `npm run package:review`. Copy `.review-package/owner-review.zip` and `.review-package/manifest.json` into this folder together. Check the hashes and commit both files on `feat/sevensteps-rebuild`.
 
-Keep generated working directories ignored. This one bounded static export is tracked for the requested handoff. Never include originals, credentials, live enquiry data or test integration artifacts in the archive. The packaging guard rejects those inputs. Unlike a temporary CI artifact, this committed snapshot remains in Git history and does not expire after 14 days.
+[manifest.json](manifest.json) records the packaged files and their hashes. Its source commit is the checkout used for packaging, before the later commit that saves the ZIP. Regenerate the ZIP after a website change.
+
+For hosting later, follow [preview sharing](../docs/PREVIEW-SHARING.md). Upload the ZIP's contents with `index.html` at the root. Keep this README and the manifest out of the published folder.

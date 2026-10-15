@@ -1,3 +1,5 @@
+<!-- Local punctuation edit, 15 October 2026: removed em dashes. See the project provenance records. -->
+
 # Typography craft rules
 
 Universal typography rules that apply on top of any `DESIGN.md`. The
@@ -5,7 +7,7 @@ active design system decides *which* fonts; this file decides *how* they
 behave at every size.
 
 > Adapted from [refero_skill](https://github.com/referodesign/refero_skill)
-> (MIT) — distilled and re-tuned for OpenDesign's token system.
+> (MIT), distilled and re-tuned for OpenDesign's token system.
 
 ## Type scale
 
@@ -29,7 +31,7 @@ Use a multiplicative scale (1.2 or 1.25). Cap at 6–8 sizes per artifact.
 | Body (15–18 px) | `1.5`–`1.6` |
 | Small (≤14 px) | `1.5` |
 
-### CJK overrides — these are not optional
+### CJK overrides, these are not optional
 
 The table above is Latin leading. Latin display type can go to `1.0`
 because the ascender/descender slack inside the em box keeps lines
@@ -43,7 +45,7 @@ collide.
 | Body (15–18 px) | `1.5`–`1.6` | `1.7`–`1.8` |
 
 The CJK floor has **no upper size tier**. It applies to every heading
-level, including the **cover / hero main title** — the single biggest
+level, including the **cover / hero main title**, the single biggest
 headline on a deck's first slide. A Chinese cover title at 72 px,
 96 px, or larger, especially one split into multiple lines with
 `<br>`, is still CJK display text: set `line-height: 1.3`–`1.4` on
@@ -55,12 +57,12 @@ Negative tracking is Latin-only for the same reason: CJK is already
 set on a fixed em grid, so `-0.02em` on a Chinese headline crowds the
 glyphs instead of tightening the word. Use `0` for CJK display text.
 
-When one artifact mixes both — an English kicker over a Chinese
-headline is the common case — set the tight Latin values on the Latin
+When one artifact mixes both, an English kicker over a Chinese
+headline is the common case, set the tight Latin values on the Latin
 element only. Do not inherit them onto the CJK block from a shared
 parent rule.
 
-## Letter-spacing — the rule that makes or breaks craft
+## Letter-spacing, the rule that makes or breaks craft
 
 This is the single most-skipped rule in AI-generated design. **No
 exceptions.**
@@ -92,7 +94,7 @@ disintegrating into letters.
   used at multiple weights).
 - Always declare a system fallback chain. If the active `DESIGN.md`
   ships a webfont URL, the fallback must still produce a coherent look.
-- Never set `font-family: system-ui` alone on a heading — that is the
+- Never set `font-family: system-ui` alone on a heading. That is the
   textbook AI default; always pair it with an intentional first choice.
 
 ## Line length
@@ -103,9 +105,9 @@ Limit body copy to **50–75 characters** per line. In CSS:
 ## Three-weight system
 
 Most well-crafted UIs use exactly 3 weights:
-- **Read** (400 / 450) — body copy
-- **Emphasize** (510 / 550) — UI text, labels, navigation
-- **Announce** (590 / 600) — headlines, buttons
+- **Read** (400 / 450), body copy
+- **Emphasize** (510 / 550), UI text, labels, navigation
+- **Announce** (590 / 600), headlines, buttons
 
 Weight 700+ is rarely needed. If your design uses bold for "emphasis on
 emphasis," it likely lacks weight discipline elsewhere.
@@ -113,7 +115,7 @@ emphasis," it likely lacks weight discipline elsewhere.
 ## Common mistakes (lint these)
 
 - ALL CAPS without `letter-spacing` ≥ `0.06em`.
-- Display text (≥32 px) without negative tracking (Latin only — see the CJK overrides).
+- Display text (≥32 px) without negative tracking (Latin only, see the CJK overrides).
 - CJK display text at Latin leading (`≤1.2`), which makes the lines overlap.
 - Multi-line CJK cover / hero titles (72–96 px+, e.g. split with `<br>`) below `1.3` line-height.
 - Negative tracking applied to CJK text.

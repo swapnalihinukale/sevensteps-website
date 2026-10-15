@@ -5,7 +5,7 @@ description: Plan, implement, and critique the Seven Steps photography experienc
 
 # Photographer design workflow for Codex
 
-This is a project-specific adapter, not an Anthropic or OpenDesign product. Preserve the upstream skill unchanged. Read the workspace `AGENTS.md`, `EXECUTION-PLAN.md` and `DESIGN.md` first, then `../frontend-design/SKILL.md` relative to this directory. That local copy is pinned and is byte-identical to the audited official Claude frontend-design plugin skill.
+This is a project-specific adapter, not an Anthropic or OpenDesign product. Keep the upstream source commit and licence in the provenance record. Read the workspace `AGENTS.md`, `EXECUTION-PLAN.md` and `DESIGN.md` first, then `../frontend-design/SKILL.md` relative to this directory. Both local frontend-design copies use the same pinned source with recorded punctuation edits.
 
 The user requires rich motion/arrows/controlled automatic movement, broad device/browser support, replacement notes for missing content and dependency/security verification. Follow the project's responsive, motion, replacement, quality/security and copy/voice specifications. Use the execution plan's stage-specific skill/tool map. Treat generic upstream style warnings as critique prompts and follow the user's requested interaction vocabulary.
 

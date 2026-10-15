@@ -1,70 +1,40 @@
-# Seven Steps copy and voice
+# Writing for Seven Steps
 
-15 October 2026. Apply the user's [stop-slop skill](../.agents/skills/stop-slop/SKILL.md) when drafting or reviewing project prose, owner instructions and website text. Read its [phrase guidance](../.agents/skills/stop-slop/references/phrases.md), [structure guidance](../.agents/skills/stop-slop/references/structures.md) and [examples](../.agents/skills/stop-slop/references/examples.md). Follow the user's no-em-dash instruction and the skill's core rules where an example conflicts.
+Read [stop-slop](../.agents/skills/stop-slop/SKILL.md) and its linked references before editing text.
 
-The implemented review, synthetic public-template fixture and designed local enquiry surface use this specification. Automated source/rendered-output checks passed in the `8ef0d59` B04 baseline. Owner-confirmed business facts and the exact public-release copy still need review. Use [current implementation evidence](CONTENT-READY-IMPLEMENTATION-2026-10-15.md); older planning notes do not override that result.
+Write the guides to the person using them: **your photos**, **your website**, **your email address**. Give the next step and name the file or setting to change. Avoid narrating what “the user”, “the owner” or “the photographer” needs to do.
 
-## Write for the person using the page
+For visitor-facing pages, use Seven Steps' agreed voice. Confirm whether “I” or “we” fits before writing the introduction. Use the names, services, prices and promises supplied for publication. Keep missing details as specific Add/Replace requests.
 
-Help a couple judge the photographer's work, understand the service and enquire. Help the photographer supply the missing material in the owner-review version. Use their vocabulary. Keep implementation terms out of public copy.
+## Style
 
-Use active voice and concrete verbs. Name the person taking the action where that helps. Cut filler, intensifiers, rhetorical questions and generic claims about excellence. Vary sentence length. Retain technical conditions and uncertainty when they affect the truth of a statement.
+- Use short paragraphs, active verbs and sentence case.
+- Keep exact commands, field names and technical conditions that affect a task.
+- Explain a limitation where the reader encounters it. Link to the full procedure instead of repeating it across guides.
+- Cut praise, generic claims, chat history and announcements about what a document explains.
+- Use no em dashes. Rewrite the sentence with a full stop, comma or colon. Check literal characters and encoded forms that render them.
 
-Ground public copy in cleared work and confirmed operating facts. Ask the photographer for specific observations about an assignment or client preparation. Edit those facts into the page. A writing skill cannot supply a genuine testimonial, a delivery promise or a biography.
+Apply this to visible copy, accessible labels, captions, metadata and documentation. Keep copyright and licence text intact. Record local punctuation edits to bundled references in their provenance files rather than claiming an unchanged upstream copy.
 
-Use sentence case for navigation, buttons and notes. Keep an action's name consistent through its flow. Show the next action with a plain verb. Choose the photographer's public use of “I” or “we” after confirming their voice and role; neither choice establishes a team size.
+## Examples
 
-## Punctuation and text coverage
+| Avoid | Write |
+|---|---|
+| The photographer should provide accurate contact information. | Add the email address you use for enquiries. |
+| The owner can maintain the website through assisted file-based editing. | Edit your text in `site/src/pages/index.astro`. |
+| The canonical content register retains unresolved owner inputs. | Use the checklist to track the photos and text you still need to add. |
+| This document describes the implemented visual direction. | Change the colours in `site/src/styles/global.css`. |
+| Genuine receipt and recovery acceptance remains a separate release gate. | Test that an enquiry reaches your inbox and that you can recover it if email fails. |
 
-Use no em dashes, Unicode U+2014, in authored project prose or website UX. Restructure the sentence with a full stop, comma, colon or parentheses. Do not replace each em dash with a double hyphen or another dash used in the same way.
+Use precise form messages. “Sending your enquiry…” means the request is in progress. “We could not confirm receipt. Try again.” means the result is unknown. Show “We have received your enquiry.” after the server stores it. A stored enquiry does not confirm a booking or email delivery.
 
-Apply the rule to headings, body copy, navigation, button text, captions, Add/Replace notes, status messages, field help, validation errors, receipt/retry states, film states and the content checklist. Include image descriptions, accessible names, page titles/descriptions, social previews and structured data. Check translated copy if the project adds another language.
+## Review checks
 
-Keep source quotations and licence/provenance records intact. For a testimonial containing an em dash, choose an accurate excerpt without it or obtain a punctuation edit the client accepts before publication. Keep the original in the source record. Do not change a quote's meaning to satisfy a style check.
+| Check | Action |
+|---|---|
+| COPY-01: source | Scan text and string sources for literal or encoded em dashes. |
+| COPY-02: voice and facts | Read in page order. Address the reader, cut repetition and check factual claims. |
+| COPY-03: rendered text | Check labels, descriptions, metadata and menu, gallery, form and error states in the browser. |
+| COPY-04: release | Review the final text, remove draft notes from public pages and repeat the checks on the build to publish. |
 
-Third-party source files, raw audit evidence and upstream skills are reference material. Their punctuation does not set the project's voice. Avoid copying it into the website.
-
-## Working vocabulary
-
-Use these examples as proposed UX text. Match the [replacement specification](CONTENT-REPLACEMENT-UX.md) and [slot inventory](CONTENT-SLOT-INVENTORY.md) when those files give a more specific request.
-
-| Surface | Proposed copy | Condition |
-|---|---|---|
-| Owner-review notice | “Website draft. Add the missing photos and details using the content checklist.” | Show while preparing the private review version. |
-| Checklist action | “View content checklist” | Open the shared checklist. |
-| Empty hero | “Add your opening photograph.” | Request an original and refer to `HOME-HERO-01`. |
-| Unsuitable supplied image | “Replace this photograph with the original file. This copy is too small for the opening image.” | Use after checking the supplied resolution and intended display. |
-| Missing story context | “Add the names and location you can publish.” | Allow a non-identifying title if needed. |
-| Received owner material | “Received: checking” | The agent still needs to check facts, rights or display quality. |
-| Completed owner slot | “Content added: ready” | The agent has completed that slot's checks. |
-| Draft form | “Draft enquiry form. Add the receiving address before this can send.” | The draft must not transmit or claim receipt. |
-| Primary enquiry action | “Send enquiry” | Use once the sending path works. The draft keeps its adjacent explanation. |
-| Missing reply address | “Enter an email address so we can reply.” | Use if email is the chosen reply field. Adapt to the selected contact method. |
-| Pending request | “Sending your enquiry…” | A request is in progress. Apply the documented timeout. |
-| Unknown receipt after timeout | “We could not confirm receipt. Try again.” | Retry must preserve input and prevent duplicate enquiries. |
-| Confirmed receipt | “We have received your enquiry.” | Use only after the agreed receiving system stores a recoverable record. Confirm the brand's voice before publication. |
-| Missing film | “Add a film” with “Film not added yet” | Show in owner review with the required source/credit request. |
-| Public film failure | “This film could not load. Try again.” | Provide a working retry or confirmed alternate viewing link. |
-
-The developer must match each status to the actual outcome. A plain sentence can still make a false promise. Keep receipt, notification, response, availability and booking separate.
-
-## Copy review at execution
-
-| Check | Run it at | Evidence to retain |
-|---|---|---|
-| COPY-01: source text | C03 drafting and B02/B03 changes | Scan owned content and string sources for U+2014. Check raw or escaped forms that could render it, including HTML entities and Unicode escapes. Review each match. |
-| COPY-02: voice and facts | C02/C03 proposals; B02/B03 copy review | Read the text in page order. Cut filler and generic claims; confirm names, terms and promises against the content register. Record unresolved facts as content gaps. |
-| COPY-03: rendered states | V01 on the exact candidate and exercised states | Inspect decoded visible text, accessible names, image descriptions and metadata. Open menu/viewer/form/error/empty states and direct routes. A source-only search cannot catch text from a CMS, dependency or encoded string. |
-| COPY-04: public handoff | L01 release review | Reconcile the content register, remove owner-review notes from the public version and repeat the checks on the exact release candidate. Preserve the draft's checklist for handoff. |
-
-The existing `site/scripts/copy-check.mjs` runs through `npm run check` and the build wrapper. It checks authored source and the selected rendered output for literal and encoded prohibited punctuation. Public-field validation also rejects prohibited punctuation and markup in approved content inputs. Keep checks scoped to text the site presents. Do not fail on unused punctuation in a vendored licence, package source or raw research record. Do not change vendor code or weaken integrity checks to remove a text match.
-
-Treat an em dash in authored UX as a defect to fix before acceptance. Check the reader's task by hand as well: a string scan cannot judge tone, clarity or factual accuracy.
-
-For prose review, score Directness, Rhythm, Trust, Authenticity and Density from 1 to 10 using stop-slop. Revise below 35/50. Record this as an editorial self-assessment, not an AI detector or proof of user comprehension. Keep the score in internal review notes.
-
-## Current result
-
-COPY-01 and the automated output portion of COPY-03 passed on the recorded B04 review, fixture and integration builds. Browser checks exercise accessible text and interactive states; the evidence describes the covered cases. Recheck changed text and states on the next candidate. COPY-02 still requires the owner’s actual facts and approved wording; COPY-04 remains a public-release gate.
-
-The user is reviewing the labelled-placeholder version while real material is pending. Keep Add/Replace messages useful, preserve unknown facts as requests and avoid turning proposed copy into a promise. A Ready slot status does not rewrite the current review component. Follow [the maintainer guide](MAINTAINER-GUIDE.md) for the content-editing locations and [the execution plan](../EXECUTION-PLAN.md) for stage-specific skills and acceptance. The portable stop-slop licence and source hashes live with the local skill.
+`npm run check` includes `site/scripts/copy-check.mjs` for source and built pages. A character scan cannot assess tone, so read the changes before committing. Use the skill's five-part score during editing and revise below 35/50; the score is a writing aid, not proof that readers understand the page.

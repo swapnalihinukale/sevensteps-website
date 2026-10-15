@@ -1,3 +1,5 @@
+<!-- Local punctuation edit, 15 October 2026: removed em dashes. See the project provenance records. -->
+
 # Color craft rules
 
 Universal color rules applied on top of the active `DESIGN.md`. The
@@ -15,7 +17,7 @@ A coherent palette has four layers. Plan all four before writing any CSS.
 | Layer | Share of pixels | Tokens |
 |---|---|---|
 | **Neutrals** | 70–90% | `--bg`, `--surface`, `--fg`, `--muted`, `--border` |
-| **Accent** (one) | 5–10% | `--accent` only — never invent a second accent |
+| **Accent** (one) | 5–10% | `--accent` only, never invent a second accent |
 | **Semantic** | 0–5% | `--success`, `--warn`, `--danger` |
 | **Effect** | <1% | gradients, glows; rarely justified |
 
@@ -47,7 +49,7 @@ the brand-bright variant for fills only.
 
 ## Dark themes
 
-Avoid pure black and pure white — both cause vibration and eye strain.
+Avoid pure black and pure white: both cause vibration and eye strain.
 
 | Token | Dark theme | Light theme |
 |---|---|---|
@@ -55,7 +57,7 @@ Avoid pure black and pure white — both cause vibration and eye strain.
 | Foreground | `#f0f0f0` (not `#fff`) | `#111111` (not `#000`) |
 
 On dark surfaces, prefer **semi-transparent white borders** over solid
-dark borders — a 1px `rgba(255,255,255,0.08)` reads as structure
+dark borders: a 1px `rgba(255,255,255,0.08)` reads as structure
 without adding visual noise.
 
 ## Semantic color naming
@@ -67,7 +69,7 @@ Always name tokens by **purpose**, never by hue:
 --accent: #2f6feb;
 --success: #17a34a;
 
-/* bad — locks you out of theming */
+/* bad, locks you out of theming */
 --blue-500: #2f6feb;
 --green-500: #17a34a;
 ```
@@ -77,7 +79,7 @@ Always name tokens by **purpose**, never by hue:
 - **Indigo `#6366f1`** (Tailwind `indigo-500`) is the most reliable
   AI-slop tell. The active `DESIGN.md` provides `--accent`; use it. If
   the brief truly needs indigo, make the user say so explicitly. If
-  your `DESIGN.md` encodes indigo as `--accent`, that is intentional —
+  your `DESIGN.md` encodes indigo as `--accent`, that is intentional,
   the linter only flags hardcoded hex, so `var(--accent)` uses are
   unaffected even when the resolved color happens to be `#6366f1`.
 - **Two-stop "trust" gradient** (purple → blue, blue → cyan, etc.) on a

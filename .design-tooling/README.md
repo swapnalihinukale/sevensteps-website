@@ -11,7 +11,7 @@ Earlier lifecycle/protocol checks passed and are preserved as historical evidenc
 - OpenDesign 0.25.0 is checked out at `open-design`, commit `ae8038e7ce12ff305d57d12acbf3001f117cb100`. It is a local application/daemon, CLI and MCP server, not just a skill. The daemon and `tools/dev` build closure completed successfully (12 package builds).
 - Node 24.22.0 and pnpm 10.33.2 are installed under `runtime`. System Node was not modified. Codex CLI 0.144.1 was available on this machine.
 
-Full source pins, attribution and file hashes are in `SOURCES.json`. Historical protocol results and the current hold are in `VERIFICATION.json`.
+Source pins, attribution, current file hashes and local punctuation edits are in `SOURCES.json`. The reference text has been edited to remove em dashes; original hashes remain in the edit record. Historical protocol results and the current hold are in `VERIFICATION.json`.
 
 ## Lifecycle
 

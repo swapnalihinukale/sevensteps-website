@@ -1,3 +1,5 @@
+<!-- Local punctuation edit, 15 October 2026: removed em dashes. See the project provenance records. -->
+
 # Before/After Examples
 
 ## Example 1: Throat-Clearing + Binary Contrast
@@ -42,7 +44,7 @@
 > "Speed. Quality. Cost. You can only pick two. That's it. That's the tradeoff."
 
 **After:**
-> "Speed, quality, cost—pick two."
+> "Speed, quality, cost: pick two."
 
 **Changes:** Single sentence. No performative emphasis.
 

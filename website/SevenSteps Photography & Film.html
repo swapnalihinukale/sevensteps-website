@@ -218,7 +218,7 @@ if(SITE.instagram){$('#igLink').href=SITE.instagram;$('#igItem').hidden=false}
 let cur=0,timer;const slide=$('#slide'),dots=$('#dots');
 dots.innerHTML=REVIEWS.map((_,i)=>`<button aria-label="Review ${i+1}"></button>`).join('');
 function show(i){cur=(i+REVIEWS.length)%REVIEWS.length;const r=REVIEWS[cur];
-  slide.innerHTML=`${r.sample?'<mark>SAMPLE — REPLACE</mark><br>':''}“${esc(r.text)}”<cite>${esc(r.who)} · ${esc(r.loc)}</cite>`;
+  slide.innerHTML=`${r.sample?'<mark>SAMPLE: REPLACE</mark><br>':''}“${esc(r.text)}”<cite>${esc(r.who)} · ${esc(r.loc)}</cite>`;
   [...dots.children].forEach((d,j)=>d.setAttribute('aria-current',j==cur))}
 $('#prev').onclick=()=>show(cur-1);$('#next').onclick=()=>show(cur+1);
 dots.onclick=e=>{const j=[...dots.children].indexOf(e.target);if(j>=0)show(j)};

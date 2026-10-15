@@ -1,14 +1,10 @@
-# Maintainer guide
+# Maintain your Seven Steps website
 
-This guide starts from the content-ready implementation at `8ef0d59` on `feat/sevensteps-rebuild` and includes the later review-package commands. The photographer is reviewing a private draft with placeholders while real material is pending. Keep that review experience as the default. The application has working image preparation, gated public templates and a local synthetic enquiry backend; it has no live delivery or published release.
+Run and edit the website in `site/`. Your current preview includes labelled photo spaces and a content checklist; the enquiry form does not send messages. To review the layout without editing code, start with [Review the site](../review/README.md).
 
-Read [the execution plan](../EXECUTION-PLAN.md) for current status, [the design system](DESIGN-SYSTEM.md) before visual changes and [the AI handoff](AI-HANDOFF.md) when continuing with an assistant. The [B04 report](CONTENT-READY-IMPLEMENTATION-2026-10-15.md) and [machine-readable evidence](../site/docs/audits/b04-summary.json) identify the completed checks. Older B02 and B03 reports describe earlier artifacts.
+## Run it on your computer
 
-Use [Preview sharing](PREVIEW-SHARING.md) to prepare the current placeholder review for a separate host. [Owner handoff verification](OWNER-HANDOFF-VERIFICATION-2026-10-15.md) records package checks and the limits of the later native-browser observations. Preparing a package does not publish it.
-
-## Start from a fresh clone
-
-The repository is [swapnalihinukale/sevensteps-website](https://github.com/swapnalihinukale/sevensteps-website). Preserve `master` and the original `website/` HTML files. Development uses one branch:
+Install Node **22.23.2** and npm **10.9.8**, then clone the development branch:
 
 ```sh
 git clone --branch feat/sevensteps-rebuild https://github.com/swapnalihinukale/sevensteps-website.git
@@ -23,153 +19,132 @@ npm run build
 npm run preview
 ```
 
-Use Node `22.23.2` and npm `10.9.8`. The `site/.nvmrc` file supports an existing nvm installation; run `nvm install` and `nvm use` from `site/` if that is your version manager. The project pins the runtime and packages. Do not substitute the separate OpenDesign runtime.
+Open [http://127.0.0.1:4321/](http://127.0.0.1:4321/). Use `npm run dev` while editing; use `build` followed by `preview` to inspect the compiled files. Rebuild after source changes and run one server on port 4321 at a time.
 
-Open [the private review](http://127.0.0.1:4321/). Loopback URLs work on the computer running the server. Use `npm run dev` instead of the preview command while editing. Preview serves the last build, so rebuild to see source changes. Do not run dev and preview on the same port at once.
+If you use nvm, run `nvm install` and `nvm use` from `site/`; `.nvmrc` contains the version. Keep `package-lock.json`. The install command skips dependency lifecycle scripts, and the application supports that installation method. Review any future package's install script before allowing it.
 
-`npm ci --ignore-scripts` installs the lockfile without dependency lifecycle scripts. The checked build works with that installation mode. If a future package needs an install script, review it and document the exception before changing this policy. Keep `package-lock.json`; do not repair an installation by deleting it.
+Keep your work on `feat/sevensteps-rebuild`. Keep `master` unchanged. The older HTML drafts remain under `website/`.
 
-### Native database and browser prerequisites
+## Edit text and content requests
 
-Backend tests and both enquiry labs create a fresh native PostgreSQL cluster. They need `initdb`, `postgres`, `pg_ctl` and `createdb` from PostgreSQL 16 or newer. The recorded macOS run used PostgreSQL 16.13. CI uses the PostgreSQL 16 binaries on Ubuntu 24.04.
+Use these files for the current preview. Paths below start at the repository root.
 
-The runner checks `SEVENSTEPS_PG_BIN`, `/opt/homebrew/opt/postgresql@16/bin`, then directories on `PATH`. After installing PostgreSQL through your system's package manager, set the project variable if discovery needs help:
+| To change | Edit |
+|---|---|
+| Homepage text and photo placement | `site/src/pages/index.astro` |
+| Story text and photo order | `site/src/pages/stories/[slug].astro` |
+| Navigation, footer and page metadata | `site/src/layouts/Layout.astro` |
+| Enquiry text and controls | `site/src/components/Enquiry.astro` |
+| Add/Replace notes and the 27 content requests | `site/src/data/content.ts` |
+| Colours, type and layout | `site/src/styles/global.css`; see [Design system](DESIGN-SYSTEM.md) |
+| Image display and missing-photo treatment | `site/src/components/PhotoSpace.astro` |
+| Menu, viewer and gallery movement | `site/src/scripts/ui.ts` |
+
+For a text edit:
+
+1. Find the wording in the page or component above and change it.
+2. Keep its content ID, such as `HOME-HERO-01`. Checklist links use these IDs.
+3. Run `npm run check` and `npm run build` from `site/`.
+4. Open the changed page. Check the wording, links and line wrapping on a narrow screen.
+
+Edit the files yourself or with a developer or assistant. The browser checklist lets you read, filter and locate requests. It does not save edits or upload files; there is no CMS.
+
+### Update a content request
+
+Each record in `src/data/content.ts` has a request, note, checklist and status. Use the status that describes the work completed:
+
+| Status | Set it when |
+|---|---|
+| `Needs content` | You still need the photo or information. |
+| `Received: checking` | You have received it and are checking facts, rights, quality and placement. |
+| `Needs an update` | You have written the required correction in `remaining`. Keep the supplied-content label. |
+| `Ready` | You have completed that record's checks. |
+| `Not needed` | You have chosen to omit an allowed optional item. Set `publicationDecision: 'omit'` and explain why in `omissionReason`. |
+
+All 27 records currently start at `Needs content`. To change one, override the fields on that record's `defineSlot(...)` result. Keep its definition and ID; do not change the helper's defaults to update the whole list. Follow the `ContentSlot` type and run the content checker. Required records cannot use `Not needed`.
+
+Use a short label in `supplied`, such as a photo selection name. Store permission emails, private links and source archives elsewhere. Marking a record `Ready` does not replace its photo or page text.
+
+## Add your photos
+
+Choose photos you have permission to publish, including permission for identifiable people and the names you intend to use. Keep original archives and private permission records in restricted storage.
+
+For the current preview, `PhotoSpace` calls have no `photo` prop. To show a photo, prepare its image record, pass it to the relevant `PhotoSpace` call, then inspect its phone crop and full frame. Keep Add/Replace notes for the items still missing. Adding public JSON alone will not change these preview calls.
+
+For the finished website:
+
+1. Put the selected web masters in ignored `site/.local/media-masters/`.
+2. Create `site/content/media.json` with their relative filenames, photo IDs, descriptions, credits and publication permission. Follow the exact [media input format](../site/docs/MEDIA-PIPELINE.md).
+3. From `site/`, run `node scripts/prepare-media-public.mjs`. Check the generated photos for orientation, colour, skin tones, dark detail, crop and file size.
+4. Create `site/content/public.json` using the [public content schema](../site/content/README.md). Add your business details, story text and contact wording, and reference the same photo IDs. Resolve the content records and optional omissions.
+5. **Implement the missing real-content preview before seeking release approval.** The current public build requires release evidence before it will render your photos. The review and geometric test modes do not provide the final preview. A developer still needs to finish this code: an isolated local build for reviewing real content while preserving the production checks. See [release step 3.5](LAUNCH.md#3-prepare-the-real-candidate-after-the-placeholder-review).
+6. Test that unpublished build with your photos, contact details and the device/accessibility checks below. Extend the automated tests to cover the new build. After approval to publish, record the evidence and exact content/media hashes in `content/release-approval.json`.
+
+Do not create an approval file just to get a preview. A changed photo or content file needs another check and updated hashes before release.
+
+The two story IDs are fixed: `wedding-story` and `couple-session`. Adding a story also requires changes to routes, navigation, enquiry context, schema and tests. Film, team and logo-artwork sections still need implementation if you want to include them.
+
+The production build needs a secure way to obtain the selected web masters because they are absent from Git. Set that up before building on a remote host. Keep originals out of `public/` and test images out of the production portfolio.
+
+## Contact and enquiry delivery
+
+The public templates support an email link with privacy and reply information. Before enabling it, confirm your receiving address and who will respond, then test the destination with permission. The mailbox helper validates the address and encodes special characters in the link.
+
+The local form backend works with test data. It validates a signed submission, writes the enquiry and notification job in one PostgreSQL transaction, and returns a receipt. A worker sends notifications after that transaction and reuses the provider key on retries. Signed provider events update delivery status; uncertain outcomes need reconciliation. A receipt confirms database storage. Email delivery and bookings are separate outcomes.
+
+The browser keeps an opaque pending reference or receipt in session storage, without personal form values. It refuses submission if it cannot retain that retry reference. The ordinary preview has no active endpoint or named payload fields, disables submission and blocks implicit submission.
+
+To enable a live form, follow the [provider setup](LIVE-ENQUIRY-PROVIDER-DECISION.md) and [backend instructions](BACKEND-IMPLEMENTATION-2026-10-15.md). Accounts, recipient, data handling, production form activation, ENQ-01 through ENQ-08, provider recovery and operator retrieval still need completion. Local fake notifications do not test Resend delivery or database restoration.
+
+## Prepare a review package
+
+From `site/`:
+
+```sh
+npm run check
+npm run build
+npm run test:review-package
+npm run package:review
+npm run preview:review-package
+```
+
+Open [http://127.0.0.1:4325/](http://127.0.0.1:4325/). Restart this server after rebuilding the package. It serves the checked `dist/` files with the same headers used in the ZIP.
+
+The upload ZIP is `site/.review-package/owner-review.zip`; the equivalent directory is `.review-package/upload/`. Keep `manifest.json` outside the hosted directory. Follow [Preview sharing](PREVIEW-SHARING.md) to use a separate review host. Localhost links work on your computer only. Noindex instructions do not restrict access to a shared URL.
+
+## Install test prerequisites
+
+### PostgreSQL
+
+Backend tests and both enquiry labs need native PostgreSQL **16 or newer**, including `initdb`, `postgres`, `pg_ctl` and `createdb`. Installing the npm `pg` package does not install these tools. Recorded runs used PostgreSQL 16.13 on macOS and PostgreSQL 16 on Ubuntu 24.04 CI.
+
+The runner searches `SEVENSTEPS_PG_BIN`, `/opt/homebrew/opt/postgresql@16/bin`, then `PATH`. Set your installed bin directory if needed. For example, on Linux:
 
 ```sh
 export SEVENSTEPS_PG_BIN=/usr/lib/postgresql/16/bin
 ```
 
-Use your actual bin directory. On Apple Silicon with Homebrew PostgreSQL 16, the documented default path usually works without this variable. The test runner starts its own cluster; you do not need to start a shared database service. Run it as a normal user, since PostgreSQL `initdb` refuses root. Each cluster binds to loopback, uses an isolated temporary directory and stops after the test or Ctrl+C. The runner refuses to substitute an inherited production connection. A missing native database fails the test instead of skipping it.
+Run tests as a normal user; `initdb` refuses root. The runner starts a fresh temporary cluster on loopback and stops it after the test or Ctrl+C. You do not need a shared database service. It rejects inherited production connections and fails if the native tools are missing.
 
-The native runner currently uses Unix paths and process behavior. macOS and Ubuntu are the recorded environments. A Windows maintainer should use a configured WSL2 Linux environment for this runner and verify the result; native Windows execution has not been established. That limitation does not describe the website's browser compatibility.
+The runner uses Unix paths and process behavior. On Windows, use WSL2 and verify the run there. Native Windows execution has not been tested.
 
-Install the three browser engines before browser tests:
+### Browsers
 
 ```sh
 npx playwright install chromium firefox webkit
 ```
 
-A Linux runner also needs their system libraries. CI uses `npx playwright install --with-deps chromium firefox webkit`. Use that form where your machine policy permits package installation.
+On Linux, install the system libraries too if your machine permits it:
 
-## Stack and the reasons for it
+```sh
+npx playwright install --with-deps chromium firefox webkit
+```
 
-| Layer | Current choice | Maintenance consequence |
-|---|---|---|
-| Pages | Astro 7.3.8, static output | Each route builds to HTML. Ordinary links and content work before client JavaScript. There is no server-rendered portfolio route or client router to operate. |
-| Types | TypeScript 6.0.3, strict Astro configuration | Validate content and component props at build time. Runtime input still needs the explicit validators. |
-| Styles and interactions | Native CSS, small TypeScript browser modules | Change grid, typography and motion at their source. No React, styling runtime or animation framework is required. |
-| Images | sharp 0.35.5 | Generate bounded AVIF, WebP and progressive JPEG during build preparation. Clients download derivatives; they do not encode images. |
-| Fonts | Source Serif 4 and Source Sans 3 via Fontsource Variable 5.3.1 | Serve two local normal Latin variable WOFF2 files and preserve the two OFL notices. |
-| Future receiver | Netlify Functions 6.0.2, Netlify Database 2.0.1, Resend 6.33.0 | Keep database receipt separate from notification. Production accounts, routing and recovery acceptance still need completion. |
-| Test database client | pg 8.16.3, `@types/pg` 8.15.6 | Tests use actual PostgreSQL transactions and role boundaries. The client alone does not install the database. |
-| Checks | Astro check 0.9.10, Playwright 1.64.1, axe-core Playwright 4.13.0, Node test runner | Use the committed scripts and evidence. A browser emulator does not prove a physical-device or screen-reader result. |
+## Test a change
 
-The manifest [site/package.json](../site/package.json) and its lockfile are the authority for pins. `@types/node` is 22.20.5. The Node engine accepts `>=22.23.2 <23`; the reproducible project and CI version is 22.23.2.
+For copy, run `check`, rebuild and inspect the changed text. For layout, images or interactions, run the affected browser tests as well. For receipt or notification changes, run `test:server` against the temporary database.
 
-A small photography site benefits from CI because content, image handling and contact behavior can regress. [The workflow](../.github/workflows/verify.yml) checks the branch on Ubuntu, has read-only repository permissions and contains no deployment credentials. It builds static artifacts and runs synthetic tests. A Docker image, container registry and orchestration cluster are not part of this architecture. Revisit that only for a demonstrated operating need.
-
-## File map and data flow
-
-| Location | Responsibility |
-|---|---|
-| `site/src/pages/index.astro` | Review homepage and selection of the public homepage renderer. |
-| `site/src/pages/stories/[slug].astro` | Two story routes, review frame definitions and public-story selection. |
-| `site/src/pages/[reviewPage].astro` | Checklist route only in review mode. Its static path list is empty for fixture/public output. |
-| `site/src/pages/404.astro`, `robots.txt.ts`, `sitemap.xml.ts` | Recovery page and search discovery output. |
-| `site/src/layouts/Layout.astro` | Shared document, navigation, footer, canonical/social metadata and page script import. |
-| `site/src/components/` | Photo spaces, replacement notes, arrows, gallery movement, enquiry and public templates. |
-| `site/src/data/content.ts` | The 27 canonical content slots, two draft projects and publication decisions. |
-| `site/src/content.config.ts` | Review content collection schema. Public output does not export that collection. |
-| `site/src/lib/public-content.ts`, `site-content.ts`, `public-assets.ts` | Public field validation, fixed-path input loading, release gate and generated-file verification. |
-| `site/src/lib/image-sizes.ts`, `media.ts` | Responsive size declarations that match the CSS layout, plus the public photograph type. |
-| `site/src/styles/` | Global design, image states and enquiry states. |
-| `site/src/scripts/ui.ts` | Menu, viewer, controlled movement, checklist and ordinary draft behavior. |
-| `site/src/scripts/enquiry-client.ts` | Active synthetic/live-capable form state machine. The ordinary draft does not import an active sending client. |
-| `site/server/` | Validation, tokens, HTTP receiver, PostgreSQL store, notification worker, provider adapter and verified events. |
-| `site/server/migrations/`, `operator-views.sql` | Database schema, runtime restrictions and operator retrieval/reconciliation views. |
-| `site/netlify/functions/` | Hosting adapters for enquiry HTTP, provider events and scheduled repair. |
-| `site/scripts/` | Build, media preparation, local servers, database runner and quality checks. |
-| `site/tests/` | Unit, image, database and browser regression coverage. Synthetic public data stays under `tests/fixtures/`. |
-| `site/content/` | Public input instructions. Actual `public.json`, `media.json` and release approval are absent. |
-| `site/docs/audits/` | Dated evidence and artifact fingerprints. Treat older numbers as historical. |
-| `scripts/` at the repository root | Shareable-file guards and held design-tooling controls. |
-
-The default page flow is review templates plus canonical notes, then Astro HTML/CSS/JavaScript, then `dist/`. Missing content is visible. Review typing does not send or save an enquiry.
-
-The fixture flow generates geometric masters, prepares derivatives and an allowlisted view, then renders the public templates to `dist-fixture/`. It uses `example.invalid`, blocks indexing and displays an inactive test contact. The real public flow requires approved public fields, selected media, resolved canonical slots and matching release evidence before using the same public templates. It excludes review routes and checks the generated asset directory against an exact allowlist.
-
-The active enquiry flow issues a signed token, validates a bounded same-origin submission, commits a durable enquiry and outbox record in one transaction, then returns its receipt. A notification worker sends or retries outside that transaction. Retries reuse the same provider key. Signed provider events update delivery state; uncertain outcomes reach reconciliation rather than a blind duplicate send. A receipt confirms storage, not availability, booking or email delivery. See [the backend report](BACKEND-IMPLEMENTATION-2026-10-15.md) for lease, cutoff, retention and failure details.
-
-## Commands and output boundaries
-
-Run these commands from `site/` unless the table says otherwise.
-
-| Command | Purpose and output |
-|---|---|
-| `npm run dev` | Edit the review at loopback port 4321. |
-| `npm run build` | Validate and build the ordinary review into `dist/`. |
-| `npm run preview` | Serve the last review build at port 4321. |
-| `npm run package:review` | Validate the existing review build and create `.review-package/owner-review.zip` plus `.review-package/upload/`. The integrity manifest remains outside the hosted directory. |
-| `npm run test:review-package` | Run focused Node checks for the review package, file boundaries and preview behavior. |
-| `npm run preview:review-package` | Serve checked package bytes and upload headers at loopback port 4325. Restart after rebuilding the package. |
-| `npm run build:fixture` | Build labelled synthetic public templates into `dist-fixture/`. |
-| `npm run preview:fixture` | Serve that fixture at port 4324. |
-| `npm run build:integration` | Build the designed synthetic enquiry surface into `dist-integration/`. |
-| `npm run lab:site` | Serve it at port 4323 with a fresh temporary database and fake notifications. The loopback runner injects the active client. |
-| `npm run lab` | Serve the separate backend exercise page at port 4322, also synthetic. |
-| `npm run build:public` | Attempt a gated real public export into `dist/`. It currently fails on unresolved content. It removes prior `dist/` so stale review output cannot masquerade as a release. |
-| `npm run check` | Astro types, canonical content and authored/rendered punctuation checks. |
-| `npm run test:unit` | Top-level Node TypeScript unit tests. |
-| `npm run test:media` | Real sharp transformations and input/security limits. |
-| `npm run test:server` | Backend tests against a new native PostgreSQL cluster. |
-| `npm run test:e2e` | Playwright journeys across the three engines. Prepare review, fixture, integration and the review package first. |
-| `npm run test:build` | Test public/direct-build/hosted-mode refusal, then restore the ordinary review build. It does not deploy. |
-| `npm run test` | Unit, image, review-package, backend and browser suites. It does not install browsers or prepare missing builds. |
-| `npm run budget` | Check the existing review shell budget. Real-image transfer needs its separate measurements. |
-| `node scripts/dependency-report.mjs` | Inventory pins, licences, integrity, lifecycle scripts and audit results into dated evidence. It performs npm advisory requests; it does not upgrade packages. |
-
-The environment flags are implementation details of the wrapper. Prefer the named commands over setting them by hand. Astro repeats public validation even without the wrapper and locks template mode to the selected configuration. Hosted fixture/local-integration modes fail. The public deployment target is `dist/` after a real public build, never either test directory.
-
-Before the full suite, stop manual lab, fixture and review-package servers on ports 4322 through 4325. Playwright owns those instances and their database cleanup. Stop the specific process with Ctrl+C; do not kill unrelated PostgreSQL services. A current port-4321 preview may be reused, but ensure it serves the build you intend to test.
-
-## Edit the current review
-
-The owner can read notes and provide material without an account or upload screen. The content checklist filters and links to sections; it does not persist edits. There is no CMS, admin dashboard or browser upload workflow.
-
-Edit ordinary review copy in `src/pages/index.astro`, the story page and shared `Layout.astro`/`Enquiry.astro`. Edit each Add/Replace request, detail and checklist in `src/data/content.ts`. Keep stable slot IDs because page anchors and return links use them. `ContentNote` renders the requested wording; changing a slot status alone does not replace its image or rewrite its page copy.
-
-Current review photo calls intentionally have no `photo` prop. Public/fixture photo calls receive checked records. To introduce supplied work into a private review later, wire the selected checked record into the relevant review `PhotoSpace` call and inspect it. Merely adding `content/public.json` does not populate the review templates. Preserve the notes until the content review and agreed public-release step.
-
-Slot states have specific meanings:
-
-| State | Required maintainer action |
-|---|---|
-| `Needs content` | Explain what the owner should supply. Current slots all use this state. |
-| `Received: checking` | Set a safe supplied-content label and check facts, rights, dimensions and placement. |
-| `Needs an update` | Keep the supplied label and write the correction in `remaining`. |
-| `Ready` | Record after completing the slot checks. A populated file or a boolean flag is insufficient. |
-| `Not needed` | Use for an allowed omission, with `publicationDecision: 'omit'` and a non-empty reason. Required slots cannot use it. |
-
-The `defineSlot` helper currently creates common initial states. To update one slot, change that row's resulting object with explicit per-slot state fields while preserving its original definition and ID. Do not change the helper defaults to mark all slots ready. Follow the `ContentSlot` type and `validateContent` checks. Leave private permission records outside the source; `supplied` should be a safe label, not a private path, signed link or email transcript.
-
-## Add approved public content later
-
-[Public inputs](../site/content/README.md) is the exact schema and gate reference. [Image preparation](../site/docs/MEDIA-PIPELINE.md) describes formats and bounds. Follow [release section 3](LAUNCH.md#3-prepare-the-real-candidate-after-the-placeholder-review) after the owner reviews the placeholder version:
-
-1. Confirm the public identity, two assignment selections, captions/credits, services and contact method with the owner. Check permission for images, names and quotations. Keep unconfirmed claims in owner notes.
-2. Place selected web masters under ignored `site/.local/media-masters/`; do not put archives in `public/`. Add their safe relative source list to `site/content/media.json`. Run the media preparation script and inspect crops, colour, low-light detail and readable descriptions.
-3. Populate `site/content/public.json` with the approved fields. Reference stable photo IDs. Resolve the canonical slot decisions and omissions. The two current public story IDs remain fixed; adding another story requires route, navigation, form-context, schema and test work.
-4. Implement the guarded, isolated local real-content candidate path required by release step 3.5. This remains engineering work for the maintainer. The existing public gate requires release evidence before rendering real content, while review and fixture modes do not provide the final candidate. Keep this prerequisite separate from missing owner material. Do not create approval evidence, relabel fixture content or weaken the production gate to obtain a preview.
-5. Test that exact unpublished candidate with actual photographs, the required browsers/devices and assistive technologies. Verify contact behavior, factual copy, metadata, image quality, performance and output boundaries. Extend the current automated coverage to the new candidate path and record the checks that still need a person or device.
-6. Obtain explicit publication approval after completing those checks. Record genuine evidence and exact content/media hashes in `content/release-approval.json`. Recheck after any content or derivative change. The approval record documents a decision; writing it does not grant one.
-
-The current public contact renderer supports a confirmed email link with privacy and follow-up wording. The shared mailbox normalizer and URI encoding protect special characters. Choosing this path requires the documented publication decisions and a tested destination. The live form remains a separate provider integration with ENQ-01 through ENQ-08 acceptance.
-
-A clean remote public build also needs an approved way to provision the selected web masters. Those private files are absent from Git on purpose. Do not make CI green by committing an original archive or copying test media into the real mode. Film, team and logo-artwork rendering remain omitted; retaining those optional features needs implementation and acceptance before release.
-
-## Validate, save and reverse a change
-
-For a copy-only change, run `npm run check`, rebuild the affected mode and inspect its rendered text, navigation and mobile wrapping. For grid, media or interaction changes, build review, fixture and integration, then use the relevant browser tests. Changes to the receipt path need the native backend suite. A release candidate or package upgrade needs the full current checks:
+For a dependency update or release preparation, run the full sequence from `site/`:
 
 ```sh
 npm run check
@@ -184,9 +159,86 @@ node scripts/budget.mjs dist-fixture docs/audits/budget-fixture-latest.json
 npm audit --audit-level=high
 ```
 
-`test:build` restores the ordinary review, so prepare the package after it. The full `test` command includes `test:review-package`. Stop the package preview on port 4325 along with the other manual test servers before Playwright starts.
+`test:build` restores the ordinary review, so package it after that command. Before Playwright starts, stop your servers on ports **4322 through 4325** with Ctrl+C. Playwright starts those servers and cleans up their databases. It can reuse port 4321; check that the existing preview serves the current build. Do not stop unrelated PostgreSQL services or run simultaneous builds into the same directory.
 
-Run the repository sharing guard from the repository root before committing, and inspect the diff:
+Check these before publishing your photos:
+
+- Actual photo transfer sizes, crops and full-frame quality. Shell budgets exclude photos.
+- Windows, physical phones/tablets, screen-reader use and full zoom/text-enlargement journeys. Earlier Chrome 400% zoom checks had delayed key actions; Safari text enlargement had no reliable percentage. VoiceOver output was unavailable, so there is no screen-reader pass.
+- The receiving contact, deployed cache/security headers, recovery process, account access, costs and retention arrangements in [Launch](LAUNCH.md).
+
+See [test results](CONTENT-READY-IMPLEMENTATION-2026-10-15.md), [B04 measurements](../site/docs/audits/b04-summary.json) and [review-package verification](OWNER-HANDOFF-VERIFICATION-2026-10-15.md) for dated results. Run and report checks for your changed commit instead of treating an earlier result as a new pass.
+
+## Command reference
+
+Run these from `site/`.
+
+| Command | Use |
+|---|---|
+| `npm run dev` | Edit at port 4321. |
+| `npm run build` | Build the placeholder review into `dist/`. |
+| `npm run preview` | Serve `dist/` at port 4321. |
+| `npm run package:review` | Validate and package the existing review build. |
+| `npm run test:review-package` | Test package contents and rejected inputs. |
+| `npm run preview:review-package` | Serve checked review files and upload headers at port 4325. |
+| `npm run build:fixture` | Build public templates with geometric images into `dist-fixture/`. |
+| `npm run preview:fixture` | Serve the image fixture at port 4324. |
+| `npm run build:integration` | Build the designed test form into `dist-integration/`. |
+| `npm run lab:site` | Serve that form at port 4323 with temporary PostgreSQL and fake notifications. |
+| `npm run lab` | Start the separate backend test page at port 4322. |
+| `npm run build:public` | Build real content into `dist/` after the required content and release checks. Currently fails because these inputs are absent. |
+| `npm run check` | Check Astro types, content records and source/rendered copy. |
+| `npm run test:unit` | Run Node TypeScript unit tests. |
+| `npm run test:media` | Test image processing and rejected inputs. |
+| `npm run test:server` | Run backend tests against fresh native PostgreSQL. |
+| `npm run test:e2e` | Run browser journeys in Chromium, Firefox and WebKit. Prepare the builds and package first. |
+| `npm run test:build` | Check rejected public/direct/hosted test builds, then restore the review. |
+| `npm run test` | Run unit, image, package, backend and browser tests. Does not install browsers or prepare builds. |
+| `npm run budget` | Measure the current review's HTML, styles, scripts and fonts. |
+| `node scripts/dependency-report.mjs` | Record pins, licences, integrity, install scripts and npm advisory results without upgrading packages. |
+| `node scripts/preview-measure.mjs` | Measure the page served by the running ordinary preview. |
+
+Use the named commands so the wrapper sets and validates each build mode. Builds remove their selected output first, including `dist/` after a failed public attempt. Astro also validates direct builds. Review and public builds share `dist/`, so check the build mode before choosing an upload. Keep `dist-fixture/` and `dist-integration/` local. The fixture uses `example.invalid`, inactive contact text and noindex; the integration server alone injects the active test client.
+
+## Stack and source map
+
+| Part | Exact version | Reason |
+|---|---|---|
+| Astro | 7.3.8 | Static HTML and ordinary links, with small scripts for interactions. |
+| TypeScript | 6.0.3 | Strict component and content types, backed by runtime input checks. |
+| CSS and browser code | Native CSS and TypeScript | No React, styling runtime or animation framework to download. |
+| sharp | 0.35.5 | Prepare AVIF, WebP and progressive JPEG before serving photos. |
+| Fontsource Variable | 5.3.1 | Two local Latin files: Source Serif 4 and Source Sans 3. Retain both OFL licences. |
+| Netlify Functions / Database / Resend | 6.0.2 / 2.0.1 / 6.33.0 | Separate durable enquiry storage from email notification. |
+| pg / `@types/pg` | 8.16.3 / 8.15.6 | Test PostgreSQL transactions and role restrictions. |
+| Astro check / Playwright / axe-core Playwright | 0.9.10 / 1.64.1 / 4.13.0 | Type checks, browser journeys and accessibility checks. |
+| `@types/node` | 22.20.5 | Node types for the selected runtime. |
+
+Use [package.json](../site/package.json) and its lockfile for version changes. The Node engine range is `>=22.23.2 <23`; use 22.23.2 with npm 10.9.8 to reproduce CI. [GitHub Actions](../.github/workflows/verify.yml) runs on Ubuntu with read-only repository permissions and no deployment credentials. This website does not need Docker, a container registry or Kubernetes.
+
+Additional source locations:
+
+| Path | Contents |
+|---|---|
+| `site/src/pages/[reviewPage].astro` | Review checklist route; no public or fixture route. |
+| `site/src/pages/404.astro`, `robots.txt.ts`, `sitemap.xml.ts` | Recovery page and search metadata. |
+| `site/src/content.config.ts`, `site/scripts/content-check.mjs` | Content-record schema and validation. |
+| `site/src/lib/public-content.ts`, `site-content.ts`, `public-assets.ts` | Public field allowlist, fixed input paths, release checks and exact asset/hash checks. |
+| `site/src/lib/image-sizes.ts`, `media.ts` | Layout-matched image sizes and photograph types. |
+| `site/src/scripts/enquiry-client.ts` | Active form states and receipt recovery. |
+| `site/server/` | Input validation, tokens, HTTP handling, database, notification worker and provider events. |
+| `site/server/migrations/`, `site/server/operator-views.sql` | Database schema and restricted retrieval/reconciliation views. |
+| `site/netlify/functions/` | HTTP, provider-event and scheduled-repair adapters. |
+| `site/scripts/`, `site/tests/` | Build tools, local runners and tests. Geometric public records stay in `tests/fixtures/`. |
+| `site/content/` | Public input instructions. `public.json`, `media.json` and release approval are not supplied yet. |
+| `site/docs/audits/` | Test results, measurements and file hashes. |
+| Root `scripts/` | Sharing checks and disabled design-tooling controls. |
+
+Review pages combine template text with content notes and compile to `dist/`. Public pages use a separate list of permitted fields and exclude review notes and routes. The image fixture exercises those public templates with generated shapes.
+
+## Save, revert and update dependencies
+
+Before committing, run these from the repository root:
 
 ```sh
 git branch --show-current
@@ -196,18 +248,10 @@ node scripts/test-shareable.mjs
 node scripts/check-shareable.mjs
 ```
 
-Commit a coherent change with the checks that support it, then push `feat/sevensteps-rebuild` to the existing remote using an authorized account. Use repository-scoped credentials without changing shared global authentication. Do not print tokens or insert them into remote URLs. Recheck the CI result for the pushed commit. Pushing this branch does not authorize publication.
+Commit one coherent change, record its checks and push `feat/sevensteps-rebuild` to the existing remote. Use your authorised account without changing shared global authentication or putting tokens in URLs. Check CI for the pushed commit. Publishing needs a separate release action.
 
-Undo a shared commit with `git revert <commit>` on the same branch, then review and test the resulting change. A revert keeps the history. Do not force-push, rewrite shared history or merge into `master` during this development workflow. A code revert cannot reverse an applied database migration or retrieve deleted personal data; those need the separate tested operator plan.
+To undo a shared commit, use `git revert <commit>` on the same branch, then review and test the result. Do not force-push or rewrite shared history. Reverting code cannot undo a database migration or recover deleted enquiry data; follow the database recovery instructions for those cases.
 
-Review dependency updates as changes: check current advisories and supported versions, inspect lifecycle scripts and licences, update an exact pin and lockfile together, run a clean `npm ci --ignore-scripts`, then run the applicable full checks. Avoid unreviewed `npm audit fix --force`. Zero reported advisories is a dated scanner result, not a permanent security claim.
+For a dependency update, check support, advisories, licences and install scripts. Update the exact pin and lockfile together, reinstall with `npm ci --ignore-scripts`, then run the full checks. Avoid `npm audit fix --force`. An audit result describes the advisories known on its run date.
 
-## Current evidence and remaining release checks
-
-At `8ef0d59`, the recorded run passed 41 unit tests, 17 image tests, 99 PostgreSQL/backend tests and 126 browser cases. Astro reported zero diagnostics across 64 files. Image size declarations matched rendered widths within 2px at 12 viewports from 320 to 2560 in Chromium, Firefox and WebKit. The repository guard has eight focused tests. Read the B04 evidence for exact source hashes and limits.
-
-The review shell measured 94.77 KiB and the fixture shell 92.48 KiB. Both include 3.70 KiB gzip JavaScript and 77.94 KiB of fonts. These figures exclude photographs. Synthetic media checks and a limited Safari 27.0.1 review at 200% zoom do not establish final image fidelity, field Core Web Vitals, Windows, physical mobile/tablet or screen-reader coverage.
-
-The later focused browser run passed 27 cases: nine new review-package cases and 18 repeats of the designed-form journeys. Keep the repeated cases separate from the dated baseline. This result does not establish a new full-suite or CI pass. The [owner handoff report](OWNER-HANDOFF-VERIFICATION-2026-10-15.md) records bounded Chrome 400% zoom and Safari text-enlargement observations. Chrome key actions were sometimes delayed, and Safari exposed no reliable numeric text scale. Neither observation completes its full journey. VoiceOver output was unavailable; do not record a screen-reader pass.
-
-The next owner review remains the placeholder website. Before public release, complete the guarded real-content candidate path, controlled media provisioning, supplied-content review, actual media budgets, remaining device/accessibility checks, contact acceptance, account/processor/retention decisions and explicit publication approval. Verify deployed security/cache behavior on the chosen host. Local synthetic backend success does not establish live Resend delivery, database restore or an operator's ability to recover an enquiry.
+For design work, read the local [photographer adapter](../.agents/skills/photographer-design-codex/SKILL.md) and [frontend-design skill](../.agents/skills/frontend-design/SKILL.md). For text, use [stop-slop](../.agents/skills/stop-slop/SKILL.md) and the [copy guide](COPY-AND-VOICE-SPEC.md): plain wording, accurate facts and no em dashes. OpenDesign's executable runtime remains disabled for dependency security issues; its text references are usable. [AI handoff](AI-HANDOFF.md) covers continuing in Claude or Codex, and [EXECUTION-PLAN.md](../EXECUTION-PLAN.md) lists unfinished tasks.

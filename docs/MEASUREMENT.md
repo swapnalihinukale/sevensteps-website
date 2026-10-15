@@ -1,97 +1,85 @@
-# Enquiry and business measurement
+# Track enquiries and bookings
 
-Prepared on 15 October 2026. Start with one small manual register in the owner's approved private workspace. No analytics library, tracking pixel, cookie or new service is required. This document defines a method; it records no real enquiries or business results.
+Use a private spreadsheet to see whether your Seven Steps site brings suitable work and helps your team reply. Start with the [blank CSV](templates/enquiry-register.csv). No analytics service or tracking code is needed. Keep real client records outside this repository.
 
-The purpose is to learn whether the site helps the photographer receive suitable work and respond well. Traffic, a contact-button click, an email application opening and a provider notification are not bookings. The [execution plan](../EXECUTION-PLAN.md) keeps the commercial objective open until the owner supplies evidence about the business.
+## Set up your sheet
 
-## Responsibilities and first setup
+Choose one question to investigate: better-fit enquiries, fewer repeated questions or faster replies. Name the person updating the sheet and a backup.
 
-The owner chooses one initial question, such as whether the site attracts suitable assignments, answers recurring client questions or reduces time spent responding. The responder maintains the register after each meaningful contact or status change. A named backup covers absence. The owner and maintainer review aggregate results at an interval suited to enquiry volume and the usual booking decision period.
+On a Definitions tab, record what makes an enquiry suitable, what confirms a booking, your working hours and retention period. Date changes to those definitions. Count a booking when your agreed confirmation condition is met, not when someone clicks contact or shows interest.
 
-Before collecting a baseline, agree the definition of a qualified enquiry, the real booking-confirmation condition, the business timezone, working hours, outcome categories and data retention. Record these on a short Definitions tab with an effective date. If a definition changes, version it rather than silently recategorizing old cohorts.
+Use one row per intended assignment. Combine repeat messages across channels under the same ID. A retried form with the same receipt counts once. Exclude test, spam and duplicate rows from business totals.
 
-Use one row per genuine enquiry about an intended assignment. Merge repeat messages about the same assignment, including contacts across channels, under one measurement ID. A safe retry returning the same website receipt is still one enquiry. Test submissions, spam and duplicates must not inflate totals.
+## Column guide
 
-Use the [blank CSV](templates/enquiry-register.csv) as a column guide. Keep the real workbook and any identity mapping outside this repository. The [example CSV](templates/enquiry-register-synthetic.csv) contains only invented rows to demonstrate the method. Do not import those examples into a live baseline.
+Keep these names and order to use the supplied CSVs and formula:
 
-## Minimal register
-
-| Column | Meaning and handling |
+| Column | Enter |
 |---|---|
-| `measurement_id` | Random internal identifier with no name, initials, email or event detail. Keep any link to a receipt/contact only in the restricted operating record. |
-| `record_type` | `genuine`, `test`, `spam` or `duplicate`. Exclude the latter three from commercial metrics. |
-| `received_at_utc` | First confirmed receipt of the genuine enquiry. For email, use the actual received message; for a form, use the durable record. A click is insufficient. |
-| `source` | `website_self_reported`, `instagram`, `referral`, `search_self_reported`, `returning_client`, `other` or `unknown`. Record what the client said or an existing bounded operational fact. Do not infer a source from an email address or store full referrer/tracking URLs. |
-| `service`, `event_month`, `region` | Broad service, month and region buckets that help assess fit/capacity. Use `unknown` when missing. Avoid exact venue, address or private event narrative. |
-| `qualification` | `qualified`, `unsuitable`, `pending` or `unknown`. Qualification concerns agreed service, place/date feasibility and other owner-defined fit criteria. Missing budget is not automatically unsuitable. |
-| `qualification_reason` | A bounded reason code such as `scope_fit`, `service_scope`, `date_capacity`, `travel_scope`, `budget_mismatch_confirmed`, `awaiting_details` or `unknown`. Only record a reason supported by the exchange. |
-| `first_response_at_utc` | First meaningful human reply addressing the enquiry or a next step. An automated receipt does not count. Leave blank until it happens. |
-| `consultation_at_utc` | Actual consultation if one occurs. Optional: a direct-to-quote enquiry does not need this step. |
-| `quote_at_utc`, `quote_value_inr` | Date of the first substantive quote and its current agreed comparison value in INR if known. Keep a separate private quote history when needed. Blank means unavailable, not zero. |
-| `booking_at_utc`, `booking_value_inr` | Date the owner's documented confirmation condition was met and confirmed value if known. Interest, an unanswered quote or a tentative date hold does not count. |
-| `outcome` | `open`, `booked`, `declined_by_client`, `declined_by_studio`, `no_reply` or `unknown`. Keep outcome separate from qualification. Mark `no_reply` only after the owner's agreed follow-up process; it is not proof of a reason. |
-| `outcome_reason` | A bounded volunteered/confirmed reason code, or `unknown`. Do not write speculation about affordability or a competitor. |
-| `next_review_on`, `last_updated_at_utc` | A follow-up review date and last update time. These keep unresolved enquiries visible without treating them as losses. |
+| `measurement_id` | Random ID without names or event details. Keep any link to a client/receipt in separate restricted records. |
+| `record_type` | `genuine`, `test`, `spam`, `duplicate` |
+| `received_at_utc` | First confirmed email or database receipt time. Do not record a button click as receipt. |
+| `source` | `website_self_reported`, `instagram`, `referral`, `search_self_reported`, `returning_client`, `other`, `unknown`. Use what the client told you or a verified fact; omit full tracking URLs. |
+| `service`, `event_month`, `region` | Broad service, `YYYY-MM` month and region; use `unknown` if missing. Omit exact venues and private event details. |
+| `qualification` | `qualified`, `unsuitable`, `pending`, `unknown`, using your agreed service/date/location criteria. Missing budget alone is not a rejection. |
+| `qualification_reason` | Confirmed code: `scope_fit`, `service_scope`, `date_capacity`, `travel_scope`, `budget_mismatch_confirmed`, `awaiting_details`, `unknown` |
+| `first_response_at_utc` | First useful human reply or next step. Leave blank until someone replies; exclude automated acknowledgements. |
+| `consultation_at_utc` | Consultation date if you held one. You can quote without a consultation. |
+| `quote_at_utc`, `quote_value_inr` | First substantive quote date and current comparison value in INR if known. Keep revisions in your private quote history. |
+| `booking_at_utc`, `booking_value_inr` | Confirmed booking date and value if known. A tentative hold does not count. |
+| `outcome` | `open`, `booked`, `declined_by_client`, `declined_by_studio`, `no_reply`, `unknown`. Use `no_reply` after your agreed follow-up process. |
+| `outcome_reason` | A confirmed/volunteered reason code or `unknown`; do not guess why someone declined. |
+| `next_review_on`, `last_updated_at_utc` | Next follow-up date and latest update time |
 
-For all date/time columns, use spreadsheet date-time values in UTC. The CSV examples use `YYYY-MM-DD HH:MM:SS`; verify import produces numeric date-time cells before calculating intervals. Display local time in the operating tool if useful, without mixing zones in calculations. Month buckets use `YYYY-MM`.
+Use category dropdowns and check dates/nonnegative amounts. Blank amounts mean missing information, not zero. Import times as numeric spreadsheet date-times in UTC; the examples use `YYYY-MM-DD HH:MM:SS`. Keep client free text and untrusted spreadsheet formulas out of the sheet.
 
-Use dropdowns for categories and validate dates/nonnegative amounts. Do not paste client text into the register. Import the supplied CSV as data, and keep untrusted strings beginning with spreadsheet formula characters out of cells. No formula should fetch an external URL or send data.
+## Compare enquiries with enough time to decide
 
-## Definitions and calculations
+Choose a reporting date `T`. Use your usual enquiry-to-decision time to choose `H`, the number of days before comparing outcomes. Write down the reason and use the same `H` for both periods. Compare enquiries received by `T minus H days`; show newer enquiries as still waiting for a decision.
 
-Choose a reporting cutoff `T` and a maturity window `H` from the observed enquiry-to-decision period. Document the rationale and keep the same `H` for a comparison. A cohort contains genuine enquiries received in the same period. Its mature subset contains rows received on or before `T minus H days`. Recent rows remain visible as immature rather than disappearing from the report.
+For each period, count:
 
-Use the following counts for a stated cohort or mature subset:
+- `N`: genuine received enquiries, including unresolved ones.
+- `Q`, `U`, `P`, `K`: qualified, unsuitable, pending and unknown. Check `Q + U + P + K = N`.
+- `Quotes` and `Bookings`: distinct enquiry IDs with those events, without counting revisions twice.
 
-- `N`: all genuine received enquiries in that subset, including pending/unknown outcomes.
-- `Q`: qualified enquiries. `U`: unsuitable enquiries. `P`: pending qualification. `K`: unknown qualification. Check that `Q + U + P + K = N`.
-- `Quotes`: enquiries with a recorded quote. `Bookings`: enquiries meeting the confirmation condition. Count distinct measurement IDs, not quote revisions or notifications.
-
-| Measure | Calculation and interpretation |
+| Measure | Calculation |
 |---|---|
-| Qualified share of received | `Q / N`. Report `P` and `K` alongside it, since missing classification can depress the observed share. |
-| Qualification coverage | `(Q + U) / N`. This shows how much of the received cohort the team has assessed. |
-| Qualified share among assessed | `Q / (Q + U)`. Show with coverage; it is not a replacement for the received-cohort measure. |
-| Quote share | `Quotes / N`. Direct-to-quote journeys count. A consultation is not a required denominator. |
-| Booking share of received | `Bookings / N`. Use mature cohorts for comparisons and show remaining open/unknown counts. Do not exclude unresolved cases to improve the rate. |
-| Quote-to-booking share | Booked enquiries with a recorded quote divided by enquiries with a recorded quote, in a stated equally mature cohort. Separately show bookings without a recorded quote rather than inventing one. |
-| First response time | Hours from confirmed receipt to first meaningful human reply. Report median and a tail measure when the sample supports it, plus number answered and number awaiting response. |
-| Known quoted/booked value | Sum the known relevant amounts and report how many amounts are missing. Label quoted, confirmed and collected amounts separately. A quoted price is not revenue. |
+| Qualified share of received | `Q / N`; show pending and unknown counts |
+| Qualification coverage | `(Q + U) / N` |
+| Qualified share among assessed | `Q / (Q + U)`; show it beside coverage |
+| Quote share | `Quotes / N` |
+| Booking share | `Bookings / N`; keep unresolved enquiries in the denominator |
+| Quote-to-booking share | Bookings with a recorded quote / enquiries with a recorded quote, given equal time to decide. Show bookings without recorded quotes separately. |
+| Response time | Hours to the first human reply; show median, answered count and unanswered count. Add a tail measure only with enough observations. |
+| Known values | Sum known quoted/booked amounts and show how many are missing. Keep quotes, confirmed bookings and collected revenue separate. |
 
-Return `N/A` when a denominator is zero. Show the underlying counts with each percentage. Do not convert missing amounts or timestamps to zero. For the supplied column order, a first-response-hours helper in column T can use:
+Show counts beside percentages and use `N/A` for a zero denominator. In column T, this formula calculates response hours from the CSV's C and J columns:
 
 ```text
 =IF(OR(C2="",J2="",NOT(ISNUMBER(C2)),NOT(ISNUMBER(J2))),"",IF(J2<C2,"CHECK TIMES",(J2-C2)*24))
 ```
 
-This measures elapsed hours, including nights and weekends. A business-hours measure needs the owner's actual working calendar and holidays; do not subtract guessed hours. For an unanswered enquiry, show current age separately as `T minus received_at_utc`, with no completed response-time value. This prevents fast answered cases from hiding old unanswered work.
+It includes nights and weekends. Use a business-hours calculation only after defining your calendar and holidays. For unanswered enquiries, show their age at `T` instead of a response time. Preserve booking dates if a later cancellation occurs; record cancellations/refunds separately.
 
-A cancellation or refund after booking needs an explicit later status/history in the restricted operating record. Preserve the original booking event and report cancellations/net collected value separately. Do not rewrite historical confirmation dates to make rates look better.
+## Try the synthetic example
 
-## Synthetic worked example
+The [example CSV](templates/enquiry-register-synthetic.csv) contains three invented enquiries, not Seven Steps results. Use 15 November 2026 and `H = 30 days` for this exercise only.
 
-The example CSV has three invented genuine enquiry rows received on 1 and 2 October 2026. For demonstration only, use a cutoff of 15 November 2026 and `H = 30 days`; this is not a recommended decision window for the photographer.
+One enquiry is qualified, quoted and booked; one is unsuitable; one remains open/unknown. Qualified and booking shares are each `1/3` (33%). Coverage is `2/3` (67%); qualified share among assessed is `1/2` (50%). Replies took one and four hours, giving a median of 2.5 hours across **two answered, one unanswered**. The unresolved row still counts. Amounts are blank, so the example makes no price or revenue claim. Keep these rows out of your real sheet.
 
-One row is qualified, quoted and booked, with a human reply after one hour. One is unsuitable for the offered service, with a reply after four hours. One remains open with unknown qualification and no recorded human reply. All three are mature in this example.
+## Review and choose a change
 
-The received-cohort qualified and booking shares are each `1 / 3`, or about 33%. Qualification coverage is `2 / 3`, or about 67%. Among assessed enquiries, qualified share is `1 / 2`, or 50%. The unanswered enquiry still counts in the denominator. Median response time among the two answered rows is 2.5 hours, which must be shown alongside `2 answered, 1 unanswered`; it does not describe the unanswered client's experience. Monetary values are blank, so the example makes no pricing or revenue claim.
+Reconstruct past enquiries only where your records support the dates and outcomes. Mark missing details unknown and note differences in record quality.
 
-## Baseline and review routine
+At your agreed review interval, update stale rows and check exclusions. Compare periods with equal time to decide, and account for service mix, season, available dates and source. With a small sample, inspect specific problems before claiming an uplift or starting an A/B test.
 
-1. The responder reconstructs recent enquiries only where the existing records support it. A small reliable baseline is useful; missing information stays unknown. If retrospective coverage differs from the new register, label the limitation.
-2. At each review, reconcile duplicate/test/spam exclusions, stale open rows, missing qualification and timestamps. Confirm the data cutoff and definitions before interpreting the results.
-3. Compare enquiry cohorts with equal maturity. Where practical, separate service, broad source and season/capacity. A changed service mix, available-date mix, referral campaign or festival season can explain a change without the website causing it.
-4. Read the counts, pending/unknown share, response coverage and known outcomes together. With few enquiries, investigate specific process problems instead of claiming statistical uplift. Do not run an A/B test whose traffic cannot support a useful conclusion.
-5. Choose one supported improvement and record its hypothesis, owner, scope, change date, intended measure and later review point. Keep the release/content version in the review note. Keep other material changes visible so the comparison remains interpretable.
+Choose one change you can support: clarify service copy after repeated mismatches, answer a recurring question, or add responder cover for slow replies. Record who will change it, the date, website version, measure and next review. Keep other changes visible in the notes.
 
-Examples of decisions: repeated scope mismatch may call for clearer service copy; repeated questions may justify a useful FAQ; slow human replies call for responder coverage; relevant enquiries that stall after a quote require a conversation about the cause. Low enquiry volume alone does not justify heavier animation or another tracking tool.
+If you later track economics, use collected revenue, related fulfilment costs and your team's hours. Keep tax, cancellations and time periods consistent. Gross booking value does not establish profit.
 
-If the owner can supply reliable economics later, add collected revenue, directly attributable fulfilment cost and owner hours to the private operating records. Review contribution and workload alongside booking count. Keep taxes, pass-through costs, cancellations and the measurement period consistent. Do not claim profit from gross booking value.
+## Keep client information private
 
-## Privacy and sharing
+IDs do not make this sheet anonymous if your team can link them to clients. Restrict row-level access; protect the identity mapping separately. Follow [your retention/deletion process](LAUNCH.md#8-back-up-restore-and-delete-data), including exports and backups.
 
-This register removes direct identifiers but is still pseudonymous while someone can link its IDs, dates or rare assignments to people. Treat it as restricted personal/business data. Only designated responders, the owner and approved analysts should access the detailed workbook. Keep any mapping to names, emails or receipts separate and protected.
-
-Agree numeric retention, deletion responsibility and backup handling through the [operating runbook](LAUNCH.md#8-back-up-restore-and-delete-data). Delete or aggregate expired rows under that policy. Remove identifying detail from small groups before sharing aggregate results outside the authorized team; combine sparse categories when needed. Do not publish row-level CSVs, customer messages or identifiable screenshots in GitHub, project notes or analytics.
-
-Website operational receipts remain the source for whether the form accepted an enquiry. The manual register is a business follow-up record and must not replace the durable database, mailbox or deletion process. Tracking adoption, new analytics accounts and third-party data sharing would be separate decisions supported by a demonstrated need and the owner's approval.
+Share aggregates with the approved team. Combine small categories that could identify a client, and keep row-level CSVs, messages and screenshots out of GitHub or public notes. Use the database/mailbox to confirm receipt and the sheet to track follow-up. A later analytics service needs a reason and your approval before collecting or sharing more data.

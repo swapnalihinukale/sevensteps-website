@@ -71,4 +71,4 @@ Audience and priority service; commercial objective; ownership/team identity; pe
 
 OpenDesign design systems, templates and generated recommendations are references, not evidence of these decisions. The private-build authorization does not clear its executable runtime's dependency security hold. Continue with the independent Astro implementation and portable guidance.
 
-The implemented palette, type choices, interaction rules, contrast pairs and current byte measurements are recorded in [the implementation handoff](docs/IMPLEMENTATION-HANDOFF.md). Direction A remains selected.
+Use [the design system](docs/DESIGN-SYSTEM.md) for colours, type and motion, and [B04 measurements](docs/CONTENT-READY-IMPLEMENTATION-2026-10-15.md) for the recorded build sizes. Direction A remains selected.

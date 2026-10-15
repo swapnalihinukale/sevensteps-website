@@ -1,19 +1,19 @@
-# Image preparation
+# Prepare your photos
 
-The site builds static image derivatives with the pinned `sharp` package. It does not need a container image or a running image-transformation service. CI repeats the transformations using generated geometric fixtures. These fixtures verify behaviour; they cannot establish the quality of the photographer's future images.
+Use the pinned sharp package to build the files visitors download. Image processing runs before serving the site; you do not need Docker or a live image-transformation service. CI exercises the same code with geometric test images. Review your own photos for colour, detail and crop quality.
 
-## Inputs and output
+## Add the selected photos
 
-Keep permitted web masters under `site/.local/media-masters/`, outside Git and `public/`. Put only the source list and public descriptions in `site/content/media.json`. Keep permission correspondence and client details outside that file. Source names use relative paths beneath the fixed master directory.
+Keep permitted web masters in `site/.local/media-masters/`, outside Git and `public/`. In `site/content/media.json`, list relative source paths and public descriptions. Store permissions and client details elsewhere.
 
 ```json
 [
   {
     "id": "assignment-opening",
     "source": "assignment/opening.jpg",
-    "alt": "A short description of the actual photograph.",
-    "caption": "Optional approved caption.",
-    "credit": "The approved public credit.",
+    "alt": "Describe what you see in this photo.",
+    "caption": "Add the public caption if needed.",
+    "credit": "Add the agreed public credit.",
     "focalPoint": { "x": 0.5, "y": 0.5 },
     "kind": "photograph",
     "publicationCleared": true
@@ -21,26 +21,43 @@ Keep permitted web masters under `site/.local/media-masters/`, outside Git and `
 ]
 ```
 
-`publicationCleared` records a completed rights check. Do not set it to make a build pass. The public release gate also requires the owner's evidence and the exact prepared content/media hashes. The source list does not prove permission by itself.
+Replace the example text. Set `publicationCleared: true` after checking permission; the flag alone does not prove you can publish a photo. Keep the evidence for your release review.
 
-Run `node scripts/prepare-media-public.mjs` from `site/`. It reads those fixed paths and writes derivatives under `.generated/public-assets/media/` plus the public manifest `.generated/media-public.json`. The manifest contains image IDs, approved descriptions, focal points, dimensions and derivative URLs/byte sizes. It does not contain original paths, EXIF, private notes or approval records. A failed preparation removes its manifest and generated media directory.
+From `site/`, run:
 
-For local and CI fixtures, run `node scripts/prepare-media-fixtures.mjs`. It generates three geometric raster masters under `.generated/fixture-masters/`, then writes `.generated/fixture-public/media/` and `.generated/media-fixture.json`. Each record says it is synthetic. Public preparation rejects synthetic records. Build mode chooses a separate directory so a real public export cannot copy fixture assets by accident.
+```sh
+node scripts/prepare-media-public.mjs
+```
 
-## Bounds and encoding
+Check `.generated/public-assets/media/` for the image files and `.generated/media-public.json` for IDs, descriptions, focal points, dimensions, URLs and byte sizes. The manifest excludes original paths, EXIF, private notes and approvals. Failed preparation removes the manifest and generated media folder.
 
-The compiler accepts local single-frame JPEG, PNG, WebP and AVIF raster inputs. It rejects URLs, path traversal, escaping symlinks, animated formats, missing/corrupt files, overlapping input/output directories, duplicate IDs and existing output files whose bytes do not match. It processes one derivative at a time to limit peak work.
+For local/CI tests, run `node scripts/prepare-media-fixtures.mjs`. It creates three labelled geometric masters in `.generated/fixture-masters/`, files in `.generated/fixture-public/media/` and `.generated/media-fixture.json`. Keep these separate from your public photos; public preparation rejects synthetic records.
 
-The limits are 20 MiB per master, 256 MiB per batch, 80 records, 48 million source pixels and 12,000 pixels per source edge. Larger material needs a reviewed web-master export before it enters this pipeline. Camera archives remain separate.
+## File limits and encoding
 
-Responsive candidates target widths 480, 960, 1440 and 1920 pixels. The compiler drops candidates that would upscale, includes the useful native/capped width, and caps responsive height at 3840 pixels. The full-frame JPEG fits within 2560 by 2560 pixels. Actual output dimensions populate `srcset` and the manifest.
+Supply local single-frame JPEG, PNG, WebP or AVIF files. The compiler rejects URLs, animated/corrupt/missing files, path traversal, escaping symlinks, overlapping input/output folders, duplicate IDs and existing files with mismatched bytes. It processes one derivative at a time.
 
-The compiler applies EXIF rotation, converts pixels to sRGB, flattens transparency against Paper `#FAFAF8` and strips EXIF, IPTC, XMP and ICC metadata. AVIF quality 55, WebP quality 80 and progressive JPEG quality 82 are initial settings. The locked encoder and the content hash give each output a stable filename. Changing encoded content changes its URL.
+| Setting | Value |
+|---|---|
+| Master and batch limits | 20 MiB per master; 256 MiB per batch; 80 records |
+| Source dimensions | 48 million pixels; 12,000 pixels per edge |
+| Responsive widths | 480, 960, 1440, 1920px; no upscaling; include useful native/capped width |
+| Responsive height | At most 3840px |
+| Full-frame JPEG | Fits within 2560 × 2560px |
+| Encoding | AVIF quality 55; WebP 80; progressive JPEG 82 |
+| Orientation and colour | Apply EXIF rotation; convert to sRGB; flatten transparency against Paper `#FAFAF8` |
+| Metadata | Strip EXIF, IPTC, XMP and ICC |
 
-`PhotoSpace` accepts an optional public `Photograph` record. It emits AVIF/WebP `<source>` candidates with a JPEG fallback and intrinsic dimensions. Pages supply `sizes` to match their layout. One lead image uses eager loading and high priority; other photographs use lazy loading. CSS `object-position` applies the focal point to cover crops. Story images can keep their natural aspect ratio, and a normal full-frame image link remains available without JavaScript. The viewer requests that full derivative after intent.
+Export a smaller checked web master if your source exceeds these limits. Keep camera archives separate. Output dimensions populate `srcset` and the manifest. Content hashes determine filenames, so changed bytes get new URLs.
 
-## Checks before using the photographer's work
+## Check the page and full-frame viewer
 
-Run `node --test tests/media.test.mjs` for real transformation, orientation/profile/metadata, transparency, size, path, format, collision and clearance tests. Browser checks must confirm selected image candidates, load/error states, dimensions, full-frame viewing and the absence of unrequested full-image downloads.
+Pass a public `Photograph` record to `PhotoSpace`. It emits AVIF/WebP sources, a JPEG fallback and intrinsic dimensions. Set `sizes` for the page's layout. Load one lead image eagerly with high priority; lazy-load the others. Use `object-position` for the chosen focal point in cover crops. Story photos can retain their natural ratio.
 
-When original work arrives, inspect skin tones, cloth, jewellery, dark detail, gradients and grain at the displayed sizes and pixel densities. Review phone crops and the full frame with the photographer. Measure the actual critical-path, ten-second entry and full-story transfer budgets. Change the edit, dimensions or encoding after that comparison. The synthetic fixture's small byte sizes do not satisfy real-media fidelity or performance gates.
+The full-frame link works without JavaScript. With JavaScript, the viewer requests that file when someone opens it. Check that page entry does not fetch unrequested full-size images.
+
+Run `node --test tests/media.test.mjs` for transformations, orientation/profile/metadata, transparency, size, path, format, collision and clearance checks. In browser tests, inspect selected image sizes, loading/failure states, dimensions and full-frame viewing.
+
+With your photos, inspect skin, fabric, jewellery, dark detail, gradients and grain at the displayed sizes and pixel densities. Review phone crops and full frames. Measure critical-path, ten-second entry and full-story transfers; adjust your edit, sizes or encoding as needed.
+
+Before release approval, your developer must implement and test the [local real-content preview in launch step 3.5](../../docs/LAUNCH.md#3-prepare-the-real-candidate-after-the-placeholder-review). Existing test images cannot establish those results. Keep the public-build checks intact while preparing that preview.

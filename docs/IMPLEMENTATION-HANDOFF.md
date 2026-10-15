@@ -1,92 +1,41 @@
 # Seven Steps implementation handoff
 
-The user has chosen to review the current labelled-placeholder website before the photographer supplies real material. Preserve that experience. The private frontend, responsive image pipeline, gated public renderer and local synthetic enquiry backend are implemented. Public deployment and live provider activation remain pending.
+The application lives in `site/`. Use the [maintainer guide](MAINTAINER-GUIDE.md) for the stack, source map, installation and test commands. Use the [execution plan](../EXECUTION-PLAN.md) for task status.
 
-The [execution plan](../EXECUTION-PLAN.md) owns task status. Use [the content-ready report](CONTENT-READY-IMPLEMENTATION-2026-10-15.md) and [B04 evidence](../site/docs/audits/b04-summary.json) for the implementation baseline at `8ef0d59`. Earlier B02/B03 reports describe their historical checks, not the current totals.
+## Implemented
 
-## Continue from the right guide
+The Astro static frontend has a homepage, two story routes, content checklist and 404 page. Native CSS and TypeScript handle navigation, disclosures, a keyboard-accessible gallery and optional finite gallery movement. Reduced motion stops automatic movement; ordinary links and essential content work without JavaScript.
 
-| Work | Start here |
+The selected design is **Close to the people**. Change colours, type, layout and timing through the [design system](DESIGN-SYSTEM.md). If you change photo geometry, update `site/src/lib/image-sizes.ts` and its browser checks too.
+
+The [image pipeline](../site/docs/MEDIA-PIPELINE.md) produces bounded AVIF, WebP and JPEG derivatives from local masters, applies orientation and sRGB conversion, and strips metadata. Public templates validate an allowlisted content shape, omit review notes and derive metadata from approved inputs.
+
+The [local backend](BACKEND-IMPLEMENTATION-2026-10-15.md) stores an enquiry and notification job in one PostgreSQL transaction. It handles idempotent retries, provider events and operator recovery. Tests use disposable databases and fake notifications. Live delivery still needs implementation and acceptance work below.
+
+## Build modes
+
+| Mode | Output and purpose |
 |---|---|
-| Owner review and feedback | [Review package](REVIEW-PACKAGE.md) and [owner inputs](OWNER-INPUTS.md). |
-| Review upload package and hosting boundary | [Preview sharing](PREVIEW-SHARING.md). |
-| Later handoff checks and native-browser limits | [Owner handoff verification](OWNER-HANDOFF-VERIFICATION-2026-10-15.md). |
-| Fresh clone, editing and maintenance | [Maintainer guide](MAINTAINER-GUIDE.md), then [site commands](../site/README.md). |
-| Visual design, responsive grids and motion | [Design system](DESIGN-SYSTEM.md), backed by [DESIGN.md](../DESIGN.md). |
-| Claude/Codex continuation | [AI handoff](AI-HANDOFF.md), [AGENTS.md](../AGENTS.md) and [CLAUDE.md](../CLAUDE.md). |
-| Approved content and photographs | [Public inputs](../site/content/README.md) and [media preparation](../site/docs/MEDIA-PIPELINE.md). |
-| Future live operation | [Release runbook](LAUNCH.md), [provider decision](LIVE-ENQUIRY-PROVIDER-DECISION.md) and [measurement](MEASUREMENT.md). |
+| Review | `dist/`, port 4321. Labelled placeholders, 27 unresolved content groups and a non-sending form. |
+| Fixture | `dist-fixture/`, port 4324. Public templates with geometric test images. |
+| Integration | `dist-integration/`, port 4323 through `lab:site`. The server activates the designed form against temporary PostgreSQL and fake notifications. The static files alone retain disabled submission. |
+| Public | `dist/` after content, media, canonical and release checks. Required inputs are absent, so this build refuses. Templates support a confirmed email link; a live form needs separate activation. |
 
-The owner can maintain the site with a developer or assistant using these local guides. Content updates use files and reviewable commits. The browser checklist displays requests and filters them; it does not upload content or save changes. No CMS or admin dashboard has been promised.
+Keep the outputs separate. Follow the maintainer guide's build order and server instructions. CI tests the branch without deploying it; this architecture needs no container image or registry.
 
-## Settled stack
+## Review delivery
 
-| Area | Implemented choice |
-|---|---|
-| Frontend | Astro 7.3.8 static output, ordinary document navigation. |
-| Language/runtime | TypeScript 6.0.3 strict, Node 22.23.2 and npm 10.9.8. |
-| Styling/interaction | Native CSS, small TypeScript controllers, native dialog and disclosure controls. No React or animation runtime. |
-| Images | sharp 0.35.5 builds AVIF, WebP and progressive JPEG from selected local web masters. Responsive sizes match actual layout geometry. |
-| Fonts | Local Source Serif 4 and Source Sans 3, Fontsource Variable 5.3.1. Two normal Latin files total 77.94 KiB, with OFL notices retained. |
-| Content | Canonical slot/project records for the review; allowlisted validated records for public templates. Assisted file editing. |
-| Receiver | Netlify Functions 6.0.2, Netlify Database 2.0.1 and Resend 6.33.0 adapters. Local behavior is implemented and tested; live activation is separate. |
-| Tests | Node runner, native PostgreSQL, Playwright 1.64.1, axe-core 4.13.0 and Astro check 0.9.10, with content/copy/link/file-budget/security checks. |
+The branch includes [review/owner-review.zip](../review/owner-review.zip), its manifest and [viewing instructions](../review/README.md). Share that branch or download link. No live review URL exists. Regenerate the package after website changes; a documentation edit alone does not change its HTML.
 
-[The package manifest](../site/package.json) and lockfile are authoritative for installed pins. Native PostgreSQL 16 or newer is a test prerequisite; the pg package alone does not install it. The maintainer guide has setup and operating-system limits.
+The checklist displays and filters content requests. Edit the source files to change text or photos; setting a record to `Ready` does not replace a page element. Follow [public content inputs](../site/content/README.md) when preparing the finished pages.
 
-CI validates the single branch without publishing or using live secrets. The selected static/Functions architecture does not need a container image, registry or cluster. Image preparation refers to photography derivatives produced before serving the pages.
+## Remaining engineering
 
-## Selected visual direction
+1. **B06: isolated real-content preview.** Add and test a candidate build before release approval. Current public rendering requires approval evidence, while review and fixture modes cannot render the final candidate. Do not bypass that gate. Follow [Launch, step 3](LAUNCH.md#3-prepare-the-real-candidate-after-the-placeholder-review).
+2. **Production media provisioning.** Give an authorized build controlled access to selected web masters. Keep originals out of Git and `public/`; record input hashes.
+3. **Release verification.** Check real photos' quality and transfer, full zoom and screen-reader journeys, physical devices, and deployed headers/cache behavior. The [verification report](OWNER-HANDOFF-VERIFICATION-2026-10-15.md) records current limits.
+4. **Live form, if selected.** Implement public activation, verify provider receipt/recovery and operator access, then test retention maintenance and monitoring. Follow the [provider decision](LIVE-ENQUIRY-PROVIDER-DECISION.md) and [launch runbook](LAUNCH.md). Account access, the receiving mailbox, responder, costs and data-handling choices precede live tests.
 
-**Close to the people** pairs a lead photograph with a related moment, keeps two complete stories visible and provides a clear enquiry path. Desktop areas are unequal. Phones show service context and a work link before the lead frame and companion. The composition works with controlled motion disabled.
+Keep these tasks distinct from adding the photos and text requested in the checklist. The latest recorded [CI run](https://github.com/swapnalihinukale/sevensteps-website/actions/runs/38757678728) passed 135 browser cases at `3c57720`. Earlier measurements remain in [B04](CONTENT-READY-IMPLEMENTATION-2026-10-15.md); they do not establish real-photo performance or live delivery.
 
-Paper `#FAFAF8`, Ink `#242422`, Leaf `#405B4B`, Pomegranate `#722F46` and Mist `#E5E7E3` remain the working palette. Source Serif 4 handles headings and Source Sans 3 handles reading and controls. The [design system](DESIGN-SYSTEM.md) records the actual token keys, type scale, gutters, breakpoints, focus treatment and timings. Changes to grid geometry also need changes to `image-sizes.ts` and its browser geometry checks.
-
-These are selected private-draft choices. They do not establish owner-approved branding, permitted work or business facts. Keep the muted photo mats labelled until real images receive their checks.
-
-## Implemented behavior and boundaries
-
-- The ordinary review serves the homepage, two story routes, recovery page and 27 content groups. All real slots remain unresolved; the form stays disabled and non-sending.
-- Menu and viewer controls support keyboard use, Escape, focus restoration and responsive reflow. No-JavaScript visitors retain ordinary links and essential content.
-- Optional gallery movement begins with Play and makes one finite pass. Inspection, layout changes, hidden pages, image failure and reduced motion pause it. The operating system's reduced-motion preference wins.
-- The image pipeline strips metadata, applies orientation/sRGB conversion, bounds derivatives and preserves full-frame links. Synthetic geometric fixtures test behavior without claiming photographic fidelity.
-- Public templates already omit review notes and the checklist route. Canonical/social metadata, sitemap and robots come from checked public data. Exact asset allowlists and hashes reject stray or changed files.
-- Public builds still refuse absent owner content, canonical readiness or release approval. Test output cannot satisfy those gates. The current public-template contact option is a confirmed email link with privacy and follow-up wording.
-- The local backend commits a durable receipt and outbox, handles idempotent retries and provider-event ordering, and supplies operator recovery views. The designed integration lab uses temporary PostgreSQL and fake notifications. Actual provider delivery and restoration remain unverified live-service work.
-
-Review text and placeholder calls remain in the review templates. A Ready status or a new public JSON file does not replace them. Wire actual approved content into the intended review component when that work is authorized, keeping clear notes for unresolved items.
-
-## Recorded verification at 8ef0d59
-
-| Check | Result |
-|---|---|
-| Unit tests | 41 passed. |
-| Image pipeline | 17 passed. |
-| Native PostgreSQL/backend | 99 passed. |
-| Browser journeys | 126 passed in Chromium, Firefox and WebKit, with no failures, retries or skipped cases. |
-| Astro | 64 files, zero errors, warnings or hints. |
-| Image geometry | Declared sizes matched actual widths within 2px at 12 viewports from 320 to 2560px. |
-| Repository sharing guard | Eight focused tests; staged/working/unignored files checked for unsafe sharing. |
-| Build boundaries | Public/direct-build refusal and hosted test-mode rejection passed; the normal review output was restored. |
-
-The review shell measured 94.77 KiB and the fixture shell 92.48 KiB. Both include 3.70 KiB gzip JavaScript and 77.94 KiB of fonts. These conservative file envelopes exclude images and do not establish real-photo transfer or field performance. Advisory results are dated snapshots in the evidence, not permanent clearance.
-
-A limited native Safari 27.0.1 check covered 200% browser zoom, menu reflow, gallery keyboard navigation and Escape. Physical Windows/mobile/tablet, screen-reader, real photographic quality/transfer and live-provider checks remain explicit release work. A new clone should report its own run results rather than inherit these as freshly verified.
-
-The later focused browser run passed 27 cases: nine new review-package cases and 18 designed-form repeats. It does not replace the dated 126-case baseline or establish a full-suite/CI result. The owner handoff report adds bounded Chrome 400% zoom and Safari text-enlargement observations. It records incomplete journeys, uncertain keyboard timing and no reliable Safari text-only percentage. VoiceOver output was unavailable, so screen-reader verification remains incomplete.
-
-## Next work follows actual inputs
-
-| Work | Required input and action |
-|---|---|
-| Current owner review | Use the existing labelled version and collect feedback against routes/slot IDs. Prepare and test the upload package with the preview-sharing guide. Localhost is not remote access; separate hosting and authorization remain necessary. |
-| Real stories and identity | Obtain permitted originals, exact public names, assignment context and credits. Update the canonical slots, integrate selected records and inspect actual crops/quality/budgets. |
-| Services and process | Edit the owner's confirmed facts into the existing sections. Record optional omissions and avoid invented prices, reviews or response commitments. |
-| Confirmed contact | Verify the intended mailbox and responder, privacy wording and follow-up process before enabling its public link. |
-| Real-content candidate engineering | Implement a guarded, isolated local candidate path before release approval, as required by release step 3.5. The current public gate requires completed release evidence; review and fixture modes do not provide this candidate. This is unfinished maintainer work. |
-| Live enquiry form | Complete business-controlled accounts, domain/sender authority, accepted costs/data handling and ENQ-01 through ENQ-08. Verify operator retrieval and recovery before activation. |
-| Public release | After the candidate path exists, review its exact real-content output, complete remaining device/accessibility/operating gates, approve the candidate and follow the release/rollback runbook. Do not fabricate approval evidence to obtain a preview. |
-
-These inputs do not reopen the chosen framework or require speculative features while the owner reviews. Keep changes on `feat/sevensteps-rebuild`, preserve the original `website/` files and use [safe reverts](GIT-WORKFLOW.md).
-
-Use the local [photographer adapter](../.agents/skills/photographer-design-codex/SKILL.md), [frontend-design](../.agents/skills/frontend-design/SKILL.md) and [stop-slop](../.agents/skills/stop-slop/SKILL.md). The copied skills and licences support a fresh clone with Claude or Codex. OpenDesign's executable runtime stays on security hold. Apply the project's no-em-dash rule to authored text and keep private originals, credentials and correspondence out of Git and public artifacts.
+For assistant continuation, use [AI-HANDOFF.md](AI-HANDOFF.md). Keep changes on `feat/sevensteps-rebuild` and follow [Git workflow](GIT-WORKFLOW.md) for reversals.

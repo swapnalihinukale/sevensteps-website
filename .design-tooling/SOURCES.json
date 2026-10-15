@@ -8,7 +8,9 @@
       "upstream_path": "skills/frontend-design",
       "local_path": ".agents/skills/frontend-design",
       "license": "Apache-2.0",
-      "skill_sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+      "skill_sha256": "09d27b3c3bdc68bf900c75e5c359d558ba594e0092b03a6e93e86edb959c3d34",
+      "upstream_skill_sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+      "local_edit": "Punctuation edited on 2026-10-15; licence and source commit retained."
     },
     {
       "name": "Official Claude frontend-design plugin",
@@ -16,9 +18,11 @@
       "commit": "c2bdb427efe8673f190ae862c273cfa368d2390f",
       "upstream_path": "plugins/frontend-design/skills/frontend-design",
       "local_path": ".design-tooling/vendor/claude-plugins-official/frontend-design",
-      "role": "Provenance snapshot; skill is byte-identical to active installation; plugin has no additional runtime hooks or tools",
+      "role": "Official plugin reference with the same punctuation edits as the active skill; no additional runtime hooks or tools.",
       "license": "Apache-2.0",
-      "skill_sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+      "skill_sha256": "09d27b3c3bdc68bf900c75e5c359d558ba594e0092b03a6e93e86edb959c3d34",
+      "upstream_skill_sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+      "local_edit": "Punctuation edited on 2026-10-15; licence and source commit retained."
     },
     {
       "name": "OpenDesign",
@@ -61,30 +65,30 @@
     ".design-tooling/vendor/claude-plugins-official/frontend-design/plugin.json": "fd9a7db11f5dec771d9e29ad1d6a3298c12f04c81c3a6457099b81fe477d835d",
     ".design-tooling/vendor/claude-plugins-official/frontend-design/README.md": "5351137ecb2c5adfcdbadcdbbeda1eab16409bae98eb53f62f945514552d6706",
     ".design-tooling/vendor/claude-plugins-official/frontend-design/PLUGIN-LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
-    ".design-tooling/vendor/claude-plugins-official/frontend-design/SKILL.md": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+    ".design-tooling/vendor/claude-plugins-official/frontend-design/SKILL.md": "09d27b3c3bdc68bf900c75e5c359d558ba594e0092b03a6e93e86edb959c3d34",
     ".design-tooling/vendor/claude-plugins-official/frontend-design/LICENSE.txt": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
-    ".agents/skills/photographer-design-codex/references/open-design/accessibility-baseline.md": "ef6c5f670d114ceb4c347681bcf3be8637e5d1186165a9c79ca265f316c72d11",
-    ".agents/skills/photographer-design-codex/references/open-design/typography-hierarchy.md": "e247ca0358dcbdc3921f2148cc44c6ddcc325429b8082f6ad033792b79e39e06",
-    ".agents/skills/photographer-design-codex/references/open-design/anti-ai-slop.md": "d0f57d3064451663f9dca81af170fc754acc4b1e77280fd5cfb3a04afeef9a5c",
-    ".agents/skills/photographer-design-codex/references/open-design/form-validation.md": "a31410ce6ba8b7a762c2975386f2e93ae97b59a8bc85169aa58457927b0a88e6",
-    ".agents/skills/photographer-design-codex/references/open-design/README.md": "7b18e690c995226706c7f8f50229a9f9e170ad3b6675bd031c8d8751682c3c46",
-    ".agents/skills/photographer-design-codex/references/open-design/color.md": "fb45b59fa3055f13d6549f45ae52e88cd09d3facd0e5aaab63600e7fb024db6d",
-    ".agents/skills/photographer-design-codex/references/open-design/animation-discipline.md": "075273e8404f7931adfe196d508461efdd303b54e0d9a9ef3f642a682c12a760",
-    ".agents/skills/photographer-design-codex/references/open-design/state-coverage.md": "79bda732b55b0f0e4a366ba934f4a01518d3576091422047690e269222f2b682",
-    ".agents/skills/photographer-design-codex/references/open-design/typography.md": "5f8e634b35c6b27a5e86f748825da17efe6a0d2e96f68dc35f57f406420049a6",
+    ".agents/skills/photographer-design-codex/references/open-design/accessibility-baseline.md": "582f193c5596cc0dd3dbeb9dc99db29b5bc39bc77fba3768760f90ccbe51d097",
+    ".agents/skills/photographer-design-codex/references/open-design/typography-hierarchy.md": "a70f60da826a499f377b7a29fc2f7a9f16e4dc0c8138ab7a6efb0370997c30c2",
+    ".agents/skills/photographer-design-codex/references/open-design/anti-ai-slop.md": "5d2895adfc87ac1ba66f84353ac989a6fcba31c403c4ff6de45efa2ad9bfe288",
+    ".agents/skills/photographer-design-codex/references/open-design/form-validation.md": "94b017dfa2971a77179821d520bb61704362d30fd0a86177613060518e2fbefd",
+    ".agents/skills/photographer-design-codex/references/open-design/README.md": "f94044d71728e1eb47f587af11900bea5579f852a2a753a29878e31e55a2ed78",
+    ".agents/skills/photographer-design-codex/references/open-design/color.md": "c1b37987841ddac2202e32efe91e681a9cf9f3c55f2ae36406d88590eae529ba",
+    ".agents/skills/photographer-design-codex/references/open-design/animation-discipline.md": "b43f85dda6928ba8c119ff61c701f3ef042130ebca0b5ffba042ff6622cebbed",
+    ".agents/skills/photographer-design-codex/references/open-design/state-coverage.md": "ed6368f4f943d0dcbc8cabe2ca3784cfcd28689c9b7bc4720c8dc5e7499a4ad8",
+    ".agents/skills/photographer-design-codex/references/open-design/typography.md": "73030133c61de0618c7a1dd64cefe7c5ac9a0d9645cde5d78a83e1c9c3160e89",
     ".agents/skills/photographer-design-codex/references/open-design/LICENSE-OpenDesign": "9d95806a26532623360eb84bb17d298f394b55ef73fb4c0796d99b4319b2b0da",
-    ".agents/skills/frontend-design/SKILL.md": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+    ".agents/skills/frontend-design/SKILL.md": "09d27b3c3bdc68bf900c75e5c359d558ba594e0092b03a6e93e86edb959c3d34",
     ".agents/skills/frontend-design/LICENSE.txt": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
     ".agents/skills/photographer-design-codex/references/open-design/LICENSE-Refero": "7b5d57a0e210289fa900a0e2ab0513442e439e9d20b96f0cf5cba0e1b31b665e",
     "scripts/design-tooling.sh": "a6628f041547e648aa288bc365192dc0a0b581f82fcec2bf35a210006b1bc709",
     "scripts/design-tooling.mjs": "c251e49e9d68cd357cc75ed1636cdb1572ca3ccac2da92324b8758465612493d",
     "scripts/design-tooling-verify.mjs": "c1c1b8636ba50e69a4cb5f8ff66a72fbe8e424319f2cd86d43a28945831c71e7",
     ".codex/config.toml": "4ef22a2a99fe2eb6c5c43e616f398dfa9f1cd5677f5ef687e3eb760752e4998d",
-    ".design-tooling/README.md": "211e548a63a8998f4c34610484e1a7442d7b504aa7a55575c930a19b15570d0c",
+    ".design-tooling/README.md": "1777a9305a0a69b62766b690431786166f12a4b9eb8f1be3da11c0747ea9ec86",
     ".design-tooling/VERIFICATION.json": "6a4c57ca5043083b20d1538b30538f27a638ec13fb4e666ef12ea49a9b61020b",
     ".design-tooling/runtime/package.json": "3c50700db1864deb6768af954834508ceb2097bcfe90a30b6cb31a9c7e14f16f",
     ".design-tooling/runtime/package-lock.json": "18f07a0e887170b19ce59755e168a3bc13bbc2b8cc277361dcb97199d417c6ca",
-    ".design-tooling/DEPENDENCY-AUDIT-2026-10-15.md": "1deecefa9d1d97cb063ac30c9a93c1b39b0d150c02af2d1db8b6a90f06313dd0",
+    ".design-tooling/DEPENDENCY-AUDIT-2026-10-15.md": "786b9c4f8f44d274daa201bc0e5b9246d6550fe8ed0ba5f76523a0219c9a35a6",
     ".design-tooling/DEPENDENCY-AUDIT-2026-10-15.json": "2ee74eaa8effc53cb00870730e8a3a0f808bfa095fa26159d982ddf131fcc9a8"
   },
   "setup": {
@@ -100,5 +104,65 @@
     "runtimeStatus": "security hold; stopped",
     "securityAudit": ".design-tooling/DEPENDENCY-AUDIT-2026-10-15.md",
     "securityHold": "Explicit launcher constant blocks start/mcp/codex; project MCP enabled=false; offline references available"
-  }
+  },
+  "local_edits": [
+    {
+      "date": "2026-10-15",
+      "reason": "Remove em dashes from project reference text at user request.",
+      "files": {
+        ".design-tooling/vendor/claude-plugins-official/frontend-design/SKILL.md": {
+          "before": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+          "after": "09d27b3c3bdc68bf900c75e5c359d558ba594e0092b03a6e93e86edb959c3d34"
+        },
+        ".agents/skills/photographer-design-codex/references/open-design/accessibility-baseline.md": {
+          "before": "ef6c5f670d114ceb4c347681bcf3be8637e5d1186165a9c79ca265f316c72d11",
+          "after": "582f193c5596cc0dd3dbeb9dc99db29b5bc39bc77fba3768760f90ccbe51d097"
+        },
+        ".agents/skills/photographer-design-codex/references/open-design/typography-hierarchy.md": {
+          "before": "e247ca0358dcbdc3921f2148cc44c6ddcc325429b8082f6ad033792b79e39e06",
+          "after": "a70f60da826a499f377b7a29fc2f7a9f16e4dc0c8138ab7a6efb0370997c30c2"
+        },
+        ".agents/skills/photographer-design-codex/references/open-design/anti-ai-slop.md": {
+          "before": "d0f57d3064451663f9dca81af170fc754acc4b1e77280fd5cfb3a04afeef9a5c",
+          "after": "5d2895adfc87ac1ba66f84353ac989a6fcba31c403c4ff6de45efa2ad9bfe288"
+        },
+        ".agents/skills/photographer-design-codex/references/open-design/form-validation.md": {
+          "before": "a31410ce6ba8b7a762c2975386f2e93ae97b59a8bc85169aa58457927b0a88e6",
+          "after": "94b017dfa2971a77179821d520bb61704362d30fd0a86177613060518e2fbefd"
+        },
+        ".agents/skills/photographer-design-codex/references/open-design/README.md": {
+          "before": "7b18e690c995226706c7f8f50229a9f9e170ad3b6675bd031c8d8751682c3c46",
+          "after": "f94044d71728e1eb47f587af11900bea5579f852a2a753a29878e31e55a2ed78"
+        },
+        ".agents/skills/photographer-design-codex/references/open-design/color.md": {
+          "before": "fb45b59fa3055f13d6549f45ae52e88cd09d3facd0e5aaab63600e7fb024db6d",
+          "after": "c1b37987841ddac2202e32efe91e681a9cf9f3c55f2ae36406d88590eae529ba"
+        },
+        ".agents/skills/photographer-design-codex/references/open-design/animation-discipline.md": {
+          "before": "075273e8404f7931adfe196d508461efdd303b54e0d9a9ef3f642a682c12a760",
+          "after": "b43f85dda6928ba8c119ff61c701f3ef042130ebca0b5ffba042ff6622cebbed"
+        },
+        ".agents/skills/photographer-design-codex/references/open-design/state-coverage.md": {
+          "before": "79bda732b55b0f0e4a366ba934f4a01518d3576091422047690e269222f2b682",
+          "after": "ed6368f4f943d0dcbc8cabe2ca3784cfcd28689c9b7bc4720c8dc5e7499a4ad8"
+        },
+        ".agents/skills/photographer-design-codex/references/open-design/typography.md": {
+          "before": "5f8e634b35c6b27a5e86f748825da17efe6a0d2e96f68dc35f57f406420049a6",
+          "after": "73030133c61de0618c7a1dd64cefe7c5ac9a0d9645cde5d78a83e1c9c3160e89"
+        },
+        ".agents/skills/frontend-design/SKILL.md": {
+          "before": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+          "after": "09d27b3c3bdc68bf900c75e5c359d558ba594e0092b03a6e93e86edb959c3d34"
+        },
+        ".design-tooling/README.md": {
+          "before": "211e548a63a8998f4c34610484e1a7442d7b504aa7a55575c930a19b15570d0c",
+          "after": "1777a9305a0a69b62766b690431786166f12a4b9eb8f1be3da11c0747ea9ec86"
+        },
+        ".design-tooling/DEPENDENCY-AUDIT-2026-10-15.md": {
+          "before": "1deecefa9d1d97cb063ac30c9a93c1b39b0d150c02af2d1db8b6a90f06313dd0",
+          "after": "786b9c4f8f44d274daa201bc0e5b9246d6550fe8ed0ba5f76523a0219c9a35a6"
+        }
+      }
+    }
+  ]
 }

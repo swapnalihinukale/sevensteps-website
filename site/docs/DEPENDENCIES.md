@@ -117,3 +117,11 @@ These checks validate the private/public boundary. They do not authorise publica
 ## Final private candidate refresh
 
 The final browser run at 07:14:00Z passed 51 of 51 cases across Chromium, Firefox and WebKit. The final 07:15:35Z full/production dependency audits both returned zero advisories against the same locked tree. The final artifact budget is CSS 6.34 KiB gzip, JavaScript 3.03 KiB gzip, largest HTML 6.78 KiB gzip and fonts 77.94 KiB, for a conservative 94.08 KiB shell. The 07:15:22Z placeholder-only sample transferred 95,730 bytes over ten seconds with no external or player requests. See the workspace implementation ledger and dated audit files for exact identity and limits.
+
+## Local B03 dependency refresh
+
+The local backend adds @netlify/database 2.0.1, @netlify/functions 6.0.2 and Resend 6.33.0, with pg 8.16.3 and @types/pg 8.15.6 for tests. All versions are exact pins in the site lockfile. These dependencies stay outside the static browser bundle. The clean install uses lifecycle scripts disabled; native PostgreSQL is an isolated local test prerequisite.
+
+The 10:35:48Z dependency report inventories 372 locked packages, 304 installed packages and 68 optional platform packages not installed. Full and production audits contain zero known advisories, with no unresolved pins, integrity or licence records. Its source scan reports zero credential-pattern findings. See the dated audit JSONs and the B03 summary for current test identities. The OpenDesign runtime remains separate and on hold.
+
+Independent review corrected unsafe duplicate database TLS query parameters, inherited driver selection, reload retry recovery, cleanup failures, a production build default and shareable report handling. These fixes supplement package auditing; an advisory scan alone does not establish application safety.

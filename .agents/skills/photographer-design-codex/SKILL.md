@@ -13,9 +13,9 @@ For prose and UX text, read `/Users/admin/.codex/skills/stop-slop/SKILL.md` and 
 
 ## Establish the phase
 
-On 15 October 2026, the user authorized the private Astro draft. Direction A, Close to the people, is the working selection in `DESIGN.md`; B02 is in progress. Use the completed research, technical decisions and prebuild corrections to implement and review it. Do not repeat concept selection or ask again for permission to do this private build.
+On 15 October 2026, the user authorized the private Astro draft. Direction A, Close to the people, is the working selection in `DESIGN.md`; B02 is complete, and local B03 implementation with synthetic data is now authorized. Use the completed research, technical decisions and prebuild corrections to implement and review it. Do not repeat concept selection or ask again for permission to do this private build.
 
-Keep the enquiry non-sending and missing content labelled through the shared slot workflow. Live integration remains B03 with its confirmed recipient, responder, provider and data-handling prerequisites. Publishing, business-account/domain changes and outreach retain their separate authorization boundaries. Record real checks in `docs/IMPLEMENTATION-VERIFICATION-2026-10-15.md`; placeholders and plans cannot establish image fidelity, live receipt or public readiness. OpenDesign's executable security hold remains in force.
+Keep the enquiry non-sending and missing content labelled through the shared slot workflow. Live provider activation retains its confirmed recipient, responder, account and data-handling prerequisites. Local B03 backend work and its isolated synthetic lab do not need live accounts. Publishing, business-account/domain changes and outreach retain their separate authorization boundaries. Record real checks in `docs/IMPLEMENTATION-VERIFICATION-2026-10-15.md`; placeholders and plans cannot establish image fidelity, live receipt or public readiness. OpenDesign's executable security hold remains in force.
 
 The upstream opening about a paying client who rejected proposals is a design exercise, not a fact about this customer. Its suggestions about remembering designs do not authorize writing global memory. If any upstream default conflicts with the user's brief or current phase, follow the user.
 

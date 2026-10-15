@@ -1,5 +1,6 @@
 # Private Astro draft: implementation verification
 
+Historical B02 baseline: this ledger records the first private UI candidate. The current backend and Git work is recorded in [B03 implementation](BACKEND-IMPLEMENTATION-2026-10-15.md). Its source and lockfile hashes below identify B02, not the later B03 checkout. The browser JSON was redacted before sharing to remove inherited environment variables; test outcomes remain unchanged.
 15 October 2026. **B02 private draft complete. All 51 browser cases and 19 logic tests pass. Public-release checks remain open where noted.** The user authorized a private draft using direction A, Close to the people. This file records the actual evidence and its limits. It does not approve publication.
 
 Use the [execution plan](../EXECUTION-PLAN.md) for task status and the [design brief](../DESIGN.md), [technical decisions](TECHNICAL-DECISIONS.md), [prebuild findings](PREBUILD-DESIGN-REVIEW.md), [quality/security gates](QUALITY-AND-SECURITY-GATES.md), [responsive specification](RESPONSIVE-AND-RELIABILITY-SPEC.md), [motion specification](MOTION-AND-INTERACTION-SPEC.md) and [copy rules](COPY-AND-VOICE-SPEC.md) for acceptance. Do not mark a requirement satisfied merely because it appears in those documents.

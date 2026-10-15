@@ -28,18 +28,30 @@ const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-toggle]
 const menu = document.querySelector<HTMLElement>('#mobile-menu');
 if (menuButton && menu) {
   const compact = window.matchMedia('(max-width: 720px)');
+  const desktop = document.querySelector<HTMLElement>('.desktop-nav');
+  let wasCompact = compact.matches;
+  let navigationFocus: HTMLElement | null = null;
+  const inNavigation = (target: EventTarget | null): target is HTMLElement =>
+    target instanceof HTMLElement && (target === menuButton || menu.contains(target) || Boolean(desktop?.contains(target)));
   document.documentElement.classList.add('js-menu');
   const close = (restore = false) => {
+    if (navigationFocus && menu.contains(navigationFocus)) navigationFocus = null;
     menu.hidden = true;
     menuButton.setAttribute('aria-expanded', 'false');
     if (restore) menuButton.focus();
   };
   const resize = () => {
     const active = document.activeElement;
-    const desktop = document.querySelector('.desktop-nav');
-    const disappearingMobile = !compact.matches && (active === menuButton || menu.contains(active));
-    const disappearingDesktop = compact.matches && desktop?.contains(active);
-    const href = active instanceof HTMLAnchorElement ? active.getAttribute('href') : null;
+    // CSS can hide and blur a navigation link before the media-query listener.
+    // Only recover that focus when the breakpoint changed and its node is now
+    // hidden. An intentional focus or pointer action elsewhere clears it.
+    const hiddenFocus = compact.matches !== wasCompact && active === document.body &&
+      navigationFocus?.isConnected && navigationFocus.getClientRects().length === 0;
+    const focused = active === navigationFocus || hiddenFocus ? navigationFocus : null;
+    const disappearingMobile = !compact.matches && (focused === menuButton || (focused && menu.contains(focused)));
+    const disappearingDesktop = compact.matches && focused && desktop?.contains(focused);
+    const href = focused instanceof HTMLAnchorElement ? focused.getAttribute('href') : null;
+    wasCompact = compact.matches;
     menuButton.hidden = !compact.matches;
     close();
     if (disappearingDesktop) menuButton.focus();
@@ -57,8 +69,23 @@ if (menuButton && menu) {
   });
   menu.addEventListener('click', event => { if ((event.target as Element).closest('a')) close(); });
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && !menu.hidden) close(true); });
-  document.addEventListener('click', event => { if (!menu.hidden && !menu.contains(event.target as Node) && !menuButton.contains(event.target as Node)) close(); });
-  document.addEventListener('focusin', event => { if (!menu.hidden && !menu.contains(event.target as Node) && !menuButton.contains(event.target as Node)) close(); });
+  const clearOutsideFocus = (event: Event) => {
+    const target = event.target as Node;
+    if (!menu.contains(target) && !menuButton.contains(target) && !desktop?.contains(target)) navigationFocus = null;
+  };
+  document.addEventListener('pointerdown', clearOutsideFocus, { capture: true });
+  document.addEventListener('click', event => {
+    clearOutsideFocus(event);
+    if (!menu.hidden && !menu.contains(event.target as Node) && !menuButton.contains(event.target as Node)) close();
+  });
+  document.addEventListener('focusin', event => {
+    navigationFocus = inNavigation(event.target) ? event.target : null;
+    if (!menu.hidden && !menu.contains(event.target as Node) && !menuButton.contains(event.target as Node)) close();
+  });
+  document.addEventListener('focusout', event => {
+    // An explicit blur of a visible link must not leave a stale recovery target.
+    if (event.target === navigationFocus && !event.relatedTarget && navigationFocus?.getClientRects().length) navigationFocus = null;
+  });
 }
 
 // Review forms have no endpoint, field names or persistent state.

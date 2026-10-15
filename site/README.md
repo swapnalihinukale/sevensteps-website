@@ -73,3 +73,11 @@ Tests cover the actual private draft, including invalid content, publication ref
 - `tests/`: content/motion logic and browser journeys.
 
 No React runtime, animation framework, third-party player, analytics tag or external font request is included. Local font licences ship in `public/licenses`. The [dependency record](docs/DEPENDENCIES.md) preserves exact pins and audit limits.
+
+## Enquiry backend and local lab
+
+Use `npm run test:server` for isolated native PostgreSQL tests and `npm run lab` for the synthetic form at `http://127.0.0.1:4322/`. The lab writes sample data to a temporary local database and sends no email. Native PostgreSQL 16 or newer is required; set `SEVENSTEPS_PG_BIN` if needed. Ctrl+C stops the lab and removes its database. `npm run test:e2e` starts its own lab, so stop a manually running lab before that command.
+
+The server modules live under `server/`, provider adapters under `netlify/functions/`, and tests under `tests/server/`. The public form remains disabled. See [B03 implementation](../docs/BACKEND-IMPLEMENTATION-2026-10-15.md) for receipt, retry, activation and data-handling requirements. The test client keeps only a retry reference or receipt in session storage, with no personal form content; it fails before sending if that reference cannot be retained.
+
+All changes use `feat/sevensteps-rebuild` on the original repository. The three original HTML files remain under `../website/`. See [Git workflow](../docs/GIT-WORKFLOW.md) before pushing or reverting.

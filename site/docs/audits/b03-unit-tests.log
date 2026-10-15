@@ -1,0 +1,128 @@
+
+> seven-steps-private-draft@0.1.0 test:unit
+> node --test tests/*.test.ts
+
+TAP version 13
+# Subtest: canonical source preserves the 27 planning references and contains serializable review data
+ok 1 - canonical source preserves the 27 planning references and contains serializable review data
+  ---
+  duration_ms: 3.403625
+  type: 'test'
+  ...
+# Subtest: project layout records point to their own existing content groups
+ok 2 - project layout records point to their own existing content groups
+  ---
+  duration_ms: 0.828458
+  type: 'test'
+  ...
+# Subtest: checklist locations return to a specific note on the correct draft route
+ok 3 - checklist locations return to a specific note on the correct draft route
+  ---
+  duration_ms: 1.005209
+  type: 'test'
+  ...
+# Subtest: review permits missing material and starts at zero of 27 groups Ready
+ok 4 - review permits missing material and starts at zero of 27 groups Ready
+  ---
+  duration_ms: 0.767791
+  type: 'test'
+  ...
+# Subtest: public mode blocks missing required content and undecided optional or conditional features
+ok 5 - public mode blocks missing required content and undecided optional or conditional features
+  ---
+  duration_ms: 0.174667
+  type: 'test'
+  ...
+# Subtest: required groups cannot bypass the gate with an omission or a weaker requirement
+ok 6 - required groups cannot bypass the gate with an omission or a weaker requirement
+  ---
+  duration_ms: 0.4955
+  type: 'test'
+  ...
+# Subtest: an explicit omission requires both Not needed status and a reason
+ok 7 - an explicit omission requires both Not needed status and a reason
+  ---
+  duration_ms: 0.267375
+  type: 'test'
+  ...
+# Subtest: retained optional content must be Ready even when all required groups are complete
+ok 8 - retained optional content must be Ready even when all required groups are complete
+  ---
+  duration_ms: 0.203083
+  type: 'test'
+  ...
+# Subtest: a synthetic complete register with explicit omissions passes the content gate
+ok 9 - a synthetic complete register with explicit omissions passes the content gate
+  ---
+  duration_ms: 0.45175
+  type: 'test'
+  ...
+# Subtest: retaining a live form requires both field and privacy content
+ok 10 - retaining a live form requires both field and privacy content
+  ---
+  duration_ms: 1.1175
+  type: 'test'
+  ...
+# Subtest: personal data handling can require privacy even without a form
+ok 11 - personal data handling can require privacy even without a form
+  ---
+  duration_ms: 0.36225
+  type: 'test'
+  ...
+# Subtest: supplied states need a safe reference and an update needs a specific remaining note
+ok 12 - supplied states need a safe reference and an update needs a specific remaining note
+  ---
+  duration_ms: 0.603208
+  type: 'test'
+  ...
+# Subtest: missing, duplicate and unknown references cannot pass validation
+ok 13 - missing, duplicate and unknown references cannot pass validation
+  ---
+  duration_ms: 0.4805
+  type: 'test'
+  ...
+# Subtest: invalid record fields fail with a result and do not expose their values
+ok 14 - invalid record fields fail with a result and do not expose their values
+  ---
+  duration_ms: 0.305208
+  type: 'test'
+  ...
+# Subtest: CLI obeys review/public mode and refuses unknown modes
+ok 15 - CLI obeys review/public mode and refuses unknown modes
+  ---
+  duration_ms: 179.40225
+  type: 'test'
+  ...
+# Subtest: explicit Play starts from paused; a new inspection pauses and latches
+ok 16 - explicit Play starts from paused; a new inspection pauses and latches
+  ---
+  duration_ms: 3.648917
+  type: 'test'
+  ...
+# Subtest: device still mode or hidden component cannot start
+ok 17 - device still mode or hidden component cannot start
+  ---
+  duration_ms: 0.692333
+  type: 'test'
+  ...
+# Subtest: lifecycle interruptions preserve position, while reset returns to the first frame
+ok 18 - lifecycle interruptions preserve position, while reset returns to the first frame
+  ---
+  duration_ms: 0.442708
+  type: 'test'
+  ...
+# Subtest: a finite pass cannot run beyond either edge or a resized zero-length strip
+ok 19 - a finite pass cannot run beyond either edge or a resized zero-length strip
+  ---
+  duration_ms: 0.093625
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 282.186417

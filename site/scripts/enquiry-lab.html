@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Local enquiry test | Seven Steps</title>
+<link rel="stylesheet" href="/lab.css">
+<body>
+<main>
+  <p class="notice">Local test. Use sample details only. This form writes to a temporary database on this computer. It sends no email.</p>
+  <h1>Try the enquiry flow.</h1>
+  <p>This separate test page exercises the receiving code. The website draft remains non-sending.</p>
+  <form method="post" action="/api/enquiries">
+    <div data-enquiry-errors tabindex="-1" hidden></div>
+    <label for="lab-name">Your name</label><input id="lab-name" name="name" autocomplete="name" required maxlength="100">
+    <label for="lab-email">Email address</label><input id="lab-email" name="email" type="email" autocomplete="email" required maxlength="254">
+    <label for="lab-story">Story you’re interested in</label>
+    <select id="lab-story" name="story"><option value="">No story selected</option><option value="wedding-story">Wedding story</option><option value="couple-session">Couple session</option></select>
+    <label for="lab-when">When (optional)</label><input id="lab-when" name="when" maxlength="120">
+    <label for="lab-where">Where (optional)</label><input id="lab-where" name="where" maxlength="200">
+    <label for="lab-message">A little about your plans (optional)</label><textarea id="lab-message" name="message" maxlength="4000" rows="4"></textarea>
+    <p data-enquiry-status role="status" aria-live="polite" aria-atomic="true"></p>
+    <button type="submit" data-enquiry-submit disabled>Send enquiry</button>
+    <button type="button" data-enquiry-restart hidden>Start a new enquiry</button>
+    <noscript><p>Enable JavaScript to use this local test. Nothing has been sent.</p></noscript>
+  </form>
+</main>
+<script type="module" src="/lab.js"></script>
+</body>
+</html>

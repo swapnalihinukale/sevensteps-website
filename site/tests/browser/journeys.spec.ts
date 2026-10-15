@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 test('two story routes, accurate checklist counts and usable deep links', async ({ page }) => {
@@ -109,6 +109,67 @@ test('mobile menu closes with Escape, navigation and desktop resize', async ({ p
   await page.locator('#mobile-menu').getByRole('link', { name: 'The approach' }).focus();
   await page.setViewportSize({ width: 1280, height: 800 });
   await expect(page.locator('.desktop-nav').getByRole('link', { name: 'The approach' })).toBeFocused();
+});
+
+async function blurHiddenNavigationBeforeResize(page: Page) {
+  await page.addInitScript(() => {
+    const nativeMatchMedia = window.matchMedia.bind(window);
+    window.matchMedia = query => {
+      const media = nativeMatchMedia(query);
+      if (query === '(max-width: 720px)') {
+        // Register before the app listener so every engine exercises the case
+        // where CSS has already hidden and blurred the desktop navigation.
+        media.addEventListener('change', () => {
+          if (!media.matches) return;
+          const active = document.activeElement;
+          if (active instanceof HTMLElement && document.querySelector('.desktop-nav')?.contains(active)) active.blur();
+          document.documentElement.dataset.menuFocusBeforeResize = document.activeElement === document.body ? 'body' : 'other';
+        });
+      }
+      return media;
+    };
+  });
+}
+
+test('menu resize restores navigation focus after CSS has already blurred its hidden link', async ({ page }) => {
+  await blurHiddenNavigationBeforeResize(page);
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/');
+  const approach = page.locator('.desktop-nav').getByRole('link', { name: 'The approach' });
+  await approach.focus();
+  await expect(approach).toBeFocused();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator('html')).toHaveAttribute('data-menu-focus-before-resize', 'body');
+  await expect(page.getByRole('button', { name: 'Menu' })).toBeFocused();
+});
+
+test('menu resize preserves intentional body focus instead of recovering a stale link', async ({ page }) => {
+  await blurHiddenNavigationBeforeResize(page);
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/');
+  await page.locator('.desktop-nav').getByRole('link', { name: 'The approach' }).focus();
+  await page.locator('body').evaluate(body => { body.tabIndex = -1; body.focus(); });
+  await expect(page.locator('body')).toBeFocused();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.getByRole('button', { name: 'Menu' })).toBeVisible();
+  await expect(page.locator('body')).toBeFocused();
+});
+
+test('menu resize discards a remembered link after an outside click without a focus event', async ({ page }) => {
+  await blurHiddenNavigationBeforeResize(page);
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/');
+  const approach = page.locator('.desktop-nav').getByRole('link', { name: 'The approach' });
+  await approach.focus();
+  // Keep focus unchanged by the pointer default to prove the outside action
+  // clears recovery state independently of a later focusin event.
+  await page.locator('h1').evaluate(heading => heading.addEventListener('pointerdown', event => event.preventDefault(), { once: true }));
+  await page.locator('h1').click();
+  await expect(approach).toBeFocused();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator('html')).toHaveAttribute('data-menu-focus-before-resize', 'body');
+  await expect(page.getByRole('button', { name: 'Menu' })).toBeVisible();
+  await expect(page.locator('body')).toBeFocused();
 });
 
 test('draft enquiry keeps visible removable story context and sends no data', async ({ page }) => {

@@ -1,25 +1,34 @@
-# Seven Steps website planning workspace
+# Seven Steps Photography website
 
-The private draft now lives in [site](site/README.md). Run it locally at `http://127.0.0.1:4321/` after starting the preview. The [implementation verification ledger](docs/IMPLEMENTATION-VERIFICATION-2026-10-15.md) records the current checks and remaining release work.
+The private Astro website and local enquiry backend are implemented under [site/](site/README.md). The original three HTML drafts remain unchanged under `website/`.
 
+All work uses `feat/sevensteps-rebuild` on `swapnalihinukale/sevensteps-website`. See [Git workflow](docs/GIT-WORKFLOW.md) for access, commits and safe reverts. Keep `master` unchanged.
 
-**The executable plan is ready. Website implementation has not started.**
+## Run locally
 
-Start with [EXECUTION-PLAN.md](EXECUTION-PLAN.md), then [the research synthesis and three proposed concepts](RESEARCH-SYNTHESIS-AND-CONCEPTS.md). The plan records completed research, the next decisions, future implementation tasks, dependencies and acceptance criteria.
+Use Node 22.23.2 and npm 10.9.8:
 
-The plan names the skills, plugins and tools to use at each stage. Apply [stop-slop](/Users/admin/.codex/skills/stop-slop/SKILL.md) and the [copy/voice rules](docs/COPY-AND-VOICE-SPEC.md) to authored prose and UX. Use no em dashes in copy, including replacement notes, error states, accessible labels and metadata.
+```sh
+cd site
+npm ci --ignore-scripts
+npm run build
+npm run preview
+```
 
-The [architecture decisions](docs/TECHNICAL-DECISIONS.md) now select Astro static output, TypeScript and native CSS, with a separate durable receiver for a live enquiry form. The [prebuild design review](docs/PREBUILD-DESIGN-REVIEW.md) records seven findings and their later acceptance checks. Website bug fixing and final code/rendered-design review require an implementation and remain pending.
+Open `http://127.0.0.1:4321/`. The private review includes a homepage, two story pages, gallery controls and a 27-item Add/Replace checklist. Its enquiry form remains non-sending.
 
-The research includes 24 reference websites, browser review of 12, and five sampled projects from the photographer's own public portfolio; one additional project required sign-in. Findings distinguish public evidence from interpretation and owner-only unknowns.
+Use `npm run lab` for the separate synthetic enquiry test at `http://127.0.0.1:4322/`. It requires native PostgreSQL 16 or newer, stores sample data locally and sends no email. Ctrl+C removes its temporary database. Stop a manually running lab before `npm run test:e2e`, which starts its own instance.
 
-The first-version requirements are ready to execute:
+## Current records
 
-- [Content replacement UX](docs/CONTENT-REPLACEMENT-UX.md) and [27-slot inventory](docs/CONTENT-SLOT-INVENTORY.md): visible Add/Replace notes, exact requests and one completion checklist.
-- [Responsive and reliability specification](docs/RESPONSIVE-AND-RELIABILITY-SPEC.md): screens, browsers, operating systems, input methods and truthful enquiry behavior.
-- [Motion and interaction specification](docs/MOTION-AND-INTERACTION-SPEC.md): rich transitions, arrows, scroll treatments and pausable automatic movement with efficient fallbacks.
-- [Quality and security gates](docs/QUALITY-AND-SECURITY-GATES.md): dependency checks, meaningful tests, performance budgets and release evidence.
+- [Implementation handoff](docs/IMPLEMENTATION-HANDOFF.md): selected stack, palette and interaction choices.
+- [Local enquiry backend](docs/BACKEND-IMPLEMENTATION-2026-10-15.md): receipt, retries, PostgreSQL tests and remaining live integration gates.
+- [Execution plan](EXECUTION-PLAN.md): work status, skills/tools and acceptance criteria.
+- [Research synthesis](RESEARCH-SYNTHESIS-AND-CONCEPTS.md): the reference study and selected direction, Close to the people.
+- [Owner inputs](docs/OWNER-INPUTS.md): authentic content, contact and operating facts still needed.
 
-Next: choose or revise a proposed direction, then refine the prepared inventory where the scope changes. The user's no-coding boundary remains in effect until implementation is requested. Unknown assets can be clearly labelled in that later private review version.
+Run `npm run check`, `npm run test:unit`, `npm run test:server` and `npm run test:e2e` from `site/`. The GitHub workflow repeats the automated checks without deployment or live secrets. Physical devices, screen readers, actual portfolio media and provider integration remain release checks.
 
-The [Codex design adapter](.agents/skills/photographer-design-codex/SKILL.md) and pinned Anthropic/OpenDesign text guidance are installed. **OpenDesign's optional executable runtime is disabled on security hold after dependency audit.** Its earlier setup/protocol checks passed, but its dependencies are not cleared. See [the tooling guide](.design-tooling/README.md) and [audit](.design-tooling/DEPENDENCY-AUDIT-2026-10-15.md). The text-based workflow and project plan remain usable.
+The site uses the project [Codex design adapter](.agents/skills/photographer-design-codex/SKILL.md), pinned Anthropic frontend-design guidance and portable OpenDesign craft references. Apply stop-slop and the [copy rules](docs/COPY-AND-VOICE-SPEC.md); use no em dashes in authored UX. OpenDesign's optional executable runtime remains disabled on security hold. Its dependencies are separate from the website application.
+
+Production builds currently refuse release. Add the photographer's permitted originals and verified business information, complete the live receiving and data-handling checks, then follow the authorised release process. Local synthetic receipts do not establish actual email delivery or bookings.

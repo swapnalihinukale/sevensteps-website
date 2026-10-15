@@ -1,0 +1,37 @@
+# Review builds remain static and non-sending. Activation is a separate release step.
+[build]
+base = "site"
+command = "npm run check && npm run build"
+publish = "dist"
+functions = "netlify/functions"
+
+[build.environment]
+NODE_VERSION = "22.23.2"
+NPM_FLAGS = "--ignore-scripts"
+ENQUIRY_MODE = "disabled"
+AWS_LAMBDA_JS_RUNTIME = "nodejs22.x"
+
+[functions]
+node_bundler = "esbuild"
+
+[context.production]
+command = "npm run check && npm run build:public"
+
+# A repository branch push must not publish the review draft.
+[context.branch-deploy]
+ignore = "exit 0"
+[context.deploy-preview]
+ignore = "exit 0"
+
+[[headers]]
+for = "/*"
+[headers.values]
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+X-Frame-Options = "DENY"
+
+[[headers]]
+for = "/api/*"
+[headers.values]
+Cache-Control = "no-store"

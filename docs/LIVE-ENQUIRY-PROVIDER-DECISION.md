@@ -61,7 +61,7 @@ Record these in [Owner inputs](OWNER-INPUTS.md) and the B03 integration record. 
 | Data handling | Owner-approved fields, privacy contact, processor/cross-border acceptance, numeric active-enquiry retention, mailbox/export deletion, actual backup expiry and a deletion operator. No researched phone/email proves permission to activate receiving. |
 | Integration test | Authorized synthetic destination and account; permission for a final known test at the intended recipient before public activation. Keep ordinary review previews non-sending. |
 
-## B03 acceptance, all Not run
+## B03 acceptance, local results and integration gates
 
 | Gate | Required test |
 |---|---|
@@ -73,6 +73,8 @@ Record these in [Owner inputs](OWNER-INPUTS.md) and the B03 integration record. 
 | ENQ-06 | Fail the transaction, exhaust connections and interrupt dispatch. Retain pending work; show no premature receipt. Restore synthetic data and verify the documented recovery process. |
 | ENQ-07 | Exercise server rate limits and abuse handling in the integration environment, including shared networks and accessible recovery. Do not acknowledge discarded submissions. |
 | ENQ-08 | Inject malformed provider responses, quota/credit limits and third-party outages. Keep honest client states and operator signals; distinguish provider outage from account-wide site suspension. |
+
+The [local B03 implementation](BACKEND-IMPLEMENTATION-2026-10-15.md) now exercises the receiving code against isolated PostgreSQL and synthetic provider responses. The table above still defines the full provider integration gates; local tests do not complete account, operator or live delivery checks.
 
 Run the repair worker by explicit invocation in integration tests, then verify its production schedule after an authorized deployment. Netlify schedules run only on published deploys. Complete the [quality/security gates](QUALITY-AND-SECURITY-GATES.md), including locked dependencies and secrets checks, before activation. This document adds no application code or packages. [S4]
 

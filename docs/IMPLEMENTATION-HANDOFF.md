@@ -16,7 +16,7 @@
 | Testing | Node test runner, Playwright 1.64.1 across Chromium/Firefox/WebKit, axe-core 4.13.0, Astro check 0.9.10, static link/copy/content checks, dependency/licence scans and explicit byte budgets. |
 | Future live service | Netlify static hosting + separate Netlify Functions + Netlify Database PostgreSQL + Resend. The [provider decision](LIVE-ENQUIRY-PROVIDER-DECISION.md) fixes transaction, deduplication, recovery, regions and preview isolation. It adds no live integration to the current draft. |
 
-The installed dependency manifest and lockfile are the authority for package versions. New server packages get exact compatible pins and an audit during B03; freezing an uninstalled future version would not replace that check.
+The installed dependency manifest and lockfile are the authority for package versions. The local B03 follow-up now includes exact server package pins and an updated audit, recorded in its implementation report.
 
 ## Fixed visual direction
 
@@ -67,3 +67,7 @@ These are external facts and acceptance gates, not unresolved framework or desig
 Use the project [Codex design adapter](../.agents/skills/photographer-design-codex/SKILL.md), pinned [frontend-design](../.agents/skills/frontend-design/SKILL.md) and [stop-slop](/Users/admin/.codex/skills/stop-slop/SKILL.md). Apply the portable OpenDesign typography, colour, accessibility, state and animation references at the relevant surface. The OpenDesign executable runtime remains on security hold and is not an application dependency. Use browser automation for rendered review, the installed test scripts for regressions, and the PDF skill only when a real PDF arrives. The execution plan contains the full stage-to-skill map.
 
 Start from [site/README.md](../site/README.md) for commands and the file map. Keep this build local until the release conditions are met.
+
+## B03 local implementation follow-up
+
+The local enquiry backend and synthetic browser lab are implemented. Follow [B03 implementation](BACKEND-IMPLEMENTATION-2026-10-15.md) for current checks and integration gates, and [Git workflow](GIT-WORKFLOW.md) for the single branch and reversible commits. The existing private UI remains non-sending.

@@ -1,0 +1,29 @@
+{
+  "command": "npm audit --json --registry=https://registry.npmjs.org",
+  "exitCode": 0,
+  "signal": null,
+  "stderr": "",
+  "error": null,
+  "data": {
+    "auditReportVersion": 2,
+    "vulnerabilities": {},
+    "metadata": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "dependencies": {
+        "prod": 212,
+        "dev": 82,
+        "optional": 79,
+        "peer": 0,
+        "peerOptional": 0,
+        "total": 372
+      }
+    }
+  }
+}

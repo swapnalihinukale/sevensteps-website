@@ -1,0 +1,52 @@
+name: Verify Seven Steps
+on:
+  push:
+    branches: [feat/sevensteps-rebuild]
+  pull_request:
+    branches: [master]
+permissions:
+  contents: read
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22.23.2
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - run: npm ci --ignore-scripts
+      - name: Find isolated PostgreSQL test binaries
+        run: |
+          test -x /usr/lib/postgresql/16/bin/postgres
+          echo "SEVENSTEPS_PG_BIN=/usr/lib/postgresql/16/bin" >> "$GITHUB_ENV"
+      - run: npm run check
+      - run: npm run build
+      - run: node scripts/links-check.mjs
+      - run: npm run budget
+      - run: npm audit --audit-level=high
+      - run: npm run test:unit
+      - run: npm run test:server
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run test:e2e
+      - name: Check shareable files for credentials
+        working-directory: .
+        run: |
+          node scripts/test-shareable.mjs
+          node scripts/check-shareable.mjs
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: failure()
+        with:
+          name: browser-failure-evidence
+          path: site/test-results/
+          retention-days: 7

@@ -4,6 +4,8 @@ The website is ready for the photographer's review with labelled placeholders. T
 
 All work uses `feat/sevensteps-rebuild` in [swapnalihinukale/sevensteps-website](https://github.com/swapnalihinukale/sevensteps-website). The original three HTML files remain under `website/`; keep `master` unchanged. [Git workflow](docs/GIT-WORKFLOW.md) explains commits and reversals.
 
+**Repository handoff:** share [this branch](https://github.com/swapnalihinukale/sevensteps-website/tree/feat/sevensteps-rebuild). The [review folder](review/README.md) includes the checked website ZIP and its manifest alongside the source and guides. No separate file transfer is required. This is a repository link; a hosted website URL has not been created.
+
 ## Start with the review or maintenance task
 
 | Need | Read |

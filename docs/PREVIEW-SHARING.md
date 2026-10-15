@@ -1,6 +1,8 @@
 # Show the current version to the photographer
 
-Use a separate Netlify review site with the packaged placeholder website. The photographer can open its HTTPS link on their own phone or computer without installing the stack. Keep the current domain and existing sites until the later launch decision.
+The current handoff stays in the Git repository, as the user requested. Share [the branch](https://github.com/swapnalihinukale/sevensteps-website/tree/feat/sevensteps-rebuild). The committed [review folder](../review/README.md) contains the checked ZIP and manifest; the same branch holds all source, skills and maintenance guides. No hosting action is part of this handoff.
+
+For a later hosted review, use a separate Netlify site with the packaged placeholder website. The photographer can then open its HTTPS link on their own phone or computer without installing the stack. Keep the current domain and existing sites until the later launch decision. The instructions below describe that optional next step.
 
 The present `http://127.0.0.1:4321/` address works only on the computer running it. Sending that address will not show the site on someone else's device. The repository contains source and instructions, but a GitHub link is not a hosted website.
 

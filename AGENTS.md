@@ -48,6 +48,8 @@ The later focused browser run passed 27 cases: nine new review-package cases and
 
 The owner can maintain the site through assisted file-based editing using the guides and local skills. The browser checklist does not upload or save content, and there is no CMS. Keep stable slot IDs and explain that changing readiness or public JSON alone does not replace hardcoded review copy and photo calls. Use `docs/REVIEW-PACKAGE.md` to collect feedback on the current version before supplying or changing the missing material.
 
+The latest user instruction is a repository-only handoff. Keep the checked placeholder ZIP and manifest in `review/` on the same branch, with the source and documentation. Share the branch link. Do not resume Netlify account setup or upload as part of this handoff; the photographer-owned hosting choice remains available for a later explicit hosting request. Keep credentials, original archives and live enquiry data out of Git.
+
 ## Local backend and Git authorization, 15 October 2026
 
 The user authorized the next implementation steps, including the local B03 backend with synthetic data and local notification doubles. The existing review site stays non-sending. This authorization does not require live accounts before independent local backend work.

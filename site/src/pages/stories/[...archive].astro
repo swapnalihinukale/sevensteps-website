@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Arrow from '../../components/Arrow.astro';
+import Enquiry from '../../components/Enquiry.astro';
+import PhotoSpace from '../../components/PhotoSpace.astro';
+import { loadSiteContent, renderMode } from '../../lib/site-content';
+import { storyPath } from '../../lib/story-id';
+import { workCoverSizes } from '../../lib/image-sizes';
+
+export function getStaticPaths() {
+  const content = loadSiteContent();
+  return content && content.stories.length > 2 ? [{ params: { archive: undefined } }] : [];
+}
+
+const content = loadSiteContent();
+if (!content || content.stories.length <= 2) throw new Error('The story index requires more than two published stories.');
+---
+<Layout title="All stories" description={content.home.workDescription} page="portfolio">
+  <header class="wrap story-header portfolio-header">
+    <div class="breadcrumb"><a href="/#work"><Arrow direction="left" /> Back to featured stories</a></div>
+    <h1>All stories.</h1>
+    <p>{content.home.workDescription}</p>
+  </header>
+  <section class="work-section" aria-label="Photo stories">
+    <div class="wrap">
+      <div class="work-grid portfolio-grid">
+        {content.stories.map((story, index) => <article class="work-card">
+          <a href={storyPath(story.id)}>
+            <PhotoSpace photo={content.photos[story.coverPhotoId]} label={content.photos[story.coverPhotoId].alt} priority={index === 0} shape={index % 2 ? 'portrait' : 'landscape'} sizes={workCoverSizes(index)} />
+            <div class="work-card__info"><div><p class="small-label">{story.category}</p><h2>{story.title}</h2></div><Arrow /></div>
+          </a>
+        </article>)}
+      </div>
+    </div>
+  </section>
+  <Enquiry stories={content.stories} publicContact={content.contact} fixture={renderMode() === 'fixture'} />
+</Layout>
+
+<style>
+  .portfolio-header > p { max-width: 42ch; margin-top: 22px; }
+  .portfolio-grid { row-gap: 64px; }
+  .portfolio-grid > .work-card { min-width: 0; }
+  .portfolio-grid > .work-card:nth-child(even) { padding-top: 104px; }
+  .portfolio-grid .work-card__info h2 { font: 400 clamp(28px, 3vw, 40px)/1.15 var(--serif); letter-spacing: -.03em; margin-top: 8px; }
+  @media (max-width: 720px) {
+    .portfolio-grid { row-gap: 38px; }
+    .portfolio-grid > .work-card:nth-child(odd) { padding: 0 4% 0 0; }
+    .portfolio-grid > .work-card:nth-child(even) { padding: 0 0 0 8%; }
+    .portfolio-grid .work-card__info h2 { font-size: 31px; }
+  }
+</style>

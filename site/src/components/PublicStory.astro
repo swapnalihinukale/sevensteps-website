@@ -7,18 +7,22 @@ import GalleryPreview from './GalleryPreview.astro';
 import type { PublicView, PublicStory } from '../lib/public-content';
 import { renderMode } from '../lib/site-content';
 import { storyCoverSizes, storyFrameSizes } from '../lib/image-sizes';
+import { storyPath } from '../lib/story-id';
 interface Props { content: PublicView; story: PublicStory; }
 const { content: c, story } = Astro.props;
 const frames = story.photoIds.map(id => c.photos[id]);
-const other = c.stories.find(item => item.id !== story.id)!;
+const storyIndex = c.stories.findIndex(item => item.id === story.id);
+if (storyIndex < 0) throw new Error('The story must belong to the published portfolio.');
+const nextStory = c.stories[(storyIndex + 1) % c.stories.length]!;
+const workHref = c.stories.length > 2 ? '/stories/' : '/#work';
 ---
 <Layout title={story.title} description={story.description} page="story" sharePhotoId={story.coverPhotoId}><div class="reading-progress" aria-hidden="true"></div>
-  <header class="wrap story-header"><div class="breadcrumb"><a href="/#work"><Arrow direction="left" /> Back to the work</a></div><div class="story-title-row"><div><p class="small-label">{story.category}</p><h1>{story.title}</h1><p class="story-intro-copy">{story.description}</p></div><a class="text-link" href="#enquire">Talk about your plans <Arrow direction="down" /></a></div></header>
+  <header class="wrap story-header"><div class="breadcrumb"><a href={workHref}><Arrow direction="left" /> Back to the work</a></div><div class="story-title-row"><div><p class="small-label">{story.category}</p><h1>{story.title}</h1><p class="story-intro-copy">{story.description}</p></div><a class="text-link" href="#enquire">Talk about your plans <Arrow direction="down" /></a></div></header>
   <figure class="wrap story-cover"><PhotoSpace photo={c.photos[story.coverPhotoId]} label={c.photos[story.coverPhotoId].alt} tone="sand" shape="landscape" priority sizes={storyCoverSizes} />{c.photos[story.coverPhotoId].caption && <figcaption>{c.photos[story.coverPhotoId].caption}</figcaption>}</figure>
   {story.context && <section class="wrap story-note"><h2>A little context<br />before the photographs.</h2><div><p>{story.context}</p></div></section>}
   <section class="wrap gallery-section" aria-labelledby="gallery-heading"><div class="gallery-header"><h2 id="gallery-heading">Inside the story.</h2><p>Choose a photograph to see the full frame.</p></div><div class="story-grid">{frames.map((photo, index) => <figure class="story-frame" id={`frame-${index + 1}`}><a href={photo.full.src} data-viewer-trigger={index} data-frame-label={photo.alt} data-frame-src={photo.full.src} data-frame-width={photo.full.width} data-frame-height={photo.full.height} data-frame-caption={photo.caption ?? photo.alt} aria-label={`Open photograph ${index + 1}: ${photo.alt}`}><PhotoSpace photo={photo} label={photo.alt} shape="natural" sizes={storyFrameSizes(index)} /><span class="frame-open" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M4 14v6h6m10-16-7 7M4 20l7-7" stroke="currentColor" stroke-width="1.3"/></svg></span></a>{(photo.caption || photo.credit) && <figcaption><div>{photo.caption && <p>{photo.caption}</p>}{photo.credit && <span class="frame-counter">{photo.credit}</span>}</div></figcaption>}</figure>)}</div></section>
   <GalleryPreview photos={frames} review={false} />
-  <div class="wrap story-next"><p class="small-label">There’s another story to explore.</p><a href={`/stories/${other.id}/`}><h2>{other.title}</h2><Arrow /></a></div>
-  <Enquiry story={story.id} publicContact={c.contact} fixture={renderMode() === 'fixture'} />
+  <div class="wrap story-next"><p class="small-label">There’s another story to explore.</p><a href={storyPath(nextStory.id)}><h2>{nextStory.title}</h2><Arrow /></a></div>
+  <Enquiry story={story.id} stories={c.stories} publicContact={c.contact} fixture={renderMode() === 'fixture'} />
   <dialog class="viewer" data-viewer aria-labelledby="viewer-title"><div class="viewer-inner"><div class="viewer-top"><h2 id="viewer-title">{story.title}</h2><button class="control-button" data-viewer-close type="button" autofocus>Close <span aria-hidden="true">×</span></button></div><div class="viewer-stage" data-viewer-stage><PhotoSpace photo={frames[0]} label={frames[0].alt} fit="contain" shape="landscape" /></div><div class="viewer-bottom"><div class="viewer-caption"><p data-viewer-caption>{frames[0].caption ?? frames[0].alt}</p><a href={frames[0].full.src} data-viewer-original>Open full photograph</a></div><div class="viewer-controls"><button type="button" class="control-button" data-viewer-prev aria-label="Previous photograph"><Arrow direction="left" /> Previous</button><span class="viewer-position" data-viewer-position role="status" aria-live="polite">1 / {frames.length}</span><button type="button" class="control-button" data-viewer-next aria-label="Next photograph">Next <Arrow /></button></div></div></div></dialog>
 </Layout>

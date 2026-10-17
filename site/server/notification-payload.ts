@@ -11,7 +11,7 @@ export function createNotificationPayload(
   const to = normalizeEmailAddress(configuration?.to);
   if (!from || !to) throw new Error('Configure valid bare sender and recipient email addresses.');
   const value = checked.value;
-  const story = value.story === 'wedding-story' ? 'Wedding story' : value.story === 'couple-session' ? 'Couple session' : 'Not selected';
+  const story = value.story === 'wedding-story' ? 'Wedding story' : value.story === 'couple-session' ? 'Couple session' : value.story || 'Not selected';
   return Object.freeze({
     from, to, subject: 'New website enquiry', replyTo: value.email,
     text: [

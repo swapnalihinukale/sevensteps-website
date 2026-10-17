@@ -13,7 +13,8 @@ export function storyFrameSizes(index: number): string {
 export const homeHeroSizes = `(max-width: 720px) ${length(normal)}, (max-width: 1000px) ${length(normal, .95 / 2.02)}, (min-width: 1600px) ${length(wide, .91 / 2.02)}, ${length(normal, .94 / 2.02)}`;
 export const homeCompanionSizes = `(max-width: 380px) ${length(normal, .4)}, (max-width: 720px) ${cap(166.5, length(normal, .37))}, (max-width: 1000px) ${cap(176, length(normal, .95 * 1.02 / 2.02 * .4))}, (min-width: 1600px) ${cap(176, length(wide, .91 * 1.02 / 2.02 * .4))}, ${cap(176, length(normal, .94 * 1.02 / 2.02 * .4))}`;
 export function workCoverSizes(index: number): string {
-  const fraction = index === 0 ? .93 * 1.17 / 2.17 : .93 / 2.17;
-  return `(max-width: 720px) ${length(normal, index === 0 ? .96 : .92)}, (min-width: 1600px) ${length(wide, fraction)}, ${length(normal, fraction)}`;
+  const firstColumn = index % 2 === 0;
+  const fraction = firstColumn ? .93 * 1.17 / 2.17 : .93 / 2.17;
+  return `(max-width: 720px) ${length(normal, firstColumn ? .96 : .92)}, (min-width: 1600px) ${length(wide, fraction)}, ${length(normal, fraction)}`;
 }
 export const portraitSizes = `(max-width: 720px) ${cap(350, length(normal, .4))}, (max-width: 1000px) ${cap(350, length(normal, .93 * .8 / 2.05))}, (min-width: 1600px) ${cap(350, length(wide, .9 * .8 / 2.05))}, ${cap(350, length(normal, .9 * .8 / 2.05))}`;

@@ -16,7 +16,7 @@ export function checkPublicArtifact(directory, mode) {
   }
   walk(directory);
   const pages = files.filter(path => path.endsWith('.html'));
-  if (!existsSync(join(directory, 'index.html')) || pages.length < 4) failures.push('Expected homepage, two stories and error page.');
+  if (!existsSync(join(directory, 'index.html')) || pages.length < 4) failures.push('Expected homepage, at least two stories and error page.');
   if (!existsSync(join(directory, 'sitemap.xml')) || !existsSync(join(directory, 'robots.txt'))) failures.push('Missing search discovery files.');
   for (const path of files) {
     const name = path.slice(directory.length);

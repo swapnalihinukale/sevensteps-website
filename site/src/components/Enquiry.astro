@@ -2,13 +2,20 @@
 import ContentNote from './ContentNote.astro';
 import Arrow from './Arrow.astro';
 import { emailContact } from '../lib/email-contact';
+import { isStoryId } from '../lib/story-id';
+import { projects } from '../data/content';
 import '../styles/enquiry.css';
 interface Props {
   story?: string;
+  stories?: readonly { id: string; title: string }[];
   publicContact?: { heading: string; introduction: string; email: string; privacyText: string; replyNote: string };
   fixture?: boolean;
 }
-const { story = '', publicContact, fixture = false } = Astro.props;
+const { story = '', stories = projects, publicContact, fixture = false } = Astro.props;
+if (stories.some(choice => !isStoryId(choice.id) || !choice.title.trim()) || new Set(stories.map(choice => choice.id)).size !== stories.length) {
+  throw new Error('Enquiry stories need unique valid IDs and a visible title.');
+}
+if (story && !stories.some(choice => choice.id === story)) throw new Error('The selected enquiry story needs a matching choice.');
 const contactLink = publicContact ? emailContact(publicContact.email) : null;
 const localLab = import.meta.env.PUBLIC_SITE_MODE === 'review' && import.meta.env.ENQUIRY_LOCAL_LAB === '1';
 ---
@@ -22,7 +29,7 @@ const localLab = import.meta.env.PUBLIC_SITE_MODE === 'review' && import.meta.en
     <div class="form-notice" id="draft-form-notice">{localLab ? <><p><strong>Local enquiry test.</strong> Use sample details only.</p><p>This form stores a test enquiry in a temporary database on this computer. It sends no email. Stopping the test removes its data.</p></> : <><p><strong>Draft enquiry form.</strong> Add the receiving address before this can send.</p><p>Use sample details to try the fields. This draft does not send or save them.</p></>}</div>
     <form data-enquiry-form={!localLab || undefined} data-enquiry-active-form={localLab || undefined} method={localLab ? 'post' : undefined} action={localLab ? '/api/enquiries' : undefined} novalidate={!localLab} aria-describedby="draft-form-notice">
       {localLab && <div class="enquiry-errors" data-enquiry-errors tabindex="-1" hidden></div>}
-      <div class="story-context"><label for="story-context">Story you’re interested in</label><select id="story-context" name={localLab ? 'story' : undefined}><option value="" selected={!story}>No story selected</option><option value="wedding-story" selected={story === 'wedding-story'}>Wedding story</option><option value="couple-session" selected={story === 'couple-session'}>Couple session</option></select></div>
+      <div class="story-context"><label for="story-context">Story you’re interested in</label><select id="story-context" name={localLab ? 'story' : undefined}><option value="" selected={!story}>No story selected</option>{stories.map(choice => <option value={choice.id} selected={story === choice.id}>{choice.title}</option>)}</select></div>
       <div class="form-row"><div class="field"><label for="enquiry-name">Your name</label><input id="enquiry-name" name={localLab ? 'name' : undefined} autocomplete="off" maxlength="100" placeholder="Your name" aria-required="true" required={localLab} /></div><div class="field"><label for="enquiry-email">Email address</label><input id="enquiry-email" name={localLab ? 'email' : undefined} type="email" inputmode="email" autocomplete="off" maxlength="254" placeholder="you@example.com" aria-required="true" required={localLab} /></div></div>
       <div class="form-row"><div class="field"><label for="enquiry-date">When <span class="field-help">(optional)</span></label><input id="enquiry-date" name={localLab ? 'when' : undefined} maxlength="120" placeholder="A date, month or still deciding" autocomplete="off" /></div><div class="field"><label for="enquiry-place">Where <span class="field-help">(optional)</span></label><input id="enquiry-place" name={localLab ? 'where' : undefined} maxlength="200" placeholder="A city or a place in mind" autocomplete="off" /></div></div>
       <div class="field"><label for="enquiry-note">A little about your plans <span class="field-help">(optional)</span></label><textarea id="enquiry-note" name={localLab ? 'message' : undefined} rows="3" maxlength="4000" placeholder="What would you like photographed?" autocomplete="off"></textarea></div>

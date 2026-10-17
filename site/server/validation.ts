@@ -1,5 +1,6 @@
 import type { Enquiry } from './contracts.ts';
 import { domainToASCII } from 'node:url';
+import { isStoryId } from '../src/lib/story-id.ts';
 
 export type EnquiryValidation =
   | { ok: true; value: Enquiry }
@@ -82,7 +83,8 @@ export function validateEnquiry(input: unknown): EnquiryValidation {
       if (!email) errors.email = 'Enter a valid email address of at most 254 bytes.';
       else value.email = email;
     } else if (field === 'story') {
-      if (text !== '' && text !== 'wedding-story' && text !== 'couple-session') errors.story = 'Choose one of the available stories or leave it unselected.';
+      // Context may outlive a portfolio edit, so do not require current membership.
+      if (text !== '' && !isStoryId(text)) errors.story = 'Choose one of the available stories or leave it unselected.';
       else value.story = text;
     } else {
       const limit = field === 'when' ? 120 : field === 'where' ? 200 : 4000;

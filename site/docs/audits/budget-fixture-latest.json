@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-15T13:05:47.654Z",
+  "generatedAt": "2026-10-17T03:10:50.456Z",
   "dist": "dist-fixture",
-  "artifactSha256": "e86240e7b720e98b0e509a99f4c3cfac5b16940f643fa21753a577622baec440",
+  "artifactSha256": "30ce216b60ba4844ea61b4ac70718b458001b45896400dac6334eb37a4a093a9",
   "result": "pass-artifact-limits",
   "methodology": "Sum gzip level-9 bytes for every emitted CSS and JS file, the largest gzip HTML file, and raw bytes for every emitted font. This is a conservative file envelope, not a measured initial request graph.",
   "limitations": [
@@ -30,7 +30,7 @@
     },
     {
       "name": "html",
-      "measuredBytes": 4589,
+      "measuredBytes": 4587,
       "limitBytes": 35840,
       "pass": true
     },
@@ -42,7 +42,7 @@
     },
     {
       "name": "shell",
-      "measuredBytes": 94696,
+      "measuredBytes": 94694,
       "limitBytes": 358400,
       "pass": true
     }
@@ -51,9 +51,9 @@
     {
       "path": "404.html",
       "group": "html",
-      "bytes": 3812,
-      "gzipBytes": 1190,
-      "sha256": "950711c1b47880563262ac968e1106740af89c7a31e98ee94e1591c8d343e0fb"
+      "bytes": 3818,
+      "gzipBytes": 1192,
+      "sha256": "46cb6e7bd41cd68a25e41fc0a5b1e75329d19afbe8b7e0ba37c81a385f527248"
     },
     {
       "path": "_astro/Layout.astro_astro_type_script_index_0_lang.Ct_bYwNc.js",
@@ -93,9 +93,9 @@
     {
       "path": "index.html",
       "group": "html",
-      "bytes": 23199,
-      "gzipBytes": 4174,
-      "sha256": "1b80f5fccb81d822f17bac984353d0c2954a3a8fbfc6d9204e00b7b742af8f4d"
+      "bytes": 23476,
+      "gzipBytes": 4214,
+      "sha256": "32ebfd49d7f685a0b5ce78b55d9b10715ee6109bf8a1615b0ecaf4f4020e309e"
     },
     {
       "path": "licenses/source-sans-3-OFL.txt",
@@ -317,23 +317,44 @@
     {
       "path": "sitemap.xml",
       "group": "other",
-      "bytes": 290,
+      "bytes": 488,
       "gzipBytes": null,
-      "sha256": "4c1824288a34920b3880c959f8811655e3b8567dd0d2fe812a06d8d9368f0ee7"
+      "sha256": "d299fd292175d03b0e42ada4e2a4c78387756a3e9be6e1835a206c5345d3b23a"
     },
     {
       "path": "stories/couple-session/index.html",
       "group": "html",
-      "bytes": 28241,
-      "gzipBytes": 4578,
-      "sha256": "e02dc78a150e07c1dc3b561a82d0c47a5e48369221cdbe1dbb627e7be19e9a18"
+      "bytes": 28277,
+      "gzipBytes": 4581,
+      "sha256": "17aa112cb3e2e10c500ef771590d6ff4cb99e86d06af3a791d1f026508aa7ac3"
+    },
+    {
+      "path": "stories/index.html",
+      "group": "html",
+      "bytes": 18843,
+      "gzipBytes": 3644,
+      "sha256": "9766d5417ed1ad43d4a942b9bdab383f348b834106eff24942a0c11f72337972"
+    },
+    {
+      "path": "stories/sample-celebration/index.html",
+      "group": "html",
+      "bytes": 23364,
+      "gzipBytes": 4222,
+      "sha256": "a6e78fec7978120b0de9a493c2c56674b761fc6e27101342237d4961a70f4570"
+    },
+    {
+      "path": "stories/sample-gathering/index.html",
+      "group": "html",
+      "bytes": 23386,
+      "gzipBytes": 4128,
+      "sha256": "75f375db1a468a1118dfa96ebc9cddcc0258585e592bb8eb07ae693642b624ca"
     },
     {
       "path": "stories/wedding-story/index.html",
       "group": "html",
-      "bytes": 28542,
-      "gzipBytes": 4589,
-      "sha256": "b3bcad5c637fdc92039349334140769d39dadafd3cabdbc84de30c363658d816"
+      "bytes": 28575,
+      "gzipBytes": 4587,
+      "sha256": "287c35f5a97d58fe64e47abf6c3a46fc37dc09a6551f3904dd3900976e1bc95c"
     }
   ]
 }

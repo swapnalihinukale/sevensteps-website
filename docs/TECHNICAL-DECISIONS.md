@@ -1,8 +1,6 @@
 # Seven Steps technical decisions
 
-**Implementation update, 15 October 2026:** The user authorized direction A and the local private draft now exists in `site/`. The decisions below remain the engineering record. Follow `EXECUTION-PLAN.md` and the implementation verification ledger for current completion and test status. The private draft has passed its scoped checks. The fixed B03 platform is Netlify static/Functions/Database with Resend, as recorded in [the provider decision](LIVE-ENQUIRY-PROVIDER-DECISION.md). Public rendering, cleared media and live receipt remain separate release work.
-
-15 October 2026. The user asked for the architecture and review work that can be completed in the current session. This document records the engineering defaults for the later build. The agent has not created the website, selected business accounts or run website tests. The user still needs to choose or revise the visual concept.
+**Updated 17 October 2026:** The Astro draft, public templates, image pipeline and local enquiry backend exist in `site/`. Direction A remains selected. The portfolio now grows from content within one site; [local verification](../EXECUTION-PLAN.md#17-october-verification) is recorded, with commit and CI pending. The fixed B03 platform is Netlify static/Functions/Database with Resend, as recorded in [the provider decision](LIVE-ENQUIRY-PROVIDER-DECISION.md). B06's real-content candidate preview, controlled media provisioning and live activation remain unfinished.
 
 ## Decision
 
@@ -32,7 +30,7 @@ Select maintained package versions at the installation step, review lifecycle sc
 
 ## Minimum site and component boundaries
 
-The first private review contains a homepage and two story views: wedding A and outdoor couple B. Use two visible story links. Add a recoverable 404 and a private content checklist. Shared experience/about/enquiry sections can stay on the homepage; add separate pages only when the content warrants them.
+Use one website and domain. Share `/` as the main visitor entry point, with exactly two featured assignments and links to `/stories/<id>/`. Generate `/stories/` as an archive once the public collection has more than two stories. Generate detail routes, navigation and sitemap entries from the same content. The ordinary review keeps its two placeholder stories, recoverable 404 and review-only `/content-checklist/`. Developer preview and test ports do not define additional public websites.
 
 | Component or boundary | Responsibility | Exclusions |
 |---|---|---|
@@ -51,11 +49,15 @@ Keep the first phone opening usable at narrow and short heights. Show brand/serv
 
 Define four records before component work: site identity/contact, project, photograph and content slot. Use stable IDs and validate cross-references, unique public slugs, dimensions and readiness. A project references one assignment's ordered photographs. A slot can refer to the same photograph as a story cover without requesting a duplicate asset.
 
+The 17 October public contract accepts 2 to 24 stories with unique IDs matching `^[a-z0-9]+(?:-[a-z0-9]+)*$`, from 1 to 80 characters. Retain `wedding-story` and `couple-session` for the existing 27 checklist records. Add assignments through `content/public.json` and their image inputs. Optional `home.featuredStoryIds` contains exactly two distinct existing IDs in homepage order; omission selects the first two stories. The `stories` array controls archive order and next-story links, wrapping from last to first. Keep the static architecture and existing packages; no CMS is required.
+
+The four-story fixture uses synthetic content to exercise archive growth and remains outside ordinary review and public output. This does not complete B06: a guarded real-content candidate still needs to render before release approval without weakening the production gate.
+
 During implementation, migrate the 27-slot Markdown register into one schema-backed content source and generate the draft notes/checklist from it. Retain the current inventory as the planning record or a generated snapshot; do not require editors to keep two live registers in sync.
 
 Keep rights correspondence, confidential source references and originals outside public assets and client bundles. Prepare a small set of permitted web masters, then use Astro's asset pipeline or a reviewed build step for derivatives. Inspect metadata stripping, orientation, colour, skin tones, fabric and low-light detail. Store or retrieve those web masters through a documented process that a clean build can reproduce. Do not accept owner-supplied MDX or unrestricted HTML as ordinary content.
 
-Use explicit **review** and **public** build modes. Review mode permits missing content and includes the checklist and Add/Replace notes. It uses local test doubles for enquiry delivery. Public mode exports only whitelisted public fields, omits review routes/notes and fails if retained required identity, work or contact content is unresolved. Check HTML, scripts, JSON, source maps and metadata for leakage. Hiding notes with CSS is insufficient.
+Use explicit **review** and **public** build modes. Review mode permits missing content and includes the checklist and Add/Replace notes; its form stays non-sending. Separate integration labs use synthetic enquiries and local notification doubles. Public mode exports only whitelisted public fields, omits review routes/notes and fails if retained required identity, work or contact content is unresolved. Check HTML, scripts, JSON, source maps and metadata for leakage. Hiding notes with CSS is insufficient.
 
 Use synthetic data for test/preview receiving systems. A provider's automatic database preview branch may copy production data. Prevent that behavior or use an empty isolated database before deploying previews. Confirm preview access controls for any uncleared material; noindex does not restrict access.
 
@@ -73,14 +75,14 @@ Explicit Play must work while its control retains keyboard focus or pointer hove
 
 ## Live enquiry contract
 
-Static Astro output cannot handle a future visitor's POST by itself. Keep that receiver in an isolated function or service at the same origin. The private review remains non-sending until B03.
+Static Astro output cannot handle a future visitor's POST by itself. Keep that receiver in an isolated function or service at the same origin. The ordinary review remains non-sending; the local B03 labs use synthetic data.
 
 Retain the strict contract. The managed Netlify Forms documentation establishes submission storage and notifications, but it does not establish the required atomic idempotency and arbitrary server-side validation; its honeypot can silently reject submissions. The [enquiry review](ENQUIRY-ARCHITECTURE-REVIEW.md) records why it is not the selected baseline under these requirements.
 
-Use a small receipt handler and one managed transactional store, with an outbox in the same store. A managed PostgreSQL service is a suitable default class. Netlify Functions plus Netlify Database and Resend are now selected for B03 under [the provider decision](LIVE-ENQUIRY-PROVIDER-DECISION.md); verify the actual account, billing, preview isolation and data-handling conditions before activation. No database or function exists yet.
+Use a small receipt handler and one managed transactional store, with an outbox in the same store. A managed PostgreSQL service is a suitable default class. Netlify Functions plus Netlify Database and Resend are selected for B03 under [the provider decision](LIVE-ENQUIRY-PROVIDER-DECISION.md); verify the actual account, billing, preview isolation and data-handling conditions before activation. Function adapters and local database tests exist; live services remain unverified.
 
 1. The browser sends bounded fields, a random per-submission idempotency token and optional public story ID. Display that story context so the visitor can remove or change it. Require a short name and one reply destination in the provisional form; allow uncertain date/place and an optional note. Confirm the useful fields with the responder before live integration.
-2. The handler validates types, lengths and allowed fields, applies bounded abuse controls, and checks any referenced story. It inserts the enquiry and an outbox record in one transaction, with a unique key for the logical submission. Define key scope/lifetime. Reuse with conflicting content returns a safe conflict state rather than silently changing an existing enquiry.
+2. The handler validates types, lengths and allowed fields and applies bounded abuse controls. Optional story context must match the safe slug syntax above; accept past story IDs so catalogue changes do not invalidate retries. Treat the ID as untrusted context, not proof of client identity or an assignment. Insert the enquiry and an outbox record in one transaction, with a unique key for the logical submission. Define key scope/lifetime. Reuse with conflicting content returns a safe conflict state rather than silently changing an existing enquiry.
 3. Return a stable receipt result after the transaction commits. A concurrent request or retry with the same key returns the existing result without adding a second logical enquiry. Return only the necessary status/reference; do not expose stored personal data through a guessable status endpoint.
 4. Dispatch notification after commit. A worker claims the outbox item with bounded retries and records provider acceptance/failure. Require documented provider idempotency or a tested equivalent that passes ENQ-03 and ENQ-05. Keep retries within its guarantee and reconcile unknown outcomes outside that window. If the guarantee is unmet, keep live activation blocked under the current contract; a weaker path needs an explicit scope/contract change. Provider acceptance does not prove final inbox delivery.
 5. Preserve failed notifications for the named operator's recovery. Prefer a post-commit attempt plus a repair sweep suited to the provider's billing and failure tolerance. Frequent polling can keep a sleeping database awake. Do not assume a zero-cost workload or introduce a second queue service without need.
@@ -93,7 +95,7 @@ The enhanced form can use JSON POST. If JavaScript fails or is disabled, show a 
 
 ## Implementation order and acceptance
 
-| Slice | Build after the user authorizes coding | Acceptance for this slice |
+| Slice | Scope | Acceptance for this slice |
 |---|---|---|
 | 1: foundation | Separate app runtime/lockfile, Astro static output, content schemas, review/public modes and two story routes | Clean build; required/optional readiness rules; no draft or private field leakage into public output; COPY-01. |
 | 2: reading experience | Header, mobile opening, two visible work links, one complete story template and contact section | Native navigation, missing-content states, keyboard/zoom and sampled widths; coherent mobile order. |
@@ -104,7 +106,7 @@ The enhanced form can use JSON POST. If JavaScript fails or is disabled, show a 
 
 The slices describe a work order, not a requirement to wait for originals before interaction work. Build layout, viewer and motion-state behavior with labelled placeholders while real-image quality and byte-budget checks remain pending. Final code and rendered-design review is V02; complete it before public release.
 
-Select the smallest useful test set: schema/content validation, nontrivial enquiry/retry/motion state logic, integration tests for receipt failures, Playwright for critical journeys, axe-core plus human keyboard/assistive checks, and controlled performance traces. Audit test/build dependencies as well as production dependencies. No website tests have run in this review.
+Select the smallest useful test set: schema/content validation, nontrivial enquiry/retry/motion state logic, integration tests for receipt failures, Playwright for critical journeys, axe-core plus human keyboard/assistive checks, and controlled performance traces. Audit test/build dependencies as well as production dependencies. Use dated evidence for completed runs; the earlier results do not verify the 17 October structure change.
 
 ## Decisions still requiring external facts
 
@@ -120,4 +122,4 @@ The app host catalogue listed GPT-6.1 Sol, but an isolated inference probe reque
 
 ## Completion boundary
 
-Architecture tradeoffs and the prebuild design review are complete for the current scope. The agent has corrected planning inconsistencies and specified failure-path tests. Website bug fixing, final code review and rendered design approval remain later tasks because no implementation exists. The user can hand this decision record and the execution plan to the build model without asking it to repeat the reference study.
+The architecture and prebuild design review support the existing implementation. Confirm CI for the 17 October structure change after committing it. B06's real-content preview, real-media and device checks, live activation and final release review remain open in [the work plan](../EXECUTION-PLAN.md). Continue from the code and recorded research.

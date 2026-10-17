@@ -21,6 +21,10 @@ The project includes these skills and their provenance. Read them as files if yo
 
 The branch contains [the review ZIP](../review/README.md), source and guides. Review pages retain 27 Add/Replace groups and a non-sending form. Collect feedback against page URLs and content IDs. Use the [content schema](../site/content/README.md) and [media guide](../site/docs/MEDIA-PIPELINE.md) when adding supplied material.
 
+For the 17 October 2026 structure change, keep one site/domain and two homepage features. Generate detail routes, navigation and sitemap from the 2 to 24 story records; add `/stories/` only above two stories. Keep the two review placeholders and checklist IDs. Use the [story editing contract](../site/content/README.md#add-a-story-and-choose-the-homepage-features), including feature order and next-story wrapping. Four synthetic fixture stories exercise growth and stay out of review/public output. Developer ports are local tools; share the public homepage as the visitor entry point.
+
+The [17 October local checks](../EXECUTION-PLAN.md#17-october-verification) passed 45 unit, 104 backend and 13 package tests. The full browser run passed 155/156; after a test-only macOS WebKit Option+Tab correction, the affected case passed in all three engines. All scenarios passed across those runs, with no clean full rerun claimed. Commit and CI remain pending.
+
 Implement B06's isolated real-content preview before seeking release approval. Current public builds require release evidence before rendering; review and fixture modes cannot provide that final candidate. Preserve the production gate and add tests for the new preview boundary. See [Launch, step 3](LAUNCH.md#3-prepare-the-real-candidate-after-the-placeholder-review).
 
 Other open code and verification tasks appear in the implementation handoff. Missing photos do not prevent that engineering work. Keep optional features tied to an agreed requirement.
@@ -29,7 +33,7 @@ Other open code and verification tasks appear in the implementation handoff. Mis
 
 Check the branch, remote and working tree before editing. Preserve `website/`, keep `master` unchanged and use reviewable commits on the existing branch. Do not force-push or substitute a fork.
 
-Follow the maintainer guide's checks for the affected behavior. Inspect rendered UI after visual changes. Run one build per output directory and let Playwright manage its test servers. The latest recorded [CI run](https://github.com/swapnalihinukale/sevensteps-website/actions/runs/38757678728) passed 135 browser cases at `3c57720`; report your new checks separately.
+Follow the maintainer guide's checks for the affected behavior. Inspect rendered UI after visual changes. Run one build per output directory and let Playwright manage its test servers. The earlier [CI run](https://github.com/swapnalihinukale/sevensteps-website/actions/runs/38757678728) passed 135 browser cases at `3c57720`; it predates the structure change. Record new checks against the changed build.
 
 Keep review forms non-sending and use synthetic enquiries in local labs. Keep credentials, private correspondence, originals and enquiry records outside Git and public output. Publishing, paid services, DNS/account changes and live messages require their specific authorization. Approval files must record completed checks.
 

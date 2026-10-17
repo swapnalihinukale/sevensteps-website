@@ -11,6 +11,8 @@ const tagline = content?.site.tagline ?? 'Photography & films';
 const canonical = content && !noindex ? new URL(Astro.url.pathname, content.site.origin).href : undefined;
 const share = sharePhotoId && content?.photos[sharePhotoId];
 const indexable = renderMode() === 'public' && !noindex;
+const workHref = content && content.stories.length > 2 ? '/stories/' : '/#work';
+const workCurrent = page === 'portfolio' ? 'page' : page === 'story' ? 'location' : undefined;
 ---
 <!doctype html>
 <html lang="en" data-motion="full">
@@ -29,9 +31,9 @@ const indexable = renderMode() === 'public' && !noindex;
     {isReview && <aside class="draft-bar" aria-label="Website draft"><div><span class="draft-dot" aria-hidden="true"></span><p><strong>Website draft.</strong> Add the missing photos and details using the content checklist.</p><a href="/content-checklist/">View content checklist <Arrow /></a></div></aside>}
     <header class="site-header">
       <a href="/" class="wordmark" aria-label={`${name} home`}><span>{content ? name : 'seven steps'}<span class="wordmark-dot">.</span></span><span class="wordmark-sub">{tagline}</span></a>
-      <nav class="desktop-nav" aria-label="Main navigation"><a href="/#work" aria-current={page === 'story' ? 'location' : undefined}>The work</a><a href="/#approach">The approach</a><a class="nav-enquiry" href="/#enquire">Let’s talk <Arrow /></a></nav>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href={workHref} aria-current={workCurrent}>The work</a><a href="/#approach">The approach</a><a class="nav-enquiry" href="/#enquire">Let’s talk <Arrow /></a></nav>
       <button class="menu-button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle hidden>Menu <span class="menu-lines" aria-hidden="true"></span></button>
-      <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden><a href="/#work">The work <Arrow /></a><a href="/#approach">The approach <Arrow /></a><a href="/#enquire">Let’s talk <Arrow /></a>{isReview && <a href="/content-checklist/">Content checklist</a>}</nav>
+      <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden><a href={workHref} aria-current={workCurrent}>The work <Arrow /></a><a href="/#approach">The approach <Arrow /></a><a href="/#enquire">Let’s talk <Arrow /></a>{isReview && <a href="/content-checklist/">Content checklist</a>}</nav>
     </header>
     <main id="main" tabindex="-1"><slot /></main>
     <footer class="site-footer">

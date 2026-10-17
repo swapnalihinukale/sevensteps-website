@@ -1,6 +1,8 @@
 # Maintain your Seven Steps website
 
-Run and edit the website in `site/`. Your current preview includes labelled photo spaces and a content checklist; the enquiry form does not send messages. To review the layout without editing code, start with [Review the site](../review/README.md).
+Run and edit the website in `site/`. Your current preview includes two placeholder stories and a content checklist; the enquiry form does not send messages. To review the layout without editing code, start with [Review the site](../review/README.md).
+
+Use one public domain and share its homepage. The homepage features two assignments; each has a page at `/stories/<id>/`. With more than two public stories, the build adds `/stories/` as the archive. The checklist stays review-only. Developer ports below serve previews and tests, not separate public websites.
 
 ## Run it on your computer
 
@@ -82,7 +84,14 @@ For the finished website:
 
 Do not create an approval file just to get a preview. A changed photo or content file needs another check and updated hashes before release.
 
-The two story IDs are fixed: `wedding-story` and `couple-session`. Adding a story also requires changes to routes, navigation, enquiry context, schema and tests. Film, team and logo-artwork sections still need implementation if you want to include them.
+### Add a story or change the homepage features
+
+1. Add the assignment's image inputs to `site/content/media.json`, prepare them and inspect the derivatives as above.
+2. Add a story record to `site/content/public.json`. Keep `wedding-story` and `couple-session` for the existing checklist. Add further records with unique IDs using 1 to 80 lowercase ASCII letters, digits and single hyphens between segments. The public collection accepts 2 to 24 stories.
+3. Set `home.featuredStoryIds` to two distinct story IDs in the desired homepage order. Omit this field to feature the first two stories. Order the `stories` array for the archive and next-story links; the last story links back to the first.
+4. Follow the [public content schema](../site/content/README.md#add-a-story-and-choose-the-homepage-features), run the checks and inspect the added page, archive, navigation and sitemap. Complete the real-content preview and release approval steps above before publishing.
+
+Routes, navigation and sitemap entries come from those records; adding a story needs no new page file or package. The ordinary review keeps its two placeholders. The four-story fixture uses synthetic images to exercise a larger collection and stays out of review/public output. Film, team and logo-artwork sections still need implementation if you want to include them.
 
 The production build needs a secure way to obtain the selected web masters because they are absent from Git. Set that up before building on a remote host. Keep originals out of `public/` and test images out of the production portfolio.
 
@@ -159,7 +168,7 @@ node scripts/budget.mjs dist-fixture docs/audits/budget-fixture-latest.json
 npm audit --audit-level=high
 ```
 
-`test:build` restores the ordinary review, so package it after that command. Before Playwright starts, stop your servers on ports **4322 through 4325** with Ctrl+C. Playwright starts those servers and cleans up their databases. It can reuse port 4321; check that the existing preview serves the current build. Do not stop unrelated PostgreSQL services or run simultaneous builds into the same directory.
+`test:build` restores the ordinary review, so package it after that command. Before Playwright starts, stop your servers on ports **4321 through 4325** with Ctrl+C. Playwright owns those servers and cleans up its temporary databases. Its preview command uses `--ignore-lock` to keep Astro in the foreground when an assistant runs the tests. Do not stop unrelated PostgreSQL services or run simultaneous builds into the same directory.
 
 Check these before publishing your photos:
 
@@ -221,10 +230,12 @@ Additional source locations:
 | Path | Contents |
 |---|---|
 | `site/src/pages/[reviewPage].astro` | Review checklist route; no public or fixture route. |
+| `site/src/pages/stories/` | Content-generated story pages and the archive for collections with more than two stories. |
 | `site/src/pages/404.astro`, `robots.txt.ts`, `sitemap.xml.ts` | Recovery page and search metadata. |
 | `site/src/content.config.ts`, `site/scripts/content-check.mjs` | Content-record schema and validation. |
 | `site/src/lib/public-content.ts`, `site-content.ts`, `public-assets.ts` | Public field allowlist, fixed input paths, release checks and exact asset/hash checks. |
 | `site/src/lib/image-sizes.ts`, `media.ts` | Layout-matched image sizes and photograph types. |
+| `site/src/lib/story-id.ts` | Safe story slugs and paths, also used for optional enquiry context. |
 | `site/src/scripts/enquiry-client.ts` | Active form states and receipt recovery. |
 | `site/server/` | Input validation, tokens, HTTP handling, database, notification worker and provider events. |
 | `site/server/migrations/`, `site/server/operator-views.sql` | Database schema and restricted retrieval/reconciliation views. |

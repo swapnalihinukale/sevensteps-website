@@ -39,7 +39,7 @@ Keep **Close to the people**, the selected working design. Reuse its paired open
 
 Preserve requested arrows, transitions and horizontal/vertical motion. Galleries start paused. Keep pause/reset controls, keyboard access and reduced-motion behavior. Use the saved [responsive](docs/RESPONSIVE-AND-RELIABILITY-SPEC.md), [motion](docs/MOTION-AND-INTERACTION-SPEC.md) and [quality](docs/QUALITY-AND-SECURITY-GATES.md) checks for changes to those features.
 
-Report tests against the commit or build checked. Do not claim physical-device coverage from resized desktop browsers, or real-photo performance from placeholders. VoiceOver and the full real-device matrix remain unfinished. Stop manual servers on ports 4322 through 4325 before Playwright starts its test servers.
+Report tests against the commit or build checked. Do not claim physical-device coverage from resized desktop browsers, or real-photo performance from placeholders. VoiceOver and the full real-device matrix remain unfinished. Stop manual servers on ports 4321 through 4325 before Playwright starts its test servers. Playwright runs Astro in the foreground and refuses to reuse a running server.
 
 ## Remaining implementation
 

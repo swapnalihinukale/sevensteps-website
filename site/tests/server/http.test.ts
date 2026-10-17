@@ -185,6 +185,28 @@ test('same-key retry returns the same receipt and changed content returns confli
   assert.equal(h.calls.claim.length, 1);
 });
 
+test('a new portfolio slug keeps one receipt and notification through a recreated handler and retry', async () => {
+  const h = harness();
+  const token = h.tokens.issue(initialTime).token;
+  const value = { ...enquiry, story: 'family-at-home' };
+  const first = await h.api(post(token, value), visitor);
+  assert.equal(first.status, 201);
+  const receipt = await responseData(first);
+  // A later handler has no dependency on a current portfolio catalogue.
+  const nextHandler = createEnquiryApi(h.dependencies);
+  const repeated = await nextHandler(post(token, { ...value, story: ' family-at-home ' }), visitor);
+  assert.equal(repeated.status, 200);
+  assert.deepEqual(await responseData(repeated), receipt);
+  const changed = await nextHandler(post(token, { ...value, story: 'portraits-in-pune' }), visitor);
+  assert.equal(changed.status, 409);
+  assert.equal((await responseData(changed)).code, 'conflict');
+  assert.equal(h.records.size, 1);
+  assert.equal(h.calls.send.length, 1);
+  assert.equal(h.calls.claim.length, 1);
+  assert.equal(h.calls.accept[0].enquiry.story, value.story);
+  assert.ok(h.calls.send[0].payload.text.includes('Story: family-at-home'));
+});
+
 test('malformed JSON and extra envelope fields never reach storage', async () => {
   const h = harness();
   const token = h.tokens.issue(initialTime).token;
@@ -288,7 +310,7 @@ test('reports safe field errors for controls, extra fields, bad types and oversi
     { ...enquiry, email: `${enquiry.email}\r\nBcc: other@example.test` },
     { ...enquiry, name: 'Name\nMore' }, { ...enquiry, where: 42 },
     { ...enquiry, message: 'x'.repeat(4001) }, { ...enquiry, sender: 'other@example.test' },
-    { ...enquiry, story: 'unavailable-story' },
+    { ...enquiry, story: '../unavailable-story' },
   ]) {
     const response = await h.api(post(token, input), visitor);
     assert.equal(response.status, 422);

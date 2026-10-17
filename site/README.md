@@ -84,7 +84,7 @@ npm run budget
 node scripts/dependency-report.mjs
 ```
 
-On Linux, use Playwright's `--with-deps` install option for system libraries. Stop your servers on ports **4322 through 4325** before Playwright starts its test servers. It can reuse port 4321 if that preview serves the current build. `test:build` restores the review, so run `package:review` after it.
+On Linux, use Playwright's `--with-deps` install option for system libraries. Stop your servers on ports **4321 through 4325** before Playwright starts its test servers. It starts fresh servers and keeps Astro in the foreground with `--ignore-lock`. `test:build` restores the review, so run `package:review` after it.
 
 `npm run test` runs unit, image, package, PostgreSQL and browser tests. It does not install browsers or prepare builds. For a smaller change, run `test:unit`, `test:media`, `test:review-package`, `test:server` or `test:e2e` as appropriate. `scripts/preview-measure.mjs` measures the running ordinary preview.
 

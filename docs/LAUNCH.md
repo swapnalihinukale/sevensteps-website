@@ -49,7 +49,7 @@ Your first public site can use the confirmed email link. With permission, send a
 
 Use a clean checkout of the reviewed commit, Node 22.23.2 and npm 10.9.8. Your developer still needs to implement and verify how a remote build retrieves your permitted web masters from controlled storage. Record input hashes; keep credentials out of the build record.
 
-Install [the test prerequisites](MAINTAINER-GUIDE.md#install-test-prerequisites), including native PostgreSQL and Playwright browsers. Stop existing test servers on ports 4322 to 4325. Then run from `site/`:
+Install [the test prerequisites](MAINTAINER-GUIDE.md#install-test-prerequisites), including native PostgreSQL and Playwright browsers. Stop manual servers on ports 4321 to 4325 so Playwright can start its own. Then run from `site/`:
 
 ```sh
 npm ci --ignore-scripts

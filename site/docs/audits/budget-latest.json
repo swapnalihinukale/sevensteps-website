@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-15T13:05:47.606Z",
+  "generatedAt": "2026-10-17T03:03:10.195Z",
   "dist": "dist",
-  "artifactSha256": "2b7ba77fad279cac84f44da5ec9db46f6c5437910ef4539adb82e34835ab5d49",
+  "artifactSha256": "ccf526ef5890e7aeafbe80f1f33d245bcb1fb4d16ea70f542856aaa034a39512",
   "result": "pass-artifact-limits",
   "methodology": "Sum gzip level-9 bytes for every emitted CSS and JS file, the largest gzip HTML file, and raw bytes for every emitted font. This is a conservative file envelope, not a measured initial request graph.",
   "limitations": [
@@ -100,9 +100,9 @@
     {
       "path": "index.html",
       "group": "html",
-      "bytes": 27513,
-      "gzipBytes": 5419,
-      "sha256": "70662aff8569adbfb4777663e7f0658707193eb6ee722f50152a83d1e24f07f5"
+      "bytes": 27572,
+      "gzipBytes": 5435,
+      "sha256": "7fac30e0762d963775f0830b40a18cc771697f9c03b7159427e64568db1374db"
     },
     {
       "path": "licenses/source-sans-3-OFL.txt",
@@ -135,16 +135,16 @@
     {
       "path": "stories/couple-session/index.html",
       "group": "html",
-      "bytes": 27001,
-      "gzipBytes": 4838,
-      "sha256": "0dd76f6a721ce6799b32f75f37578829b7dee5e555a3bb22d591c13575480d4b"
+      "bytes": 27025,
+      "gzipBytes": 4837,
+      "sha256": "e8a8385cec1bb2949833feace94ccf55fda38a8b0d6252edfbfcbf9f634b7a11"
     },
     {
       "path": "stories/wedding-story/index.html",
       "group": "html",
-      "bytes": 28265,
-      "gzipBytes": 4924,
-      "sha256": "b4ad1d95c7b5b54226c4717cf7c7e8af8f5b1834132a6a09fb1f9e41fd239560"
+      "bytes": 28289,
+      "gzipBytes": 4923,
+      "sha256": "8185968abdab63d142d0975f3869ee7b5bca4a5ff8e1296684bba59ca3de3b1f"
     }
   ]
 }

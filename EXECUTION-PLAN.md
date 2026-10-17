@@ -1,10 +1,12 @@
 # Seven Steps work plan
 
-Updated 15 October 2026. Keep changes on `feat/sevensteps-rebuild` and share [the branch](https://github.com/swapnalihinukale/sevensteps-website/tree/feat/sevensteps-rebuild).
+Updated 17 October 2026. Keep changes on `feat/sevensteps-rebuild` and share [the branch](https://github.com/swapnalihinukale/sevensteps-website/tree/feat/sevensteps-rebuild).
 
 ## Current version
 
 The homepage, two stories and 27-item content checklist are ready to review. The image pipeline, public templates and local enquiry backend are implemented. The review form cannot send messages.
+
+The 17 October structure change keeps one site/domain, two featured assignments on `/`, and detail pages at `/stories/<id>/`. Public collections accept 2 to 24 stories; `/stories/` appears above two. Routes, navigation and sitemap come from content. The review retains its two placeholders; four synthetic fixture stories exercise growth. [Local verification](#17-october-verification) is complete; commit and CI are pending. Share the homepage as the visitor entry point; local developer ports are not separate public websites.
 
 Review the layout before adding your photos and text. The repository includes [the ZIP](review/README.md), [editing instructions](docs/MAINTAINER-GUIDE.md) and [design values](docs/DESIGN-SYSTEM.md).
 
@@ -14,6 +16,7 @@ Delivery stays in GitHub. Hosting is deferred. If you request a hosted review la
 
 | Task | Who handles it | Complete when |
 |---|---|---|
+| Save and verify portfolio growth, 17 October 2026 | Developer | Commit the checked change and review package, push the branch and confirm a clean full CI run. Local results are recorded below. |
 | Review the placeholder site | You and your team | Agree the layout changes, sections to keep and work to feature. You can send photos later. |
 | Apply the agreed changes | Developer | Check affected pages, links, keyboard behavior and phone layouts; update the review ZIP and manifest. |
 | Gather photos and text | You and your team | Supply the items in [the content list](docs/OWNER-INPUTS.md), with permission to publish the selected work. |
@@ -57,6 +60,14 @@ T02 remains on hold: the optional OpenDesign runtime has unresolved dependency a
 | Skill maintenance | Use skill-installer or skill-creator when needed; preserve licences, source commits and local edits |
 
 The Code Review plugin can inspect checks if a PR is created. `codex-app-tools` can open files and previews. Neither is a website dependency. A fresh Claude or Codex session should start with [AGENTS.md](AGENTS.md) and [AI-HANDOFF.md](docs/AI-HANDOFF.md).
+
+## 17 October verification
+
+Local checks passed: **45 unit, 104 backend and 13 review-package tests**. Astro checked 68 files with zero errors, warnings or hints. Review and integration builds each produced five pages and passed 178 link checks; the four-story fixture produced seven pages and passed 491 link checks. Build refusal checks passed. npm audit reported zero vulnerabilities; the sharing guard passed eight tests and checked 336 files.
+
+The full browser run passed **155 of 156 cases**. One macOS WebKit case hit the system's Tab-to-link preference. After a test-only conditional Option+Tab fix, the affected case passed in all three engines. All 156 scenarios have passed across the run and rerun; this is not a clean full rerun. Commit and CI are pending.
+
+Visual checks covered the fixture archive at 1280×720 and 390×844, plus an added story at 390×844. Shell budgets measured 94.77 KiB for review and 92.47 KiB for fixture, including 3.70 KiB gzip JavaScript each. These exclude photos and do not establish real-photo performance. B06 remains unfinished.
 
 ## Verification still needed
 

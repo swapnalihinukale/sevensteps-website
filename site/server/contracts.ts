@@ -11,7 +11,8 @@ export interface Enquiry {
   when: string;
   where: string;
   message: string;
-  story: '' | 'wedding-story' | 'couple-session';
+  /** Optional portfolio context; validate its slug syntax before storage. */
+  story: string;
 }
 export interface SubmissionToken {
   id: string;

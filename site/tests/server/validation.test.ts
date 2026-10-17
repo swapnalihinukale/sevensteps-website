@@ -108,9 +108,24 @@ test('uses a bounded practical mailbox format and preserves local-part case', ()
   ]) assert.equal(normalizeEmailAddress(email), null, email);
 });
 
-test('only accepts the two explicit story identifiers or no selection', () => {
-  for (const story of ['', 'wedding-story', 'couple-session']) assert.equal(validateEnquiry({ ...enquiry, story }).ok, true);
-  for (const story of ['wedding', 'Wedding-story', '../private', 'new-story']) assert.equal(validateEnquiry({ ...enquiry, story }).ok, false);
+test('accepts optional portfolio slugs without depending on the current story list', () => {
+  for (const story of ['', 'wedding-story', 'couple-session', 'family-at-home', '2026-portraits', 'a', 'a'.repeat(80)]) {
+    assert.deepEqual(validateEnquiry({ ...enquiry, story }), { ok: true, value: { ...enquiry, story } });
+  }
+  assert.deepEqual(validateEnquiry({ ...enquiry, story: ' family-at-home ' }), {
+    ok: true, value: { ...enquiry, story: 'family-at-home' },
+  });
+  const { story: _story, ...withoutStory } = enquiry;
+  assert.deepEqual(validateEnquiry(withoutStory), { ok: true, value: enquiry });
+});
+
+test('rejects oversized and malformed story paths instead of interpreting them as URLs or titles', () => {
+  for (const story of ['a'.repeat(81), 'Wedding-story', '../private', 'a/b', 'a?to=other', 'a#frame', 'a%2fb',
+    '-story', 'story-', 'two--parts', 'two_parts', 'two words', 'कथा', 'story\r\nBcc:other', 'story\u200d']) {
+    const result = validateEnquiry({ ...enquiry, story });
+    assert.equal(result.ok, false, story);
+    if (!result.ok) assert.ok(result.errors.story);
+  }
 });
 
 test('builds an immutable notification with fixed headers and a plain text body', () => {
@@ -136,4 +151,15 @@ test('cannot create notification headers from invalid enquiries or configured ma
   assert.throws(() => createNotificationPayload(enquiry, { ...recipients, from: 'Sender <sender@example.test>' }), /bare sender/);
   assert.throws(() => createNotificationPayload(enquiry, { ...recipients, to: 'operator@example.test\r\nBcc: x@example.test' }), /bare sender/);
   assert.equal(createNotificationPayload(enquiry, recipients).text.endsWith('No message provided.'), true);
+});
+
+test('new portfolio slugs stay visible in notification text while legacy labels stay unchanged', () => {
+  const recipients = { from: 'sender@example.test', to: 'operator@example.test' };
+  for (const [story, label] of [['', 'Not selected'], ['wedding-story', 'Wedding story'], ['couple-session', 'Couple session'], ['family-at-home', 'family-at-home']]) {
+    const payload = createNotificationPayload({ ...enquiry, story }, recipients);
+    assert.ok(payload.text.split('\n').includes(`Story: ${label}`));
+    assert.equal(payload.subject, 'New website enquiry');
+    assert.equal(payload.to, recipients.to);
+  }
+  assert.throws(() => createNotificationPayload({ ...enquiry, story: 'family?to=other' }, recipients), /invalid enquiry/);
 });

@@ -1,6 +1,8 @@
 # Seven Steps website
 
-Your site includes a homepage, two story pages and a checklist for adding your photos and text. You can review the layout now and add the missing material later. The enquiry form in this version does not send messages.
+Your website uses one domain and one homepage at `/`. Feature two assignments there and open each at `/stories/<id>/`. The build generates an archive at `/stories/` once you have more than two published stories. Share the homepage as the main entry point.
+
+The current review keeps two placeholder stories and a checklist for adding your photos and text. Its enquiry form does not send messages. The checklist is for review and stays out of the public website.
 
 [Download the review ZIP](review/owner-review.zip) or [read the review instructions](review/README.md).
 
@@ -15,7 +17,7 @@ npm run build
 npm run preview
 ```
 
-Open [localhost:4321](http://127.0.0.1:4321/) on the same computer. Use `npm run dev` while editing.
+Open [localhost:4321](http://127.0.0.1:4321/) on the same computer. Use `npm run dev` while editing. The ports used for preview and tests are developer tools, not separate public websites.
 
 ## Make changes
 
@@ -25,6 +27,7 @@ Open [localhost:4321](http://127.0.0.1:4321/) on the same computer. Use `npm run
 | Change colours, fonts, spacing or motion | [Design system](docs/DESIGN-SYSTEM.md) |
 | Continue with Claude or Codex | [AI handoff](docs/AI-HANDOFF.md) |
 | Prepare your photos and website details | [Content checklist](docs/OWNER-INPUTS.md) |
+| Add a story or choose the two homepage features | [Public content guide](site/content/README.md#add-a-story-and-choose-the-homepage-features) |
 | Publish the site and manage enquiries | [Launch guide](docs/LAUNCH.md) |
 | Review enquiries and bookings | [Enquiry register](docs/MEASUREMENT.md) |
 

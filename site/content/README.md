@@ -2,12 +2,14 @@
 
 After you review the placeholder site, prepare your photos and copy with these files. The 27 content groups still need your material and review. Run commands below from `site/`; use [the maintainer guide](../../docs/MAINTAINER-GUIDE.md) for local setup.
 
+Use one public domain. Share `/` as the homepage, with two featured assignments and links to `/stories/<id>/`. The build adds the `/stories/` archive once the public collection has more than two stories. `/content-checklist/` stays review-only. Local preview/test ports do not represent separate public websites.
+
 ## Build modes
 
 | Command | Output and use |
 |---|---|
 | `npm run build` | `dist/`: review notes and a non-sending form |
-| `npm run build:fixture` | `dist-fixture/`: geometric test images, `https://example.invalid`, inactive email, noindex and robots disallow. Do not deploy. |
+| `npm run build:fixture` | `dist-fixture/`: four synthetic stories with geometric images, `https://example.invalid`, inactive email, noindex and robots disallow. Do not deploy or copy into review/public output. |
 | `npm run build:integration` | `dist-integration/`: local enquiry test. The loopback server adds the test client when serving it. Do not deploy. |
 | `npm run build:public` | `dist/`: requires your completed content and release evidence. It currently refuses the missing inputs and removes previous output before building. |
 
@@ -29,15 +31,25 @@ Use `src/lib/public-content.ts` for the checked types and limits.
 | Record | Fields and rules |
 |---|---|
 | `site` | Set your HTTPS `origin` without a path or trailing slash, plus `name`, `tagline`, `description`, `footerText`, `sharePhotoId`. |
-| `home` | Add `label`, `title`, `description`, `heroPhotoId`, `workTitle`, `workDescription`. Optional `companionPhotoId` requires `companionCaption`; choose both opening photos from the same assignment. |
+| `home` | Add `label`, `title`, `description`, `heroPhotoId`, `workTitle`, `workDescription`. Optional `companionPhotoId` requires `companionCaption`; choose both opening photos from the same assignment. Optional `featuredStoryIds` selects exactly two distinct existing stories in homepage order; omission selects the first two. |
 | `about` | Add `heading`, `biography`, optional `portraitPhotoId`, and `process`/`services` arrays of `title`/`description` records. |
-| `stories` | Use both IDs: `wedding-story` and `couple-session`. Each needs `title`, `category`, `description`, optional `context`, `coverPhotoId` and ordered `photoIds`. Include the cover in its gallery. Choose 2 to 60 photos per story, without duplicates within or between assignments. |
+| `stories` | Supply 2 to 24 records with unique IDs. Retain `wedding-story` and `couple-session` for the existing checklist. IDs use 1 to 80 lowercase ASCII letters, digits and single hyphens between segments. Each story needs `title`, `category`, `description`, optional `context`, `coverPhotoId` and ordered `photoIds`. Include the cover in its gallery. Choose 2 to 60 photos per story, without duplicates within or between assignments. |
 | `contact` | Add `heading`, `introduction`, confirmed `email`, `privacyText`, `replyNote`. The email-link version requires `enquiryForm: false` and `personalDataHandling: true` in publication decisions. Test live-provider setup before replacing it with an active form. The fixture's test email stays inactive. |
 | `optional` | Add `faq` question/answer records, `pricing` text or a `review` quote/attribution record where you have accurate, permitted content. Match each retain/omit decision. |
 
 Keep logo artwork, team and film omitted until their implementation and checks exist. Retaining them stops the build. Use your confirmed name in the text wordmark.
 
 Reference photos from the generated manifest and remove unused media from the public selection. The exporter copies allowed fields and referenced photos, leaving private input fields behind. Plain text must satisfy the length limits and contain no markup, controls or prohibited punctuation.
+
+## Add a story and choose the homepage features
+
+Add the assignment's sources to `content/media.json`, run image preparation, then add its story record to `content/public.json`. Use a stable ID such as `pune-wedding`. Keep IDs lowercase with no leading, trailing or repeated hyphens. Add records to the JSON array; do not create another website or copy a page template.
+
+Set `home.featuredStoryIds` to two existing IDs in the order you want on the homepage, for example `["pune-wedding", "couple-session"]` after adding `pune-wedding`. Without this field, the first two records become the homepage features. The `stories` array order controls the archive and next-story links, including the final link back to the first story.
+
+Routes, navigation and sitemap entries follow the content. With two stories, visitors use the two homepage links; with three or more, they can also browse `/stories/`. The ordinary review continues to show its two placeholder assignments. Synthetic fixture stories exercise the archive without supplying public portfolio material.
+
+Run `npm run check`, `npm run test:unit` and the affected browser tests using the [maintainer guide](../../docs/MAINTAINER-GUIDE.md#test-a-change). Inspect image crops, the feature order, archive, next-story loop and sitemap in the real-content candidate once B06 exists. Record new approval hashes after changes; the existing public release checks still apply.
 
 ## Release approval
 

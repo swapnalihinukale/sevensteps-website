@@ -2,12 +2,13 @@ import type { ContentSlot, PublicationDecisions } from '../data/content.ts';
 import { validateContent } from '../data/content.ts';
 import type { Photograph } from './media.ts';
 import { emailContact } from './email-contact.ts';
+import { isStoryId } from './story-id.ts';
 
 export type PublicContact = { heading: string; introduction: string; email: string; privacyText: string; replyNote: string };
-export type PublicStory = { id: 'wedding-story' | 'couple-session'; title: string; category: string; description: string; context?: string; coverPhotoId: string; photoIds: string[] };
+export type PublicStory = { id: string; title: string; category: string; description: string; context?: string; coverPhotoId: string; photoIds: string[] };
 export type PublicView = {
   site: { origin: string; name: string; tagline: string; description: string; footerText: string; sharePhotoId: string };
-  home: { label: string; title: string; description: string; heroPhotoId: string; companionPhotoId?: string; companionCaption?: string; workTitle: string; workDescription: string };
+  home: { label: string; title: string; description: string; heroPhotoId: string; companionPhotoId?: string; companionCaption?: string; workTitle: string; workDescription: string; featuredStoryIds: string[] };
   about: { heading: string; biography: string; portraitPhotoId?: string; process: { title: string; description: string }[]; services: { title: string; description: string }[] };
   stories: PublicStory[];
   contact: PublicContact;
@@ -56,14 +57,23 @@ export function createPublicView(input: unknown, mediaInput: unknown, mode: 'pub
   if (Boolean(home.companionPhotoId) !== Boolean(home.companionCaption)) throw new Error('The companion photograph needs its caption, or both must be omitted.');
   const rawAbout = record(source.about, 'about');
   const about = own({ heading: text(rawAbout.heading, 'about.heading', 160), biography: text(rawAbout.biography, 'about.biography'), portraitPhotoId: optionalIdentifier(rawAbout.portraitPhotoId, 'about.portraitPhotoId'), process: list(rawAbout.process, 'about.process', 1, 6).map((item, i) => pair(item, `about.process.${i}`)), services: list(rawAbout.services, 'about.services', 1, 6).map((item, i) => pair(item, `about.services.${i}`)) });
-  const stories: PublicStory[] = list(source.stories, 'stories', 2, 2).map((value, i) => {
+  const stories: PublicStory[] = list(source.stories, 'stories', 2, 24).map((value, i) => {
     const item = record(value, `stories.${i}`);
-    if (item.id !== 'wedding-story' && item.id !== 'couple-session') throw new Error('Use the two reviewed story IDs.');
+    if (!isStoryId(item.id)) throw new Error(`stories.${i}.id: use 1 to 80 lowercase letters, numbers and single hyphens.`);
     const photoIds = list(item.photoIds, `stories.${i}.photoIds`, 2, 60).map(id => identifier(id, 'photograph reference'));
     if (new Set(photoIds).size !== photoIds.length) throw new Error('A story gallery must not repeat photograph references.');
     return own({ id: item.id, title: text(item.title, `stories.${i}.title`, 160), category: text(item.category, `stories.${i}.category`, 120), description: text(item.description, `stories.${i}.description`, 500), context: optionalText(item.context, `stories.${i}.context`), coverPhotoId: identifier(item.coverPhotoId, `stories.${i}.coverPhotoId`), photoIds });
   });
-  if (new Set(stories.map(item => item.id)).size !== 2) throw new Error('Story IDs must be unique.');
+  const storyIds = new Set(stories.map(item => item.id));
+  if (storyIds.size !== stories.length) throw new Error('Story IDs must be unique.');
+  if (!storyIds.has('wedding-story') || !storyIds.has('couple-session')) throw new Error('Keep wedding-story and couple-session for the existing content checklist. Add further assignments with new IDs.');
+  const featuredStoryIds = rawHome.featuredStoryIds === undefined
+    ? stories.slice(0, 2).map(story => story.id)
+    : list(rawHome.featuredStoryIds, 'home.featuredStoryIds', 2, 2).map(id => {
+      if (!isStoryId(id) || !storyIds.has(id)) throw new Error('home.featuredStoryIds: choose IDs from your stories.');
+      return id;
+    });
+  if (new Set(featuredStoryIds).size !== 2) throw new Error('home.featuredStoryIds: choose two different stories.');
   const rawContact = record(source.contact, 'contact');
   const contact = { heading: text(rawContact.heading, 'contact.heading', 160), introduction: text(rawContact.introduction, 'contact.introduction', 500), email: emailContact(text(rawContact.email, 'contact.email', 254)).address, privacyText: text(rawContact.privacyText, 'contact.privacyText'), replyNote: text(rawContact.replyNote, 'contact.replyNote', 500) };
   if (mode === 'fixture' ? contact.email !== 'hello@example.invalid' : /@(?:.*\.)?(?:example\.(?:com|net|org|invalid)|localhost|test|invalid)$/iu.test(contact.email)) throw new Error('contact.email: use the confirmed address for this mode.');
@@ -82,7 +92,7 @@ export function createPublicView(input: unknown, mediaInput: unknown, mode: 'pub
     const openingStory = stories.find(story => story.photoIds.includes(home.heroPhotoId));
     if (!openingStory || (home.companionPhotoId && !openingStory.photoIds.includes(home.companionPhotoId))) throw new Error('Opening photographs must belong to the same published assignment.');
     const allGalleryIds = stories.flatMap(story => story.photoIds);
-    if (new Set(allGalleryIds).size !== allGalleryIds.length) throw new Error('The two public stories must contain distinct assignment selections.');
+    if (new Set(allGalleryIds).size !== allGalleryIds.length) throw new Error('Public stories must contain distinct assignment selections.');
   }
   const photos: Record<string, Photograph> = {};
   for (const id of referenced) {
@@ -95,7 +105,7 @@ export function createPublicView(input: unknown, mediaInput: unknown, mode: 'pub
     for (const axis of ['x', 'y']) if (typeof focalPoint[axis] !== 'number' || !Number.isFinite(focalPoint[axis]) || Number(focalPoint[axis]) < 0 || Number(focalPoint[axis]) > 1) throw new Error(`media.${id}: invalid focal point.`);
     photos[id] = own({ id, alt: text(photo.alt, `media.${id}.alt`, 500), caption: optionalText(photo.caption, `media.${id}.caption`, 500), credit: optionalText(photo.credit, `media.${id}.credit`, 240), width: dimension(photo.width), height: dimension(photo.height), focalPoint: { x: Number(focalPoint.x), y: Number(focalPoint.y) }, sources: { avif: list(sources.avif, 'avif', 1, 20).map(variant), webp: list(sources.webp, 'webp', 1, 20).map(variant), jpeg: list(sources.jpeg, 'jpeg', 1, 20).map(variant) }, full: variant(photo.full) });
   }
-  const result = { site, home, about, stories, contact, optional, photos };
+  const result = { site, home: { ...home, featuredStoryIds }, about, stories, contact, optional, photos };
   if (mode === 'public' && /synthetic|fixture|example\.invalid|photograph to add|content-checklist|needs content|private review/iu.test(JSON.stringify(result))) throw new Error('Public content contains test or review material.');
   return result;
 }

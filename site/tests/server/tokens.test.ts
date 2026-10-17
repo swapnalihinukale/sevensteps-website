@@ -163,3 +163,24 @@ test('each meaningful enquiry field changes the fingerprint and invalid data is 
   const otherKey = createTokenService({ ...configuration, fingerprintKey: 'x'.repeat(32) });
   assert.notEqual(otherKey.fingerprint(enquiry), original);
 });
+
+test('legacy story fingerprints keep their established v1 bytes', () => {
+  const service = createTokenService(configuration);
+  const previous = [
+    ['', 'f1d7845c3a9f5742f510f80e2ad90bcb944c4b6d4a1083d2c310cc55954a1fd4'],
+    ['wedding-story', 'd4462d97903b2f46a395b8ecdc7f82c32cee1e13846ccff32f94bbb409969ef1'],
+    ['couple-session', 'efedc29a83140dd723fe8050a5625e201bf4d83a1b32a10faf30fe227158ad68'],
+  ];
+  for (const [story, expected] of previous) {
+    assert.equal(service.fingerprint({ ...enquiry, story }), expected);
+    assert.equal(service.fingerprint({ ...enquiry, story: ` ${story} ` }), expected);
+  }
+});
+
+test('portfolio slug normalization preserves retries and changing the slug changes the fingerprint', () => {
+  const service = createTokenService(configuration);
+  const value = { ...enquiry, story: 'family-at-home' };
+  assert.equal(service.fingerprint(value), service.fingerprint({ ...value, story: ' family-at-home ' }));
+  assert.notEqual(service.fingerprint(value), service.fingerprint({ ...value, story: 'portraits-in-pune' }));
+  assert.throws(() => service.fingerprint({ ...value, story: 'family/at-home' }), /invalid enquiry/);
+});

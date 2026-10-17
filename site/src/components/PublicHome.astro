@@ -5,9 +5,11 @@ import Arrow from './Arrow.astro';
 import Enquiry from './Enquiry.astro';
 import type { PublicView } from '../lib/public-content';
 import { renderMode } from '../lib/site-content';
+import { storyPath } from '../lib/story-id';
 import { homeHeroSizes, homeCompanionSizes, workCoverSizes, portraitSizes } from '../lib/image-sizes';
 interface Props { content: PublicView; }
 const { content: c } = Astro.props;
+const featuredStories = c.home.featuredStoryIds.map(id => c.stories.find(story => story.id === id)!);
 ---
 <Layout title={c.site.tagline}>
   <section class="wrap hero" aria-labelledby="hero-heading">
@@ -15,9 +17,9 @@ const { content: c } = Astro.props;
     <figure class="hero-main"><PhotoSpace photo={c.photos[c.home.heroPhotoId]} label={c.photos[c.home.heroPhotoId].alt} tone="leaf" priority sizes={homeHeroSizes} /></figure>
     {c.home.companionPhotoId && <figure class="hero-companion"><PhotoSpace photo={c.photos[c.home.companionPhotoId]} label={c.photos[c.home.companionPhotoId].alt} tone="rose" shape="square" sizes={homeCompanionSizes} /><figcaption><p>{c.home.companionCaption}</p></figcaption></figure>}
   </section>
-  <section class="work-section" id="work" aria-labelledby="work-heading"><div class="wrap"><div class="section-intro"><h2 id="work-heading">{c.home.workTitle}</h2><p>{c.home.workDescription}</p></div><div class="work-grid">{c.stories.map((story, index) => <article class="work-card"><a href={`/stories/${story.id}/`}><PhotoSpace photo={c.photos[story.coverPhotoId]} label={c.photos[story.coverPhotoId].alt} shape={index ? 'portrait' : 'landscape'} tone={index ? 'rose' : 'sand'} sizes={workCoverSizes(index)} /><div class="work-card__info"><div><p class="small-label">{story.category}</p><h3>{story.title}</h3></div><Arrow /></div></a></article>)}</div></div></section>
+  <section class="work-section" id="work" aria-labelledby="work-heading"><div class="wrap"><div class="section-intro"><h2 id="work-heading">{c.home.workTitle}</h2><p>{c.home.workDescription}</p></div><div class="work-grid">{featuredStories.map((story, index) => <article class="work-card"><a href={storyPath(story.id)}><PhotoSpace photo={c.photos[story.coverPhotoId]} label={c.photos[story.coverPhotoId].alt} shape={index ? 'portrait' : 'landscape'} tone={index ? 'rose' : 'sand'} sizes={workCoverSizes(index)} /><div class="work-card__info"><div><p class="small-label">{story.category}</p><h3>{story.title}</h3></div><Arrow /></div></a></article>)}</div>{c.stories.length > 2 && <div class="all-stories-link"><a class="text-link" href="/stories/">View all stories <Arrow /></a></div>}</div></section>
   <section class="wrap approach-section" id="approach" aria-labelledby="approach-heading"><div class="approach-heading"><h2 id="approach-heading">{c.about.heading}</h2><div><p>{c.about.biography}</p></div></div><div class="approach-body">{c.about.portraitPhotoId && <figure class="about-space"><PhotoSpace photo={c.photos[c.about.portraitPhotoId]} label={c.photos[c.about.portraitPhotoId].alt} tone="mist" shape="landscape" sizes={portraitSizes} /></figure>}<div class="process-list">{c.about.process.map((step, i) => <div class="process-item"><span class="process-number">{i + 1}</span><div><h3>{step.title}</h3><p>{step.description}</p></div></div>)}</div></div><div class="public-services">{c.about.services.map(service => <article><h3>{service.title}</h3><p>{service.description}</p></article>)}</div></section>
   {(c.optional.faq || c.optional.pricing || c.optional.review) && <section class="more-section" aria-labelledby="more-heading"><div class="wrap"><h2 id="more-heading">Before you enquire.</h2><div>{c.optional.review && <blockquote><p>{c.optional.review.quote}</p><footer>{c.optional.review.attribution}</footer></blockquote>}{c.optional.pricing && <details><summary>Pricing</summary><div class="details-content"><p>{c.optional.pricing}</p></div></details>}{c.optional.faq?.map(item => <details><summary>{item.question}</summary><div class="details-content"><p>{item.answer}</p></div></details>)}</div></div></section>}
-  <Enquiry publicContact={c.contact} fixture={renderMode() === 'fixture'} />
+  <Enquiry publicContact={c.contact} stories={c.stories} fixture={renderMode() === 'fixture'} />
 </Layout>
-<style>.public-services{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:2rem;margin-top:3rem}.public-services h3{font-size:1.5rem;margin-bottom:.6rem}</style>
+<style>.public-services{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:2rem;margin-top:3rem}.public-services h3{font-size:1.5rem;margin-bottom:.6rem}.all-stories-link{margin-top:3rem}</style>

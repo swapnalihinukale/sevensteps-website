@@ -23,7 +23,7 @@ The branch contains [the review ZIP](../review/README.md), source and guides. Re
 
 For the 17 October 2026 structure change, keep one site/domain and two homepage features. Generate detail routes, navigation and sitemap from the 2 to 24 story records; add `/stories/` only above two stories. Keep the two review placeholders and checklist IDs. Use the [story editing contract](../site/content/README.md#add-a-story-and-choose-the-homepage-features), including feature order and next-story wrapping. Four synthetic fixture stories exercise growth and stay out of review/public output. Developer ports are local tools; share the public homepage as the visitor entry point.
 
-The [17 October local checks](../EXECUTION-PLAN.md#17-october-verification) passed 45 unit, 104 backend and 13 package tests. The full browser run passed 155/156; after a test-only macOS WebKit Option+Tab correction, the affected case passed in all three engines. All scenarios passed across those runs, with no clean full rerun claimed. Commit and CI remain pending.
+The [17 October verification](../EXECUTION-PLAN.md#17-october-verification) records the checked code commit, local results and review package. Check CI against the branch commit you use.
 
 Implement B06's isolated real-content preview before seeking release approval. Current public builds require release evidence before rendering; review and fixture modes cannot provide that final candidate. Preserve the production gate and add tests for the new preview boundary. See [Launch, step 3](LAUNCH.md#3-prepare-the-real-candidate-after-the-placeholder-review).
 

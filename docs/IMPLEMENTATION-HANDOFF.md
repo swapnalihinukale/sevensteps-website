@@ -8,7 +8,7 @@ The Astro static frontend uses one domain: `/` features two assignments, `/stori
 
 Native CSS and TypeScript handle navigation, disclosures, a keyboard-accessible gallery and optional finite gallery movement. Reduced motion stops automatic movement; ordinary links and essential content work without JavaScript.
 
-The 17 October 2026 structure change accepts 2 to 24 public stories and generates routes, navigation and sitemap entries from content. Keep the two original checklist IDs and use `home.featuredStoryIds` to select two homepage features. Array order controls the archive and next-story loop. See [the editing contract](../site/content/README.md#add-a-story-and-choose-the-homepage-features) and [dated local results](../EXECUTION-PLAN.md#17-october-verification). Commit and CI remain pending.
+The 17 October 2026 structure change accepts 2 to 24 public stories and generates routes, navigation and sitemap entries from content. Keep the two original checklist IDs and use `home.featuredStoryIds` to select two homepage features. Array order controls the archive and next-story loop. See [the editing contract](../site/content/README.md#add-a-story-and-choose-the-homepage-features) and [verification](../EXECUTION-PLAN.md#17-october-verification).
 
 The selected design is **Close to the people**. Change colours, type, layout and timing through the [design system](DESIGN-SYSTEM.md). If you change photo geometry, update `site/src/lib/image-sizes.ts` and its browser checks too.
 

@@ -1,6 +1,6 @@
 # Seven Steps technical decisions
 
-**Updated 17 October 2026:** The Astro draft, public templates, image pipeline and local enquiry backend exist in `site/`. Direction A remains selected. The portfolio now grows from content within one site; [local verification](../EXECUTION-PLAN.md#17-october-verification) is recorded, with commit and CI pending. The fixed B03 platform is Netlify static/Functions/Database with Resend, as recorded in [the provider decision](LIVE-ENQUIRY-PROVIDER-DECISION.md). B06's real-content candidate preview, controlled media provisioning and live activation remain unfinished.
+**Updated 17 October 2026:** The Astro draft, public templates, image pipeline and local enquiry backend exist in `site/`. Direction A remains selected. The portfolio grows from content within one site; see [verification](../EXECUTION-PLAN.md#17-october-verification). The fixed B03 platform is Netlify static/Functions/Database with Resend, as recorded in [the provider decision](LIVE-ENQUIRY-PROVIDER-DECISION.md). B06's real-content candidate preview, controlled media provisioning and live activation remain unfinished.
 
 ## Decision
 
@@ -122,4 +122,4 @@ The app host catalogue listed GPT-6.1 Sol, but an isolated inference probe reque
 
 ## Completion boundary
 
-The architecture and prebuild design review support the existing implementation. Confirm CI for the 17 October structure change after committing it. B06's real-content preview, real-media and device checks, live activation and final release review remain open in [the work plan](../EXECUTION-PLAN.md). Continue from the code and recorded research.
+The architecture and prebuild design review support the existing implementation. Check CI for the branch commit you use. B06's real-content preview, real-media and device checks, live activation and final release review remain open in [the work plan](../EXECUTION-PLAN.md). Continue from the code and recorded research.

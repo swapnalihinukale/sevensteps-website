@@ -1,12 +1,12 @@
 {
   "version": 1,
   "kind": "owner-review-placeholder",
-  "createdAt": "2026-10-15T16:16:12.476Z",
-  "sourceCommit": "289aebfcc2745b9eddf434a5e7eac3384adb92ad",
+  "createdAt": "2026-10-17T03:16:36.861Z",
+  "sourceCommit": "43c11ff3ea06c178994834b9c42d5b0e49ebb8f1",
   "sourceTree": "clean",
   "stampScope": "checkout-at-packaging",
-  "sourceArtifactSha256": "4e7937e9b58b7170d6b085d1bac83111f848e1905550b64566468edfeb228bf3",
-  "uploadArtifactSha256": "767629068d9b92fc36a35651b9b3ba033c33599779fed5899563c026f681a0e8",
+  "sourceArtifactSha256": "ff1d2e6389e3fbe6196e771a6e5906e0d5f67cc0cf99dc3ebaf9ecafd5b12aa1",
+  "uploadArtifactSha256": "415e92033676c20152e078ca8b03394dadb6f73476919d50727e74033de36585",
   "files": [
     {
       "path": "_astro/Layout.astro_astro_type_script_index_0_lang.Ct_bYwNc.js",
@@ -50,8 +50,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 27513,
-      "sha256": "70662aff8569adbfb4777663e7f0658707193eb6ee722f50152a83d1e24f07f5"
+      "bytes": 27572,
+      "sha256": "7fac30e0762d963775f0830b40a18cc771697f9c03b7159427e64568db1374db"
     },
     {
       "path": "licenses/source-sans-3-OFL.txt",
@@ -75,18 +75,18 @@
     },
     {
       "path": "stories/couple-session/index.html",
-      "bytes": 27001,
-      "sha256": "0dd76f6a721ce6799b32f75f37578829b7dee5e555a3bb22d591c13575480d4b"
+      "bytes": 27025,
+      "sha256": "e8a8385cec1bb2949833feace94ccf55fda38a8b0d6252edfbfcbf9f634b7a11"
     },
     {
       "path": "stories/wedding-story/index.html",
-      "bytes": 28265,
-      "sha256": "b4ad1d95c7b5b54226c4717cf7c7e8af8f5b1834132a6a09fb1f9e41fd239560"
+      "bytes": 28289,
+      "sha256": "8185968abdab63d142d0975f3869ee7b5bca4a5ff8e1296684bba59ca3de3b1f"
     }
   ],
   "archive": {
     "path": "owner-review.zip",
-    "bytes": 119867,
-    "sha256": "065a1ac77d4bf93e426b1c80e23b7106394f95deb9bcca6ecb5d0620fae763ae"
+    "bytes": 119878,
+    "sha256": "616de6f8130bdcb8f2f0ed66ae595e5751a0a7bbfb6e16b69d366abd3efe45fb"
   }
 }
